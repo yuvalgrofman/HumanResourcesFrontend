@@ -7,7 +7,8 @@ const DataContext = createContext();
 // Get today's date in YYYY-MM-DD format
 const getTodayDate = () => {
   const today = new Date();
-  return today.toISOString().split('T')[0];
+  // return today.toISOString().split('T')[0];
+  return '2024-01-01'; // For testing purposes, set a fixed date
 };
 
 // DataProvider component

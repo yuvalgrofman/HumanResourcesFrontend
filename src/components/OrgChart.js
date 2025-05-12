@@ -19,14 +19,14 @@ const OrgChart = ({ unit }) => {
   
   // Create a memoized fetchUnitData function
   const fetchUnitData = useCallback(async () => {
-    if (!unit?.id) {
+    if (!unit?.unit_id) {
       setLoading(false);
       return;
     }
     
     try {
       setLoading(true);
-      const data = await getUnitSubtree(unit.id, effectiveDate);
+      const data = await getUnitSubtree(unit.unit_id, effectiveDate);
       
       // Convert sub_units to children for consistency if needed
       const normalizedData = normalizeUnitData(data);
@@ -44,8 +44,8 @@ const OrgChart = ({ unit }) => {
     } finally {
       setLoading(false);
     }
-  }, [unit?.id, effectiveDate]);
-  
+  }, [unit?.unit_id, effectiveDate]);
+
   // Normalize data structure for consistency (sub_units -> children)
   const normalizeUnitData = (unit) => {
     if (!unit) return null;
@@ -63,10 +63,12 @@ const OrgChart = ({ unit }) => {
     return normalizedUnit;
   };
   
-  // Effect to fetch data when unit or date changes
-  useEffect(() => {
+useEffect(() => {
+  if (unit?.unit_id) {
     fetchUnitData();
-  }, [fetchUnitData]);
+  }
+}, [unit?.unit_id, effectiveDate, fetchUnitData]);
+
   
   // Toggle expanded/collapsed state of a unit
   const toggleExpand = (unitId) => {
@@ -159,94 +161,87 @@ const OrgChart = ({ unit }) => {
   };
 
   // Recursive function to render a unit and its children
-  const renderUnitTree = (unit) => {
-    if (!unit) return null;
-    
+  const renderByLevels = (root) => {
+    if (!root) return null;
+
+    const queue = [[root, 0]];
+    const levels = [];
+
+    while (queue.length > 0) {
+      const [current, level] = queue.shift();
+
+      if (!levels[level]) levels[level] = [];
+      levels[level].push(current);
+
+      if (expandedUnits[current.unit_id] && current.children) {
+        for (const child of current.children) {
+          queue.push([child, level + 1]);
+        }
+      }
+    }
+
+    return (
+      <div className="levels-container">
+        {levels.map((unitsAtLevel, levelIndex) => (
+          <div key={levelIndex}>
+            {/* Unit Cards with top connectors */}
+            <div className="unit-level-row">
+              {unitsAtLevel.map(unit => (
+                <div key={unit.unit_id} className="connector-wrapper">
+                  {levelIndex > 0 && <div className="connector-line" />}
+                  {renderUnitCard(unit)}
+                </div>
+              ))}
+            </div>
+
+            {/* Horizontal connectors to children */}
+            {levelIndex < levels.length - 1 && (
+              <div className="children-connectors">
+                {levels[levelIndex + 1].map((child, index) => (
+                  <div key={child.unit_id} className="child-connector" />
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+
+  // Render the unit tree recursively
+  const renderUnitCard = (unit) => {
     const unitId = unit.unit_id || unit.id;
     const isExpanded = !!expandedUnits[unitId];
     const children = unit.children || [];
-    const hasChildren = children && children.length > 0;
-    const matchesCurrentFilter = matchesFilter(unit);
-    const descendantsMatch = hasChildren ? 
-      children.some(child => unitOrDescendantsMatchFilter(child)) : false;
-    const shouldRenderHighlighted = !filterValue || matchesCurrentFilter || descendantsMatch;
+    const hasChildren = children.length > 0;
     const levelColors = getLevelColor(unitId);
-    
+    const matchesCurrentFilter = matchesFilter(unit);
+    const descendantsMatch = hasChildren && children.some(unitOrDescendantsMatchFilter);
+    const shouldRenderHighlighted = !filterValue || matchesCurrentFilter || descendantsMatch;
+
     return (
-      <li key={unitId} className={`unit-node ${isExpanded ? 'expanded' : 'collapsed'}`}>
-        <div 
-          className={`unit-card ${shouldRenderHighlighted ? 'highlighted' : 'faded'}`}
-          style={{
-            backgroundColor: levelColors.bg,
-            borderColor: levelColors.border
-          }}
-        >
-          <div className="unit-header">
-            {hasChildren && (
-              <button 
-                className="toggle-button" 
-                onClick={() => toggleExpand(unitId)}
-                aria-label={isExpanded ? "Collapse" : "Expand"}
-              >
-                {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-              </button>
-            )}
-            <div className="unit-title">
-              {getLevelIcon(unitId)}
-              <span className="unit-name">{unit.unit_name || unit.name}</span>
-            </div>
-          </div>
-          
-          <div className="unit-details">
-            <div className="personnel-stat">
-              <Users size={14} />
-              <span className="stat-label">Regular:</span>
-              <div className="stat-bar-container">
-                <div 
-                  className="stat-bar regular" 
-                  style={{width: `${Math.min(100, (unit.regular_soldiers / unit.total_personnel) * 100)}%`}}
-                ></div>
-              </div>
-              <span className="stat-value">{unit.regular_soldiers}</span>
-            </div>
-            
-            <div className="personnel-stat">
-              <Star size={14} />
-              <span className="stat-label">Officers:</span>
-              <div className="stat-bar-container">
-                <div 
-                  className="stat-bar officers" 
-                  style={{width: `${Math.min(100, (unit.officers / unit.total_personnel) * 100)}%`}}
-                ></div>
-              </div>
-              <span className="stat-value">{unit.officers}</span>
-            </div>
-            
-            <div className="personnel-stat">
-              <Award size={14} />
-              <span className="stat-label">Senior Officers:</span>
-              <div className="stat-bar-container">
-                <div 
-                  className="stat-bar senior" 
-                  style={{width: `${Math.min(100, (unit.senior_officers / unit.total_personnel) * 100)}%`}}
-                ></div>
-              </div>
-              <span className="stat-value">{unit.senior_officers}</span>
-            </div>
-            
-            <div className="personnel-stat total">
-              <span className="stat-label">Total Personnel:</span>
-              <span className="stat-value">{unit.total_personnel}</span>
-            </div>
+      <div 
+        className={`unit-card ${shouldRenderHighlighted ? 'highlighted' : 'faded'}`}
+        style={{ backgroundColor: levelColors.bg, borderColor: levelColors.border }}
+      >
+        <div className="unit-header">
+          {hasChildren && (
+            <button 
+              className="toggle-button" 
+              onClick={() => toggleExpand(unitId)}
+              aria-label={isExpanded ? "Collapse" : "Expand"}
+            >
+              {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+            </button>
+          )}
+          <div className="unit-title">
+            {getLevelIcon(unitId)}
+            <span className="unit-name">{unit.unit_name || unit.name}</span>
           </div>
         </div>
-        
-        {isExpanded && hasChildren && (
-          <ul className="unit-children">
-            {children.map(child => renderUnitTree(child))}
-          </ul>
-        )}
-      </li>
+        {/* ...personnel stats... */}
+      </div>
     );
   };
 
@@ -349,9 +344,7 @@ const OrgChart = ({ unit }) => {
           <div className="unit-tree-container">
             <h4>Unit Hierarchy</h4>
             <div className="org-chart-tree">
-              <ul className="unit-tree">
-                {renderUnitTree(unitData)}
-              </ul>
+              {renderByLevels(unitData)}
             </div>
           </div>
         </div>

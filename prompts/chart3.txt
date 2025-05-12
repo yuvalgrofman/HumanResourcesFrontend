@@ -1,0 +1,51 @@
+There exists a problem with the following orgChart.js program.
+The fetchUnitData function never called and thus unitData is never populated.
+Thus, there always appears an empty chart.
+Please fix the code in the orgChart.js program.
+
+Please make two changes two the orgChart.js program:
+
+1. Please update the orgChart.js to make it compatible with a unit json object of the following format:
+{
+  unit_id: "HQ-ARMY",
+  unit_name: "Army Headquarters",
+  parent_unit_id: null,
+  regular_soldiers: 3710,
+  officers: 689,
+  senior_officers: 133,
+  total_personnel: 4532,
+  date: "2024-01-01",
+  sub_units: [
+    {
+      unit_id: "DIV-001",
+      unit_name: "1st Division",
+      parent_unit_id: "HQ-ARMY",
+      regular_soldiers: 2530,
+      officers: 313,
+      senior_officers: 50,
+      total_personnel: 2893,
+      date: "2024-01-01",
+      sub_units: [
+        {
+            ...
+        },
+      ],
+    },
+  ],
+}
+
+2. Update the renderUnitTree function such that units from the same level in the hierarchy are displayed in the same row.
+
+Please make the following changes to the orgChart.js program:
+
+1. Fix the vertical lines to be drawn correctly between the units. Currenrly, the horizontal line 
+spans the entire width of the chart, which is not correct. Moreover, the vertical lines should be drawn from the bottom-middle 
+of the parent unit to the top-middle of the child unit.
+
+2. Make it so that the child units of a unit appear below the parent unit. For example, if a unit has three children,
+the first child should be slightly to the left of the parent unit, the second child should be directly below the parent unit, and the third child should be slightly to the right of the parent unit. 
+Needless to say, they should all be aligned vertically and below the parent unit.
+Similarly, if a unit has two children, the first child should be slightly to the left of the parent unit, 
+and the second child should be slightly to the right of the parent unit.
+
+Please provide a fully updated orgChart.js program with the above changes.
