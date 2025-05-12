@@ -1,0 +1,21 @@
+Consider the given placeholder for the orgchart.js file.
+Please update the code such that it fetches the data from the server using the fetch API and then renders the org chart.
+To do this, please use the following API function given in the services/api.js file:
+
+/**
+ * Fetch the subtree of a specific unit, including all descendant units
+ * @param {string} unitId - Unique identifier of the root unit
+ * @returns {Promise<Object>} - Promise resolving to unit subtree data
+ */
+export const getUnitSubtree = async (unitId, date) => {
+  try {
+    const response = await api.get(`/subtree/units/${unitId}/${date}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching subtree for unit ${unitId} on date ${date}:`, error);
+    throw error;
+  }
+};
+
+Change the parameters such that the component is also given the date parameter. 
+Finally, as a proof of concept, please create a simple list of the unit names in the org chart. 

@@ -1,0 +1,74 @@
+Now, consider the given file orgchart.js.
+
+It already contains all the neccesary data from the server in the variable data.
+Your job it to design the org chart using the data variable.
+Thus, fill both commented sections in the orgchart.js file.
+
+When designing the org chart, please consider the following:
+1. Make the organizational chart a tree - where each node is a unit and the children of the node are the sub-units of the unit.
+2. Their should appear a line which connects the parent node to the child node.  
+3. The subtrees should have the ability to be collapsed and expanded.
+4. Each node should contains the name of the unit, the amoumt of regular soldiers, officers senior officers and the total amount of soldiers in the unit.
+5. Make units closed appear faded and choose a bright color for the opened units.
+6. Add a filter feature to the chart - when a filter is applied, 
+the charts makes the units which satisfy the filter appear in a bright color and the units which do not satisfy the filter appear faded. 
+7. Please style the nodes in the chart. 
+    a. Different colors for the different levels of the units. For example, the second level can have a dark green outline and 
+    a light green background.   
+    b. Use icons for the different levels of the units.
+    c. The number of regular soldiers, officers and senior officers should be shown using icons and horizontal bars.
+8. Make the chart vertical - The root node should be at the top. 
+9. When collapsing a node, the children of the node should be removed from the chart.
+10. Make sure there is a small margin between different nodes in the chart.
+11. Make sure the lines in the chart are straight and not curved. 
+
+If neccesary, add additional parameters functions to the orgchart.js file. 
+
+The data is a JSON object with the following structure:
+
+{
+  "unit_id": "DIV-001",
+  "unit_name": "1st Division",
+  "parent_unit_id": "HQ-001",
+  "regular_soldiers": 1000,
+  "officers": 80,
+  "senior_officers": 10,
+  "total_personnel": 1090,
+  "date": "2023-05-10",
+  "sub_units": [
+    {
+      "unit_id": "BDE-001",
+      "unit_name": "1st Brigade",
+      "parent_unit_id": "DIV-001",
+      "regular_soldiers": 500,
+      "officers": 35,
+      "senior_officers": 5,
+      "total_personnel": 540,
+      "date": "2023-05-10",
+      "sub_units": [
+        {
+          "unit_id": "BN-001",
+          "unit_name": "1st Battalion",
+          "parent_unit_id": "BDE-001",
+          "regular_soldiers": 250,
+          "officers": 15,
+          "senior_officers": 2,
+          "total_personnel": 267,
+          "date": "2023-05-10",
+          "sub_units": []
+        }
+      ]
+    },
+    {
+      "unit_id": "BDE-002",
+      "unit_name": "2nd Brigade",
+      "parent_unit_id": "DIV-001",
+      "regular_soldiers": 480,
+      "officers": 32,
+      "senior_officers": 4,
+      "total_personnel": 516,
+      "date": "2023-05-10",
+      "sub_units": []
+    }
+  ]
+}

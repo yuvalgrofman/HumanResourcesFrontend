@@ -1,0 +1,112 @@
+.unit-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.unit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.unit-card-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f7fafc;
+}
+
+.unit-name {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2d3748;
+}
+
+.unit-id {
+  display: block;
+  font-size: 0.8rem;
+  color: #718096;
+  margin-top: 0.25rem;
+}
+
+.unit-card-body {
+  padding: 1.5rem;
+}
+
+.personnel-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #718096;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.stat.total {
+  grid-column: span 2;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.stat.total .stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2a4365;
+}
+
+.parent-unit, .subunits-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.label {
+  color: #718096;
+  margin-right: 0.5rem;
+}
+
+.value {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.parent-link {
+  color: #3182ce;
+  font-weight: 500;
+}
+
+.parent-link:hover {
+  text-decoration: underline;
+}
+
+.unit-details-link {
+  display: block;
+  text-align: center;
+  padding: 0.75rem;
+  background-color: #ebf4ff;
+  color: #3182ce;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.unit-details-link:hover {
+  background-color: #bee3f8;
+}
