@@ -1,4 +1,4 @@
-Now, consider the given file orgchart.js.
+Use the D3.js library to create an organizational chart of a military unit:
 
 It already contains all the neccesary data from the server in the variable data.
 Your job it to design the org chart using the data variable.
@@ -22,9 +22,10 @@ the charts makes the units which satisfy the filter appear in a bright color and
 10. Make sure there is a small margin between different nodes in the chart.
 11. Make sure the lines in the chart are straight and not curved. 
 
-If neccesary, add additional parameters functions to the orgchart.js file. 
+Use the current selected date const { selectedDate } = useData();
+to show the data of the selected date.
 
-The data is a JSON object with the following structure:
+The orgChart component is given a JSON parameter called unit which is of the following format:
 
 {
   "unit_id": "DIV-001",
@@ -72,3 +73,9 @@ The data is a JSON object with the following structure:
     }
   ]
 }
+
+Assume that the usage of the orgChart component is as follows:
+
+<OrgChart unit={selectedUnit} />
+
+in some parent component.

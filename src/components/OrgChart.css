@@ -68,44 +68,6 @@
   margin-top: 20px;
 }
 
-.tree-line-vertical {
-  width: 2px;
-  height: 20px;
-  background-color: #999;
-}
-
-.tree-line-horizontal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 2px;
-  width: auto;
-  margin: 0;
-  background-color: transparent;
-}
-
-.tree-line-horizontal::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  height: 2px;
-  background-color: #999;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.tree-line-child {
-  position: relative;
-  margin: 0 10px;
-}
-
-.tree-line-child .tree-line-vertical {
-  height: 20px;
-  margin-top: 0;
-}
-
 .tree-children {
   display: flex;
   justify-content: center;
