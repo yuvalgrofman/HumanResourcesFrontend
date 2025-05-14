@@ -1,0 +1,27 @@
+/* PieChart.css */
+.pie-chart-container {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.pie-chart-container:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.pie-chart-container svg {
+  display: block;
+  margin: auto;
+}
+.pie-chart-container text {
+  font-family: var(--font-base);
+  fill: #fff;
+  font-size: 10px;
+  pointer-events: none;
+}
+.legend text {
+  font-family: var(--font-base);
+  font-size: 8px;
+  fill: var(--color-dark);
+}

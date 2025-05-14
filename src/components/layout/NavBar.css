@@ -1,0 +1,238 @@
+/* NavBar.css - Modern and clean styling for Army HR Visualizer */
+
+/* Import a clean font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #EBF4F6;
+  color: #071952;
+}
+
+/* Navbar styling with the primary dark blue color */
+nav {
+  background-color: #071952 !important;
+  padding: 0.5rem 0rem !important;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 2000px;
+  margin: 0 0;
+}
+
+/* Logo and site name styling */
+nav .flex.items-center.mr-6 {
+  transition: transform 0.3s ease;
+}
+
+nav .flex.items-center.mr-6:hover {
+  transform: translateY(-2px);
+}
+
+.font-bold.text-xl {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+/* Navigation links styling */
+nav a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  color: white;
+  border-radius: 4px;
+  padding: 0.7rem 1.2rem !important;
+}
+
+nav a:hover {
+  background-color: #088395 !important;
+  color: white;
+}
+
+/* Active navigation link */
+nav a.bg-gray-700 {
+  background-color: #088395 !important;
+  color: white;
+  font-weight: 600;
+}
+
+/* Search form styling */
+nav form {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+nav input[type="text"] {
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  width: 180px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+nav input[type="text"]:focus {
+  outline: none;
+  width: 220px;
+  background-color: white;
+  box-shadow: 0 0 0 2px #37B7C3;
+}
+
+nav input[type="text"]::placeholder {
+  color: #888;
+}
+
+/* Search button styling */
+nav button[type="submit"] {
+  background-color: #37B7C3 !important;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  padding: 0.7rem 1rem !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav button[type="submit"]:hover {
+  background-color: #088395 !important;
+}
+
+nav button[type="submit"] svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Date picker styling */
+nav input[type="date"] {
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav input[type="date"]:focus {
+  outline: none;
+  background-color: white;
+  box-shadow: 0 0 0 2px #37B7C3;
+}
+
+/* Fix for date picker icon */
+nav input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: transparent;
+  cursor: pointer;
+  color: #37B7C3;
+}
+
+/* Logo SVG styling */
+nav svg {
+  stroke: #37B7C3;
+  transition: all 0.3s ease;
+}
+
+nav .flex.items-center.mr-6:hover svg {
+  stroke: white;
+}
+
+/* Responsive design - For medium to large screens */
+@media (min-width: 768px) {
+  .flex.flex-wrap {
+    flex-wrap: nowrap;
+  }
+  
+  .flex.items-center.mt-2.md\:mt-0 {
+    margin-top: 0 !important;
+    flex-shrink: 0;
+  }
+}
+
+/* Responsive design - For screens below 1024px */
+@media (max-width: 1024px) {
+  nav {
+    padding: 1rem !important;
+  }
+  
+  nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  nav .flex.items-center {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  nav .flex.items-center::-webkit-scrollbar {
+    height: 3px;
+  }
+  
+  nav .flex.items-center::-webkit-scrollbar-thumb {
+    background-color: #37B7C3;
+    border-radius: 10px;
+  }
+  
+  nav .flex.items-center.mt-2.md\:mt-0 {
+    justify-content: flex-start;
+    margin-top: 1rem !important;
+  }
+  
+  nav form {
+    width: 100%;
+    margin-right: 1rem;
+  }
+  
+  nav input[type="text"] {
+    width: 100%;
+  }
+}
+
+/* Animation for hover effects */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Special effects for main title */
+.font-bold.text-xl {
+  position: relative;
+  display: inline-block;
+}
+
+.font-bold.text-xl::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #37B7C3;
+  transition: width 0.3s ease;
+}
+
+nav .flex.items-center.mr-6:hover .font-bold.text-xl::after {
+  width: 100%;
+}

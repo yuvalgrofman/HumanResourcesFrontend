@@ -1,0 +1,56 @@
+/* DataPanel.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.data-panel {
+  background: linear-gradient(to bottom, var(--color-bg), rgba(235,244,246,0.8));
+  width: 280px;
+  padding: 1.5rem;
+  border-left: 1px solid rgba(7,25,82,0.1);
+  box-shadow: -2px 0 12px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+}
+.data-panel h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+.data-panel h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-mid);
+  margin-bottom: 1rem;
+}
+.data-panel p {
+  font-size: 1rem;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}
+.data-panel .info-box,
+.data-panel .chart-container {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1rem;
+  margin-bottom: 0rem;
+  height: 250px !important;
+}
+.data-panel .chart-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.data-panel .chart-container:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1200px) {
+  .data-panel { width: 260px; padding: 1.2rem; }
+}
+@media (max-width: 992px) {
+  .data-panel { width: 240px; padding: 1rem; }
+}

@@ -55,3 +55,119 @@ Moreover, you can create an api.js file which contains the functions which commu
 and a DataContext.js file which contains the data context for the website.
 
 For the visualizations you can use the D3.js library and the react-d3-library.
+
+======================================================================================================================================
+
+You forgot to add a Dashboard page to the website, which in practice is the homepage of the website. 
+Please add a dashboard page to the website such that it is inviting and contains a natual flow to the rest of the pages of the website.
+The homaepage should contain a title of the website, a short description of the website and buttons which refer to the different pages of the website.
+It should have a simple and clean design and should be easy to navigate. 
+
+======================================================================================================================================
+
+Now, add a specific CSS design for each page of the website.
+The design should be simple and clean, with a focus on usability and readability.
+The design should use colors wisely to create a pleasant user experience
+and to highlight important elements in the page.
+For example, the pie-chart should use different a shade of colors for each slice of the pie-chart.
+For example: Regular soldiers - light blue, Officers - blue, Senior officers - dark blue. 
+Moreover, the useage of colors should be consistent across the website. 
+
+======================================================================================================================================
+
+Consider a project with the following description:
+
+A visualization tool for the human resources in different units in the army. 
+To achieve this goal we want to build a website which contains two mains visual tools:
+    1. An organizational chart which shows the different units in the army and the number of soldiers in each unit.
+    2. A Time-based graph which shows the number of soldiers in a certain unit over time.
+
+We want to create the framework for the website using React. 
+
+We already have a backend which is implemented using FastAPI and uses a simple SQLite database to store the data. 
+Please create a react project which communicates with the backend. 
+We provide a file which contains the backend API.
+
+Currently, only create a simple organizational chart 
+and a time-based graph, to server as a template for the future development of the website.
+The main focus is the framework of the website, general design and the communication with the backend.
+
+A couple of notes about the design of the website:
+
+1. The structure of the site should be as follows:
+    A. Navigation Bar: The top of the page shoold contain a navigation bar with the following (from left to right):
+        - A logo of the website (which server as a link to the home page) (left aligned)
+        - Three links to the main pages of the website: (left aligned)
+            - Dashboard Page (Homepage)
+            - Organizational Chart Page (Org Chart)
+            - Time-based Graph Page (Time Graph)
+            - Unit details Page (Unit Details)
+        
+        - A search bar which allows the user to search for a unit in the website. (right aligned)
+        - A date picker which allows the user to select a date. (right aligned)
+    B. Control Panel: A left sidebar which differs between the different pages of the website. 
+        It's goal is to provide the user a control over the main visualization of the page.
+        The sidebar should contain the following:
+        - A title of the sidebar (e.g. "Control Panel")
+        - Different filter options which allows to control and create combinations of filters.
+            - Possible filters: (Filter by number of regular soldiers, officers, senior officers and total amount of soldiers, unit name, parent unit)
+
+    C. Main Visualization: This part appears in the center of the page and contains the main visualization of the page.
+        The visualization should be responsive and should adapt to the size of the screen. 
+        The visualization should be centered in the page and should have a small margin from the left and right sides of the page.
+        The visualization should be interactive and allow the user to interact with it. 
+        The user should be able to zoom in and out of the visualization, pan around it and click on different elements in the visualization.
+        The user should be able to select a unit in the chart and see more details about it in the data panel (which is the right sidebar).
+    
+    D. Data Panel: The right sidebar's goal is to provide the user with more details about the selected unit in the chart.
+        The data panel is divided into two visual elements: Top and Bottom.
+        The top part of the data panel should present the distribution of the soldiers in the unit using a pie chart.
+        The bottom part of the data panel should a time-based graph which shows the number of soldiers in the unit over time.
+        The data panel should be responsive and should adapt to the size of the screen.
+        Moreover, it should use a default time margin around the selected date.
+        Make sure the the graphs in the data panel are simple and easy to understand,
+        as they will be quite small. 
+        Moreover, make sure the data panel does not take too much space from the main visualization.
+
+When implementing the website, please make a modular design with division into folders and files.
+Moreover, you can create an api.js file which contains the functions which communicate with the backend
+and a DataContext.js file which contains the data context for the website.
+
+For the visualizations you can use the D3.js library and the react-d3-library.
+
+The project has the following structure:
+
+# Project structure
+src/
+  ├── App.js
+  ├── index.js
+  ├── api/
+  │   └── api.js
+  ├── context/
+  │   └── DataContext.js
+  ├── components/
+  │   ├── layout/
+  │   │   ├── NavBar.js
+  │   │   ├── ControlPanel.js
+  │   │   └── DataPanel.js
+  │   ├── visualizations/
+  │   │   ├── OrgChart.js
+  │   │   ├── TimeGraph.js
+  │   │   └── PieChart.js
+  │   └── pages/
+  │       ├── Dashboard.js
+  │       ├── OrgChartPage.js
+  │       ├── TimeGraphPage.js
+  │       └── UnitDetails.js
+  └── utils/
+      └── helpers.js
+    
+We already created all files except the following:
+- UnitDetails.js
+- helpers.js
+- App.js
+- index.js
+Please implement the above files.
+
+We Present the Dashboard.js file below as an example 
+and the api.js file which explains how to communicate with the backend. 

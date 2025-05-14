@@ -1,0 +1,25 @@
+/* OrgChart.css */
+.enhanced-org-chart-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.filter-controls {
+  background: var(--color-bg);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(7,25,82,0.1);
+}
+.filter-controls input[type="number"] {
+  padding: 0.5rem;
+  border: 1px solid rgba(7,25,82,0.1);
+  border-radius: 4px;
+  width: 80px;
+}
+.org-chart-view {
+  flex: 1;
+  padding: 1rem;
+  overflow: auto;
+}

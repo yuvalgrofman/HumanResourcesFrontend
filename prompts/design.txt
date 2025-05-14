@@ -1,0 +1,18 @@
+Please create an appropriate css files for each of the components.
+The styling should be modern and clean, with a focus on usability and aesthetics.
+A couple of notes:
+- Make sure the css file is responsive. Make it only for computer screens.
+- Please use a color pallete with the following colors: 
+1. #071952
+2. #088395
+3. #37B7C3
+4. #EBF4F6
+
+- Please use a large and clean font for the titles and subtitles.
+- When designing the NavBar please use the pangiana site as a reference: https://pangaia.com/ 
+- When desinging the control bar please use the following site as a reference: https://dribbble.com/shots/7154446-Dashboard-UI-Kit-home-page-design 
+
+Please create the style for all the components in the project.
+Begin by completely reimplementing the index.css file.
+Then, create a new css file for each of the components in the project.
+Except the component NavBar.js.

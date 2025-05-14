@@ -1,0 +1,25 @@
+/* UnitDetails.css */
+.unit-details-page {
+  display: flex;
+  height: calc(100vh - 64px);
+}
+.unit-details-page .main {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+.unit-details-page .overview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.unit-details-page .overview-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.unit-details-page .section {
+  margin-bottom: 2rem;
+}

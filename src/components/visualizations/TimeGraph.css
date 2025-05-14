@@ -1,0 +1,35 @@
+/* TimeGraph.css */
+.time-graph-container {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.time-graph-container:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.time-graph-container svg {
+  display: block;
+  margin: auto;
+}
+.time-graph-container .axis line {
+  stroke: rgba(7,25,82,0.1);
+}
+.time-graph-container .axis path {
+  stroke: rgba(7,25,82,0.2);
+}
+.time-graph-container circle {
+  fill: var(--color-light);
+  transition: r 0.2s, fill 0.2s;
+}
+.time-graph-container circle:hover {
+  fill: var(--color-dark);
+  r: 6;
+}
+.time-graph-container text {
+  font-family: var(--font-base);
+  font-size: 8px;
+  fill: var(--color-dark);
+}

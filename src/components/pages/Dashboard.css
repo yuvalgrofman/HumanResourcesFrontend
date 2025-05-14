@@ -1,0 +1,41 @@
+/* Dashboard.css */
+.dashboard {
+  display: flex;
+  height: calc(100vh - 64px);
+}
+.dashboard .main {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+.dashboard .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.dashboard .stats-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.dashboard .stats-card h3 {
+  font-weight: 500;
+  color: rgba(7,25,82,0.6);
+  margin-bottom: 0.5rem;
+}
+.dashboard .stats-card p {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.dashboard .section {
+  margin-bottom: 2rem;
+}
+.dashboard a.view-link {
+  color: var(--color-mid);
+  font-weight: 500;
+}
+.dashboard a.view-link:hover {
+  color: var(--color-light);
+}

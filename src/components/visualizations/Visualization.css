@@ -1,0 +1,164 @@
+/* Visualization.css - Shared styling for PieChart and TimeGraph components */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Common container styling for visualization components */
+.pie-chart-container,
+.time-graph-container {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pie-chart-container:hover,
+.time-graph-container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* PieChart Specific Styling */
+.pie-chart-container svg {
+  overflow: visible;
+}
+
+.pie-chart-container path {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pie-chart-container path:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.pie-chart-container text {
+  font-family: 'Poppins', sans-serif;
+  paint-order: stroke;
+  stroke: white;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Legend styling */
+.legend rect {
+  stroke: white;
+  stroke-width: 0.5px;
+}
+
+.legend text {
+  fill: #071952;
+  font-family: 'Poppins', sans-serif;
+  font-size: 8px !important;
+  font-weight: 500;
+}
+
+/* TimeGraph Specific Styling */
+.time-graph-container svg {
+  overflow: visible;
+}
+
+.time-graph-container path {
+  transition: all 0.3s ease;
+}
+
+.time-graph-container path:hover {
+  stroke-width: 3px;
+}
+
+.time-graph-container circle {
+  cursor: pointer;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+}
+
+.time-graph-container circle:hover {
+  fill: #071952;
+  r: 6;
+}
+
+.time-graph-container .axis line {
+  stroke: rgba(7, 25, 82, 0.1);
+}
+
+.time-graph-container .axis path {
+  stroke: rgba(7, 25, 82, 0.2);
+}
+
+.time-graph-container text {
+  fill: #071952;
+  font-family: 'Poppins', sans-serif;
+  font-size: 8px;
+}
+
+/* Grid lines */
+.time-graph-container .grid line {
+  stroke: rgba(7, 25, 82, 0.05);
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.time-graph-container .grid path {
+  stroke-width: 0;
+}
+
+/* Empty states and error messages */
+.pie-chart-container .text-gray-500,
+.time-graph-container .text-gray-500 {
+  color: rgba(7, 25, 82, 0.5);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+/* Tooltip styling - works with d3 title elements */
+title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+/* Color customization for specific chart elements */
+/* PieChart colors */
+.pie-chart-container path:nth-child(1) {
+  fill: #071952;
+}
+
+.pie-chart-container path:nth-child(2) {
+  fill: #088395;
+}
+
+.pie-chart-container path:nth-child(3) {
+  fill: #37B7C3;
+}
+
+.pie-chart-container path:nth-child(4) {
+  fill: #5ED3E1;
+}
+
+/* TimeGraph line and points color */
+.time-graph-container path:not(.domain) {
+  stroke: #088395;
+}
+
+.time-graph-container circle {
+  fill: #37B7C3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .legend text {
+    font-size: 7px !important;
+  }
+  
+  .time-graph-container text,
+  .pie-chart-container text:not(.legend text) {
+    font-size: 7px;
+  }
+}

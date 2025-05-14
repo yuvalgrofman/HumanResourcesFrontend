@@ -1,0 +1,197 @@
+// import React, { useRef, useEffect, useState } from 'react';
+// import * as d3 from 'd3';
+// import ReactDOM from 'react-dom/client';
+// import { useData } from '../../context/DataContext';
+// import { Target, Flag, Shield, Users, Award } from 'lucide-react';
+
+// // TreeNode component for rendering individual units
+// const TreeNode = ({ node, onClick }) => {
+//   const getNodeColor = () => {
+//     if (!node.children || node.children.length === 0) return "bg-green-100 border-green-600";
+//     if (node.children[0].children && node.children[0].children.length > 0) return "bg-blue-100 border-blue-600";
+//     return "bg-yellow-100 border-yellow-600";
+//   };
+
+//   const getUnitIcon = () => {
+//     if (!node.children || node.children.length === 0) {
+//       return <Target className="text-green-700" size={24} />;
+//     } else if (node.children[0].children && node.children[0].children.length > 0) {
+//       return <Flag className="text-blue-700" size={24} />;
+//     } else {
+//       return <Shield className="text-yellow-700" size={24} />;
+//     }
+//   };
+
+//   return (
+//     <div
+//       className={`relative p-2 rounded-lg shadow border-2 ${getNodeColor()} w-64 cursor-pointer`}
+//       onClick={() => onClick(node)}
+//     >
+//       <div className="flex items-center mb-1">
+//         {getUnitIcon()}
+//         <h3 className="font-bold text-lg ml-2">{node.name}</h3>
+//       </div>
+//       <div className="grid grid-cols-2 gap-1 text-sm">
+//         <div className="flex items-center">
+//           <Users size={14} className="mr-1" /> Soldiers:
+//         </div>
+//         <div>{node.soldiers} <span className="text-gray-500">({node.totalSoldiers})</span></div>
+        
+//         <div className="flex items-center">
+//           <Award size={14} className="mr-1" /> Officers:
+//         </div>
+//         <div>{node.officers} <span className="text-gray-500">({node.totalOfficers})</span></div>
+        
+//         <div className="flex items-center">
+//           <Award size={14} className="mr-1 text-yellow-500" /> Senior Officers:
+//         </div>
+//         <div>{node.seniorOfficers} <span className="text-gray-500">({node.totalSeniorOfficers})</span></div>
+        
+//         <div className="font-bold">Total:</div>
+//         <div className="font-bold">{node.soldiers + node.officers + node.seniorOfficers} <span className="text-gray-500">({node.totalPersonnel})</span></div>
+//       </div>
+//       {node.children && node.children.length > 0 && (
+//         <div className="absolute bottom-1 right-2 text-xl font-bold">
+//           {node._collapsed ? "+" : "-"}
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// const EnhancedOrgChart = () => {
+//   const { units, selectUnit, loading } = useData();
+//   const svgRef = useRef();
+//   const [filter, setFilter] = useState({ enabled: false, minPersonnel: 100 });
+//   const [expandedNodes, setExpandedNodes] = useState(new Set());
+
+//   useEffect(() => {
+//     if (loading || !units || units.length === 0) return;
+
+//     // Recursively build hierarchy
+//     const processData = (data) => data.map(item => {
+//       const nodeId = item.unit_id;
+//       const hasChildren = item.sub_units && item.sub_units.length > 0;
+//       return {
+//         id: nodeId,
+//         name: item.unit_name,
+//         level: item.level || 1,
+//         value: item.total_personnel,
+//         regularSoldiers: item.regular_soldiers || 0,
+//         officers: item.officers || 0,
+//         seniorOfficers: item.senior_officers || 0,
+//         children: hasChildren && expandedNodes.has(nodeId)
+//           ? processData(item.sub_units.map(sub => ({ ...sub, level: (item.level || 1) + 1 })))
+//           : []
+//       };
+//     });
+
+//     const hierarchyData = {
+//       id: 'root',
+//       name: 'Army Command',
+//       level: 0,
+//       value: 0,
+//       children: processData(units.map(u => ({ ...u, level: 1 })))
+//     };
+
+//     // Clean SVG
+//     d3.select(svgRef.current).selectAll('*').remove();
+
+//     const width = 1000;
+//     const height = 800;
+//     const margin = { top: 60, right: 150, bottom: 60, left: 150 };
+//     const nodeWidth = 200;
+//     const nodeHeight = 90;
+//     const nodePadding = 25;
+
+//     const svg = d3.select(svgRef.current)
+//       .attr('width', width)
+//       .attr('height', height)
+//       .attr('viewBox', `0 0 ${width} ${height}`)
+//       .call(d3.zoom().on('zoom', event => {
+//         g.attr('transform', event.transform);
+//       }));
+//     const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+//     const root = d3.hierarchy(hierarchyData);
+//     const treeLayout = d3.tree()
+//       .nodeSize([nodeWidth + 40, nodeHeight + nodePadding])
+//       .separation((a, b) => (a.parent === b.parent ? 1 : 1.2));
+//     treeLayout(root);
+
+//     // Swap x/y for vertical tree
+//     root.descendants().forEach(d => {
+//       const tmp = d.y; d.y = d.x; d.x = tmp;
+//     });
+
+//     // Filter helpers
+//     const satisfiesFilter = d => !filter.enabled || d.data.value >= filter.minPersonnel;
+//     const getNodeOpacity = d => satisfiesFilter(d) ? 1 : 0.3;
+
+//     // Draw links
+//     g.selectAll('.link')
+//       .data(root.links())
+//       .enter()
+//       .append('path')
+//       .attr('class', 'link')
+//       .attr('d', d => `M${d.source.x},${d.source.y + nodeHeight/2} L${d.source.x},${d.source.y + nodeHeight/2 + nodePadding/2} L${d.target.x},${d.source.y + nodeHeight/2 + nodePadding/2} L${d.target.x},${d.target.y}`)
+//       .attr('fill', 'none')
+//       .attr('stroke', '#aaa')
+//       .attr('stroke-width', 1.5)
+//       .attr('opacity', d => getNodeOpacity(d.target));
+
+//     // Draw nodes with TreeNode via foreignObject
+//     const nodeGroups = g.selectAll('.node')
+//       .data(root.descendants(), d => d.data.id)
+//       .enter()
+//       .append('g')
+//       .attr('class', 'node')
+//       .attr('transform', d => `translate(${d.x - nodeWidth/2},${d.y})`)
+//       .attr('opacity', d => getNodeOpacity(d));
+
+//     nodeGroups.each(function(d) {
+//       const fo = d3.select(this)
+//         .append('foreignObject')
+//         .attr('x', 0)
+//         .attr('y', 0)
+//         .attr('width', nodeWidth)
+//         .attr('height', nodeHeight)
+//         .attr('xmlns', 'http://www.w3.org/1999/xhtml');
+
+//       const rootNode = ReactDOM.createRoot(fo.node());
+//       rootNode.render(
+//         <TreeNode
+//           node={{
+//             id: d.data.id,
+//             name: d.data.name,
+//             soldiers: d.data.regularSoldiers,
+//             totalSoldiers: d.data.regularSoldiers,
+//             officers: d.data.officers,
+//             totalOfficers: d.data.officers,
+//             seniorOfficers: d.data.seniorOfficers,
+//             totalSeniorOfficers: d.data.seniorOfficers,
+//             totalPersonnel: d.data.value,
+//             children: d.data.children,
+//             _collapsed: !expandedNodes.has(d.data.id)
+//           }}
+//           onClick={(node) => {
+//             if (node.id && node.id !== 'root') {
+//               const newExpanded = new Set(expandedNodes);
+//               if (expandedNodes.has(node.id)) newExpanded.delete(node.id);
+//               else newExpanded.add(node.id);
+//               setExpandedNodes(newExpanded);
+//               selectUnit(node.id);
+//             }
+//           }}
+//         />
+//       );
+//     });
+
+//   }, [units, expandedNodes, filter, loading, selectUnit]);
+
+//   return <svg ref={svgRef} />;
+// };
+
+// export default EnhancedOrgChart;
+
+=================================================================================================================================

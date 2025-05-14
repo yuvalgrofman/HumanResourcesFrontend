@@ -1,122 +1,70 @@
-# Army HR Visualization Tool
+# Getting Started with Create React App
 
-A web-based visualization tool for understanding the hierarchical structure and personnel distribution of military units.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Project Overview
+## Available Scripts
 
-The Army HR Visualization Tool is designed to provide a clear and intuitive interface for exploring and analyzing military organizational structures. It displays unit hierarchies and personnel distributions, helping users understand the composition of different units and their relationships.
+In the project directory, you can run:
 
-### Key Features:
+### `npm start`
 
-- **Hierarchical Visualization**: View the entire organizational structure or focus on specific units
-- **Personnel Distribution Analysis**: Track regular soldiers, officers, and senior officers across units
-- **Temporal Analysis**: View and compare organization structure and personnel counts across different dates
-- **Interactive Navigation**: Explore relationships between units with intuitive UI
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Technical Components
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Frontend:
-- **React**: Component-based UI library for building the interface
-- **React Router**: For navigation between different views
-- **Axios**: For making API requests to the backend
-- **CSS**: Custom styling for all components
+### `npm test`
 
-### Backend (Existing):
-- **FastAPI**: Python-based API framework
-- **SQLite**: Database for storing unit and personnel data
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Project Structure
+### `npm run build`
 
-```
-army-hr-visualization/
-├── public/             # Static assets
-├── src/                # Source code
-│   ├── components/     # Reusable UI components
-│   │   ├── Header.js
-│   │   ├── Sidebar.js
-│   │   ├── OrgChart.js  # Placeholder for the org chart visualization
-│   │   ├── UnitCard.js
-│   │   └── DateSelector.js
-│   ├── services/
-│   │   └── api.js      # API communication layer
-│   ├── contexts/
-│   │   └── DataContext.js  # State management
-│   ├── pages/
-│   │   ├── Dashboard.js
-│   │   └── UnitDetails.js
-│   ├── App.js
-│   ├── index.js
-│   └── index.css
-├── package.json
-└── README.md
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Setup Instructions
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Prerequisites
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- Node.js (v14 or higher)
-- npm or yarn
-- Access to the backend API (FastAPI server)
+### `npm run eject`
 
-### Installation
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/army-hr-visualization.git
-   cd army-hr-visualization
-   ```
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-3. Configure backend connection:
-   - The project is pre-configured to connect to a backend at `http://localhost:8000`
-   - If your backend is running at a different URL, update the `proxy` field in `package.json`
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-4. Start the development server:
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
+## Learn More
 
-5. Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Running the Backend
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-This project requires the Army HR Database Manager Backend to be running. Follow these steps:
+### Code Splitting
 
-1. Make sure Python 3.8+ is installed
-2. Clone the backend repository
-3. Install dependencies:
-   ```bash
-   pip install fastapi uvicorn sqlalchemy pydantic requests
-   ```
-4. Start the backend server:
-   ```bash
-   python main.py
-   ```
-5. The API should now be accessible at http://localhost:8000/api/
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-## Next Steps
+### Analyzing the Bundle Size
 
-This project currently provides the framework for the visualization tool with placeholder components for the organizational chart. The next phase of development will involve:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-1. Implementing the actual organizational chart visualization
-2. Adding filtering capabilities
-3. Enhancing the UI with more interactive features
-4. Adding time-series comparison views
-5. Implementing unit-level analytics
+### Making a Progressive Web App
 
-## Contributing
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+### Advanced Configuration
 
-## License
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

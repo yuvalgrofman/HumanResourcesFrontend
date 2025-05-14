@@ -1,0 +1,19 @@
+The following is a placeholder for the OrgChart.js component.
+Please implement the OrgChart.js component.
+
+You are given the current OrgChart.js component as an example of how to use 
+the various components in the project.
+You goal is to re-implement the OrgChart.js component without using the D3.js library.
+
+When designing the org chart, please consider the following:
+1. Make the organizational chart a tree - where each node is a unit and the children of the node are the sub-units of the unit.
+2. Their should appear a line which connects the parent node to the child node.  
+3. The subtrees should have the ability to be collapsed and expanded.
+4. Each node should contains the name of the unit, the amoumt of regular soldiers, officers senior officers and the total amount of soldiers in the unit.
+5. Please style the nodes in the chart. 
+    a. Different colors for the different levels of the units. For example, the second level can have a dark green outline and 
+    a light green background.   
+    b. Use icons for the different levels of the units.
+    c. The number of regular soldiers, officers and senior officers should be shown using icons and horizontal bars.
+  
+Crucially, design the nodes as a new component in a seperate file and import it into the OrgChart.js component.
