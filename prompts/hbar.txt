@@ -1,0 +1,31 @@
+Please write a React component that implements a horizontal bar.
+The parameters of the bar should be:
+
+1. Minimum Value - The minimum value that can be represented by the bar (Default is 0).
+2. Maximum Value - The maximum value that is represented by the bar (Default is 50). 
+3. Current Value - The current value represented by the bar (No default).
+4. Last Value    - The previous value represented by the bar (No default).
+5. Growth Color  - The color of the bar when the current value is greater than the last value (Default is green).
+6. Decline Color - The color of the bar when the current value is less than the last value (Default is red).
+7. Neutral Color - The color of the bar which doesn't represent a difference between the current and last value (Default is blue).
+8. Name Of Bar   - Shows what the value of the bar represents (Default value is "R1").
+
+The bar should be a horizontal rectangle such that:
+1. There bar is dividied into two section, the equal part and the difference part.
+2. The equal part is the the part up to the minimum of the current and last value, this part is colored with the neutral color.
+3. The difference part is the part between the minimum of the current and last value and the maximum of the current and last value.
+The color of this part is determined as follows: If the current value is greater than the last value, then the color of this part is the growth color.
+Otherwise, the color of this part is the decline color.
+4. There horizontal bar should contain two vertical lines.
+5. The first vertical line is called the current value line and it is placed at the current value. It is a solid line which is colored black.
+6. The second vertical line is called the last value line and it is placed at the last value. It is a dashed line which is colored black.
+
+When styling the bar, please do the following:
+1. Make the outline of the bar a white rectangle which encloses the bar. The outline should be black.
+2. The height of the bar should be 20px.
+3. The default colors used should be gentle such that the vertical lines are noticeable.
+
+You may use the index.css file to style the bar,
+but please also make a dedicated CSS file for the bar component.
+
+Do your best and thank you!

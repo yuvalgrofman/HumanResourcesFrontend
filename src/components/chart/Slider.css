@@ -1,0 +1,75 @@
+/* src/components/Slider.css */
+
+.slider-container {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.slider-track {
+  position: relative;
+  height: 50px;                /* much taller slider */
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 10px;            /* square outline */
+}
+
+.slider-tick {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-left: 2px dotted rgba(0,0,0,0.2);
+}
+
+.slider-tick:first-of-type {
+  border-left: 0px dotted rgba(0,0,0,0.2) !important ;
+}
+
+.slider-tick:last-of-type {
+  border-left: 0px dotted rgba(0,0,0,0.2) !important ;
+}
+
+.slider-label {
+  position: absolute;
+  top: 100%;
+  margin-top: 8px;
+  transform: translateX(-50%);
+  font-size: 1rem;             /* bigger year number */
+  font-weight: bold;           /* bold */
+  color: var(--color-dark);
+  white-space: nowrap;
+}
+
+.slider-selection {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: var(--color-mid);
+  display: flex;
+  cursor: grab;
+  border-radius: 0;            /* square thumb */
+}
+
+.slider-selection:active {
+  cursor: grabbing;
+}
+
+.slider-handle {
+  width: 20px;
+  height: 100%;
+  background: var(--color-light);
+  cursor: ew-resize;
+  border-radius: 0;            /* default square */
+}
+
+.slider-handle.left {
+  margin-left: -6px;           /* adjust handle overlap */
+  border-top-left-radius: 8px; /* round outside left */
+  border-bottom-left-radius: 8px;
+}
+
+.slider-handle.right {
+  margin-right: -7px;
+  margin-left: auto;
+  border-top-right-radius: 8px; /* round outside right */
+  border-bottom-right-radius: 8px;
+}

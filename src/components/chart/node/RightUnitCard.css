@@ -1,0 +1,29 @@
+/* RightUnitCard.css */
+
+.right-unit-card {
+  width: 300px;
+}
+
+.right-unit-card__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.1rem;
+  margin-left: 1.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.min-header {
+  margin-left: 25px;
+}
+
+.right-unit-card__min,
+.right-unit-card__max {
+  color: #333;
+}
+
+.right-unit-card__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}

@@ -1,0 +1,3 @@
+Please restyle the NavBar component using the bootstrap framework.
+We give the index.css, NavBar.js and NavBar.css files.
+Please feel free to update any one of these files.

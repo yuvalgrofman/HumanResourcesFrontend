@@ -1,0 +1,56 @@
+Please create a React component called CompleteUnitCard. 
+The Component receives two JSON objects of the following form:
+
+unitData = {
+    "R1" : integer,
+    "R2" : integer,
+    "R3+" : integer,
+    "Total" : integer,
+}
+
+1. The two JSON object are called currentAmount and lastAmount. They represnent the amount 
+of the resources of each parameter, at the current and last time, respectively.
+
+2. Minimum Value - The minimum value that can appear of some resource (Default is 0).
+3. Maximum Value - The maximum value that can appear of some resource (Default is 50).
+4. Growth Type - The growth type of the resource, the possible values are:
+    - "Increase" - The resource is increasing.
+    - "Decrease" - The resource is decreasing.
+    - "Stable" - The resource is stable.
+
+Using this information, the component uses the RightUnitCard to create a complete unit card.
+Please implement the component according to the following components:
+1. The components left side, should contains the following information:
+    - The name of the unit.
+    - The current total amount of the resource.
+    - The growth type of the resource.
+2. The name of the unit should be displayed in a large font, bold and be the first element in the left side.
+2. The current total amount should be the second element in the left side.
+3. Below the current total amount, the growth type should be displayed as follows:
+    - If the growth type is "Increase", there should be an icon which shows a linear increase in time.
+    The icon should be simple, clean and easy to understand.
+    - If the growth type is "Decrease", there should be an icon which shows a linear decrease in time.
+    - If the growth type is "Stable", the icon should show a stable line.
+4. The color of the background of the left side should be as follows:
+    - If the current total amount is greater than the last total amount, should be a shade of growthColor, 
+    where the color should be darker as the current total amount is greater than the last total amount.
+    - If the current total amount is less than the last total amount, should be a shade of declineColor, 
+    where the color should be darker as the current total amount is less than the last total amount.
+    - If the current total amount is equal to the last total amount, the background color should be white.
+5. The part I have described above represnets the left side of the component.
+The left side should be sticked to the rightUnitCard component.
+
+To style this component, please use the given index.css file
+and also create a dedicated CSS file for the RightUnitCard component.
+
+We also give you the rightUnitCard component, to understand how to use it. 
+
+Please do your best and thank you!
+
+===================================================================================================================================
+
+Update the component such that:
+1. If the title is two lines, then the margins are smaller such that 
+the position of the icon does not change. 
+
+2. If the title is seven characters or more, the font size is smaller such that the title does not overflow the card.

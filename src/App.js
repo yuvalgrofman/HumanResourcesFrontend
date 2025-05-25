@@ -6,21 +6,23 @@ import Dashboard from './components/pages/Dashboard';
 import OrgChartPage from './components/pages/OrgChartPage';
 import TimeGraphPage from './components/pages/TimeGraphPage';
 import UnitDetails from './components/pages/UnitDetails';
+import TestPage from './components/pages/TestPage';
 
 function App() {
   return (
     <DataProvider>
       <Router>
-        <div className="flex flex-col h-screen bg-gray-100">
+        <div className="d-flex flex-column vh-100 bg-light">
           <NavBar />
-          <div className="flex-1 overflow-hidden">
+            <main className="flex-grow-1 overflow-auto">
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              {/* <Route path="/" element={<Dashboard/>} /> */}
+              <Route path="/" element={<TestPage/>} />
               <Route path="/org-chart" element={<OrgChartPage />} />
               <Route path="/time-graph" element={<TimeGraphPage />} />
               <Route path="/unit/:id" element={<UnitDetails />} />
             </Routes>
-          </div>
+          </main>
         </div>
       </Router>
     </DataProvider>

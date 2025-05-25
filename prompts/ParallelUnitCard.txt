@@ -1,0 +1,12 @@
+Now, please create a React component called ParallelUnitCard
+which is similar to the complete unitCard component except that the left side of the component
+now appears on top and the right side of the component appears on the bottom.
+Please rewrite the RightUnitCard component and the CompleteUnitCard component
+into one component called ParallelUnitCard. 
+
+One change is that the icon should now appear to the right of the title.
+
+Pleae use the index.css file to style the component
+and create a dedicated css file for the component.
+
+Do you best and thank you!

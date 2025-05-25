@@ -1,0 +1,30 @@
+Please create a React component called RightUnitCard. 
+The Component receives two JSON objects of the following form:
+
+amount = {
+    "R1" : integer,
+    "R2" : integer,
+    "R3+" : integer,
+}
+
+1. The two JSON object are called currentAmount and lastAmount. They represnent the amount 
+of the resources of each parameter, at the current and last time, respectively.
+
+2. Minimum Value - The minimum value that can appear of some resource (Default is 0).
+3. Maximum Value - The maximum value that can appear of some resource (Default is 50).
+
+Using this information, the component uses the HorizontalBar component, which you created in the previous task,
+and works as follows:
+
+1. The component is a card which contains three horizontal bars, one for each resource (R1, R2, R3+).
+2. The card contains a black outline and a white background. 
+3. The card places the three horizontal bars in a vertical stack, 
+where to the left of each bar is the name of the resource (R1, R2, R3+).
+4. Above the top-most bar there appears the minimum and maximum values the card can take. 
+In other words, above the left corner of the top-most bar, the minimum value is placed and above the right corner of the top-most bar,
+the maximum value is placed.
+
+To style this component, please use the given index.css file
+and also create a dedicated CSS file for the RightUnitCard component.
+
+Please do your best and thank you!

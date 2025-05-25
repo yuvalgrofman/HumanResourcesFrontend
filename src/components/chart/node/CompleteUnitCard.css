@@ -1,0 +1,52 @@
+/* CompleteUnitCard.css */
+.complete-unit-card {
+  display: flex;
+  align-items: stretch;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 130px;
+  padding: 1rem;
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+  color: #fff;
+}
+
+/* default title */
+.unit-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* shrink font for long titles */
+.unit-name.long-title {
+  font-size: 1.25rem;
+}
+
+/* reduce margins when wrapped to two lines */
+.left-side.two-lines .unit-name {
+  margin-bottom: 0rem;
+}
+
+.total-amount {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* also tighten up below-title margin */
+.left-side.two-lines .total-amount {
+  margin-bottom: 0.25rem;
+}
+
+.growth-icon {
+  font-size: 1.5rem;
+}

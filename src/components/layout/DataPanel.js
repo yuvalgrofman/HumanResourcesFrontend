@@ -48,9 +48,9 @@ const DataPanel = () => {
         <p><strong>Total:</strong> {selectedUnit.total_personnel} personnel</p>
       </div>
 
-      <div>
+      <div className="p-8">
         <h3>Personnel Distribution</h3>
-        <div className="chart-container">
+        <div className="chart-container low-padding">
           <PieChart data={pieData} />
         </div>
       </div>

@@ -2,12 +2,16 @@
 /* Global resets, typography, color vars, utility classes */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+
 :root {
   --color-dark:   #071952;
   --color-mid:    #088395;
   --color-light:  #37B7C3;
   --color-bg:     #EBF4F6;
   --font-base:    'Poppins', sans-serif;
+  --growth-color: #8BC34A;
+  --decline-color: #E57373;
+  --neutral-color: #64B5F6;
 }
 
 * {

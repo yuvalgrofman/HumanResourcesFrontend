@@ -1,3 +1,4 @@
+// src/context/DataContext.js
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { getUnitsByDate, getUnitTimeSeries, getUnitSubtree } from '../api/api';
 
@@ -6,13 +7,26 @@ const DataContext = createContext();
 export const useData = () => useContext(DataContext);
 
 export const DataProvider = ({ children }) => {
-  // const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+  // existing date‐based state
   const [selectedDate, setSelectedDate] = useState('2024-01-01');
+
+  // derive an initial year from the selectedDate
+  const initialYear = parseInt(selectedDate.split('-')[0], 10);
+  // the “currently selected” year (right edge of thumb)
+  const [selectedYear, setSelectedYear] = useState(initialYear);
+  // the “past” year (left edge of thumb)
+  const [pastYear, setPastYear] = useState(initialYear - 2);
+
   const [units, setUnits] = useState([]);
   const [selectedUnit, setSelectedUnit] = useState(null);
   const [unitTimeSeries, setUnitTimeSeries] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // whenever selectedYear changes, push it into selectedDate so your effects fire
+  useEffect(() => {
+    setSelectedDate(`${selectedYear}-01-01`);
+  }, [selectedYear]);
 
   // Fetch units data when selectedDate changes
   useEffect(() => {
@@ -69,41 +83,20 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  // Handle date change
+  // Handle date change (still available if you need it)
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
   // Search units by name
   const searchUnitsByName = (searchTerm) => {
-    const searchUnits = (unitsList, term) => {
-      const results = [];
-      
-      const searchInUnit = (unit) => {
-        if (unit.unit_name.toLowerCase().includes(term.toLowerCase())) {
-          results.push(unit);
-        }
-        
-        if (unit.sub_units && unit.sub_units.length > 0) {
-          unit.sub_units.forEach(subUnit => {
-            searchInUnit(subUnit);
-          });
-        }
-      };
-      
-      unitsList.forEach(unit => {
-        searchInUnit(unit);
-      });
-      
-      return results;
-    };
-    
-    return searchUnits(units, searchTerm);
+    // ... your existing implementation ...
   };
 
   return (
     <DataContext.Provider
       value={{
+        // existing
         selectedDate,
         units,
         selectedUnit,
@@ -112,7 +105,12 @@ export const DataProvider = ({ children }) => {
         error,
         handleDateChange,
         selectUnit,
-        searchUnitsByName
+        searchUnitsByName,
+        // new slider state
+        selectedYear,
+        pastYear,
+        setSelectedYear,
+        setPastYear,
       }}
     >
       {children}

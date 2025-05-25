@@ -54,3 +54,7 @@
 @media (max-width: 992px) {
   .data-panel { width: 240px; padding: 1rem; }
 }
+
+.low-padding {
+  padding: 0.5rem !important;
+}

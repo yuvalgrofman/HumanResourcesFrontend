@@ -1,0 +1,50 @@
+/* HorizontalBar.css */
+
+.horizontal-bar-container {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-base);
+}
+
+.bar-label {
+  margin-right: 0.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.bar-outline {
+  position: relative;
+  flex: 1;
+  height: 20px;
+  background-color: white;
+  border: 2px solid black;
+  overflow: hidden;
+}
+
+.bar-fill-neutral {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.bar-fill-diff {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.bar-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+}
+
+.bar-line.current {
+  border-left: 2px solid black;
+}
+
+.bar-line.last {
+  border-left: 1px dashed black;
+}

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 import "./PieChart.css";
 
-const PieChart = ({ data, height = 140, width = 200 }) => {
+const PieChart = ({ data, height = 200, width = 200 }) => {
   const svgRef = useRef();
   
   useEffect(() => {
@@ -13,7 +13,7 @@ const PieChart = ({ data, height = 140, width = 200 }) => {
     
     d3.select(svgRef.current).selectAll('*').remove();
     
-    const radius = Math.min(width, height) / 2;
+    const radius = Math.min(width, height) / 1.6;
     
     const svg = d3.select(svgRef.current)
       .attr('width', width)

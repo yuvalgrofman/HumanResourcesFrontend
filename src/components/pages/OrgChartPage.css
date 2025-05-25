@@ -15,6 +15,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   height: calc(100vh - 220px);
 }
+
 .org-chart-page .legend p {
   font-size: 0.875rem;
   color: rgba(7,25,82,0.6);

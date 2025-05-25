@@ -1,0 +1,50 @@
+Please write a React component that implements a horizontal slider.
+The parameters of the slider should be:
+
+1. Minimum Year - The minimum year that is represented by the slider.
+2. Maximum Year - The maximum year that is represented by the slider.
+3. Step - The step value for the slider (default is 1 year).
+
+At each moment the slider controls the following two values:
+
+1. Selected Year - The year that is currently selected by the slider.
+2. Past Year - The year to which we compare the selected year.
+
+Thus, the slider should contain a movable thumb which has a (starting) width of 2 years. 
+The thumb can move over the range of years and it changes the Past and Selected Year values accordingly.
+Moreover, the slider has the following crucial feature - The thumb can be increased in width by dragging it 
+left or right sides. Obviously, the width must remain a multiple of the step value.
+
+To implement this, please also take into account and update the DataContext.js file 
+such that it contains both the selected and past year values,
+and that the slider is able to update them accordingly.
+
+Finally, make sure to style the slider properly using the provided index.css file.
+Please also make a dedicated CSS file for the slider component.
+
+Now, let us discuss the styling of the slider:
+1. The thumb should be a blue rectangle (use the colors from the index.css file) 
+2. Below 5 steps, there should be a number which indicates the year.
+3. The outline of the slider should a white rectangle which encloses the thumb.
+4. Between every two steps, there should be a dotted line, make it have a subtle color.
+
+Do your best and thank you!
+
+======================================================================================================================================================
+
+Please updathe the styling of the slider component such that:
+
+1. The slider is much taller.
+2. Both the thumb and the outline of the slider should be rounded. 
+3. The year number should be bigger, in bold and in the middle of the step.
+
+======================================================================================================================================================
+
+Please update the the styling of the slider component such that:
+
+1. The first and last dotted lines don't appear, i.e. remove the leftmost and rightmost vertical dotted lines.
+2. Only the slider handels are rounded and they are only rounded on the outside.
+So, the left handle is rounded on the left side and the right handle is rounded on the right side.
+On the other side the handles should be square.
+
+Change the given files, ignore the files you previously worked on.

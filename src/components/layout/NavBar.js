@@ -88,7 +88,7 @@ const NavBar = () => {
             />
             <button
               type="submit"
-              className="bg-blue-600 text-white px-3 py-1 rounded-r hover:bg-blue-700"
+              className="bg-blue-600 text-white px-3 py-3 rounded-r hover:bg-blue-700"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
