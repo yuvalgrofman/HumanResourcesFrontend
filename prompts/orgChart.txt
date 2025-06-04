@@ -65,3 +65,28 @@ the tree should be scrollable horizontally and vertically.
 Consider the following orgChart.js component.
 Please update the page such that the orgChart component contains a full screen mode, 
 where the orgChart component will take the full width and height of the screen.
+
+============================================================================================
+
+Now, instead of implementing the orgChart component, using a grid let's try a different approach.
+Please implement the orgChart component using the D3 library to render an organizational chart.
+Please keep all features from the previous orgChart component, 
+including the full screen mode and the scrollable tree. 
+In addition, make sure to represent each node using the ParallelUnitCard.js component.
+
+But, include the following crucial addition: Make sure that the structure of the chart is 
+similar to that of a binary tree. In particular, make sure that the position of each 
+node is with respect to its parent node. 
+Obviuosly, unline a binary tree, each node can have more than two children.
+
+============================================================================================
+
+Consider the given orgChart.js component.
+Please update the implementation of the component to represent each node using the ParallelUnitCard.js component.
+Crucially, it is not critical to use the node itself, but rather use the same styling which is used in the ParallelUnitCard.js component.
+Thus, if it is more convinient to reimplement the component in the orgChart.js file, please do so.
+
+============================================================================================
+
+Please update the OrgChat.js component such that when showing a parallel unit, 
+only the unit itself is shown, without the children of the unit.

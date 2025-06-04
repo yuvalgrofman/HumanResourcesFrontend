@@ -1,0 +1,24 @@
+Consider the given orgChart.js component.
+Please add a feature which allows the user to click on a node. 
+
+The feature should be implemented as follows: 
+1. The component should receive a new prop useState prop called 'clickedNodeID' which is a string.
+2. When a node is clicked, the component should update the 'clickedNodeID' state with the ID of the clicked node. 
+
+=======================================================================
+
+Our goal now is to support the feature of clicking on a node in the orgChart component.
+Thus, we updated the orgChart component such that it receives two new props:
+1. clickedNodeID: a string representing the ID of the clicked node.
+2. setClickedNodeID: a function to update the clickedNodeID state.
+
+Please implement the following changes to the orgChartPage component:
+
+1. Add a new state variable called 'clickedNodeID' using the useState hook.
+2. Pass the 'clickedNodeID' and 'setClickedNodeID' props to the orgChart component.
+3. When the value of the 'clickedNodeID' state changes, log the new value to the console and 
+make sure to update the DataPanel component to reflect the clicked node.
+
+For reference, the signature of the orgChart component is as follows:
+
+const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID })

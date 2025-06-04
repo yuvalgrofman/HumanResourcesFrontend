@@ -1,0 +1,76 @@
+Please update the dataPanel component as follows: 
+
+It receives a new prop called 'unit' which is a JSON object representing a military unit.
+It has the following structure:
+
+unit: {
+    "date": "2024-01-01", 
+    "id": "BDE-INF-001",
+    "name": "1st Infantry Brigade",
+    "officers": 362,
+    "parent_id": "DIV-001",
+    "regular_soldiers": 7276,
+    "senior_officers": 10,
+    "total_personnel": 7648
+
+} 
+
+The dataPanel component should display two main graphs about the clicked node:
+
+1. A pie chart which shows the distribution of the resources of the clicked node.
+Currently, it should use the total_personnel is the total resource 
+which is divided into the following categories:
+- Officers,
+- Senior Officers,
+- Regular Soldiers. 
+
+2. The second graph should be a time series graph which shows the total personall in the unit over time.
+To do this, the component should use the getUnitTimeSeries function which is imported from the api.js file. 
+
+The function has the following signature:
+export const getUnitTimeSeries = async (unitId) => response.data; 
+
+We provide an example of the data returned by this function:
+
+{
+  "unit_id": "DIV-001",
+  "data": [
+    {
+      "unit_id": "DIV-001",
+      "unit_name": "1st Division",
+      "parent_unit_id": "HQ-001",
+      "regular_soldiers": 1000,
+      "officers": 80,
+      "senior_officers": 10,
+      "total_personnel": 1090,
+      "date": "2023-05-01"
+    },
+    {
+      "unit_id": "DIV-001",
+      "unit_name": "1st Division",
+      "parent_unit_id": "HQ-001",
+      "regular_soldiers": 1010,
+      "officers": 82,
+      "senior_officers": 10,
+      "total_personnel": 1102,
+      "date": "2023-05-05"
+    },
+    {
+      "unit_id": "DIV-001",
+      "unit_name": "1st Division",
+      "parent_unit_id": "HQ-001",
+      "regular_soldiers": 1000,
+      "officers": 80,
+      "senior_officers": 10,
+      "total_personnel": 1090,
+      "date": "2023-05-10"
+    }
+  ]
+}
+
+Please rewrite the dataPanel component to include these two graphs, 
+also make a new dedicated CSS file for the dataPanel component.
+Additionally, we provide the orgChartPage component which is the parent of the dataPanel component, 
+in order to help you understand how the dataPanel component is used.
+
+Please do your best and thank you!

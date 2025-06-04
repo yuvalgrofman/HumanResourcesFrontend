@@ -1,11 +1,11 @@
-/* Base layout */
+/* Base layout 
 .time-graph-page {
   display: flex;
   height: calc(100vh - 64px);
   font-family: Arial, sans-serif;
-}
+}*/
 
-/* Control panel */
+/* 
 .controls {
   width: 250px;
   background-color: #EBF4F6;
@@ -61,7 +61,6 @@
   font-size: 0.9rem;
 }
 
-/* Main content */
 .main-content {
   flex: 1;
   padding: 24px;
@@ -98,18 +97,15 @@
   margin: 4px 0;
 }
 
-/* Multi-line chart */
 .multi-line-chart {
   width: 100%;
   height: 100%;
 }
 
-/* Utility */
 .text-center {
   text-align: center;
 }
 
-/* Responsive only for desktop */
 @media (max-width: 1024px) {
   .time-graph-page {
     flex-direction: column;
@@ -123,3 +119,4 @@
     padding: 16px;
   }
 }
+*/

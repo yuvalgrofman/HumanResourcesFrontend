@@ -8,13 +8,22 @@ import DataPanel from '../layout/DataPanel';
 import Slider from '../chart/Slider';
 import CompleteUnitCard from '../chart/node/CompleteUnitCard';
 import ParallelUnitCard from "../chart/node/ParallelUnitCard";
+import PieChart from '../visualizations/PieChart';
 
 const TestPage = () => {
   const { currentUnits, selectedDate } = useData();
+  const sampleData = [
+    { name: 'Engineering', value: 45, color: '#667eea' },
+    { name: 'Design', value: 25, color: '#764ba2' },
+    { name: 'Marketing', value: 20, color: '#f093fb' },
+    { name: 'Sales', value: 15, color: '#f5576c' },
+    { name: 'Support', value: 10, color: '#4facfe' }
+  ];
   
   return (
     <div className="dashboard">
       
+      <PieChart data={sampleData} width={400} height={400} />
       {/* Main Content Area */}
       <div className="main">
         <h1 className="text-2xl font-bold mb-6">Army HR Dashboard - {selectedDate}</h1>

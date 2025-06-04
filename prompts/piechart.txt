@@ -2,3 +2,15 @@ Consider the following pie chart react component.
 Please make the following changes:
 
 1. Change the position of the legend such that it appears like a card below the pie chart.
+
+===================================================
+
+Now, please keep the current style of the pie chart but reimplement it so that it 
+fits with the project and specifically the DataPanel component which uses the pieChart. 
+We provide:
+1. The previous pie chart implementation as a reference.
+2. The DataPanel component which uses the pieChart.
+
+Please create both the new pie chart component, 
+and a dedicated css file for the new pie chart component.
+You can rewrite the dataPanel component such that it only shows the new pie chart component.

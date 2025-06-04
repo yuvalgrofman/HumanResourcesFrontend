@@ -14,6 +14,9 @@ const OrgChartPage = () => {
   const [parallelUnits, setParallelUnits] = useState([]);
   const [parallelSearchTerm, setParallelSearchTerm] = useState('');
   
+  // New state for clicked node functionality
+  const [clickedNodeID, setClickedNodeID] = useState('');
+  
   // Available units for selection (derived from current units)
   const [availableUnits, setAvailableUnits] = useState([]);
 
@@ -74,6 +77,17 @@ const OrgChartPage = () => {
       setChildUnits(children.map(child => child.id));
     }
   }, [rootUnit, availableUnits]);
+
+  // Handle clicked node changes
+  useEffect(() => {
+    if (clickedNodeID) {
+      // console.log('Clicked node ID:', clickedNodeID);
+      // const clickedUnit = availableUnits.find(unit => unit.id === clickedNodeID);
+      // if (clickedUnit) {
+      //   console.log('Clicked unit details:', clickedUnit);
+      // }
+    }
+  }, [clickedNodeID, availableUnits]);
 
   // Control Panel Component
   const ControlPanel = () => {
@@ -272,6 +286,9 @@ const OrgChartPage = () => {
     );
   };
 
+  // Find the clicked unit object from availableUnits
+  const clickedUnit = availableUnits.find(unit => unit.id === clickedNodeID);
+
   return (
     <div className="org-chart-page">
       {/* Left Control Panel */}
@@ -297,6 +314,8 @@ const OrgChartPage = () => {
             rootUnit={rootUnit}
             childUnits={childUnits}
             parallelUnits={parallelUnits}
+            clickedNodeID={clickedNodeID}
+            setClickedNodeID={setClickedNodeID}
           />
         </div>
         
@@ -322,7 +341,7 @@ const OrgChartPage = () => {
       
       {/* Right Data Panel */}
       <div className="right-panel">
-        <DataPanel />
+        <DataPanel unit={clickedUnit} />
       </div>
     </div>
   );
