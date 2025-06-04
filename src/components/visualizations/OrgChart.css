@@ -1,25 +1,269 @@
 /* OrgChart.css */
-.enhanced-org-chart-container {
+
+.org-chart-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  position: relative;
+  background-color: #ffffff;
 }
-.filter-controls {
-  background: var(--color-bg);
-  padding: 0.75rem 1rem;
+
+/* Full screen mode styles */
+.org-chart-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.org-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  flex-shrink: 0;
+}
+
+.header-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #071952;
+}
+
+.header-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.header-controls {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  border-bottom: 1px solid rgba(7,25,82,0.1);
+  gap: 12px;
 }
-.filter-controls input[type="number"] {
-  padding: 0.5rem;
-  border: 1px solid rgba(7,25,82,0.1);
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.zoom-btn {
+  background-color: white;
+  border: 1px solid #ced4da;
   border-radius: 4px;
-  width: 80px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #495057;
+  transition: all 0.2s ease;
 }
-.org-chart-view {
+
+.zoom-btn:hover:not(:disabled) {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.zoom-btn:active:not(:disabled) {
+  background-color: #dee2e6;
+}
+
+.zoom-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.zoom-btn.zoom-reset {
+  width: auto;
+  padding: 0 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.zoom-level {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #495057;
+  min-width: 45px;
+  text-align: center;
+}
+
+/* Full screen button styles */
+.fullscreen-btn {
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #495057;
+  transition: all 0.2s ease;
+}
+
+.fullscreen-btn:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.fullscreen-btn:active {
+  background-color: #dee2e6;
+}
+
+.fullscreen-btn.active {
+  background-color: #071952;
+  border-color: #071952;
+  color: white;
+}
+
+.fullscreen-btn.active:hover {
+  background-color: #0a1d5c;
+  border-color: #0a1d5c;
+}
+
+.org-chart-scroll-container {
   flex: 1;
-  padding: 1rem;
-  overflow: auto;
+  position: relative;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.org-chart-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.org-chart-grid {
+  display: grid;
+  /* Two possible gap values: vertical large, horizontal small */
+  gap: 40px 20px; /* 40px vertical gap, 20px horizontal gap */
+  background-color: transparent;
+}
+
+.grid-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tree-node {
+  /* Add padding and a subtle border to distinguish nodes */
+  padding: 10px;
+}
+
+.root-node {
+  color: #ffffff;
+  background-color: #EBF4F6;
+  border: 1px solid #37B7C3;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.parallel-node {
+  background-color: #088395;
+  color: #ffffff;
+}
+
+.org-chart-instructions {
+  padding: 10px 20px;
+  background-color: #f1f3f5;
+  border-top: 1px solid #dee2e6;
+  font-size: 0.9rem;
+  color: #495057;
+  flex-shrink: 0;
+}
+
+.org-chart-message {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+/* Full screen mode adjustments */
+.org-chart-container.fullscreen .org-chart-header {
+  padding: 15px 30px;
+}
+
+.org-chart-container.fullscreen .header-info h3 {
+  font-size: 1.7rem;
+}
+
+.org-chart-container.fullscreen .org-chart-instructions {
+  padding: 15px 30px;
+  font-size: 1rem;
+}
+
+/* Animation for full screen transition */
+.org-chart-container.fullscreen {
+  animation: expandToFullscreen 0.3s ease-in-out;
+}
+
+@keyframes expandToFullscreen {
+  from {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments for full screen */
+@media (max-width: 768px) {
+  .org-chart-container.fullscreen .org-chart-header {
+    padding: 10px 15px;
+  }
+  
+  .org-chart-container.fullscreen .header-info h3 {
+    font-size: 1.4rem;
+  }
+  
+  .org-chart-container.fullscreen .header-controls {
+    gap: 8px;
+  }
+  
+  .org-chart-container.fullscreen .zoom-controls {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+  
+  .org-chart-container.fullscreen .zoom-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+  
+  .org-chart-container.fullscreen .fullscreen-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .org-chart-container.fullscreen .org-chart-instructions {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
 }

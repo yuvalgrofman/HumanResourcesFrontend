@@ -10,7 +10,7 @@ import CompleteUnitCard from '../chart/node/CompleteUnitCard';
 import ParallelUnitCard from "../chart/node/ParallelUnitCard";
 
 const TestPage = () => {
-  const { units, selectedDate } = useData();
+  const { currentUnits, selectedDate } = useData();
   
   return (
     <div className="dashboard">
@@ -20,7 +20,7 @@ const TestPage = () => {
         <h1 className="text-2xl font-bold mb-6">Army HR Dashboard - {selectedDate}</h1>
           <CompleteUnitCard
             unitName="12345"
-            currentAmount={{ 'R1': 20, 'R2': 15, "E+": 5, Total: 100 }}
+            currentAmount={{ 'R1': 20, 'R2': 15, "E+": 5, Total: 55 }}
             lastAmount={{ 'R1': 18, 'R2': 17, "E+": 45, Total: 50 }}
             growthType="Increase"
             minValue={0}
@@ -30,8 +30,8 @@ const TestPage = () => {
           />
           <ParallelUnitCard
             unitName="67890"
-            currentAmount={{ R1: 10, R2: 20, "E+": 30, Total: 5242 }}
-            lastAmount={{ R1: 12, R2: 18, "E+": 25, Total: 5164 }}
+            currentAmount={{ R1: 10, R2: 20, "E+": 30, Total: 55 }}
+            lastAmount={{ R1: 12, R2: 18, "E+": 25, Total: 10 }}
             growthType="Decrease"
             minValue={0}
             maxValue={50}

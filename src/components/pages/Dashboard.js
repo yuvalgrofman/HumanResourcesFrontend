@@ -7,7 +7,7 @@ import ControlPanel from '../layout/ControlPanel';
 import DataPanel from '../layout/DataPanel';
 
 const Dashboard = () => {
-  const { units, selectedDate } = useData();
+  const { currentUnits, selectedDate } = useData();
   
   return (
     <div className="dashboard">
@@ -22,33 +22,26 @@ const Dashboard = () => {
         <div className="stats-grid">
           <div className="stats-card">
             <h3>Regular Soldiers</h3>
-            <p>{countRegularSoldiers(units)}</p>
+            <p>{countRegularSoldiers(currentUnits)}</p>
           </div>
           <div className="stats-card">
             <h3>Regular Officers</h3>
-            <p>{countOfficers(units)}</p>
+            <p>{countOfficers(currentUnits)}</p>
           </div>
           <div className="stats-card">
             <h3>Senior Officers</h3>
-            <p>{countSeniorOfficers(units)}</p>
+            <p>{countSeniorOfficers(currentUnits)}</p>
           </div>
           <div className="stats-card">
             <h3>Total Units</h3>
-            <p>{countAllUnits(units)}</p>
+            <p>{countAllUnits(currentUnits)}</p>
           </div>
           <div className="stats-card">
             <h3>Total Personnel</h3>
-            <p>{sumTotalPersonnel(units)}</p>
+            <p>{sumTotalPersonnel(currentUnits)}</p>
           </div>
         </div>
 
-        {/* Organizational Structure */}
-        <div className="section">
-          <h2 className="text-xl font-semibold mb-3">Organizational Structure</h2>
-          <div className="bg-white p-4 rounded shadow h-64">
-            <OrgChart />
-          </div>
-        </div>
       </div>
     </div>
   );

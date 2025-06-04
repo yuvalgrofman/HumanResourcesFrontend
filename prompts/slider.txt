@@ -48,3 +48,14 @@ So, the left handle is rounded on the left side and the right handle is rounded 
 On the other side the handles should be square.
 
 Change the given files, ignore the files you previously worked on.
+
+======================================================================================================================================================
+
+Please update the implementation of the slider component such that
+it changes the parameter selectedDate in the DataContext.js file
+Moreover, remove the selectedYear and pastYear parameters from the DataContext.js file
+and replace the pastYear parameter with a new pastDate parameter. 
+
+Please update both the Slider.js component and the DataContext.js file accordingly.
+
+Thank you!

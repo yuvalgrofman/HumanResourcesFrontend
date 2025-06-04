@@ -3,17 +3,22 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useData } from '../../context/DataContext';
 
 const Slider = ({ minYear, maxYear, step = 1 }) => {
-  const { selectedYear, pastYear, setSelectedYear, setPastYear } = useData();
+  const { selectedDate, pastDate, setSelectedDate, setPastDate } = useData();
   const trackRef = useRef(null);
   const [dragging, setDragging] = useState(false);
   const [mode, setMode] = useState(null); // 'move' | 'resize-left' | 'resize-right'
+
+  // extract year numbers from ISO date strings
+  const parseYear = (dateStr) => parseInt(dateStr.split('-')[0], 10);
+  const selectedYear = parseYear(selectedDate);
+  const pastYear     = parseYear(pastDate);
 
   const totalRange = maxYear - minYear;
   const widthYears = selectedYear - pastYear;
 
   const yearToPercent = (y) => ((y - minYear) / totalRange) * 100;
   const percentToYear = (p) => {
-    const raw = minYear + (p / 100) * totalRange;
+    const raw     = minYear + (p / 100) * totalRange;
     const snapped = Math.round(raw / step) * step;
     return Math.min(Math.max(snapped, minYear), maxYear);
   };
@@ -36,16 +41,18 @@ const Slider = ({ minYear, maxYear, step = 1 }) => {
       let newStart = year - widthYears / 2;
       newStart = Math.round(newStart / step) * step;
       newStart = Math.max(minYear, Math.min(newStart, maxYear - widthYears));
-      setPastYear(newStart);
-      setSelectedYear(newStart + widthYears);
+      const newPastDate      = `${newStart}-01-01`;
+      const newSelectedDate  = `${newStart + widthYears}-01-01`;
+      setPastDate(newPastDate);
+      setSelectedDate(newSelectedDate);
     } else if (mode === 'resize-left') {
       let newStart = Math.min(year, selectedYear - step);
       newStart = Math.max(minYear, newStart);
-      setPastYear(newStart);
+      setPastDate(`${newStart}-01-01`);
     } else if (mode === 'resize-right') {
       let newEnd = Math.max(year, pastYear + step);
       newEnd = Math.min(maxYear, newEnd);
-      setSelectedYear(newEnd);
+      setSelectedDate(`${newEnd}-01-01`);
     }
   };
 
@@ -71,10 +78,10 @@ const Slider = ({ minYear, maxYear, step = 1 }) => {
         <div
           className="position-absolute d-flex"
           style={{
-            left: `${yearToPercent(pastYear)}%`,
-            width: `${yearToPercent(selectedYear) - yearToPercent(pastYear)}%`,
+            left:   `${yearToPercent(pastYear)}%`,
+            width:  `${yearToPercent(selectedYear) - yearToPercent(pastYear)}%`,
             height: '100%',
-            top: 0,
+            top:    0,
             backgroundColor: 'var(--color-mid)',
             cursor: 'grab'
           }}
@@ -120,7 +127,7 @@ const Slider = ({ minYear, maxYear, step = 1 }) => {
                     : '1px dotted rgba(0,0,0,0.2)'
               }}
             >
-              {( (y - minYear) % (step * 5) === 0 ) && (
+              {((y - minYear) % (step * 5) === 0) && (
                 <span
                   className="position-absolute fw-bold"
                   style={{

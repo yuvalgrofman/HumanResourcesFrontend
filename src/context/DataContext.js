@@ -1,79 +1,68 @@
 // src/context/DataContext.js
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { getUnitsByDate, getUnitTimeSeries, getUnitSubtree } from '../api/api';
+import { getUnitsByDate, getUnitSubtree } from '../api/api';
 
 const DataContext = createContext();
-
 export const useData = () => useContext(DataContext);
 
 export const DataProvider = ({ children }) => {
-  // existing date‐based state
+  // date state
   const [selectedDate, setSelectedDate] = useState('2024-01-01');
-
-  // derive an initial year from the selectedDate
+  
   const initialYear = parseInt(selectedDate.split('-')[0], 10);
-  // the “currently selected” year (right edge of thumb)
-  const [selectedYear, setSelectedYear] = useState(initialYear);
-  // the “past” year (left edge of thumb)
-  const [pastYear, setPastYear] = useState(initialYear - 2);
+  const [pastDate, setPastDate] = useState(`${initialYear - 2}-01-01`);
 
-  const [units, setUnits] = useState([]);
+  // unit data hooks
+  const [currentUnits, setCurrentUnits] = useState([]);
+  const [pastUnits, setPastUnits] = useState([]);
   const [selectedUnit, setSelectedUnit] = useState(null);
-  const [unitTimeSeries, setUnitTimeSeries] = useState(null);
+
+  // loading and error states
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // whenever selectedYear changes, push it into selectedDate so your effects fire
+  // fetch current units on selectedDate change
   useEffect(() => {
-    setSelectedDate(`${selectedYear}-01-01`);
-  }, [selectedYear]);
-
-  // Fetch units data when selectedDate changes
-  useEffect(() => {
-    const fetchUnits = async () => {
+    const fetchCurrent = async () => {
       try {
         setLoading(true);
         const data = await getUnitsByDate(selectedDate);
-        setUnits(data);
+        setCurrentUnits(data);
         setError(null);
       } catch (err) {
-        setError('Failed to fetch units data');
+        setError('Failed to fetch current units');
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchUnits();
+    fetchCurrent();
   }, [selectedDate]);
 
-  // Fetch unit time series when selectedUnit changes
+  // fetch past units on pastDate change
   useEffect(() => {
-    if (!selectedUnit) return;
-
-    const fetchUnitTimeSeries = async () => {
+    const fetchPast = async () => {
       try {
         setLoading(true);
-        const data = await getUnitTimeSeries(selectedUnit.unit_id);
-        setUnitTimeSeries(data);
+        const data = await getUnitsByDate(pastDate);
+        setPastUnits(data);
         setError(null);
       } catch (err) {
-        setError('Failed to fetch unit time series');
+        setError('Failed to fetch past units');
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
+    fetchPast();
+  }, [pastDate]);
 
-    fetchUnitTimeSeries();
-  }, [selectedUnit]);
-
-  // Handle unit selection
+  // handle selecting a specific unit subtree
   const selectUnit = async (unitId) => {
     try {
       setLoading(true);
-      const unitData = await getUnitSubtree(unitId, selectedDate);
-      setSelectedUnit(unitData);
+      const subtree = await getUnitSubtree(unitId, selectedDate);
+      setSelectedUnit(subtree);
       setError(null);
     } catch (err) {
       setError('Failed to fetch unit data');
@@ -83,34 +72,31 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  // Handle date change (still available if you need it)
+  // direct date change handler
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
-  // Search units by name
+  // search by name
   const searchUnitsByName = (searchTerm) => {
-    // ... your existing implementation ...
+    // ...
   };
 
   return (
     <DataContext.Provider
       value={{
-        // existing
         selectedDate,
-        units,
+        pastDate,
+        setSelectedDate,
+        setPastDate,
+        currentUnits,
+        pastUnits,
         selectedUnit,
-        unitTimeSeries,
         loading,
         error,
         handleDateChange,
         selectUnit,
         searchUnitsByName,
-        // new slider state
-        selectedYear,
-        pastYear,
-        setSelectedYear,
-        setPastYear,
       }}
     >
       {children}

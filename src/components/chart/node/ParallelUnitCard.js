@@ -12,8 +12,8 @@ const ParallelUnitCard = ({
   growthType,
   minValue = 0,
   maxValue = 50,
-  backgroundGrowthColor = 'var(--growth-color)',
-  backgroundDeclineColor  = 'var(--decline-color)',
+  backgroundGrowthColor = '#8BC34A',
+  backgroundDeclineColor  = '#E57373',
 }) => {
   const currentTotal = currentAmount.Total;
   const lastTotal = lastAmount.Total;
@@ -50,7 +50,7 @@ const ParallelUnitCard = ({
     return <FiMinus />;
   };
 
-  const resources = ['R1', 'R2', 'E+'];
+  const resources = ['R1', 'R2', 'R3'];
 
   return (
     <div className="parallel-unit-card">
@@ -92,13 +92,13 @@ ParallelUnitCard.propTypes = {
   currentAmount: PropTypes.shape({
     R1: PropTypes.number.isRequired,
     R2: PropTypes.number.isRequired,
-    'R3+': PropTypes.number.isRequired,
+    R3: PropTypes.number.isRequired,
     Total: PropTypes.number.isRequired,
   }).isRequired,
   lastAmount: PropTypes.shape({
     R1: PropTypes.number.isRequired,
     R2: PropTypes.number.isRequired,
-    'R3+': PropTypes.number.isRequired,
+    R3: PropTypes.number.isRequired,
     Total: PropTypes.number.isRequired,
   }).isRequired,
   growthType: PropTypes.oneOf(['Increase', 'Decrease', 'Stable']).isRequired,

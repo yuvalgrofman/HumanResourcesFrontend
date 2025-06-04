@@ -1,0 +1,86 @@
+Please create the orgChartPage component 
+which is a wrapper component for the OrgChart component.
+The orgChartPage component's purpose it to find out and  
+provide all neccesary parameters to the OrgChart component,
+these paramaters are: selectedDate, pastDate, rootUnit, childUnits, and parallelUnits.
+
+The orgChartPage holds the following hooks:
+1. selectedDate - a date object representing the currently selected date.
+2. pastDate - a date object representing the previous date, which we can use to compare with the selected date.
+3. rootUnit - a string representing the ID of the root unit in the organization.
+4. childUnits - an array of strings representing the IDs of the child units of the root unit. 
+4. parallelUnits - an array of strings representing the IDs of the parallel units to the root node.
+
+In order to allow the user to control the selected date and pastDate,
+please add the Slider.js component to the orgChartPage component.
+
+Moreover, in order to allow the user to control the root unit, child units, and parallel units, 
+please update create a control unit panel which allows the user to choose the Root Unit, Child Units, and Parallel Units
+and does not contain filters, which are not needed at all.
+
+Please implement the orgChartPage component with the following structure:
+
+1. On the left their should appear the control panel with the following components:
+   - Root Unit Selector
+   - Child Units Selector
+   - Parallel Units Selector
+
+2. In the middle, the OrgChart component should be rendered with the parameters passed in as props.
+3. Below the OrgChart component, the Slider component should be rendered to allow the user to control the selected date and past date.
+
+4. On the right there should be a DataPanel.js component which displays the data of the selected unit.
+
+Crucially, we provide the original implementation of the OrgChartPage, 
+the Slider.js component and the DataPanel.js component. 
+Please write the controlPanel on the left entirelty from scratch. 
+
+Moreover, we provide the api.js file in order to allow you to fetch the data of the organization
+and the dataContext.js in order to allow you to update the data the frontend stores.
+
+Please do you best, thank you!
+
+==================================================================================================================
+
+Please fix the implementation of the flattenUnits function in the orgChart.js file.
+Currently, it returns an empty array, which is incorrect.
+
+This is the format of the unit data that the function should flatten:
+
+{
+  unit_id: "HQ-ARMY",
+  unit_name: "Army Headquarters",
+  parent_unit_id: null,
+  regular_soldiers: 3710,
+  officers: 689,
+  senior_officers: 133,
+  total_personnel: 4532,
+  date: "2024-01-01",
+  sub_units: [
+    {
+      unit_id: "DIV-001",
+      unit_name: "1st Division",
+      parent_unit_id: "HQ-ARMY",
+      regular_soldiers: 2530,
+      officers: 313,
+      senior_officers: 50,
+      total_personnel: 2893,
+      date: "2024-01-01",
+      sub_units: [
+        {
+            ...
+        },
+      ],
+    },
+  ],
+}
+
+Thank you!
+
+==================================================================================================================
+
+Please updare the Control Panel in the orgChartPage component such that the 
+Parallel units selector also contains a list of all the units in the organization. 
+
+Moreover, please style the control panel such that it is visually appealing and user-friendly.
+Use the bootstrap library to style the control panel. 
+Moreover, please feel free to update the CSS file.

@@ -1,0 +1,67 @@
+
+Please create a react component called OrgChart  
+which uses the D3 library to render an organizational chart.
+
+The parameters for the OrgChart component are:
+1. Root - A string which is the ID of some unit in the organization. This will be the root node of the chart presented to the user. 
+2. Children - An array of strings which are the IDs of the child nodes of the root node. 
+We these are the IDs of the root that will be displayed to the user, the other nodes will be hidden.
+3. Parallel Units - An array which contains the ID of two units that are parallel to the root node.
+These units will be displayed alongside the root node in the chart and the user will compare them to the root node.
+
+Moreover, the component uses the following hooks given in the DataContext.js file:
+1. selectedDate - which represents the date selected by the user.
+2. pastDate     - which represents the date selected by the user in the past.
+3. CurrentUnits - which contains the entire organization structure for the selected date.
+4. PastUnits    - which contains the entire organization structure for the past date.
+
+Now, please create a simple organizational chart which:
+1. Shows only the root node and two of it's children.
+2. To represent each node, it uses the ParallelUnitCard.js component.
+3. When using the ParallelUnitCard.js component, use the default value of minValue, maxValue, backgroundGrowthColor and backgroundDeclineColor.
+
+We provide the following files to help you:
+1. The OrgChartPage.js component which is the parent of the OrgChart component.
+2. The ParallelUnitCard.js component which is used to render each node in the chart.
+3. The DataContext.js file which provides the necessary hooks to access the organization data.
+
+Moreover, we provide the CSS file index.css which you can use to style the chart. 
+Please make add a dedicated CSS file for the OrgChart component, named OrgChart.css, and import it in the OrgChart component.
+
+Do you best, Thank you!
+
+================================================================================================
+
+Please update the OrgChart component such that the root unit appears in the same row as the row which contains the parallel units.
+More precisely, the root unit should be in the middle of the row. 
+If there is one parallel unit, it should be on the left side of the root unit.
+If there are two parallel units, they should be on the left and right sides of the root unit.
+If there are three parallel units, the first two should be on the left side of the root unit and 
+the third one should be on the right side of the root unit.
+If there are no parallel units, the root unit should be centered in the row.
+
+I have provided the necessary files to assist you in implementing this feature:
+1. The OrgChartPage.js component which is the parent of the OrgChart component.
+2. The OrgChart.css file which contains the styles for the OrgChart component.
+
+Feel free to use and change the styles in the OrgChart.css file to achieve the desired layout.
+
+=============================================================================================
+
+Consider the following orgChart.js component.
+Please rewrite the visualization such that the tree is represented using a 2d grid layout.
+The root node should appear in the top row alongside the parallel units.
+The children of the root node should appear in the second row, 
+the grandchildren in the third row, and so on.
+Moreover, please update the component such that a full organizational tree 
+can be displayed, not just the root and its children.
+
+Make sure that the tree is dynamic! 
+Meaning that if there are a lot of nodes and the screen is not wide enough,
+the tree should be scrollable horizontally and vertically.
+
+=============================================================================================
+
+Consider the following orgChart.js component.
+Please update the page such that the orgChart component contains a full screen mode, 
+where the orgChart component will take the full width and height of the screen.

@@ -13,10 +13,10 @@ import UnitCard from '../UnitCard';
 
 const UnitDetails = () => {
   const { id } = useParams();
-  const { selectedDate, units } = useData();
+  const { selectedDate, currentUnits } = useData();
 
-  const rootNodeId = Array.isArray(units) && units.length > 0
-    ? units[0].unit_id
+  const rootNodeId = Array.isArray(currentUnits) && currentUnits.length > 0
+    ? currentUnits[0].unit_id
     : null;
   const effectiveId = (id === 'root' && rootNodeId) ? rootNodeId : id;
 
@@ -47,7 +47,7 @@ const UnitDetails = () => {
     };
 
     fetchUnitData();
-  }, [effectiveId, selectedDate, units]);
+  }, [effectiveId, selectedDate, currentUnits]);
 
   if (loading) {
     return (
@@ -112,7 +112,7 @@ const UnitDetails = () => {
               <h2 className="text-xl font-semibold mb-3">Unit Structure</h2>
               <div className="bg-white p-4 rounded shadow h-96">
                 {Array.isArray(subUnits.sub_units) && subUnits.sub_units.length > 0 ? (
-                  <OrgChart units={subUnits} rootId={effectiveId} />
+                  <OrgChart units={subUnits} rootId={effectiveId} />  
                 ) : (
                   <p className="text-gray-500 text-center mt-16">
                     This unit has no sub-units

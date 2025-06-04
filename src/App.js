@@ -16,10 +16,11 @@ function App() {
           <NavBar />
             <main className="flex-grow-1 overflow-auto">
             <Routes>
-              {/* <Route path="/" element={<Dashboard/>} /> */}
-              <Route path="/" element={<TestPage/>} />
+              <Route path="/" element={<Dashboard/>} />
+              {/* <Route path="/" element={<TestPage/>} /> */}
               <Route path="/org-chart" element={<OrgChartPage />} />
-              <Route path="/time-graph" element={<TimeGraphPage />} />
+              {/* <Route path="/time-graph" element={<TimeGraphPage />} /> */}
+              <Route path="/time-graph" element={<TestPage />} />
               <Route path="/unit/:id" element={<UnitDetails />} />
             </Routes>
           </main>
