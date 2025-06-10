@@ -4,13 +4,20 @@
 .data-panel {
   background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
   width: 350px;
-  min-height: 100vh;
+  height: 100vh;
   border-left: 1px solid #e2e8f0;
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   font-family: 'Inter', sans-serif;
   overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  min-height: min-content;
 }
 
 /* Header Section */
@@ -224,11 +231,15 @@
 }
 
 .pie-chart {
-  min-height: 200px;
+  min-height: 300px;
+  display: flex;
+  align-items: top;
+  justify-content: top;
 }
 
 .time-chart {
   min-height: 220px;
+  padding: 0px !important;
 }
 
 /* Loading and Error States */

@@ -1,35 +1,306 @@
-/* TimeGraph.css */
+/* TimeGraph.css - Modern, Clean Styling */
+
 .time-graph-container {
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
   position: relative;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 12px;
+  padding: 0px;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
   overflow: hidden;
-  transition: box-shadow 0.3s;
 }
+
 .time-graph-container:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.07),
+    0 4px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
 }
-.time-graph-container svg {
+
+.time-graph-svg {
   display: block;
-  margin: auto;
+  margin: 0 auto;
+  background: transparent;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.time-graph-container .axis line {
-  stroke: rgba(7,25,82,0.1);
+
+/* Grid Styling */
+.grid line {
+  stroke: #e2e8f0;
+  stroke-opacity: 0.7;
+  stroke-width: 1;
+  stroke-dasharray: 2,2;
 }
-.time-graph-container .axis path {
-  stroke: rgba(7,25,82,0.2);
+
+.grid path {
+  stroke-width: 0;
 }
-.time-graph-container circle {
-  fill: var(--color-light);
-  transition: r 0.2s, fill 0.2s;
+
+.x-grid line {
+  stroke-opacity: 0.4;
 }
-.time-graph-container circle:hover {
-  fill: var(--color-dark);
-  r: 6;
+
+.y-grid line {
+  stroke-opacity: 0.6;
 }
-.time-graph-container text {
-  font-family: var(--font-base);
-  font-size: 8px;
-  fill: var(--color-dark);
+
+/* Axis Styling */
+.x-axis, .y-axis {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.x-axis path, .y-axis path {
+  stroke: #94a3b8;
+  stroke-width: 1;
+}
+
+.x-axis line, .y-axis line {
+  stroke: #94a3b8;
+  stroke-width: 1;
+}
+
+.x-axis text, .y-axis text {
+  fill: #64748b;
+  font-weight: 500;
+}
+
+/* Axis Labels */
+.axis-label {
+  fill: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.y-label {
+  text-anchor: middle;
+}
+
+.x-label {
+  text-anchor: middle;
+}
+
+/* Line and Area Styling */
+.line-path {
+  filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.2));
+}
+
+.area-path {
+  opacity: 0.8;
+}
+
+/* Data Points */
+.data-point {
+  cursor: pointer;
+  filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
+  transition: all 0.2s ease;
+}
+
+.data-point:hover {
+  filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.4));
+}
+
+/* Tooltip Styling */
+.time-graph-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-content {
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.tooltip-date {
+  color: #e2e8f0;
+  font-size: 11px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+
+.tooltip-value {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.tooltip-label {
+  color: #3B82F6;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Empty State Styling */
+.time-graph-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 2px dashed #cbd5e1;
+  min-height: 200px;
+  transition: all 0.3s ease;
+}
+
+.time-graph-empty:hover {
+  border-color: #94a3b8;
+  background: linear-gradient(135deg, #f1f5f9 0%, #ffffff 100%);
+}
+
+.empty-icon {
+  font-size: 48px;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.time-graph-empty:hover .empty-icon {
+  color: #94a3b8;
+  transform: scale(1.05);
+}
+
+.empty-text {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .time-graph-container {
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .axis-label {
+    font-size: 10px;
+  }
+  
+  .x-axis text, .y-axis text {
+    font-size: 9px;
+  }
+  
+  .tooltip-content {
+    padding: 8px 12px;
+  }
+  
+  .tooltip-value {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .time-graph-container {
+    padding: 10px;
+  }
+  
+  .time-graph-empty {
+    padding: 40px 15px;
+    min-height: 150px;
+  }
+  
+  .empty-icon {
+    font-size: 36px;
+  }
+  
+  .empty-text {
+    font-size: 12px;
+  }
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.time-graph-container {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Bootstrap Integration Classes */
+.time-graph-container.card {
+  border: 1px solid #e2e8f0;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.time-graph-container.shadow-sm {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24) !important;
+}
+
+.time-graph-container.shadow {
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.07),
+    0 4px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .time-graph-container {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-color: #334155;
+  }
+  
+  .grid line {
+    stroke: #334155;
+  }
+  
+  .x-axis path, .y-axis path,
+  .x-axis line, .y-axis line {
+    stroke: #64748b;
+  }
+  
+  .x-axis text, .y-axis text {
+    fill: #94a3b8;
+  }
+  
+  .axis-label {
+    fill: #cbd5e1;
+  }
+  
+  .time-graph-empty {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-color: #475569;
+  }
+  
+  .empty-icon {
+    color: #475569;
+  }
+  
+  .empty-text {
+    color: #94a3b8;
+  }
 }

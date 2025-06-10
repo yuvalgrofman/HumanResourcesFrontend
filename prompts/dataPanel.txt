@@ -74,3 +74,15 @@ Additionally, we provide the orgChartPage component which is the parent of the d
 in order to help you understand how the dataPanel component is used.
 
 Please do your best and thank you!
+
+=========================================================================
+
+Please restyle the timeGraph.js component for the dataPanel.js component. 
+Make sure the implementation still holds but restyle the graph itself 
+to make it more clean, elegant and modern. 
+You can make a dedicated css file for the component and use bootstrap to style it. 
+
+We provide you two files which can help you:
+1. The orginal timeGraph component. Please only use to for the implementation details, 
+but completely redo the styling.
+2. The dataPanel component so you can see how the component will be used.

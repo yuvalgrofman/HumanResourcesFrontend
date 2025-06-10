@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 import { useData } from '../../context/DataContext';
 import './OrgChart.css';
 
-const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID }) => {
+const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID, levels = 3 }) => {
   const { currentUnits, pastUnits } = useData();
   const [flatCurrentUnits, setFlatCurrentUnits] = useState([]);
   const [flatPastUnits, setFlatPastUnits] = useState([]);
@@ -107,7 +107,7 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
         else if (e.key === '0') { e.preventDefault(); handleZoomReset(); }
       }
       // F11 or F key for full screen toggle
-      if (e.key === 'F11' || (e.key === 'f' && !e.ctrlKey && !e.metaKey)) {
+      if (e.key === 'f' && !e.ctrlKey && !e.metaKey) {
         e.preventDefault();
         toggleFullScreen();
       }
@@ -132,13 +132,23 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
   const findUnitById = (units, unitId) => units.find(unit => unit.id === unitId);
 
   // Convert unit to card format
+  // const convertToCardFormat = (unit) => {
+  //   if (!unit) return null;
+  //   const randomValue = Math.floor(Math.random() * 30 + 20);
+  //   const randomValue2 = Math.floor(Math.random() * 20 + 15);
+  //   const randomValue3 = Math.floor(Math.random() * 10 + 5);
+  //   const randomValue4 = Math.floor(Math.random() * 100);
+  //   return { R1: randomValue, R2: randomValue2, R3: randomValue3, Total: randomValue4 };
+  // };
+
   const convertToCardFormat = (unit) => {
-    if (!unit) return null;
-    const randomValue = Math.floor(Math.random() * 30 + 20);
-    const randomValue2 = Math.floor(Math.random() * 20 + 15);
-    const randomValue3 = Math.floor(Math.random() * 10 + 5);
-    const randomValue4 = Math.floor(Math.random() * 100);
-    return { R1: randomValue, R2: randomValue2, R3: randomValue3, Total: randomValue4 };
+    if (!unit) return { R1: 0, R2: 0, R3: 0, Total: 0 };
+    return {
+      R1: unit.regular_soldiers || 0,
+      R2: unit.officers || 0,
+      R3: unit.senior_officers || 0,
+      Total: unit.total_personnel || 0
+    };
   };
 
   const getGrowthType = (current, past) => {
@@ -186,7 +196,6 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
       return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
     }
   };
-
 
   const createHorizontalBar = (label, currentValue, lastValue, minValue = 0, maxValue = 50) => {
     // Clamp values to min/max range
@@ -264,6 +273,23 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
     `;
   };
 
+  // Helper function to limit tree depth based on levels prop
+  const limitTreeDepth = (node, currentDepth = 0) => {
+    if (currentDepth >= levels - 1) {
+      // Return node without children if we've reached the depth limit
+      return { ...node, children: [] };
+    }
+    
+    if (node.children && node.children.length > 0) {
+      return {
+        ...node,
+        children: node.children.map(child => limitTreeDepth(child, currentDepth + 1))
+      };
+    }
+    
+    return node;
+  };
+
   // Build tree structure for D3
   const buildTreeData = useMemo(() => {
     if (!flatCurrentUnits.length) return null;
@@ -305,19 +331,23 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
         };
       });
     
+    let treeData;
     if (parallelNodes.length > 0) {
       // Create a virtual root to hold both root and parallel units
       // Arrange children with root in center and parallel units around it
-      return {
+      treeData = {
         id: 'virtual-root',
         name: 'Organization',
         isVirtual: true,
         children: [rootData, ...parallelNodes]
       };
+    } else {
+      treeData = rootData;
     }
     
-    return rootData;
-  }, [flatCurrentUnits, rootUnit, parallelUnits, childUnits]);
+    // Apply depth limitation to the entire tree
+    return limitTreeDepth(treeData);
+  }, [flatCurrentUnits, rootUnit, parallelUnits, childUnits, levels]);
 
   // D3 Tree rendering
   useEffect(() => {
@@ -566,13 +596,14 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
 
   const totalNodes = flatCurrentUnits.length;
   const maxDepth = buildTreeData ? d3.hierarchy(buildTreeData).height + 1 : 0;
+  const displayedDepth = Math.min(maxDepth, levels);
   
   return (
     <div className={`org-chart-container ${isFullScreen ? 'fullscreen' : ''}`}>
       <div className="org-chart-header">
         <div className="header-info">
           <h3>Organizational Structure</h3>
-          <p>{maxDepth} levels • {totalNodes} total units</p>
+          <p>{displayedDepth} levels • {totalNodes} total units • Showing {levels} level{levels !== 1 ? 's' : ''}</p>
           {clickedNodeID && (
             <p style={{ color: '#ff6b35', fontWeight: 'bold' }}>
               Selected: {flatCurrentUnits.find(u => u.id === clickedNodeID)?.name || clickedNodeID}
@@ -633,6 +664,7 @@ OrgChart.propTypes = {
   parallelUnits: PropTypes.arrayOf(PropTypes.string).isRequired,
   clickedNodeID: PropTypes.string,
   setClickedNodeID: PropTypes.func.isRequired,
+  levels: PropTypes.number,
 };
 
 export default OrgChart;

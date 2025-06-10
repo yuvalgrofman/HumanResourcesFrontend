@@ -17,6 +17,9 @@ const OrgChartPage = () => {
   // New state for clicked node functionality
   const [clickedNodeID, setClickedNodeID] = useState('');
   
+  // State for org chart levels
+  const [levels, setLevels] = useState(3);
+  
   // Available units for selection (derived from current units)
   const [availableUnits, setAvailableUnits] = useState([]);
 
@@ -116,6 +119,19 @@ const OrgChartPage = () => {
     // Show all units except the root unit for parallel selection
     const parallelUnitOptions = availableUnits.filter(unit => unit.id !== rootUnit);
 
+    const handleSearchKeyPress = (e) => {
+      if (e.key === 'Enter') {
+        setParallelSearchTerm(e.target.value.trim());
+      }
+    };
+
+    const filterBySearchTerm = (units, searchTerm) => {
+      if (!searchTerm) return units;
+      return units.filter(unit =>
+        unit.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    };
+
     return (
       <div className="control-panel-org">
         <div className="control-panel-header">
@@ -143,9 +159,22 @@ const OrgChartPage = () => {
               </option>
             ))}
           </select>
-          <div className="form-text">
-            Choose the primary unit to display at the center of your chart
-          </div>
+        </div>
+
+        <div className="control-section">
+          <label className="form-label fw-bold">
+            <i className="fas fa-layer-group me-2 text-info"></i>
+            Chart Depth (Levels)
+          </label>
+          <input
+            type="number"
+            className="form-control form-control-sm"
+            value={levels}
+            onChange={(e) => setLevels(Math.max(1, parseInt(e.target.value) || 1))}
+            min="1"
+            max="10"
+            step="1"
+          />
         </div>
 
         <div className="control-section">
@@ -182,9 +211,6 @@ const OrgChartPage = () => {
               </div>
             )}
           </div>
-          <div className="form-text">
-            Select subordinate units to display below the root unit
-          </div>
         </div>
 
         <div className="control-section">
@@ -202,16 +228,12 @@ const OrgChartPage = () => {
                   type="text"
                   className="form-control form-control-sm"
                   placeholder="Search units..."
-                  onChange={(e) => setParallelSearchTerm(e.target.value)}
+                  onKeyPress = {handleSearchKeyPress}
                 />
               </div>
             ) : null}
             <div className="checkbox-scroll">
-              {parallelUnitOptions
-                .filter(unit => 
-                  !parallelSearchTerm || 
-                  unit.name.toLowerCase().includes(parallelSearchTerm.toLowerCase())
-                )
+              {filterBySearchTerm(parallelUnitOptions, parallelSearchTerm)
                 .map(unit => (
                 <div key={unit.id} className="form-check checkbox-item">
                   <input
@@ -240,9 +262,6 @@ const OrgChartPage = () => {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="form-text">
-            Select additional units to display alongside the root unit
           </div>
         </div>
 
@@ -274,10 +293,6 @@ const OrgChartPage = () => {
             </div>
             {rootUnitObj && (
               <div className="mt-2 pt-2 border-top">
-                <small className="text-muted">
-                  <i className="fas fa-users me-1"></i>
-                  Total Personnel: <strong>{rootUnitObj.total_personnel}</strong>
-                </small>
               </div>
             )}
           </div>
@@ -316,6 +331,7 @@ const OrgChartPage = () => {
             parallelUnits={parallelUnits}
             clickedNodeID={clickedNodeID}
             setClickedNodeID={setClickedNodeID}
+            levels={levels}
           />
         </div>
         

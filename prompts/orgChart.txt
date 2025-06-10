@@ -90,3 +90,13 @@ Thus, if it is more convinient to reimplement the component in the orgChart.js f
 
 Please update the OrgChat.js component such that when showing a parallel unit, 
 only the unit itself is shown, without the children of the unit.
+
+===================================================================================================
+
+
+We updated the orgChart.js component such that it has the following parameters:
+
+const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID, levels = 3 })
+
+Please update the Control Panel in the OrgChartPage.js component such that it has another input field for the levels parameter.
+When this input field is changed, it should update the levels parameter in the OrgChart component.

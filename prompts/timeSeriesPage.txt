@@ -1,0 +1,36 @@
+Now, please implement the timeGraphPage.js component. 
+The goal of the timeGraphPage is to display the total amount of personel in the different units of the organization.
+To do this, it shows multiple graphs which display the total personel in each unit over time. 
+
+The timeGraphPage component should use the following context variables from the DataContext.js file:
+1. selectedDate - The modern date selected by the user.
+2. pastDate - The old date selected by the user.
+3. CurrentUnits - The organization structure at time selectedDate.
+
+The timeGraphPage should be built as follows:
+1. On the left there should appear a control panel similar to the one in the orgChartPage.js component.
+    - It should contain a scrollable checkbox list of all the units in the organization with a search bar on top.
+    Allowing the user to select multiple units.
+    - There should appear a status bar at the bottom of the control panel, which shows 2 stats about the selected units:
+      - The total number of selected units.
+      - The total number of personnel in the selected units at the selected date.
+    When making this part, take very heavy inspiration from the orgChartPage.js component.
+
+2. On the middle-bottom of the page there should appear a slider to select the pastDate and selectedDate.
+Use the same slider component as in the orgChartPage.js component.
+
+3. In the middle of the page there should appear the main visualization. 
+This visualization should display all the graphs for the selected units, on each other. 
+The dates appearing on the x-axis should be between the pastDate and selectedDate.
+
+We provide the following files to help you:
+1. The current TimeGraphPage.js.
+2. The DataContext.js file which provides the necessary hooks to access the organization data.
+3. The Slider.js component which is used to select the dates.
+4. The OrgChartPage.js component which is the parent of the OrgChart component and contains the control panel. 
+
+Make sure:
+1. Not to use the TimeGraph.js component, it is meant for a different purpose.
+2. Write a new CSS file for the TimeGraphPage component, named TimeGraphPage.css, and import it in the TimeGraphPage.js component.
+3. Feel free to use bootstrap to style the component, make it clean, user-friendly, responsive and elegant.
+4. Do you best and thank you!

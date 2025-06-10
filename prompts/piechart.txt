@@ -5,12 +5,14 @@ Please make the following changes:
 
 ===================================================
 
-Now, please keep the current style of the pie chart but reimplement it so that it 
-fits with the project and specifically the DataPanel component which uses the pieChart. 
+Now, please keep restyle the pie chart but make sure it still fits with the project and specifically 
+the DataPanel component which uses the pieChart. 
 We provide:
 1. The previous pie chart implementation as a reference.
 2. The DataPanel component which uses the pieChart.
 
 Please create both the new pie chart component, 
 and a dedicated css file for the new pie chart component.
-You can rewrite the dataPanel component such that it only shows the new pie chart component.
+
+When styling the pie chart, please ensure that it is visually appealing and consistent with the overall design of the DataPanel component.
+Moreover, make sure the design is elegant, modern, clean, is easy to read, and is responsive.
