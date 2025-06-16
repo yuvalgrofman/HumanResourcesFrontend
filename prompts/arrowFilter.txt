@@ -1,0 +1,36 @@
+Please update the code block which begins in line 652 such that 
+is uses the arrowFilterValue from the props to filter the movement arrows which 
+are displayed.
+
+In particalar, only the arrows which show the movement of more than 
+arrowFilterValue soldiers should be displayed.
+
+===========================================================
+
+Please update the ArrowChart.js component such that, 
+in addition to keeping track of the last clicked unit, which is stored with the clickedNodeId,
+variable, it also keeps tracks of all the units that have been clicked. 
+
+In particular, add a new state variable called clickedNodeIds, which is an array that stores the ids of all clicked units.
+
+When a unit is clicked, its id should be added to the clickedNodeIds array,
+when it is clicked again, it should be removed from the array.
+
+Please update the borderColoe code in line 950 such that Orane Border is 
+used for the clicked units.
+
+Please do not rewrite the whole component, instead write 3-4 blocks of code that
+which implement the requested changes, and tell me the exact line numbers where they should be inserted.
+
+===========================================================
+
+Please update the ArrowChart.js component such that, 
+it contains a toggle called show clicked/show all which 
+allows the user between showing the arrows of all the units or only 
+the arrows of the clicked units. 
+
+To implement this, please update the block of code which begins at line 666, 
+such that if the showClickedArrows state is true, only the arrows of the units in the clickedNodeIds array should be displayed.
+
+Please do not rewrite the whole component, instead write re-implement the relevant 
+blocks of code neccessary to implement the requested changes, and tell me the exact line numbers where they should be inserted.

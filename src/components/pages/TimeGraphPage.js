@@ -127,7 +127,7 @@ const TimeGraphPage = () => {
 
     const clearAllUnits = () => {
       setSelectedUnits([]);
-    };
+      };
 
     const totalSelectedPersonnel = selectedUnits.reduce((total, unitId) => {
       const unit = availableUnits.find(u => u.id === unitId);

@@ -1,0 +1,10 @@
+Please update the innerHTML code which begins at line 940 such that:
+
+Each node has a surrounding ellipse 
+which is colored based in the difference of special soldiers in the unit. 
+In particular, it is colored based on the variable specialSoldierDiff.
+
+The function that is responsible for choosing the color already exists 
+and is called getEllipseColor(specialSoldierDiff).
+
+Your job is to update the innerHTML code such that it includes an ellipse.

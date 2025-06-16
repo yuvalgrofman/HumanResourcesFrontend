@@ -16,6 +16,8 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
   const svgRef = useRef();
   const containerRef = useRef();
 
+  console.log(currentUnits)
+
   // Flatten the hierarchical units structure
   const flattenUnits = (units) => {
     const result = [];
@@ -31,6 +33,7 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
           senior_officers: unit.senior_officers || 0,
           total_personnel: unit.total_personnel || 0,
           date: unit.date,
+          roles: unit.roles || {},
         });
         if (unit.sub_units && unit.sub_units.length > 0) {
           traverse(unit.sub_units);
@@ -143,12 +146,18 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
 
   const convertToCardFormat = (unit) => {
     if (!unit) return { R1: 0, R2: 0, R3: 0, Total: 0 };
+    // return {
+    //   R1: unit.regular_soldiers || 0,
+    //   R2: unit.officers || 0,
+    //   R3: unit.senior_officers || 0,
+    //   Total: unit.total_personnel || 0
+    // };
     return {
-      R1: unit.regular_soldiers || 0,
-      R2: unit.officers || 0,
-      R3: unit.senior_officers || 0,
+      R1: unit.roles["Type 1"].length || 0,
+      R2: unit.roles["Type 2"].length || 0,
+      R3: unit.roles["Type 3"].length || 0,
       Total: unit.total_personnel || 0
-    };
+    }
   };
 
   const getGrowthType = (current, past) => {

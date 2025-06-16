@@ -1,0 +1,40 @@
+Consider the following ArrowChart.js component. 
+This component is designed to render an organizational tree chart which represents the units in a organization.
+Each unit which is represented as a node in the chart has a field called roles. 
+
+The roles field is dictionary of the following form:
+
+{
+    'Type 1' : [soldier11ID, soldier12ID, ...],
+    'Type 2' : [soldier21ID, soldier22ID, ...],
+    'Type 3' : [soldier31ID, soldier32ID, ...],
+}
+
+These soldiers are special soldiers, and we are interested in tracking 
+their movement across the organization, over time. 
+Thus, your goal, is to modify the ArrowChart.js component to 
+such that there exists arrows between nodes representing the movement of these soldiers. 
+
+We provide the JS code for the ArrowChart.js component below
+and the CSS code for the ArrowChart.css component.
+Please add arrows between nodes to represent the movement of soldiers
+while keeping the structure of the organizational tree chart the same.
+
+======================================================================
+
+Make the arrows shorter such that the end of the array is not covered by the card it is pointing to.
+Moreover, make the color of the arrows represent the amount of soldiers moving between the nodes, 
+and between two nodes there can be at most one arrow, which represents all the soldiers moving between those two nodes.
+
+======================================================================
+
+Please update the styling of the arrows such that the arrows always appear from the top-middle or bottom-middle 
+of the card the are pointing from, and point to the right-middle or left-middle of the card they are pointing to.
+
+=======================================================================
+
+Now, please update each Node Card which represents a unit such that it 
+also shows the overall difference in the number of special soldiers 
+between the current time and the previous time step.
+Please only rewrite the code that is necessary to achieve this,
+and explain in detaul where to make the changes and what the should be.

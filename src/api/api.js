@@ -35,6 +35,28 @@ export const getUnitByIdAndDate = async (unitId, date) => {
   }
 };
 
+// Get soldiers by role for a specific unit and date
+export const getUnitSoldiersByRole = async (unitId, date) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/units/${unitId}/${date}/soldiers`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching unit soldiers by role:', error);
+    throw error;
+  }
+};
+
+// Get a specific unit for a specific date including soldiers grouped by role
+export const getUnitWithSoldiers = async (unitId, date) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/units/${unitId}/${date}/with-soldiers`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching unit with soldiers:', error);
+    throw error;
+  }
+};
+
 // Get complete subtree of a specific unit
 export const getUnitSubtree = async (unitId, date) => {
   try {
@@ -72,6 +94,8 @@ export default {
   getUnitsByDate,
   getUnitTimeSeries,
   getUnitByIdAndDate,
+  getUnitSoldiersByRole,
+  getUnitWithSoldiers,
   getUnitSubtree,
   createUnit,
   updateUnit

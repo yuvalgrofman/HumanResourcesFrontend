@@ -7,6 +7,7 @@ import OrgChartPage from './components/pages/OrgChartPage';
 import TimeGraphPage from './components/pages/TimeGraphPage';
 import UnitDetails from './components/pages/UnitDetails';
 import TestPage from './components/pages/TestPage';
+import ArrowChartPage from './components/pages/ArrowChartPage';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
             <main className="flex-grow-1 overflow-auto">
             <Routes>
               {/* <Route path="/" element={<Dashboard/>} /> */}
-              <Route path="/" element={<TestPage/>} />
+              {/* <Route path="/" element={<TestPage/>} /> */}
+              <Route path="/" element={<ArrowChartPage/>} />
               <Route path="/org-chart" element={<OrgChartPage />} />
               <Route path="/time-graph" element={<TimeGraphPage />} />
               {/* <Route path="/time-graph" element={<TestPage />} /> */}

@@ -1,0 +1,7 @@
+Please update the ArrowChartPage.js component such that 
+the Organizational Control Panel which is located on the left side of the page
+also contains another input field which is called Arrow Filter. 
+The Arrow Filter input field should appear right next to the Chart Depth (Levels) input field,
+and it should contain a number. 
+The number should change a state variable called arrowFilterValue 
+which should be initialized to 0 and given to the ArrowChart component as a prop.

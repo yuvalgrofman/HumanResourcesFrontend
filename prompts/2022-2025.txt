@@ -1,0 +1,4840 @@
+[
+    {
+        "fromUnit": "BN-MAI-023",
+        "fromUnitName": "23th Maintenance Battalion",
+        "toUnit": "HQ-ARMY",
+        "toUnitName": "Army Headquarters",
+        "soldiers": [
+            "PERS-255"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-255"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-024",
+        "fromUnitName": "24th Mechanized Battalion",
+        "toUnit": "HQ-ARMY",
+        "toUnitName": "Army Headquarters",
+        "soldiers": [
+            "PERS-352"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-352"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-014",
+        "fromUnitName": "14th Aviation Brigade",
+        "toUnit": "HQ-ARMY",
+        "toUnitName": "Army Headquarters",
+        "soldiers": [
+            "PERS-124"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-124"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-036",
+        "fromUnitName": "36th Heavy Weapons Company",
+        "toUnit": "HQ-ARMY",
+        "toUnitName": "Army Headquarters",
+        "soldiers": [
+            "PERS-211"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-211"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-065",
+        "fromUnitName": "65th Rifle Company",
+        "toUnit": "DIV-001",
+        "toUnitName": "1st Division",
+        "soldiers": [
+            "PERS-382"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-382"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-053",
+        "fromUnitName": "53th Headquarters Company",
+        "toUnit": "DIV-001",
+        "toUnitName": "1st Division",
+        "soldiers": [
+            "PERS-408"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-408"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-020",
+        "fromUnitName": "20th Tank Battalion",
+        "toUnit": "BDE-SUP-001",
+        "toUnitName": "1st Support Brigade",
+        "soldiers": [
+            "PERS-259"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-259"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-017",
+        "fromUnitName": "17th Infantry Battalion",
+        "toUnit": "BDE-SUP-001",
+        "toUnitName": "1st Support Brigade",
+        "soldiers": [
+            "PERS-401"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-401"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-065",
+        "fromUnitName": "65th Rifle Company",
+        "toUnit": "BDE-SUP-001",
+        "toUnitName": "1st Support Brigade",
+        "soldiers": [
+            "PERS-496"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-496"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "BDE-SUP-001",
+        "toUnitName": "1st Support Brigade",
+        "soldiers": [
+            "PERS-032"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-032"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-042",
+        "fromUnitName": "42th Heavy Weapons Company",
+        "toUnit": "BDE-SUP-001",
+        "toUnitName": "1st Support Brigade",
+        "soldiers": [
+            "PERS-273"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-273"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-046",
+        "fromUnitName": "46th Signal Battalion",
+        "toUnit": "BDE-SUP-001",
+        "toUnitName": "1st Support Brigade",
+        "soldiers": [
+            "PERS-368"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-368"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-038",
+        "fromUnitName": "38th Rifle Company",
+        "toUnit": "BN-TAN-001",
+        "toUnitName": "1st Tank Battalion",
+        "soldiers": [
+            "PERS-265"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-265"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-010",
+        "fromUnitName": "10th Armor Brigade",
+        "toUnit": "BN-TAN-001",
+        "toUnitName": "1st Tank Battalion",
+        "soldiers": [
+            "PERS-296"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-296"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-025",
+        "fromUnitName": "25th Rifle Company",
+        "toUnit": "CO-HEA-001",
+        "toUnitName": "1st Headquarters Company",
+        "soldiers": [
+            "PERS-358"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-358"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-037",
+        "fromUnitName": "37th Signal Battalion",
+        "toUnit": "CO-HEA-001",
+        "toUnitName": "1st Headquarters Company",
+        "soldiers": [
+            "PERS-442"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-442"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-007",
+        "fromUnitName": "7th Headquarters Company",
+        "toUnit": "CO-HEA-001",
+        "toUnitName": "1st Headquarters Company",
+        "soldiers": [
+            "PERS-210"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-210"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-027",
+        "fromUnitName": "27th Mechanized Battalion",
+        "toUnit": "CO-HEA-001",
+        "toUnitName": "1st Headquarters Company",
+        "soldiers": [
+            "PERS-181"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-181"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-009",
+        "fromUnitName": "9th Artillery Brigade",
+        "toUnit": "CO-SCO-002",
+        "toUnitName": "2nd Scout Company",
+        "soldiers": [
+            "PERS-173"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-173"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-019",
+        "fromUnitName": "19th Headquarters Company",
+        "toUnit": "CO-SCO-002",
+        "toUnitName": "2nd Scout Company",
+        "soldiers": [
+            "PERS-087"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-087"
+        ]
+    },
+    {
+        "fromUnit": "HQ-ARMY",
+        "fromUnitName": "Army Headquarters",
+        "toUnit": "CO-SCO-002",
+        "toUnitName": "2nd Scout Company",
+        "soldiers": [
+            "PERS-146"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-146"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-026",
+        "fromUnitName": "26th Transportation Battalion",
+        "toUnit": "CO-SCO-002",
+        "toUnitName": "2nd Scout Company",
+        "soldiers": [
+            "PERS-474"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-474"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-010",
+        "fromUnitName": "10th Scout Company",
+        "toUnit": "CO-HEA-003",
+        "toUnitName": "3rd Headquarters Company",
+        "soldiers": [
+            "PERS-230"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-230"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-022",
+        "fromUnitName": "22th Rifle Company",
+        "toUnit": "CO-HEA-003",
+        "toUnitName": "3rd Headquarters Company",
+        "soldiers": [
+            "PERS-142"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-142"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-006",
+        "fromUnitName": "6th Signal Battalion",
+        "toUnit": "CO-HEA-003",
+        "toUnitName": "3rd Headquarters Company",
+        "soldiers": [
+            "PERS-018"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-018"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-009",
+        "fromUnitName": "9th Artillery Brigade",
+        "toUnit": "CO-HEA-003",
+        "toUnitName": "3rd Headquarters Company",
+        "soldiers": [
+            "PERS-156"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-156"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-065",
+        "fromUnitName": "65th Rifle Company",
+        "toUnit": "BN-TRA-002",
+        "toUnitName": "2nd Transportation Battalion",
+        "soldiers": [
+            "PERS-356"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-356"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-034",
+        "fromUnitName": "34th Signal Battalion",
+        "toUnit": "BN-TRA-002",
+        "toUnitName": "2nd Transportation Battalion",
+        "soldiers": [
+            "PERS-246"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-246"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-016",
+        "fromUnitName": "16th Headquarters Company",
+        "toUnit": "BN-TRA-002",
+        "toUnitName": "2nd Transportation Battalion",
+        "soldiers": [
+            "PERS-457"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-457"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-038",
+        "fromUnitName": "38th Signal Battalion",
+        "toUnit": "BN-MED-003",
+        "toUnitName": "3rd Medical Battalion",
+        "soldiers": [
+            "PERS-105"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-105"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-023",
+        "fromUnitName": "23th Maintenance Battalion",
+        "toUnit": "BN-MED-003",
+        "toUnitName": "3rd Medical Battalion",
+        "soldiers": [
+            "PERS-405"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-405"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-021",
+        "fromUnitName": "21th Service Company",
+        "toUnit": "BN-TAN-004",
+        "toUnitName": "4th Tank Battalion",
+        "soldiers": [
+            "PERS-331"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-331"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-015",
+        "fromUnitName": "15th Headquarters Company",
+        "toUnit": "BN-TAN-004",
+        "toUnitName": "4th Tank Battalion",
+        "soldiers": [
+            "PERS-219"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-219"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-027",
+        "fromUnitName": "27th Scout Company",
+        "toUnit": "CO-RIF-025",
+        "toUnitName": "25th Rifle Company",
+        "soldiers": [
+            "PERS-471"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-471"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-014",
+        "fromUnitName": "14th Tank Battalion",
+        "toUnit": "CO-RIF-025",
+        "toUnitName": "25th Rifle Company",
+        "soldiers": [
+            "PERS-060"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-060"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-011",
+        "fromUnitName": "11th Military Police Brigade",
+        "toUnit": "CO-SCO-026",
+        "toUnitName": "26th Scout Company",
+        "soldiers": [
+            "PERS-077"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-077"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-026",
+        "fromUnitName": "26th Transportation Battalion",
+        "toUnit": "CO-SCO-026",
+        "toUnitName": "26th Scout Company",
+        "soldiers": [
+            "PERS-133"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-133"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-046",
+        "fromUnitName": "46th Signal Battalion",
+        "toUnit": "CO-SCO-026",
+        "toUnitName": "26th Scout Company",
+        "soldiers": [
+            "PERS-010"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-010"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": "CO-SCO-026",
+        "toUnitName": "26th Scout Company",
+        "soldiers": [
+            "PERS-044"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-044"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-045",
+        "fromUnitName": "45th Service Company",
+        "toUnit": "CO-SCO-027",
+        "toUnitName": "27th Scout Company",
+        "soldiers": [
+            "PERS-294"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-294"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-037",
+        "fromUnitName": "37th Signal Battalion",
+        "toUnit": "CO-SCO-027",
+        "toUnitName": "27th Scout Company",
+        "soldiers": [
+            "PERS-335"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-335"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-026",
+        "fromUnitName": "26th Transportation Battalion",
+        "toUnit": "CO-SCO-027",
+        "toUnitName": "27th Scout Company",
+        "soldiers": [
+            "PERS-348"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-348"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-025",
+        "fromUnitName": "25th Rifle Company",
+        "toUnit": "CO-HEA-028",
+        "toUnitName": "28th Headquarters Company",
+        "soldiers": [
+            "PERS-177"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-177"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-047",
+        "fromUnitName": "47th Rifle Company",
+        "toUnit": "CO-HEA-028",
+        "toUnitName": "28th Headquarters Company",
+        "soldiers": [
+            "PERS-373"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-373"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-012",
+        "fromUnitName": "12th Rifle Company",
+        "toUnit": "BN-TRA-005",
+        "toUnitName": "5th Transportation Battalion",
+        "soldiers": [
+            "PERS-127"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-127"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-006",
+        "fromUnitName": "6th Service Company",
+        "toUnit": "BN-TRA-005",
+        "toUnitName": "5th Transportation Battalion",
+        "soldiers": [
+            "PERS-268"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-268"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-003",
+        "fromUnitName": "3rd Headquarters Company",
+        "toUnit": "BN-TRA-005",
+        "toUnitName": "5th Transportation Battalion",
+        "soldiers": [
+            "PERS-198"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-198"
+        ]
+    },
+    {
+        "fromUnit": "HQ-ARMY",
+        "fromUnitName": "Army Headquarters",
+        "toUnit": "CO-HEA-048",
+        "toUnitName": "48th Headquarters Company",
+        "soldiers": [
+            "PERS-120"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-120"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "CO-HEA-049",
+        "toUnitName": "49th Headquarters Company",
+        "soldiers": [
+            "PERS-484"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-484"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-067",
+        "fromUnitName": "67th Service Company",
+        "toUnit": "BDE-ART-003",
+        "toUnitName": "3rd Artillery Brigade",
+        "soldiers": [
+            "PERS-215"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-215"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-008",
+        "fromUnitName": "8th Heavy Weapons Company",
+        "toUnit": "BDE-ART-003",
+        "toUnitName": "3rd Artillery Brigade",
+        "soldiers": [
+            "PERS-271"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-271"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-010",
+        "fromUnitName": "10th Scout Company",
+        "toUnit": "BN-MEC-007",
+        "toUnitName": "7th Mechanized Battalion",
+        "soldiers": [
+            "PERS-067"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-067"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-007",
+        "fromUnitName": "7th Headquarters Company",
+        "toUnit": "BN-MEC-007",
+        "toUnitName": "7th Mechanized Battalion",
+        "soldiers": [
+            "PERS-069"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-069"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-045",
+        "fromUnitName": "45th Service Company",
+        "toUnit": "BN-MEC-007",
+        "toUnitName": "7th Mechanized Battalion",
+        "soldiers": [
+            "PERS-208"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-208"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-021",
+        "fromUnitName": "21th Tank Battalion",
+        "toUnit": "BN-MEC-007",
+        "toUnitName": "7th Mechanized Battalion",
+        "soldiers": [
+            "PERS-249"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-249"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-016",
+        "fromUnitName": "16th Headquarters Company",
+        "toUnit": "BN-MEC-007",
+        "toUnitName": "7th Mechanized Battalion",
+        "soldiers": [
+            "PERS-353"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-353"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-053",
+        "fromUnitName": "53th Headquarters Company",
+        "toUnit": "BN-MEC-007",
+        "toUnitName": "7th Mechanized Battalion",
+        "soldiers": [
+            "PERS-490"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-490"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-031",
+        "fromUnitName": "31th Medical Battalion",
+        "toUnit": "BN-MEC-007",
+        "toUnitName": "7th Mechanized Battalion",
+        "soldiers": [
+            "PERS-240"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-240"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-050",
+        "fromUnitName": "50th Headquarters Company",
+        "toUnit": "BN-TAN-008",
+        "toUnitName": "8th Tank Battalion",
+        "soldiers": [
+            "PERS-118"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-118"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-001",
+        "fromUnitName": "1st Support Brigade",
+        "toUnit": "BN-TAN-008",
+        "toUnitName": "8th Tank Battalion",
+        "soldiers": [
+            "PERS-302"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-302"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-046",
+        "fromUnitName": "46th Signal Battalion",
+        "toUnit": "BN-TAN-008",
+        "toUnitName": "8th Tank Battalion",
+        "soldiers": [
+            "PERS-451",
+            "PERS-413"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-451",
+            "PERS-413"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-013",
+        "fromUnitName": "13th Mechanized Battalion",
+        "toUnit": "BN-TAN-008",
+        "toUnitName": "8th Tank Battalion",
+        "soldiers": [
+            "PERS-125"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-125"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-037",
+        "fromUnitName": "37th Signal Battalion",
+        "toUnit": "BN-TAN-008",
+        "toUnitName": "8th Tank Battalion",
+        "soldiers": [
+            "PERS-037"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-037"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-065",
+        "fromUnitName": "65th Rifle Company",
+        "toUnit": "CO-HEA-004",
+        "toUnitName": "4th Headquarters Company",
+        "soldiers": [
+            "PERS-266"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-266"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-023",
+        "fromUnitName": "23th Rifle Company",
+        "toUnit": "CO-HEA-005",
+        "toUnitName": "5th Headquarters Company",
+        "soldiers": [
+            "PERS-002"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-002"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-017",
+        "fromUnitName": "17th Heavy Weapons Company",
+        "toUnit": "CO-SER-006",
+        "toUnitName": "6th Service Company",
+        "soldiers": [
+            "PERS-277"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-277"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-043",
+        "fromUnitName": "43th Service Company",
+        "toUnit": "CO-SER-006",
+        "toUnitName": "6th Service Company",
+        "soldiers": [
+            "PERS-433"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-433"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "CO-HEA-007",
+        "toUnitName": "7th Headquarters Company",
+        "soldiers": [
+            "PERS-017"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-017"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-036",
+        "fromUnitName": "36th Heavy Weapons Company",
+        "toUnit": "CO-HEA-007",
+        "toUnitName": "7th Headquarters Company",
+        "soldiers": [
+            "PERS-172"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-172"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-009",
+        "fromUnitName": "9th Infantry Battalion",
+        "toUnit": "CO-HEA-007",
+        "toUnitName": "7th Headquarters Company",
+        "soldiers": [
+            "PERS-276"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-276"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-012",
+        "fromUnitName": "12th Artillery Brigade",
+        "toUnit": "BN-SIG-010",
+        "toUnitName": "10th Signal Battalion",
+        "soldiers": [
+            "PERS-436"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-436"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-045",
+        "fromUnitName": "45th Signal Battalion",
+        "toUnit": "BN-SIG-010",
+        "toUnitName": "10th Signal Battalion",
+        "soldiers": [
+            "PERS-224"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-224"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-008",
+        "fromUnitName": "8th Tank Battalion",
+        "toUnit": "BN-SIG-010",
+        "toUnitName": "10th Signal Battalion",
+        "soldiers": [
+            "PERS-395"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-395"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-003",
+        "fromUnitName": "3rd Headquarters Company",
+        "toUnit": "BN-SIG-010",
+        "toUnitName": "10th Signal Battalion",
+        "soldiers": [
+            "PERS-440"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-440"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-062",
+        "fromUnitName": "62th Service Company",
+        "toUnit": "CO-HEA-029",
+        "toUnitName": "29th Headquarters Company",
+        "soldiers": [
+            "PERS-418"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-418"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-030",
+        "fromUnitName": "30th Mechanized Battalion",
+        "toUnit": "CO-HEA-029",
+        "toUnitName": "29th Headquarters Company",
+        "soldiers": [
+            "PERS-100"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-100"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-063",
+        "fromUnitName": "63th Scout Company",
+        "toUnit": "CO-HEA-029",
+        "toUnitName": "29th Headquarters Company",
+        "soldiers": [
+            "PERS-311"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-311"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-012",
+        "fromUnitName": "12th Artillery Brigade",
+        "toUnit": "CO-SCO-030",
+        "toUnitName": "30th Scout Company",
+        "soldiers": [
+            "PERS-072"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-072"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-049",
+        "fromUnitName": "49th Headquarters Company",
+        "toUnit": "CO-SCO-030",
+        "toUnitName": "30th Scout Company",
+        "soldiers": [
+            "PERS-334"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-334"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-049",
+        "fromUnitName": "49th Headquarters Company",
+        "toUnit": "CO-SER-031",
+        "toUnitName": "31th Service Company",
+        "soldiers": [
+            "PERS-285"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-285"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-023",
+        "fromUnitName": "23th Rifle Company",
+        "toUnit": "CO-SER-031",
+        "toUnitName": "31th Service Company",
+        "soldiers": [
+            "PERS-174"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-174"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-044",
+        "fromUnitName": "44th Rifle Company",
+        "toUnit": "CO-RIF-032",
+        "toUnitName": "32th Rifle Company",
+        "soldiers": [
+            "PERS-270"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-270"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-030",
+        "fromUnitName": "30th Scout Company",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-061"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-061"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-018",
+        "fromUnitName": "18th Transportation Battalion",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-320"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-320"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-010",
+        "fromUnitName": "10th Scout Company",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-393"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-393"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-031",
+        "fromUnitName": "31th Medical Battalion",
+        "toUnit": "BDE-AVI-004",
+        "toUnitName": "4th Aviation Brigade",
+        "soldiers": [
+            "PERS-437"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-437"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-066",
+        "fromUnitName": "66th Headquarters Company",
+        "toUnit": "BDE-AVI-004",
+        "toUnitName": "4th Aviation Brigade",
+        "soldiers": [
+            "PERS-330"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-330"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-022",
+        "fromUnitName": "22th Rifle Company",
+        "toUnit": "BDE-AVI-004",
+        "toUnitName": "4th Aviation Brigade",
+        "soldiers": [
+            "PERS-492"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-492"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-036",
+        "fromUnitName": "36th Heavy Weapons Company",
+        "toUnit": "BN-TRA-011",
+        "toUnitName": "11th Transportation Battalion",
+        "soldiers": [
+            "PERS-050"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-050"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-019",
+        "fromUnitName": "19th Transportation Battalion",
+        "toUnit": "CO-RIF-054",
+        "toUnitName": "54th Rifle Company",
+        "soldiers": [
+            "PERS-009"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-009"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-001",
+        "fromUnitName": "1st Headquarters Company",
+        "toUnit": "CO-RIF-054",
+        "toUnitName": "54th Rifle Company",
+        "soldiers": [
+            "PERS-444"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-444"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-039",
+        "fromUnitName": "39th Maintenance Battalion",
+        "toUnit": "CO-SCO-055",
+        "toUnitName": "55th Scout Company",
+        "soldiers": [
+            "PERS-031"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-031"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-059",
+        "fromUnitName": "59th Headquarters Company",
+        "toUnit": "CO-SCO-055",
+        "toUnitName": "55th Scout Company",
+        "soldiers": [
+            "PERS-332"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-332"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-032",
+        "fromUnitName": "32th Infantry Battalion",
+        "toUnit": "CO-HEA-056",
+        "toUnitName": "56th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-232"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-232"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-037",
+        "fromUnitName": "37th Signal Battalion",
+        "toUnit": "CO-HEA-056",
+        "toUnitName": "56th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-350"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-350"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-028",
+        "fromUnitName": "28th Headquarters Company",
+        "toUnit": "CO-HEA-056",
+        "toUnitName": "56th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-477"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-477"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-019",
+        "fromUnitName": "19th Headquarters Company",
+        "toUnit": "BN-SIG-012",
+        "toUnitName": "12th Signal Battalion",
+        "soldiers": [
+            "PERS-161"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-161"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-018",
+        "fromUnitName": "18th Transportation Battalion",
+        "toUnit": "BN-SIG-012",
+        "toUnitName": "12th Signal Battalion",
+        "soldiers": [
+            "PERS-375"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-375"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-007",
+        "fromUnitName": "7th Armor Brigade",
+        "toUnit": "BN-SIG-012",
+        "toUnitName": "12th Signal Battalion",
+        "soldiers": [
+            "PERS-086"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-086"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-035",
+        "fromUnitName": "35th Mechanized Battalion",
+        "toUnit": "BN-SIG-012",
+        "toUnitName": "12th Signal Battalion",
+        "soldiers": [
+            "PERS-243"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-243"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "BN-SIG-012",
+        "toUnitName": "12th Signal Battalion",
+        "soldiers": [
+            "PERS-113"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-113"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-029",
+        "fromUnitName": "29th Headquarters Company",
+        "toUnit": "BN-SIG-012",
+        "toUnitName": "12th Signal Battalion",
+        "soldiers": [
+            "PERS-478"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-478"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-032",
+        "fromUnitName": "32th Infantry Battalion",
+        "toUnit": "BN-MEC-013",
+        "toUnitName": "13th Mechanized Battalion",
+        "soldiers": [
+            "PERS-185"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-185"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": "BN-MEC-013",
+        "toUnitName": "13th Mechanized Battalion",
+        "soldiers": [
+            "PERS-355"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-355"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-001",
+        "fromUnitName": "1st Support Brigade",
+        "toUnit": "BN-MEC-013",
+        "toUnitName": "13th Mechanized Battalion",
+        "soldiers": [
+            "PERS-111"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-111"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-004",
+        "fromUnitName": "4th Tank Battalion",
+        "toUnit": "BN-MEC-013",
+        "toUnitName": "13th Mechanized Battalion",
+        "soldiers": [
+            "PERS-309"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-309"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-066",
+        "fromUnitName": "66th Headquarters Company",
+        "toUnit": "BDE-MIL-005",
+        "toUnitName": "5th Military Police Brigade",
+        "soldiers": [
+            "PERS-182"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-182"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-035",
+        "fromUnitName": "35th Mechanized Battalion",
+        "toUnit": "BN-TAN-014",
+        "toUnitName": "14th Tank Battalion",
+        "soldiers": [
+            "PERS-218"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-218"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-020",
+        "fromUnitName": "20th Service Company",
+        "toUnit": "CO-SER-043",
+        "toUnitName": "43th Service Company",
+        "soldiers": [
+            "PERS-237"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-237"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-043",
+        "fromUnitName": "43th Transportation Battalion",
+        "toUnit": "CO-RIF-044",
+        "toUnitName": "44th Rifle Company",
+        "soldiers": [
+            "PERS-192"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-192"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-062",
+        "fromUnitName": "62th Service Company",
+        "toUnit": "CO-RIF-044",
+        "toUnitName": "44th Rifle Company",
+        "soldiers": [
+            "PERS-170"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-170"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "CO-RIF-044",
+        "toUnitName": "44th Rifle Company",
+        "soldiers": [
+            "PERS-339"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-339"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-018",
+        "fromUnitName": "18th Rifle Company",
+        "toUnit": "CO-RIF-044",
+        "toUnitName": "44th Rifle Company",
+        "soldiers": [
+            "PERS-411"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-411"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-001",
+        "fromUnitName": "1st Headquarters Company",
+        "toUnit": "CO-RIF-044",
+        "toUnitName": "44th Rifle Company",
+        "soldiers": [
+            "PERS-431"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-431"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-039",
+        "fromUnitName": "39th Maintenance Battalion",
+        "toUnit": "CO-SER-045",
+        "toUnitName": "45th Service Company",
+        "soldiers": [
+            "PERS-278"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-278"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-004",
+        "fromUnitName": "4th Aviation Brigade",
+        "toUnit": "CO-SER-045",
+        "toUnitName": "45th Service Company",
+        "soldiers": [
+            "PERS-445"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-445"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "CO-SER-045",
+        "toUnitName": "45th Service Company",
+        "soldiers": [
+            "PERS-076"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-076"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-035",
+        "fromUnitName": "35th Mechanized Battalion",
+        "toUnit": "CO-SER-045",
+        "toUnitName": "45th Service Company",
+        "soldiers": [
+            "PERS-415"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-415"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-007",
+        "fromUnitName": "7th Headquarters Company",
+        "toUnit": "CO-RIF-046",
+        "toUnitName": "46th Rifle Company",
+        "soldiers": [
+            "PERS-084"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-084"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-044",
+        "fromUnitName": "44th Infantry Battalion",
+        "toUnit": "CO-RIF-046",
+        "toUnitName": "46th Rifle Company",
+        "soldiers": [
+            "PERS-214"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-214"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-012",
+        "fromUnitName": "12th Signal Battalion",
+        "toUnit": "CO-RIF-046",
+        "toUnitName": "46th Rifle Company",
+        "soldiers": [
+            "PERS-186"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-186"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-032",
+        "fromUnitName": "32th Rifle Company",
+        "toUnit": "BN-TAN-015",
+        "toUnitName": "15th Tank Battalion",
+        "soldiers": [
+            "PERS-021"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-021"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-016",
+        "fromUnitName": "16th Armor Brigade",
+        "toUnit": "BN-TAN-015",
+        "toUnitName": "15th Tank Battalion",
+        "soldiers": [
+            "PERS-166"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-166"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-003",
+        "fromUnitName": "3rd Artillery Brigade",
+        "toUnit": "BN-MAI-016",
+        "toUnitName": "16th Maintenance Battalion",
+        "soldiers": [
+            "PERS-016"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-016"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-016",
+        "fromUnitName": "16th Maintenance Battalion",
+        "toUnit": "CO-SCO-061",
+        "toUnitName": "61th Scout Company",
+        "soldiers": [
+            "PERS-184",
+            "PERS-446"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-184",
+            "PERS-446"
+        ]
+    },
+    {
+        "fromUnit": "HQ-ARMY",
+        "fromUnitName": "Army Headquarters",
+        "toUnit": "CO-SCO-061",
+        "toUnitName": "61th Scout Company",
+        "soldiers": [
+            "PERS-360"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-360"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-054",
+        "fromUnitName": "54th Rifle Company",
+        "toUnit": "CO-SCO-061",
+        "toUnitName": "61th Scout Company",
+        "soldiers": [
+            "PERS-409"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-409"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-043",
+        "fromUnitName": "43th Transportation Battalion",
+        "toUnit": "CO-SER-062",
+        "toUnitName": "62th Service Company",
+        "soldiers": [
+            "PERS-497"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-497"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-028",
+        "fromUnitName": "28th Headquarters Company",
+        "toUnit": "CO-SER-062",
+        "toUnitName": "62th Service Company",
+        "soldiers": [
+            "PERS-254"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-254"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-023",
+        "fromUnitName": "23th Maintenance Battalion",
+        "toUnit": "CO-SER-062",
+        "toUnitName": "62th Service Company",
+        "soldiers": [
+            "PERS-449"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-449"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-033",
+        "fromUnitName": "33th Heavy Weapons Company",
+        "toUnit": "BN-INF-017",
+        "toUnitName": "17th Infantry Battalion",
+        "soldiers": [
+            "PERS-047"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-047"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-002",
+        "fromUnitName": "2nd Transportation Battalion",
+        "toUnit": "BN-INF-017",
+        "toUnitName": "17th Infantry Battalion",
+        "soldiers": [
+            "PERS-427"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-427"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-062",
+        "fromUnitName": "62th Service Company",
+        "toUnit": "BN-INF-017",
+        "toUnitName": "17th Infantry Battalion",
+        "soldiers": [
+            "PERS-248"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-248"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-010",
+        "fromUnitName": "10th Scout Company",
+        "toUnit": "CO-HEA-008",
+        "toUnitName": "8th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-283"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-283"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-023",
+        "fromUnitName": "23th Maintenance Battalion",
+        "toUnit": "CO-HEA-008",
+        "toUnitName": "8th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-171"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-171"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-014",
+        "fromUnitName": "14th Rifle Company",
+        "toUnit": "CO-RIF-009",
+        "toUnitName": "9th Rifle Company",
+        "soldiers": [
+            "PERS-068"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-068"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-018",
+        "fromUnitName": "18th Rifle Company",
+        "toUnit": "CO-RIF-009",
+        "toUnitName": "9th Rifle Company",
+        "soldiers": [
+            "PERS-203"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-203"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-011",
+        "fromUnitName": "11th Headquarters Company",
+        "toUnit": "CO-RIF-009",
+        "toUnitName": "9th Rifle Company",
+        "soldiers": [
+            "PERS-242"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-242"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-036",
+        "fromUnitName": "36th Heavy Weapons Company",
+        "toUnit": "CO-SCO-010",
+        "toUnitName": "10th Scout Company",
+        "soldiers": [
+            "PERS-093"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-093"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-061",
+        "fromUnitName": "61th Scout Company",
+        "toUnit": "CO-SCO-010",
+        "toUnitName": "10th Scout Company",
+        "soldiers": [
+            "PERS-344"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-344"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-042",
+        "fromUnitName": "42th Tank Battalion",
+        "toUnit": "CO-SCO-010",
+        "toUnitName": "10th Scout Company",
+        "soldiers": [
+            "PERS-193",
+            "PERS-269"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-193",
+            "PERS-269"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-044",
+        "fromUnitName": "44th Rifle Company",
+        "toUnit": "CO-SCO-010",
+        "toUnitName": "10th Scout Company",
+        "soldiers": [
+            "PERS-426"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-426"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-015",
+        "fromUnitName": "15th Artillery Brigade",
+        "toUnit": "BDE-SUP-006",
+        "toUnitName": "6th Support Brigade",
+        "soldiers": [
+            "PERS-468"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-468"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-066",
+        "fromUnitName": "66th Headquarters Company",
+        "toUnit": "BDE-SUP-006",
+        "toUnitName": "6th Support Brigade",
+        "soldiers": [
+            "PERS-191"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-191"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-024",
+        "fromUnitName": "24th Headquarters Company",
+        "toUnit": "BDE-SUP-006",
+        "toUnitName": "6th Support Brigade",
+        "soldiers": [
+            "PERS-051"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-051"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-029",
+        "fromUnitName": "29th Transportation Battalion",
+        "toUnit": "DIV-003",
+        "toUnitName": "3rd Division",
+        "soldiers": [
+            "PERS-199"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-199"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-002",
+        "fromUnitName": "2nd Scout Company",
+        "toUnit": "DIV-003",
+        "toUnitName": "3rd Division",
+        "soldiers": [
+            "PERS-233"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-233"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-014",
+        "fromUnitName": "14th Aviation Brigade",
+        "toUnit": "BDE-ARM-007",
+        "toUnitName": "7th Armor Brigade",
+        "soldiers": [
+            "PERS-158"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-158"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-045",
+        "fromUnitName": "45th Service Company",
+        "toUnit": "BDE-ARM-007",
+        "toUnitName": "7th Armor Brigade",
+        "soldiers": [
+            "PERS-319"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-319"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-027",
+        "fromUnitName": "27th Mechanized Battalion",
+        "toUnit": "BDE-ARM-007",
+        "toUnitName": "7th Armor Brigade",
+        "soldiers": [
+            "PERS-351"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-351"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-064",
+        "fromUnitName": "64th Headquarters Company",
+        "toUnit": "BN-TAN-021",
+        "toUnitName": "21th Tank Battalion",
+        "soldiers": [
+            "PERS-205"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-205"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-031",
+        "fromUnitName": "31th Medical Battalion",
+        "toUnit": "BN-TAN-021",
+        "toUnitName": "21th Tank Battalion",
+        "soldiers": [
+            "PERS-472"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-472"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-041",
+        "fromUnitName": "41th Service Company",
+        "toUnit": "BN-MEC-022",
+        "toUnitName": "22th Mechanized Battalion",
+        "soldiers": [
+            "PERS-046"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-046"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-008",
+        "fromUnitName": "8th Tank Battalion",
+        "toUnit": "BN-MAI-023",
+        "toUnitName": "23th Maintenance Battalion",
+        "soldiers": [
+            "PERS-066"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-066"
+        ]
+    },
+    {
+        "fromUnit": "HQ-ARMY",
+        "fromUnitName": "Army Headquarters",
+        "toUnit": "BN-MAI-023",
+        "toUnitName": "23th Maintenance Battalion",
+        "soldiers": [
+            "PERS-168"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-168"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-012",
+        "fromUnitName": "12th Signal Battalion",
+        "toUnit": "BN-MAI-023",
+        "toUnitName": "23th Maintenance Battalion",
+        "soldiers": [
+            "PERS-313"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-313"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-040",
+        "fromUnitName": "40th Heavy Weapons Company",
+        "toUnit": "BN-MAI-023",
+        "toUnitName": "23th Maintenance Battalion",
+        "soldiers": [
+            "PERS-414"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-414"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-014",
+        "fromUnitName": "14th Tank Battalion",
+        "toUnit": "CO-RIF-051",
+        "toUnitName": "51th Rifle Company",
+        "soldiers": [
+            "PERS-466"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-466"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-026",
+        "fromUnitName": "26th Transportation Battalion",
+        "toUnit": "CO-RIF-051",
+        "toUnitName": "51th Rifle Company",
+        "soldiers": [
+            "PERS-267"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-267"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-002",
+        "fromUnitName": "2nd Scout Company",
+        "toUnit": "CO-RIF-051",
+        "toUnitName": "51th Rifle Company",
+        "soldiers": [
+            "PERS-312"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-312"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-013",
+        "fromUnitName": "13th Support Brigade",
+        "toUnit": "CO-RIF-051",
+        "toUnitName": "51th Rifle Company",
+        "soldiers": [
+            "PERS-390"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-390"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-005",
+        "fromUnitName": "5th Headquarters Company",
+        "toUnit": "CO-SER-052",
+        "toUnitName": "52th Service Company",
+        "soldiers": [
+            "PERS-359"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-359"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-019",
+        "fromUnitName": "19th Transportation Battalion",
+        "toUnit": "CO-HEA-053",
+        "toUnitName": "53th Headquarters Company",
+        "soldiers": [
+            "PERS-129"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-129"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-014",
+        "fromUnitName": "14th Tank Battalion",
+        "toUnit": "CO-HEA-053",
+        "toUnitName": "53th Headquarters Company",
+        "soldiers": [
+            "PERS-432"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-432"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-040",
+        "fromUnitName": "40th Transportation Battalion",
+        "toUnit": "BDE-ART-008",
+        "toUnitName": "8th Artillery Brigade",
+        "soldiers": [
+            "PERS-257"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-257"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-027",
+        "fromUnitName": "27th Scout Company",
+        "toUnit": "CO-HEA-057",
+        "toUnitName": "57th Headquarters Company",
+        "soldiers": [
+            "PERS-225"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-225"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-008",
+        "fromUnitName": "8th Heavy Weapons Company",
+        "toUnit": "CO-HEA-057",
+        "toUnitName": "57th Headquarters Company",
+        "soldiers": [
+            "PERS-419"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-419"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-045",
+        "fromUnitName": "45th Signal Battalion",
+        "toUnit": "CO-HEA-058",
+        "toUnitName": "58th Headquarters Company",
+        "soldiers": [
+            "PERS-221"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-221"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-011",
+        "fromUnitName": "11th Transportation Battalion",
+        "toUnit": "CO-HEA-058",
+        "toUnitName": "58th Headquarters Company",
+        "soldiers": [
+            "PERS-354"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-354"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-060",
+        "fromUnitName": "60th Headquarters Company",
+        "toUnit": "CO-HEA-058",
+        "toUnitName": "58th Headquarters Company",
+        "soldiers": [
+            "PERS-367"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-367"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-037",
+        "fromUnitName": "37th Scout Company",
+        "toUnit": "CO-HEA-058",
+        "toUnitName": "58th Headquarters Company",
+        "soldiers": [
+            "PERS-023"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-023"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-056",
+        "fromUnitName": "56th Heavy Weapons Company",
+        "toUnit": "CO-HEA-058",
+        "toUnitName": "58th Headquarters Company",
+        "soldiers": [
+            "PERS-152"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-152"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-064",
+        "fromUnitName": "64th Headquarters Company",
+        "toUnit": "CO-HEA-058",
+        "toUnitName": "58th Headquarters Company",
+        "soldiers": [
+            "PERS-439"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-439"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-057",
+        "fromUnitName": "57th Headquarters Company",
+        "toUnit": "CO-HEA-059",
+        "toUnitName": "59th Headquarters Company",
+        "soldiers": [
+            "PERS-194"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-194"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-018",
+        "fromUnitName": "18th Rifle Company",
+        "toUnit": "CO-HEA-059",
+        "toUnitName": "59th Headquarters Company",
+        "soldiers": [
+            "PERS-340"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-340"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-066",
+        "fromUnitName": "66th Headquarters Company",
+        "toUnit": "CO-HEA-059",
+        "toUnitName": "59th Headquarters Company",
+        "soldiers": [
+            "PERS-377"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-377"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-001",
+        "fromUnitName": "1st Support Brigade",
+        "toUnit": "CO-HEA-059",
+        "toUnitName": "59th Headquarters Company",
+        "soldiers": [
+            "PERS-475"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-475"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-019",
+        "fromUnitName": "19th Transportation Battalion",
+        "toUnit": "BDE-ART-009",
+        "toUnitName": "9th Artillery Brigade",
+        "soldiers": [
+            "PERS-407"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-407"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-015",
+        "fromUnitName": "15th Artillery Brigade",
+        "toUnit": "BDE-ART-009",
+        "toUnitName": "9th Artillery Brigade",
+        "soldiers": [
+            "PERS-422"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-422"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-003",
+        "fromUnitName": "3rd Artillery Brigade",
+        "toUnit": "BN-TRA-026",
+        "toUnitName": "26th Transportation Battalion",
+        "soldiers": [
+            "PERS-103"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-103"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-013",
+        "fromUnitName": "13th Scout Company",
+        "toUnit": "CO-SER-067",
+        "toUnitName": "67th Service Company",
+        "soldiers": [
+            "PERS-425"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-425"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-011",
+        "fromUnitName": "11th Military Police Brigade",
+        "toUnit": "CO-SER-067",
+        "toUnitName": "67th Service Company",
+        "soldiers": [
+            "PERS-140"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-140"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-009",
+        "fromUnitName": "9th Rifle Company",
+        "toUnit": "CO-HEA-068",
+        "toUnitName": "68th Headquarters Company",
+        "soldiers": [
+            "PERS-308"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-308"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-010",
+        "fromUnitName": "10th Armor Brigade",
+        "toUnit": "CO-HEA-068",
+        "toUnitName": "68th Headquarters Company",
+        "soldiers": [
+            "PERS-123"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-123"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-033",
+        "fromUnitName": "33th Mechanized Battalion",
+        "toUnit": "CO-HEA-068",
+        "toUnitName": "68th Headquarters Company",
+        "soldiers": [
+            "PERS-487"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-487"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-039",
+        "fromUnitName": "39th Maintenance Battalion",
+        "toUnit": "CO-RIF-069",
+        "toUnitName": "69th Rifle Company",
+        "soldiers": [
+            "PERS-387"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-387"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": "CO-RIF-069",
+        "toUnitName": "69th Rifle Company",
+        "soldiers": [
+            "PERS-434"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-434"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-036",
+        "fromUnitName": "36th Tank Battalion",
+        "toUnit": "BN-MEC-027",
+        "toUnitName": "27th Mechanized Battalion",
+        "soldiers": [
+            "PERS-223"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-223"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": "BN-MEC-027",
+        "toUnitName": "27th Mechanized Battalion",
+        "soldiers": [
+            "PERS-379"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-379"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-016",
+        "fromUnitName": "16th Armor Brigade",
+        "toUnit": "BN-MEC-027",
+        "toUnitName": "27th Mechanized Battalion",
+        "soldiers": [
+            "PERS-482"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-482"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "BN-MEC-027",
+        "toUnitName": "27th Mechanized Battalion",
+        "soldiers": [
+            "PERS-095"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-095"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-066",
+        "fromUnitName": "66th Headquarters Company",
+        "toUnit": "BN-MEC-027",
+        "toUnitName": "27th Mechanized Battalion",
+        "soldiers": [
+            "PERS-163"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-163"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-030",
+        "fromUnitName": "30th Scout Company",
+        "toUnit": "BN-MEC-027",
+        "toUnitName": "27th Mechanized Battalion",
+        "soldiers": [
+            "PERS-333"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-333"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-047",
+        "fromUnitName": "47th Rifle Company",
+        "toUnit": "BN-MEC-027",
+        "toUnitName": "27th Mechanized Battalion",
+        "soldiers": [
+            "PERS-365"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-365"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-002",
+        "fromUnitName": "2nd Artillery Brigade",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-001"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-001"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-062",
+        "fromUnitName": "62th Service Company",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-038"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-038"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-003",
+        "fromUnitName": "3rd Artillery Brigade",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-338"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-338"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-060",
+        "fromUnitName": "60th Headquarters Company",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-253"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-253"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "BDE-ARM-010",
+        "toUnitName": "10th Armor Brigade",
+        "soldiers": [
+            "PERS-099"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-099"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-032",
+        "fromUnitName": "32th Infantry Battalion",
+        "toUnit": "BDE-ARM-010",
+        "toUnitName": "10th Armor Brigade",
+        "soldiers": [
+            "PERS-305"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-305"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-039",
+        "fromUnitName": "39th Maintenance Battalion",
+        "toUnit": "BDE-ARM-010",
+        "toUnitName": "10th Armor Brigade",
+        "soldiers": [
+            "PERS-342"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-342"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-005",
+        "fromUnitName": "5th Military Police Brigade",
+        "toUnit": "BN-SIG-028",
+        "toUnitName": "28th Signal Battalion",
+        "soldiers": [
+            "PERS-136"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-136"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-040",
+        "fromUnitName": "40th Transportation Battalion",
+        "toUnit": "BN-SIG-028",
+        "toUnitName": "28th Signal Battalion",
+        "soldiers": [
+            "PERS-328"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-328"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-011",
+        "fromUnitName": "11th Military Police Brigade",
+        "toUnit": "BN-TRA-029",
+        "toUnitName": "29th Transportation Battalion",
+        "soldiers": [
+            "PERS-070"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-070"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-025",
+        "fromUnitName": "25th Rifle Company",
+        "toUnit": "BN-TRA-029",
+        "toUnitName": "29th Transportation Battalion",
+        "soldiers": [
+            "PERS-499"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-499"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-006",
+        "fromUnitName": "6th Support Brigade",
+        "toUnit": "BN-TRA-029",
+        "toUnitName": "29th Transportation Battalion",
+        "soldiers": [
+            "PERS-212"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-212"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-017",
+        "fromUnitName": "17th Heavy Weapons Company",
+        "toUnit": "BN-TRA-029",
+        "toUnitName": "29th Transportation Battalion",
+        "soldiers": [
+            "PERS-229"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-229"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-061",
+        "fromUnitName": "61th Scout Company",
+        "toUnit": "CO-HEA-011",
+        "toUnitName": "11th Headquarters Company",
+        "soldiers": [
+            "PERS-207"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-207"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-003",
+        "fromUnitName": "3rd Medical Battalion",
+        "toUnit": "CO-HEA-011",
+        "toUnitName": "11th Headquarters Company",
+        "soldiers": [
+            "PERS-317"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-317"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-006",
+        "fromUnitName": "6th Service Company",
+        "toUnit": "CO-HEA-011",
+        "toUnitName": "11th Headquarters Company",
+        "soldiers": [
+            "PERS-385"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-385"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-001",
+        "fromUnitName": "1st Headquarters Company",
+        "toUnit": "CO-RIF-012",
+        "toUnitName": "12th Rifle Company",
+        "soldiers": [
+            "PERS-090"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-090"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-006",
+        "fromUnitName": "6th Support Brigade",
+        "toUnit": "CO-RIF-012",
+        "toUnitName": "12th Rifle Company",
+        "soldiers": [
+            "PERS-216"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-216"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-005",
+        "fromUnitName": "5th Military Police Brigade",
+        "toUnit": "CO-RIF-012",
+        "toUnitName": "12th Rifle Company",
+        "soldiers": [
+            "PERS-336"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-336"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-012",
+        "fromUnitName": "12th Signal Battalion",
+        "toUnit": "CO-SCO-013",
+        "toUnitName": "13th Scout Company",
+        "soldiers": [
+            "PERS-241"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-241"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-045",
+        "fromUnitName": "45th Signal Battalion",
+        "toUnit": "CO-SCO-013",
+        "toUnitName": "13th Scout Company",
+        "soldiers": [
+            "PERS-206"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-206"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-018",
+        "fromUnitName": "18th Rifle Company",
+        "toUnit": "CO-RIF-014",
+        "toUnitName": "14th Rifle Company",
+        "soldiers": [
+            "PERS-264"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-264"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-039",
+        "fromUnitName": "39th Maintenance Battalion",
+        "toUnit": "CO-RIF-014",
+        "toUnitName": "14th Rifle Company",
+        "soldiers": [
+            "PERS-343"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-343"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-002",
+        "fromUnitName": "2nd Transportation Battalion",
+        "toUnit": "BDE-MIL-011",
+        "toUnitName": "11th Military Police Brigade",
+        "soldiers": [
+            "PERS-083"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-083"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-006",
+        "fromUnitName": "6th Service Company",
+        "toUnit": "BDE-MIL-011",
+        "toUnitName": "11th Military Police Brigade",
+        "soldiers": [
+            "PERS-315"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-315"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-056",
+        "fromUnitName": "56th Heavy Weapons Company",
+        "toUnit": "BDE-MIL-011",
+        "toUnitName": "11th Military Police Brigade",
+        "soldiers": [
+            "PERS-045"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-045"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-008",
+        "fromUnitName": "8th Tank Battalion",
+        "toUnit": "BDE-MIL-011",
+        "toUnitName": "11th Military Police Brigade",
+        "soldiers": [
+            "PERS-400"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-400"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-020",
+        "fromUnitName": "20th Service Company",
+        "toUnit": "BN-MEC-030",
+        "toUnitName": "30th Mechanized Battalion",
+        "soldiers": [
+            "PERS-372"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-372"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-066",
+        "fromUnitName": "66th Headquarters Company",
+        "toUnit": "BN-MEC-030",
+        "toUnitName": "30th Mechanized Battalion",
+        "soldiers": [
+            "PERS-481"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-481"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-024",
+        "fromUnitName": "24th Mechanized Battalion",
+        "toUnit": "BN-MED-031",
+        "toUnitName": "31th Medical Battalion",
+        "soldiers": [
+            "PERS-391"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-391"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-026",
+        "fromUnitName": "26th Scout Company",
+        "toUnit": "BN-MED-031",
+        "toUnitName": "31th Medical Battalion",
+        "soldiers": [
+            "PERS-138"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-138"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "BN-INF-032",
+        "toUnitName": "32th Infantry Battalion",
+        "soldiers": [
+            "PERS-421"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-421"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-035",
+        "fromUnitName": "35th Mechanized Battalion",
+        "toUnit": "BN-INF-032",
+        "toUnitName": "32th Infantry Battalion",
+        "soldiers": [
+            "PERS-289"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-289"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-014",
+        "fromUnitName": "14th Tank Battalion",
+        "toUnit": "BDE-ART-012",
+        "toUnitName": "12th Artillery Brigade",
+        "soldiers": [
+            "PERS-454"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-454"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-006",
+        "fromUnitName": "6th Service Company",
+        "toUnit": "BDE-ART-012",
+        "toUnitName": "12th Artillery Brigade",
+        "soldiers": [
+            "PERS-201"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-201"
+        ]
+    },
+    {
+        "fromUnit": "HQ-ARMY",
+        "fromUnitName": "Army Headquarters",
+        "toUnit": "CO-RIF-018",
+        "toUnitName": "18th Rifle Company",
+        "soldiers": [
+            "PERS-112"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-112"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-009",
+        "fromUnitName": "9th Artillery Brigade",
+        "toUnit": "CO-RIF-018",
+        "toUnitName": "18th Rifle Company",
+        "soldiers": [
+            "PERS-364"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-364"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-006",
+        "fromUnitName": "6th Support Brigade",
+        "toUnit": "CO-SER-020",
+        "toUnitName": "20th Service Company",
+        "soldiers": [
+            "PERS-188"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-188"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-002",
+        "fromUnitName": "2nd Scout Company",
+        "toUnit": "CO-SER-020",
+        "toUnitName": "20th Service Company",
+        "soldiers": [
+            "PERS-239"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-239"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-016",
+        "fromUnitName": "16th Headquarters Company",
+        "toUnit": "CO-SER-020",
+        "toUnitName": "20th Service Company",
+        "soldiers": [
+            "PERS-310"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-310"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": "CO-SER-020",
+        "toUnitName": "20th Service Company",
+        "soldiers": [
+            "PERS-025"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-025"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-008",
+        "fromUnitName": "8th Artillery Brigade",
+        "toUnit": "CO-SER-021",
+        "toUnitName": "21th Service Company",
+        "soldiers": [
+            "PERS-052"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-052"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-013",
+        "fromUnitName": "13th Mechanized Battalion",
+        "toUnit": "CO-SER-021",
+        "toUnitName": "21th Service Company",
+        "soldiers": [
+            "PERS-275"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-275"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-016",
+        "fromUnitName": "16th Maintenance Battalion",
+        "toUnit": "CO-SER-021",
+        "toUnitName": "21th Service Company",
+        "soldiers": [
+            "PERS-438"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-438"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-017",
+        "fromUnitName": "17th Heavy Weapons Company",
+        "toUnit": "CO-HEA-040",
+        "toUnitName": "40th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-361"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-361"
+        ]
+    },
+    {
+        "fromUnit": "DIV-002",
+        "fromUnitName": "2nd Division",
+        "toUnit": "CO-HEA-040",
+        "toUnitName": "40th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-326"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-326"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-029",
+        "fromUnitName": "29th Transportation Battalion",
+        "toUnit": "CO-HEA-040",
+        "toUnitName": "40th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-341"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-341"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-020",
+        "fromUnitName": "20th Tank Battalion",
+        "toUnit": "CO-SER-041",
+        "toUnitName": "41th Service Company",
+        "soldiers": [
+            "PERS-132"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-132"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-041",
+        "fromUnitName": "41th Medical Battalion",
+        "toUnit": "CO-SER-041",
+        "toUnitName": "41th Service Company",
+        "soldiers": [
+            "PERS-154"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-154"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-029",
+        "fromUnitName": "29th Transportation Battalion",
+        "toUnit": "CO-SER-041",
+        "toUnitName": "41th Service Company",
+        "soldiers": [
+            "PERS-250"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-250"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-014",
+        "fromUnitName": "14th Aviation Brigade",
+        "toUnit": "CO-HEA-042",
+        "toUnitName": "42th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-292"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-292"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "CO-HEA-042",
+        "toUnitName": "42th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-369"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-369"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-004",
+        "fromUnitName": "4th Headquarters Company",
+        "toUnit": "BN-MEC-035",
+        "toUnitName": "35th Mechanized Battalion",
+        "soldiers": [
+            "PERS-094"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-094"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-048",
+        "fromUnitName": "48th Headquarters Company",
+        "toUnit": "BN-MEC-035",
+        "toUnitName": "35th Mechanized Battalion",
+        "soldiers": [
+            "PERS-134"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-134"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-010",
+        "fromUnitName": "10th Scout Company",
+        "toUnit": "BN-MEC-035",
+        "toUnitName": "35th Mechanized Battalion",
+        "soldiers": [
+            "PERS-403"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-403"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-061",
+        "fromUnitName": "61th Scout Company",
+        "toUnit": "BN-MEC-035",
+        "toUnitName": "35th Mechanized Battalion",
+        "soldiers": [
+            "PERS-498"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-498"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-056",
+        "fromUnitName": "56th Heavy Weapons Company",
+        "toUnit": "DIV-005",
+        "toUnitName": "5th Armored Division",
+        "soldiers": [
+            "PERS-155"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-155"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-018",
+        "fromUnitName": "18th Transportation Battalion",
+        "toUnit": "BDE-SUP-013",
+        "toUnitName": "13th Support Brigade",
+        "soldiers": [
+            "PERS-447"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-447"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-063",
+        "fromUnitName": "63th Scout Company",
+        "toUnit": "BN-TAN-036",
+        "toUnitName": "36th Tank Battalion",
+        "soldiers": [
+            "PERS-175"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-175"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-018",
+        "fromUnitName": "18th Transportation Battalion",
+        "toUnit": "BN-SIG-037",
+        "toUnitName": "37th Signal Battalion",
+        "soldiers": [
+            "PERS-217"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-217"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-001",
+        "fromUnitName": "1st Tank Battalion",
+        "toUnit": "CO-RIF-023",
+        "toUnitName": "23th Rifle Company",
+        "soldiers": [
+            "PERS-089"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-089"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-045",
+        "fromUnitName": "45th Signal Battalion",
+        "toUnit": "CO-HEA-024",
+        "toUnitName": "24th Headquarters Company",
+        "soldiers": [
+            "PERS-048"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-048"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-017",
+        "fromUnitName": "17th Heavy Weapons Company",
+        "toUnit": "CO-HEA-024",
+        "toUnitName": "24th Headquarters Company",
+        "soldiers": [
+            "PERS-019"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-019"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-025",
+        "fromUnitName": "25th Rifle Company",
+        "toUnit": "CO-HEA-024",
+        "toUnitName": "24th Headquarters Company",
+        "soldiers": [
+            "PERS-347"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-347"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-001",
+        "fromUnitName": "1st Tank Battalion",
+        "toUnit": "BN-SIG-038",
+        "toUnitName": "38th Signal Battalion",
+        "soldiers": [
+            "PERS-073"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-073"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-061",
+        "fromUnitName": "61th Scout Company",
+        "toUnit": "BN-SIG-038",
+        "toUnitName": "38th Signal Battalion",
+        "soldiers": [
+            "PERS-463"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-463"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-050",
+        "fromUnitName": "50th Headquarters Company",
+        "toUnit": "BN-SIG-038",
+        "toUnitName": "38th Signal Battalion",
+        "soldiers": [
+            "PERS-117"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-117"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-015",
+        "fromUnitName": "15th Artillery Brigade",
+        "toUnit": "BN-SIG-038",
+        "toUnitName": "38th Signal Battalion",
+        "soldiers": [
+            "PERS-295"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-295"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-003",
+        "fromUnitName": "3rd Artillery Brigade",
+        "toUnit": "BDE-AVI-014",
+        "toUnitName": "14th Aviation Brigade",
+        "soldiers": [
+            "PERS-135",
+            "PERS-131"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-135",
+            "PERS-131"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-018",
+        "fromUnitName": "18th Transportation Battalion",
+        "toUnit": "BDE-AVI-014",
+        "toUnitName": "14th Aviation Brigade",
+        "soldiers": [
+            "PERS-458"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-458"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-018",
+        "fromUnitName": "18th Rifle Company",
+        "toUnit": "BDE-AVI-014",
+        "toUnitName": "14th Aviation Brigade",
+        "soldiers": [
+            "PERS-027"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-027"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-020",
+        "fromUnitName": "20th Service Company",
+        "toUnit": "BDE-AVI-014",
+        "toUnitName": "14th Aviation Brigade",
+        "soldiers": [
+            "PERS-284"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-284"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-032",
+        "fromUnitName": "32th Rifle Company",
+        "toUnit": "BN-MAI-039",
+        "toUnitName": "39th Maintenance Battalion",
+        "soldiers": [
+            "PERS-059"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-059"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-065",
+        "fromUnitName": "65th Rifle Company",
+        "toUnit": "BN-MAI-039",
+        "toUnitName": "39th Maintenance Battalion",
+        "soldiers": [
+            "PERS-167"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-167"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-038",
+        "fromUnitName": "38th Signal Battalion",
+        "toUnit": "BN-MAI-039",
+        "toUnitName": "39th Maintenance Battalion",
+        "soldiers": [
+            "PERS-035"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-035"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-046",
+        "fromUnitName": "46th Rifle Company",
+        "toUnit": "BN-MAI-039",
+        "toUnitName": "39th Maintenance Battalion",
+        "soldiers": [
+            "PERS-374"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-374"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-017",
+        "fromUnitName": "17th Infantry Battalion",
+        "toUnit": "BN-MAI-039",
+        "toUnitName": "39th Maintenance Battalion",
+        "soldiers": [
+            "PERS-473"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-473"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-015",
+        "fromUnitName": "15th Headquarters Company",
+        "toUnit": "BN-TRA-040",
+        "toUnitName": "40th Transportation Battalion",
+        "soldiers": [
+            "PERS-383"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-383"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-053",
+        "fromUnitName": "53th Headquarters Company",
+        "toUnit": "BN-TRA-040",
+        "toUnitName": "40th Transportation Battalion",
+        "soldiers": [
+            "PERS-157"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-157"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-053",
+        "fromUnitName": "53th Headquarters Company",
+        "toUnit": "BDE-ART-015",
+        "toUnitName": "15th Artillery Brigade",
+        "soldiers": [
+            "PERS-389"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-389"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-028",
+        "fromUnitName": "28th Headquarters Company",
+        "toUnit": "BDE-ART-015",
+        "toUnitName": "15th Artillery Brigade",
+        "soldiers": [
+            "PERS-453"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-453"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-042",
+        "fromUnitName": "42th Heavy Weapons Company",
+        "toUnit": "BDE-ART-015",
+        "toUnitName": "15th Artillery Brigade",
+        "soldiers": [
+            "PERS-363"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-363"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-063",
+        "fromUnitName": "63th Scout Company",
+        "toUnit": "BN-MED-041",
+        "toUnitName": "41th Medical Battalion",
+        "soldiers": [
+            "PERS-028"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-028"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-031",
+        "fromUnitName": "31th Service Company",
+        "toUnit": "BN-MED-041",
+        "toUnitName": "41th Medical Battalion",
+        "soldiers": [
+            "PERS-116"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-116"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-004",
+        "fromUnitName": "4th Tank Battalion",
+        "toUnit": "BN-MED-041",
+        "toUnitName": "41th Medical Battalion",
+        "soldiers": [
+            "PERS-236"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-236"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-016",
+        "fromUnitName": "16th Armor Brigade",
+        "toUnit": "CO-SCO-063",
+        "toUnitName": "63th Scout Company",
+        "soldiers": [
+            "PERS-110"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-110"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-015",
+        "fromUnitName": "15th Headquarters Company",
+        "toUnit": "CO-SCO-063",
+        "toUnitName": "63th Scout Company",
+        "soldiers": [
+            "PERS-139"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-139"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-051",
+        "fromUnitName": "51th Rifle Company",
+        "toUnit": "CO-SCO-063",
+        "toUnitName": "63th Scout Company",
+        "soldiers": [
+            "PERS-079"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-079"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-022",
+        "fromUnitName": "22th Mechanized Battalion",
+        "toUnit": "CO-HEA-064",
+        "toUnitName": "64th Headquarters Company",
+        "soldiers": [
+            "PERS-423"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-423"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-067",
+        "fromUnitName": "67th Service Company",
+        "toUnit": "CO-RIF-065",
+        "toUnitName": "65th Rifle Company",
+        "soldiers": [
+            "PERS-143"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-143"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-021",
+        "fromUnitName": "21th Tank Battalion",
+        "toUnit": "CO-RIF-065",
+        "toUnitName": "65th Rifle Company",
+        "soldiers": [
+            "PERS-322"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-322"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-046",
+        "fromUnitName": "46th Signal Battalion",
+        "toUnit": "CO-RIF-065",
+        "toUnitName": "65th Rifle Company",
+        "soldiers": [
+            "PERS-324"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-324"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-028",
+        "fromUnitName": "28th Headquarters Company",
+        "toUnit": "CO-RIF-065",
+        "toUnitName": "65th Rifle Company",
+        "soldiers": [
+            "PERS-297"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-297"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-008",
+        "fromUnitName": "8th Tank Battalion",
+        "toUnit": "CO-HEA-066",
+        "toUnitName": "66th Headquarters Company",
+        "soldiers": [
+            "PERS-042"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-042"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-030",
+        "fromUnitName": "30th Scout Company",
+        "toUnit": "CO-HEA-066",
+        "toUnitName": "66th Headquarters Company",
+        "soldiers": [
+            "PERS-416"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-416"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-051",
+        "fromUnitName": "51th Rifle Company",
+        "toUnit": "CO-HEA-066",
+        "toUnitName": "66th Headquarters Company",
+        "soldiers": [
+            "PERS-137"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-137"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-037",
+        "fromUnitName": "37th Scout Company",
+        "toUnit": "CO-HEA-066",
+        "toUnitName": "66th Headquarters Company",
+        "soldiers": [
+            "PERS-491"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-491"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-010",
+        "fromUnitName": "10th Armor Brigade",
+        "toUnit": "BN-TAN-042",
+        "toUnitName": "42th Tank Battalion",
+        "soldiers": [
+            "PERS-022"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-022"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-001",
+        "fromUnitName": "1st Headquarters Company",
+        "toUnit": "BN-TAN-042",
+        "toUnitName": "42th Tank Battalion",
+        "soldiers": [
+            "PERS-015"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-015"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-002",
+        "fromUnitName": "2nd Transportation Battalion",
+        "toUnit": "BN-TAN-042",
+        "toUnitName": "42th Tank Battalion",
+        "soldiers": [
+            "PERS-462"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-462"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-001",
+        "fromUnitName": "1st Headquarters Company",
+        "toUnit": "CO-RIF-038",
+        "toUnitName": "38th Rifle Company",
+        "soldiers": [
+            "PERS-213"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-213"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-026",
+        "fromUnitName": "26th Scout Company",
+        "toUnit": "CO-SER-039",
+        "toUnitName": "39th Service Company",
+        "soldiers": [
+            "PERS-235"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-235"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-036",
+        "fromUnitName": "36th Tank Battalion",
+        "toUnit": "CO-SER-039",
+        "toUnitName": "39th Service Company",
+        "soldiers": [
+            "PERS-197"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-197"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-025",
+        "fromUnitName": "25th Rifle Company",
+        "toUnit": "BN-TRA-043",
+        "toUnitName": "43th Transportation Battalion",
+        "soldiers": [
+            "PERS-247"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-247"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-010",
+        "fromUnitName": "10th Armor Brigade",
+        "toUnit": "BN-TRA-043",
+        "toUnitName": "43th Transportation Battalion",
+        "soldiers": [
+            "PERS-394"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-394"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-025",
+        "fromUnitName": "25th Transportation Battalion",
+        "toUnit": "BN-TRA-043",
+        "toUnitName": "43th Transportation Battalion",
+        "soldiers": [
+            "PERS-209"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-209"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-046",
+        "fromUnitName": "46th Rifle Company",
+        "toUnit": "CO-HEA-015",
+        "toUnitName": "15th Headquarters Company",
+        "soldiers": [
+            "PERS-202"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-202"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-029",
+        "fromUnitName": "29th Transportation Battalion",
+        "toUnit": "CO-HEA-015",
+        "toUnitName": "15th Headquarters Company",
+        "soldiers": [
+            "PERS-429"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-429"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-034",
+        "fromUnitName": "34th Service Company",
+        "toUnit": "CO-HEA-015",
+        "toUnitName": "15th Headquarters Company",
+        "soldiers": [
+            "PERS-122"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-122"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-038",
+        "fromUnitName": "38th Signal Battalion",
+        "toUnit": "CO-HEA-015",
+        "toUnitName": "15th Headquarters Company",
+        "soldiers": [
+            "PERS-299"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-299"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-002",
+        "fromUnitName": "2nd Scout Company",
+        "toUnit": "CO-HEA-016",
+        "toUnitName": "16th Headquarters Company",
+        "soldiers": [
+            "PERS-020"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-020"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-004",
+        "fromUnitName": "4th Headquarters Company",
+        "toUnit": "CO-HEA-016",
+        "toUnitName": "16th Headquarters Company",
+        "soldiers": [
+            "PERS-088"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-088"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-016",
+        "fromUnitName": "16th Armor Brigade",
+        "toUnit": "CO-HEA-016",
+        "toUnitName": "16th Headquarters Company",
+        "soldiers": [
+            "PERS-402"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-402"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-045",
+        "fromUnitName": "45th Signal Battalion",
+        "toUnit": "CO-HEA-017",
+        "toUnitName": "17th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-128"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-128"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-008",
+        "fromUnitName": "8th Tank Battalion",
+        "toUnit": "BDE-ARM-016",
+        "toUnitName": "16th Armor Brigade",
+        "soldiers": [
+            "PERS-008"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-008"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-012",
+        "fromUnitName": "12th Rifle Company",
+        "toUnit": "BDE-ARM-016",
+        "toUnitName": "16th Armor Brigade",
+        "soldiers": [
+            "PERS-362"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-362"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-025",
+        "fromUnitName": "25th Rifle Company",
+        "toUnit": "BN-INF-044",
+        "toUnitName": "44th Infantry Battalion",
+        "soldiers": [
+            "PERS-279"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-279"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-010",
+        "fromUnitName": "10th Armor Brigade",
+        "toUnit": "CO-HEA-033",
+        "toUnitName": "33th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-282"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-282"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-051",
+        "fromUnitName": "51th Rifle Company",
+        "toUnit": "CO-HEA-033",
+        "toUnitName": "33th Heavy Weapons Company",
+        "soldiers": [
+            "PERS-114"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-114"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-048",
+        "fromUnitName": "48th Headquarters Company",
+        "toUnit": "CO-SER-034",
+        "toUnitName": "34th Service Company",
+        "soldiers": [
+            "PERS-228"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-228"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-041",
+        "fromUnitName": "41th Service Company",
+        "toUnit": "BN-SIG-046",
+        "toUnitName": "46th Signal Battalion",
+        "soldiers": [
+            "PERS-443"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-443"
+        ]
+    },
+    {
+        "fromUnit": "DIV-002",
+        "fromUnitName": "2nd Division",
+        "toUnit": "SF-001",
+        "toUnitName": "Army Special Forces",
+        "soldiers": [
+            "PERS-141"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-141"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-144"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-144"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-001",
+        "fromUnitName": "1st Headquarters Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-101"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-101"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-002",
+        "fromUnitName": "2nd Transportation Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-004"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-004"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-003",
+        "fromUnitName": "3rd Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-121"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-121"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-006",
+        "fromUnitName": "6th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-109"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-109"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-054",
+        "fromUnitName": "54th Rifle Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-026"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-026"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-004",
+        "fromUnitName": "4th Headquarters Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-180"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-180"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-010",
+        "fromUnitName": "10th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-476"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-476"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-008",
+        "fromUnitName": "8th Artillery Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-420"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-420"
+        ]
+    },
+    {
+        "fromUnit": "DIV-002",
+        "fromUnitName": "2nd Division",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-479"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-479"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-018",
+        "fromUnitName": "18th Rifle Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-159"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-159"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-045",
+        "fromUnitName": "45th Service Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-227"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-227"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-041",
+        "fromUnitName": "41th Service Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-030"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-030"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-015",
+        "fromUnitName": "15th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-448"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-448"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-029",
+        "fromUnitName": "29th Transportation Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-115"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-115"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-013",
+        "fromUnitName": "13th Scout Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-126"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-126"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-021",
+        "fromUnitName": "21th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-337"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-337"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-053",
+        "fromUnitName": "53th Headquarters Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-460"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-460"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-036",
+        "fromUnitName": "36th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-082"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-082"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-026",
+        "fromUnitName": "26th Transportation Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-011"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-011"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-068",
+        "fromUnitName": "68th Headquarters Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-345"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-345"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-032",
+        "fromUnitName": "32th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-485"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-485"
+        ]
+    },
+    {
+        "fromUnit": "CO-SER-020",
+        "fromUnitName": "20th Service Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-459"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-459"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-034",
+        "fromUnitName": "34th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-493"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-493"
+        ]
+    },
+    {
+        "fromUnit": "CO-RIF-022",
+        "fromUnitName": "22th Rifle Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-055"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-055"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-038",
+        "fromUnitName": "38th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-263"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-263"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-041",
+        "fromUnitName": "41th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-169"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-169"
+        ]
+    },
+    {
+        "fromUnit": "CO-SCO-063",
+        "fromUnitName": "63th Scout Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-179"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-179"
+        ]
+    },
+    {
+        "fromUnit": "CO-HEA-033",
+        "fromUnitName": "33th Heavy Weapons Company",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-371"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-371"
+        ]
+    }
+]

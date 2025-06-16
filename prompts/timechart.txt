@@ -1,1 +1,36 @@
-Please implement the timeGraphPage  
+Current Soldier:
+Date: 2024-01-01
+{
+    "id": "SUB-03",
+    "name": "Sub-unit 3",
+    "parent_id": "MAIN-001",
+    "regular_soldiers": 44,
+    "officers": 7,
+    "senior_officers": 1,
+    "total_personnel": 520,
+    "date": "2024-01-01",
+    "roles": {
+        "Type 1": [
+            "PERS-026",
+            "PERS-030",
+            "PERS-046"
+        ],
+        "Type 2": [
+            "PERS-025",
+            "PERS-031",
+            "PERS-032",
+            "PERS-042",
+            "PERS-044",
+            "PERS-045",
+            "PERS-047"
+        ],
+        "Type 3": [
+            "PERS-027",
+            "PERS-028",
+            "PERS-029",
+            "PERS-041",
+            "PERS-043",
+            "PERS-048"
+        ]
+    }
+}
