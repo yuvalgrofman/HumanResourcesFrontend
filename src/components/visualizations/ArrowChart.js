@@ -6,12 +6,14 @@ import './ArrowChart.css';
 
 // Border Width Thresholds
 const BORDER_WIDTH_THRESHOLDS = {
-  T1: 30,
-  T2: 50,
-  T3: 70,
-  T4: 1150,
-  T5: 1250,
-  T7: 1350,
+  T1: 1000,
+  T2: 1100,
+  T3: 1200,
+  T4: 1300,
+  T5: 1700,
+  T6: 1800,
+  T7: 1900,
+  T8: 2000,
 }
 
 const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID, levels = 3, arrowFilterValue = 0 }) => {
@@ -70,7 +72,7 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
           regular_soldiers: unit.regular_soldiers || 0,
           officers: unit.officers || 0,
           senior_officers: unit.senior_officers || 0,
-          total_personnel: unit.total_personnel * 10 || 0,
+          total_personnel: unit.total_personnel * 11 + 600 || 0,
           // total_personnel: unit.total_personnel || 0,
           date: unit.date,
           roles: unit.roles || {},
@@ -395,21 +397,25 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
     let strokeWidth, strokeColor, opacity;
     
     if (soldierCount <= 2) {
-      strokeWidth = '1px';
+      strokeWidth = '2.5px';
       strokeColor = '#90A4AE'; // Light gray for small movements
       opacity = 0.6;
-    } else if (soldierCount <= 5) {
-      strokeWidth = '2px';
+    } else if (soldierCount <= 4) {
+      strokeWidth = '3px';
       strokeColor = '#5C6BC0'; // Medium blue
       opacity = 0.7;
-    } else if (soldierCount <= 10) {
-      strokeWidth = '3px';
+    } else if (soldierCount <= 6) {
+      strokeWidth = '3.5px';
       strokeColor = '#3F51B5'; // Darker blue
       opacity = 0.8;
-    } else {
+    } else if (soldierCount <= 8) {
       strokeWidth = '4px';
-      strokeColor = '#1A237E'; // Very dark blue for large movements
+      strokeColor = '#3F51B5'; // Darker blue
       opacity = 0.9;
+    } else {
+      strokeWidth = '5px';
+      strokeColor = '#1A237E'; // Very dark blue for large movements
+      opacity = 1;
     }
     
     return { strokeWidth, strokeColor, opacity };
@@ -645,6 +651,29 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
       .attr('class', 'tree-container')
       .attr('transform', `translate(${treeWidth/2 + 100},100)`);
 
+    // Add links (connections between nodes)
+    // Only show links from root to its children, not to parallel units
+    if (showStructure) {
+      const links = g.selectAll('.link')
+        .data(treeData.links().filter(d => 
+          !d.source.data.isVirtual && 
+          !d.target.data.isParallel
+        ))
+        .enter()
+        .append('path')
+        .attr('class', 'link')
+        .attr('d', d => {
+          const source = d.source;
+          const target = d.target;
+          return `M${source.x},${source.y + nodeHeight/2 + 42}
+                  L${source.x},${source.y + nodeHeight/2 + 80}
+                  L${target.x}  ,${target.y}
+                  L${target.x},${target.y + 42}`;
+        })
+        .style('fill', 'none')
+        .style('stroke', '#37B7C3')
+        .style('stroke-width', '2px');
+    }
 
 
     // Add nodes
@@ -788,7 +817,7 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
                   text-align: center;
                   line-height: 1.2;
                 ">
-                  ${currentUnitName}
+                  ${currentUnitName.substring(0,14)}
                   <span style="margin-left: 8px; font-size: 20px;">${growthIcon}</span>
                 </div>
                 <div style="
@@ -817,30 +846,6 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
             </div>
         `;
       });
-
-    // Add links (connections between nodes)
-    // Only show links from root to its children, not to parallel units
-    if (showStructure) {
-      const links = g.selectAll('.link')
-        .data(treeData.links().filter(d => 
-          !d.source.data.isVirtual && 
-          !d.target.data.isParallel
-        ))
-        .enter()
-        .append('path')
-        .attr('class', 'link')
-        .attr('d', d => {
-          const source = d.source;
-          const target = d.target;
-          return `M${source.x},${source.y + nodeHeight/2 + 60}
-                  L${source.x},${source.y + nodeHeight/2 + 78}
-                  L${target.x},${target.y + 12}
-                  L${target.x},${target.y + 40}`;
-        })
-        .style('fill', 'none')
-        .style('stroke', '#37B7C3')
-        .style('stroke-width', '2px');
-    }
 
     if (soldierMovements.length > 0) {
       const movementArrows = g.selectAll('.movement-arrow')
@@ -908,7 +913,7 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
           startX = fromCenterX;
           startY = fromPos.y - 20;
           endX = toCenterX;
-          endY = toPos.y - 12;
+          endY = toPos.y - 5;
         } else if (isTargetBelow) {
           startX = fromCenterX;
           startY = fromPos.y + 140; // Bottom middle of source card
@@ -980,7 +985,7 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
 
         // ADD GREY DOT AT START OF ARROW (NEW CODE)
         // Calculate dot size based on soldier count (3-15px radius)
-        const dotRadius = Math.min(Math.max(3 + (d.soldierCount * 0.3), 3), 15);
+        const dotRadius = 5;
         
         // Add grey dot at the start of the arrow
         d3.select(this)

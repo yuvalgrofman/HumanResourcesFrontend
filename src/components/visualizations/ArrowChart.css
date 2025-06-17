@@ -309,6 +309,10 @@
   }
 }
 
+.movement-arrow path {
+  animation: arrow-pulse 2s ease-in-out infinite;
+}
+
 /* Tooltip styles for movement arrows */
 .movement-arrow path title {
   font-size: 12px;
