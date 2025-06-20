@@ -1,0 +1,23 @@
+Hello claude, consider the given GroupChart.js component. 
+A crucial feature of the component is the fact that it can show
+the movement of soldiers in the organization using arrows. 
+Please update the calculateSoldierMovements function which appears in line 94 as follows:
+
+Instead of directly showing the movement of the soldiers from one unit to another, 
+we only want to show the movements of soldiers in the bottom row of the chart, 
+and we want to do this using the row above the bottom row.
+
+Thus, update the function such that there are two types of arrows:
+We call the lowest row the bottom row, and the row above it the parent row.
+
+1. Arrows from a unit in the lowest row to it's parent unit tn the parent above. 
+
+2. Then, from the parent unit in the parent row there should be arrows 
+to all other units in the parent row, which contain a unit that recieved soldiers 
+from a source unit which is below the source parent.   
+
+3. Then, there should be arrows from the destition parent to the appropriate sub-units in the bottom row.  
+
+Please ensure that you reimplement the function correctly. 
+Do you best, thank you!
+

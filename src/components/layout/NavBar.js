@@ -51,6 +51,22 @@ const NavBar = () => {
               Dashboard
             </Link>
             <Link
+              to="/group-chart"
+              className={`px-4 py-2 mr-2 rounded hover:bg-gray-700 ${
+                location.pathname === '/org-chart' ? 'bg-gray-700' : ''
+              }`}
+            >
+              Group Chart
+            </Link>
+            <Link
+              to="/arrow-chart"
+              className={`px-4 py-2 mr-2 rounded hover:bg-gray-700 ${
+                location.pathname === '/org-chart' ? 'bg-gray-700' : ''
+              }`}
+            >
+              Arrow Chart
+            </Link>
+            <Link
               to="/org-chart"
               className={`px-4 py-2 mr-2 rounded hover:bg-gray-700 ${
                 location.pathname === '/org-chart' ? 'bg-gray-700' : ''
@@ -66,50 +82,7 @@ const NavBar = () => {
             >
               Time Graph
             </Link>
-            <Link
-              to="/unit/root"
-              className={`px-4 py-2 rounded hover:bg-gray-700 ${
-                location.pathname.startsWith('/unit/') ? 'bg-gray-700' : ''
-              }`}
-            >
-              Unit Details
-            </Link>
           </div>
-        </div>
-        {/* Right side: Search and date picker */}
-        <div className="flex inset-full object-right">
-          <form onSubmit={handleSearch} className="flex mr-4">
-            <input
-              type="text"
-              placeholder="Search units..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="px-3 py-1 rounded-l text-black"
-            />
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-3 py-3 rounded-r hover:bg-blue-700"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </form>
-          <input
-            type="date"
-            className="px-3 py-1 rounded text-black"
-            onChange={handleDateSelection}
-            defaultValue={'2024-01-01'}
-          />
         </div>
       </div>
     </nav>

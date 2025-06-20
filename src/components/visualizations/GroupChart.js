@@ -2,21 +2,13 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 import { useData } from '../../context/DataContext';
-import './ArrowChart.css';
+import './GroupChart.css';
+import { getBackgroundColor, getEllipseColor } from '../../utils/colors';
+import { getGrowthIcon, getSpecialSoldierGrowthIcon } from '../../utils/icons'; 
+import { ColorUnitCard } from '../chart/node/ColorUnitCard';
 
-// Border Width Thresholds
-const BORDER_WIDTH_THRESHOLDS = {
-  T1: 1000,
-  T2: 1100,
-  T3: 1200,
-  T4: 1300,
-  T5: 1700,
-  T6: 1800,
-  T7: 1900,
-  T8: 2000,
-}
-
-const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID, levels = 3, arrowFilterValue = 0 }) => {
+const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID, levels = 5, arrowFilterValue = 0 }) => {
+  let bottomRowLevelConst = levels - 1;
   const { currentUnits, pastUnits } = useData();
   const [flatCurrentUnits, setFlatCurrentUnits] = useState([]);
   const [flatPastUnits, setFlatPastUnits] = useState([]);
@@ -41,13 +33,11 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
       if (prevIds.includes(nodeId)) {
         // If nodeId is already present, remove it
         let newIds = prevIds.filter(id => id !== nodeId);
-        console.log('clickedNodeIds', newIds);
         // Remove if already present
         return prevIds.filter(id => id !== nodeId);
       } else {
         // Add if not present
         let newIds = [...prevIds, nodeId];
-        console.log('clickedNodeIds', newIds);
         return [...prevIds, nodeId];
       }
     });
@@ -90,7 +80,7 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
     return result;
   };
 
-  // Calculate soldier movements between time periods
+  // Calculate soldier movements between time periods with hierarchical routing
   const calculateSoldierMovements = (currentUnits, pastUnits) => {
     const movements = [];
     
@@ -109,6 +99,7 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
               currentSoldierToUnit.set(soldierId, {
                 unitId: unit.id,
                 unitName: unit.name,
+                parentId: unit.parent_id,
                 roleType: roleType
               });
             });
@@ -126,6 +117,7 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
               pastSoldierToUnit.set(soldierId, {
                 unitId: unit.id,
                 unitName: unit.name,
+                parentId: unit.parent_id,
                 roleType: roleType
               });
             });
@@ -134,74 +126,198 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
       }
     });
 
-    // Group movements by unit pairs
-    const movementGroups = new Map();
+    // Create unit hierarchy maps
+    const unitHierarchy = new Map();
+    const parentToChildren = new Map();
+    
+    currentUnits.forEach(unit => {
+      unitHierarchy.set(unit.id, {
+        id: unit.id,
+        name: unit.name,
+        parentId: unit.parent_id,
+        level: 0 // Will be calculated below
+      });
+      
+      if (unit.parent_id) {
+        if (!parentToChildren.has(unit.parent_id)) {
+          parentToChildren.set(unit.parent_id, []);
+        }
+        parentToChildren.get(unit.parent_id).push(unit.id);
+      }
+    });
 
-    // Find movements by comparing current and past positions
+    // Calculate unit levels (depth in hierarchy)
+    const calculateLevel = (unitId, visited = new Set()) => {
+      if (visited.has(unitId)) return 0; // Prevent infinite loops
+      visited.add(unitId);
+      
+      const unit = unitHierarchy.get(unitId);
+      if (!unit || !unit.parentId) return 0;
+      
+      const parentLevel = calculateLevel(unit.parentId, visited);
+      unit.level = parentLevel + 1;
+      return unit.level;
+    };
+
+    // Calculate levels for all units
+    unitHierarchy.forEach((unit, unitId) => {
+      if (unit.level === 0) {
+        calculateLevel(unitId);
+      }
+    });
+
+    const bottomRowLevel = bottomRowLevelConst;
+    const parentRowLevel = bottomRowLevelConst - 1;
+
+    // Get units at bottom row and parent row
+    const bottomRowUnits = Array.from(unitHierarchy.values()).filter(unit => unit.level === bottomRowLevel);
+    const parentRowUnits = Array.from(unitHierarchy.values()).filter(unit => unit.level === parentRowLevel);
+
+    // Group direct movements by unit pairs for bottom row transfers
+    const directMovements = new Map();
+
+    // Find movements involving bottom row units
     currentSoldierToUnit.forEach((currentInfo, soldierId) => {
       const pastInfo = pastSoldierToUnit.get(soldierId);
       
       if (pastInfo && pastInfo.unitId !== currentInfo.unitId) {
-        const key = `${pastInfo.unitId}->${currentInfo.unitId}`;
-        if (!movementGroups.has(key)) {
-          movementGroups.set(key, {
-            fromUnit: pastInfo.unitId,
-            fromUnitName: pastInfo.unitName,
-            toUnit: currentInfo.unitId,
-            toUnitName: currentInfo.unitName,
-            soldiers: [],
-            movementType: 'transfer'
-          });
+        const sourceUnit = unitHierarchy.get(pastInfo.unitId);
+        const destUnit = unitHierarchy.get(currentInfo.unitId);
+        
+        // Only process movements involving bottom row units
+        if (sourceUnit && destUnit && 
+          (sourceUnit.level === bottomRowLevel && destUnit.level === bottomRowLevel) &&
+          pastInfo.parentId !== currentInfo.parentId ) {
+          
+          const key = `${pastInfo.unitId}->${currentInfo.unitId}`;
+          if (!directMovements.has(key)) {
+            directMovements.set(key, {
+              fromUnit: pastInfo.unitId,
+              fromUnitName: pastInfo.unitName,
+              fromParentId: pastInfo.parentId,
+              toUnit: currentInfo.unitId,
+              toUnitName: currentInfo.unitName,
+              toParentId: currentInfo.parentId,
+              soldiers: [],
+              movementType: 'transfer'
+            });
+          }
+          directMovements.get(key).soldiers.push(soldierId);
         }
-        movementGroups.get(key).soldiers.push(soldierId);
       }
     });
 
-    // Find soldiers who left the organization
-    pastSoldierToUnit.forEach((pastInfo, soldierId) => {
-      if (!currentSoldierToUnit.has(soldierId)) {
-        const key = `${pastInfo.unitId}->departure`;
-        if (!movementGroups.has(key)) {
-          movementGroups.set(key, {
-            fromUnit: pastInfo.unitId,
-            fromUnitName: pastInfo.unitName,
-            toUnit: null,
-            toUnitName: 'Left Organization',
+    // Process movements through hierarchical routing
+    const processedMovements = new Map();
+
+    directMovements.forEach(movement => {
+      const sourceUnit = unitHierarchy.get(movement.fromUnit);
+      const destUnit = unitHierarchy.get(movement.toUnit);
+      
+      if (!sourceUnit || !destUnit) return;
+
+      // Case 1: Both units are in bottom row - route through parents
+      if (sourceUnit.level === bottomRowLevel && destUnit.level === bottomRowLevel) {
+        const sourceParentId = movement.fromParentId;
+        const destParentId = movement.toParentId;
+        
+        if (sourceParentId && destParentId) {
+          // Step 1: Bottom unit to its parent
+          const step1Key = `${movement.fromUnit}->${sourceParentId}`;
+          if (!processedMovements.has(step1Key)) {
+            processedMovements.set(step1Key, {
+              fromUnit: movement.fromUnit,
+              fromUnitName: movement.fromUnitName,
+              toUnit: sourceParentId,
+              toUnitName: unitHierarchy.get(sourceParentId)?.name || 'Parent Unit',
+              soldiers: [],
+              movementType: 'up_to_parent',
+              soldierCount: 0
+            });
+          }
+          processedMovements.get(step1Key).soldiers.push(...movement.soldiers);
+          processedMovements.get(step1Key).soldierCount = processedMovements.get(step1Key).soldiers.length;
+
+          // Step 2: Parent to parent (if different parents)
+          if (sourceParentId !== destParentId) {
+            const step2Key = `${sourceParentId}->${destParentId}`;
+            if (!processedMovements.has(step2Key)) {
+              processedMovements.set(step2Key, {
+                fromUnit: sourceParentId,
+                fromUnitName: unitHierarchy.get(sourceParentId)?.name || 'Source Parent',
+                toUnit: destParentId,
+                toUnitName: unitHierarchy.get(destParentId)?.name || 'Dest Parent',
+                soldiers: [],
+                movementType: 'parent_to_parent',
+                soldierCount: 0
+              });
+            }
+            processedMovements.get(step2Key).soldiers.push(...movement.soldiers);
+            processedMovements.get(step2Key).soldierCount = processedMovements.get(step2Key).soldiers.length;
+          }
+
+          // Step 3: Parent to destination bottom unit
+          const step3Key = `${destParentId}->${movement.toUnit}`;
+          if (!processedMovements.has(step3Key)) {
+            processedMovements.set(step3Key, {
+              fromUnit: destParentId,
+              fromUnitName: unitHierarchy.get(destParentId)?.name || 'Parent Unit',
+              toUnit: movement.toUnit,
+              toUnitName: movement.toUnitName,
+              soldiers: [],
+              movementType: 'down_from_parent',
+              soldierCount: 0
+            });
+          }
+          processedMovements.get(step3Key).soldiers.push(...movement.soldiers);
+          processedMovements.get(step3Key).soldierCount = processedMovements.get(step3Key).soldiers.length;
+        }
+      }
+      // Case 2: Movement from bottom row to parent row
+      else if (sourceUnit.level === bottomRowLevel && destUnit.level === parentRowLevel) {
+        const movementKey = `${movement.fromUnit}->${movement.toUnit}`;
+        if (!processedMovements.has(movementKey)) {
+          processedMovements.set(movementKey, {
+            fromUnit: movement.fromUnit,
+            fromUnitName: movement.fromUnitName,
+            toUnit: movement.toUnit,
+            toUnitName: movement.toUnitName,
             soldiers: [],
-            movementType: 'departure'
+            movementType: 'up_to_parent',
+            soldierCount: 0
           });
         }
-        movementGroups.get(key).soldiers.push(soldierId);
+        processedMovements.get(movementKey).soldiers.push(...movement.soldiers);
+        processedMovements.get(movementKey).soldierCount = processedMovements.get(movementKey).soldiers.length;
+      }
+      // Case 3: Movement from parent row to bottom row
+      else if (sourceUnit.level === parentRowLevel && destUnit.level === bottomRowLevel) {
+        const movementKey = `${movement.fromUnit}->${movement.toUnit}`;
+        if (!processedMovements.has(movementKey)) {
+          processedMovements.set(movementKey, {
+            fromUnit: movement.fromUnit,
+            fromUnitName: movement.fromUnitName,
+            toUnit: movement.toUnit,
+            toUnitName: movement.toUnitName,
+            soldiers: [],
+            movementType: 'down_from_parent',
+            soldierCount: 0
+          });
+        }
+        processedMovements.get(movementKey).soldiers.push(...movement.soldiers);
+        processedMovements.get(movementKey).soldierCount = processedMovements.get(movementKey).soldiers.length;
       }
     });
 
-    // Find new soldiers who joined the organization
-    currentSoldierToUnit.forEach((currentInfo, soldierId) => {
-      if (!pastSoldierToUnit.has(soldierId)) {
-        const key = `recruitment->${currentInfo.unitId}`;
-        if (!movementGroups.has(key)) {
-          movementGroups.set(key, {
-            fromUnit: null,
-            fromUnitName: 'New Recruit',
-            toUnit: currentInfo.unitId,
-            toUnitName: currentInfo.unitName,
-            soldiers: [],
-            movementType: 'recruitment'
-          });
-        }
-        movementGroups.get(key).soldiers.push(soldierId);
-      }
-    });
-
-    // Convert groups to movements array with soldier count
-    movementGroups.forEach(group => {
+    // Convert processed movements to final movements array
+    processedMovements.forEach(movement => {
       movements.push({
-        ...group,
-        soldierCount: group.soldiers.length,
-        soldierIds: group.soldiers
+        ...movement,
+        soldierIds: movement.soldiers
       });
     });
 
+    console.log('Soldier Movements:', movements);
     return movements;
   };
 
@@ -322,82 +438,6 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
     if (currentTotal < pastTotal) return 'Decrease';
     return 'Stable';
   };
-
-
-
-  // Utility functions for styling (from ParallelUnitCard)
-  const lightenColor = (hex, weight) => {
-    const c = hex.replace('#', '');
-    const num = parseInt(c, 16);
-    let r = (num >> 16) + Math.round((255 - (num >> 16)) * weight);
-    let g = ((num >> 8) & 0x00FF) + Math.round((255 - ((num >> 8) & 0x00FF)) * weight);
-    let b = (num & 0x0000FF) + Math.round((255 - (num & 0x0000FF)) * weight);
-    return `rgb(${r}, ${g}, ${b})`;
-  };
-
-    // Calculate maximum difference for background color scaling
-
-
-  const getBackgroundColor = (diff, maxValue) => {
-  const backgroundGrowthColor = '#8BC34A';
-  const backgroundDeclineColor = '#E57373';
-
-  if (diff > 0) {
-    if (diff <= maxValue / 4) return lightenColor(backgroundGrowthColor, 0.6);      // Very light green
-    if (diff <= maxValue / 2) return lightenColor(backgroundGrowthColor, 0.4);      // Light green
-    if (diff <= (3 * maxValue) / 4) return lightenColor(backgroundGrowthColor, 0.2); // Medium green
-    return backgroundGrowthColor; // Dark green
-  } else if (diff < 0) {
-    const abs = Math.abs(diff);
-    if (abs <= maxValue / 4) return lightenColor(backgroundDeclineColor, 0.6);      // Very light red
-    if (abs <= maxValue / 2) return lightenColor(backgroundDeclineColor, 0.4);      // Light red
-    if (abs <= (3 * maxValue) / 4) return lightenColor(backgroundDeclineColor, 0.2); // Medium red
-    return backgroundDeclineColor; // Dark red
-  }
-  return '#ffffff';
-};
-
-  const getGrowthIcon = (growthType) => {
-    if (growthType === 'Increase') {
-      return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>';
-    } else if (growthType === 'Decrease') {
-      return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>';
-    } else {
-      return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
-    }
-  };
-
-  const getSpecialSoldierGrowthIcon = (diff) => {
-    if (diff > 0) {
-      return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>';
-    } else if (diff < 0) {
-      return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>';
-    } else {
-      return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
-    }
-  };
-
-  // Calculate ellipse color based on special soldier difference
-
-const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
-  if (specialSoldierDiff === 0) {
-    return '#E0E0E0'; // Neutral gray for no change
-  } else if (specialSoldierDiff > 0) {
-    // Green tones for positive change
-    const intensity = Math.min(Math.abs(specialSoldierDiff) / maxSpecialDiff, 1);
-    if (intensity <= 0.25) return '#C8E6C9'; // Very light green
-    if (intensity <= 0.5) return '#A5D6A7';  // Light green
-    if (intensity <= 0.75) return '#81C784'; // Medium green
-    return '#4CAF50'; // Strong green
-  } else {
-    // Red tones for negative change
-    const intensity = Math.min(Math.abs(specialSoldierDiff) / maxSpecialDiff, 1);
-    if (intensity <= 0.25) return '#FFCDD2'; // Very light red
-    if (intensity <= 0.5) return '#FFAB91';  // Light red
-    if (intensity <= 0.75) return '#EF5350'; // Medium red
-    return '#F44336'; // Strong red
-  }
-};
 
   // Get arrow styling based on soldier count
   const getArrowStyling = (soldierCount) => {
@@ -617,7 +657,7 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
     
     // Transfer arrow marker (blue)
     defs.append('marker')
-      .attr('id', 'arrow-transfer')
+      .attr('id', 'group-transfer')
       .attr('viewBox', '0 -5 10 10')
       .attr('refX', 8)
       .attr('refY', 0)
@@ -627,32 +667,6 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
       .append('path')
       .attr('d', 'M0,-5L10,0L0,5')
       .attr('fill', '#2196F3');
-
-    // Departure arrow marker (red)
-    defs.append('marker')
-      .attr('id', 'arrow-departure')
-      .attr('viewBox', '0 -5 10 10')
-      .attr('refX', 8)
-      .attr('refY', 0)
-      .attr('markerWidth', 6)
-      .attr('markerHeight', 6)
-      .attr('orient', 'auto')
-      .append('path')
-      .attr('d', 'M0,-5L10,0L0,5')
-      .attr('fill', '#F44336');
-
-    // Recruitment arrow marker (green)
-    defs.append('marker')
-      .attr('id', 'arrow-recruitment')
-      .attr('viewBox', '0 -5 10 10')
-      .attr('refX', 8)
-      .attr('refY', 0)
-      .attr('markerWidth', 6)
-      .attr('markerHeight', 6)
-      .attr('orient', 'auto')
-      .append('path')
-      .attr('d', 'M0,-5L10,0L0,5')
-      .attr('fill', '#4CAF50');
 
     // Create main group for zoom/pan
     const g = svg.append('g')
@@ -708,189 +722,268 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
       .each(function(d) {
         const unitData = d.data;
         const currentUnit = unitData;
-        const currentUnitName = currentUnit.name || `Unit ${unitData.id}`;
         const pastUnit = findUnitById(flatPastUnits, unitData.id);
-        const currentAmount = convertToCardFormat(currentUnit);
-        const lastAmount = convertToCardFormat(pastUnit) || currentAmount;
-        const growthType = getGrowthType(currentAmount, lastAmount);
-        
-        const isRoot = unitData.id === rootUnit;
-        const isParallel = parallelUnits.includes(unitData.id);
-        const isClicked = clickedNodeID === unitData.id;
 
-
-        const diff = currentAmount.Total - lastAmount.Total;
-        const backgroundColor = getBackgroundColor(diff, 50);
-        const growthIcon = getGrowthIcon(growthType);
-
-        // Count soldiers in this unit's roles
-        const specialSoldierCount = Object.values(unitData.roles || {}).reduce((total, soldierArray) => {
-          return total + (Array.isArray(soldierArray) ? soldierArray.length : 0);
-        }, 0);
-
-        const pastSpecialSoldierCount = pastUnit ? Object.values(pastUnit.roles || {}).reduce((total, soldierArray) => {
-          return total + (Array.isArray(soldierArray) ? soldierArray.length : 0);
-        }, 0) : 0;
-
-        const specialSoldierDiff = specialSoldierCount - pastSpecialSoldierCount;
-        const specialGrowthIcon = getSpecialSoldierGrowthIcon(specialSoldierDiff);
-
-        // Format total soldiers display
-        const formatSoldierCount = (count) => {
-          if (count >= 1000) {
-            return (count / 1000).toFixed(1) + 'K';
-          }
-          return count.toString();
-        };
-        
-        const totalSoldiers = currentAmount.Total;
-        const formattedTotal = formatSoldierCount(totalSoldiers);
-
-        // Determine border color based on node type and clicked state
-        // Dynamically determine border width based on thresholds
-        let borderWidth;
-        const thresholds = Object.values(BORDER_WIDTH_THRESHOLDS).sort((a, b) => a - b);
-        const widths = ['1px', '2px', '3px', '4px', '5px', '6px', '7px', '8px', '9px', '10px'];
-        borderWidth = widths[0];
-        for (let i = 0; i < thresholds.length; i++) {
-          if (totalSoldiers <= thresholds[i]) {
-            borderWidth = widths[i];
-            break;
-          }
-          // If above all thresholds, use the last width
-          if (i === thresholds.length - 1) {
-            borderWidth = widths[i + 1] || widths[widths.length - 1];
-          }
-          }
-        
-        // Determine border color based on node type and clicked state
-        let borderColor = '#000'; // Default black for regular nodes
-        let boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
-
-        const isClickedInArray = clickedNodeIds.includes(unitData.id);
-
-        if (isClickedInArray) {
-          borderColor = '#ff6b35'; // Orange for clicked nodes in array
-          boxShadow = '0 4px 12px rgba(255, 107, 53, 0.3), 0 0 0 2px rgba(255, 107, 53, 0.2)';
-        } else if (isRoot) {
-          borderColor = '#007bff'; // Blue for root node
-        } else if (isParallel) {
-          borderColor = '#6f42c1'; // Purple for parallel unit nodes
-        }
-        
-        // Get ellipse color based on special soldier difference
-        const ellipseColor = getEllipseColor(specialSoldierDiff);
-        
         // Create ParallelUnitCard-style HTML with special soldiers info and ellipse background
-        this.innerHTML = `
-            <div style="
-              position: relative;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            ">
-              <!-- Rectangle Background -->
-              <div style="
-                position: absolute;
-                width: 280px;
-                height: 140px;
-                background-color: ${ellipseColor};
-                border-radius: 8px;
-                opacity: 0.9;
-                z-index: -1;
-              "></div>
-              
-              <!-- Info Section (top part) -->
-              <div style="
-                position: relative;
-                z-index: 1;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 12px;
-                background-color: ${backgroundColor};
-                color: ${diff === 0 ? '#000' : '#fff'};
-                border-radius: 6px;
-                min-height: 80px;
-                border: ${borderWidth} solid ${borderColor};
-                width: 250px;
-              ">
-                <div style="
-                  font-size: 22px;
-                  font-weight: 700;
-                  margin-bottom: 0px;
-                  display: flex;
-                  align-items: center;
-                  text-align: center;
-                  line-height: 1.2;
-                ">
-                  ${currentUnitName.substring(0,14)}
-                  <span style="margin-left: 8px; font-size: 20px;">${growthIcon}</span>
-                </div>
-                <div style="
-                  font-size: 22px;
-                  font-weight: 700;
-                ">
-                  ${formattedTotal} 
-                </div>
-                ${specialSoldierCount > 0 ? `
-                <div style="
-                  font-size: 14px;
-                  margin-top: 4px;
-                  padding: 2px 6px;
-                  background-color: rgba(255,255,255,0.2);
-                  border-radius: 10px;
-                  color: ${diff === 0 ? '#333' : '#fff'};
-                  display: flex;
-                  align-items: center;
-                  gap: 4px;
-                ">
-                  ★ ${specialSoldierCount} Talpions
-                  ${specialSoldierDiff !== 0 ? `<span style="margin-left: 4px; font-size: 12px; display: flex; align-items: center; gap: 2px;">${specialGrowthIcon}${specialSoldierDiff > 0 ? '+' : ''}${specialSoldierDiff}</span>` : ''}
-                </div>
-                ` : ''}
-              </div>
-            </div>
-        `;
+        this.innerHTML = ColorUnitCard(
+          unitData, 
+          currentUnit, 
+          pastUnit, 
+          rootUnit, 
+          parallelUnits, 
+          clickedNodeIds
+        );
       });
 
+    // Define arrow markers for different types
+    defs.append('marker')
+      .attr('id', 'group-green')
+      .attr('viewBox', '0 -5 10 10')
+      .attr('refX', 8)
+      .attr('refY', 0)
+      .attr('markerWidth', 6)
+      .attr('markerHeight', 6)
+      .attr('orient', 'auto')
+      .append('path')
+      .attr('d', 'M0,-5L10,0L0,5')
+      .attr('fill', '#4CAF50');
+
+    defs.append('marker')
+      .attr('id', 'group-red')
+      .attr('viewBox', '0 -5 10 10')
+      .attr('refX', 8)
+      .attr('refY', 0)
+      .attr('markerWidth', 6)
+      .attr('markerHeight', 6)
+      .attr('orient', 'auto')
+      .append('path')
+      .attr('d', 'M0,-5L10,0L0,5')
+      .attr('fill', '#f44336');
+
+    // Get all bottom row units (level 2 units that have parents at level 1)
+    const bottomRowLevel = bottomRowLevelConst;
+    const parentRowLevel = bottomRowLevelConst - 1;
+    
+    const unitHierarchy = new Map();
+    flatCurrentUnits.forEach(unit => {
+      unitHierarchy.set(unit.id, {
+        id: unit.id,
+        name: unit.name,
+        parentId: unit.parent_id,
+        level: 0
+      });
+    });
+
+    // Calculate unit levels
+    const calculateLevel = (unitId, visited = new Set()) => {
+      if (visited.has(unitId)) return 0;
+      visited.add(unitId);
+      
+      const unit = unitHierarchy.get(unitId);
+      if (!unit || !unit.parentId) return 0;
+      
+      const parentLevel = calculateLevel(unit.parentId, visited);
+      unit.level = parentLevel + 1;
+      return unit.level;
+    };
+
+    unitHierarchy.forEach((unit, unitId) => {
+      if (unit.level === 0) {
+        calculateLevel(unitId);
+      }
+    });
+
+    const bottomRowUnits = Array.from(unitHierarchy.values()).filter(unit => unit.level === bottomRowLevel);
+    const parentRowUnits = Array.from(unitHierarchy.values()).filter(unit => unit.level === parentRowLevel);
+
+    // 1. Draw bidirectional arrows between bottom row units and their parents
+    bottomRowUnits.forEach(childUnit => {
+      if (!childUnit.parentId || !nodePositions.has(childUnit.id) || !nodePositions.has(childUnit.parentId)) {
+        return;
+      }
+
+      const childPos = nodePositions.get(childUnit.id);
+      const parentPos = nodePositions.get(childUnit.parentId);
+      
+      // Calculate soldier movements for this child-parent pair
+      let soldiersToChild = 0;
+      let soldiersToParent = 0;
+      
+      soldierMovements.forEach(movement => {
+        if (movement.toUnit === childUnit.id && movement.fromUnit === childUnit.parentId) {
+          soldiersToChild += movement.soldierCount;
+        }
+        if (movement.fromUnit === childUnit.id && movement.toUnit === childUnit.parentId) {
+          soldiersToParent += movement.soldierCount;
+        }
+      });
+
+      // Only draw arrows if there are soldiers to show and above filter threshold
+      if (soldiersToChild <= arrowFilterValue && soldiersToParent <= arrowFilterValue) {
+        return;
+      }
+
+      // Check clicked arrows filter
+      if (showClickedArrows && !clickedNodeIds.includes(childUnit.id) && !clickedNodeIds.includes(childUnit.parentId)) {
+        return;
+      }
+
+      const arrowGap = 18; // Gap between the two arrows
+      
+      // Calculate base positions
+      const childCenterX = childPos.x;
+      const childTopY = childPos.y - 20;
+      const parentCenterX = parentPos.x;
+      const parentBottomY = parentPos.y + nodeHeight;
+      
+      // Calculate horizontal offset based on child position relative to parent
+      const horizontalOffset = (childCenterX - parentCenterX) * 0.15; // Scale down the offset
+      const parentArrowX = parentCenterX;
+
+      // GREEN ARROW: Parent to Child (downward)
+      if (soldiersToChild > arrowFilterValue) {
+        const greenArrowGroup = g.append('g').attr('class', 'bidirectional-arrow-group');
+        
+        const greenStartX = parentArrowX + horizontalOffset + arrowGap;
+        const greenStartY = parentBottomY - 65;
+        const greenEndX = childCenterX + arrowGap;
+        const greenEndY = childTopY + 15;
+        
+        const greenControlY = (greenStartY + greenEndY) / 2 + 30;
+        // const greenPathData = `M${greenStartX},${greenStartY} L${greenStartX},${greenControlY} L${greenEndX},${greenControlY} L${greenEndX},${greenEndY}`;
+        const greenPathData = `M${greenStartX},${greenStartY} L${greenEndX},${greenEndY}`
+        
+        greenArrowGroup.append('path')
+          .attr('d', greenPathData)
+          .attr('fill', 'none')
+          .attr('stroke', '#4CAF50')
+          .attr('stroke-width', '3px')
+          .attr('marker-end', 'url(#group-green)')
+          .attr('opacity', 0.8)
+          .style('cursor', 'pointer')
+          .on('mouseenter', function(event) {
+            d3.select(this).attr('stroke-width', '5px').attr('opacity', 1);
+            
+            const tooltip = d3.select('body').append('div')
+              .attr('class', 'group-tooltip')
+              .style('position', 'absolute')
+              .style('background', 'rgba(0, 0, 0, 0.9)')
+              .style('color', 'white')
+              .style('padding', '8px 12px')
+              .style('border-radius', '6px')
+              .style('font-size', '14px')
+              .style('pointer-events', 'none')
+              .style('z-index', '1000')
+              .style('opacity', '0')
+              .html(`
+                <div style="margin-bottom: 6px; font-weight: bold; color: #4CAF50;">
+                  INCOMING PERSONNEL
+                </div>
+                <div style="margin-bottom: 4px;">
+                  <strong>From:</strong> ${unitHierarchy.get(childUnit.parentId)?.name || 'Parent Unit'}
+                </div>
+                <div style="margin-bottom: 4px;">
+                  <strong>To:</strong> ${childUnit.name}
+                </div>
+                <div>
+                  <strong>Personnel:</strong> ${soldiersToChild} soldier${soldiersToChild !== 1 ? 's' : ''}
+                </div>
+              `);
+            
+            tooltip.transition().duration(200).style('opacity', '1');
+            tooltip.style('left', (event.pageX + 15) + 'px').style('top', (event.pageY - 10) + 'px');
+          })
+          .on('mouseleave', function() {
+            d3.select(this).attr('stroke-width', '3px').attr('opacity', 0.8);
+            d3.selectAll('.group-tooltip').remove();
+          });
+      }
+
+      // RED ARROW: Child to Parent (upward)
+      if (soldiersToParent > arrowFilterValue) {
+        const redArrowGroup = g.append('g').attr('class', 'bidirectional-arrow-group');
+        
+        const redEndX = parentArrowX + horizontalOffset - arrowGap;
+        const redEndY = parentBottomY - 65;
+        const redStartX = childCenterX - arrowGap;
+        const redStartY = childTopY + 15;
+        
+        const redControlY = (redStartY + redEndY) / 2 + 30;
+        const redPathData = `M${redStartX},${redStartY} L${redEndX},${redEndY}`
+        
+        redArrowGroup.append('path')
+          .attr('d', redPathData)
+          .attr('fill', 'none')
+          .attr('stroke', '#f44336')
+          .attr('stroke-width', '3px')
+          .attr('marker-end', 'url(#group-red)')
+          .attr('opacity', 0.8)
+          .style('cursor', 'pointer')
+          .on('mouseenter', function(event) {
+            d3.select(this).attr('stroke-width', '5px').attr('opacity', 1);
+            
+            const tooltip = d3.select('body').append('div')
+              .attr('class', 'group-tooltip')
+              .style('position', 'absolute')
+              .style('background', 'rgba(0, 0, 0, 0.9)')
+              .style('color', 'white')
+              .style('padding', '8px 12px')
+              .style('border-radius', '6px')
+              .style('font-size', '14px')
+              .style('pointer-events', 'none')
+              .style('z-index', '1000')
+              .style('opacity', '0')
+              .html(`
+                <div style="margin-bottom: 6px; font-weight: bold; color: #f44336;">
+                  OUTGOING PERSONNEL
+                </div>
+                <div style="margin-bottom: 4px;">
+                  <strong>From:</strong> ${childUnit.name}
+                </div>
+                <div style="margin-bottom: 4px;">
+                  <strong>To:</strong> ${unitHierarchy.get(childUnit.parentId)?.name || 'Parent Unit'}
+                </div>
+                <div>
+                  <strong>Personnel:</strong> ${soldiersToParent} soldier${soldiersToParent !== 1 ? 's' : ''}
+                </div>
+              `);
+            
+            tooltip.transition().duration(200).style('opacity', '1');
+            tooltip.style('left', (event.pageX + 15) + 'px').style('top', (event.pageY - 10) + 'px');
+          })
+          .on('mouseleave', function() {
+            d3.select(this).attr('stroke-width', '3px').attr('opacity', 0.8);
+            d3.selectAll('.group-tooltip').remove();
+          });
+      }
+    });
+
+    // 2. Draw parent-to-parent arrows (existing logic but modified)
     if (soldierMovements.length > 0) {
-      const movementArrows = g.selectAll('.movement-arrow')
-        .data(soldierMovements.filter(movement => {
-          // Only show movements between visible nodes
-          const isVisibleMovement = movement.fromUnit && movement.toUnit
-            && nodePositions.has(movement.fromUnit)
-            && nodePositions.has(movement.toUnit)
-            && movement.soldierCount > arrowFilterValue;
-          
-          if (!isVisibleMovement) return false;
-          
-          // Check if both nodes are on the same level
-          const fromPos = nodePositions.get(movement.fromUnit);
-          const toPos = nodePositions.get(movement.toUnit);
-          
-          if (!fromPos || !toPos) return false;
-          
-          // Consider nodes to be on the same level if their Y positions are within a threshold
-          const levelThreshold = 100; // Adjust this value based on your layout
-          const isSameLevel = Math.abs(fromPos.y - toPos.y) < levelThreshold;
-          
-          if (!isSameLevel) return false;
-          
-          // If showClickedArrows is true, only show arrows for clicked units
+      const parentToParentMovements = soldierMovements.filter(movement => {
+        const sourceUnit = unitHierarchy.get(movement.fromUnit);
+        const destUnit = unitHierarchy.get(movement.toUnit);
+        
+        return sourceUnit && destUnit && 
+               sourceUnit.level === parentRowLevel && 
+               destUnit.level === parentRowLevel &&
+               movement.soldierCount > arrowFilterValue &&
+               nodePositions.has(movement.fromUnit) &&
+               nodePositions.has(movement.toUnit);
+      });
+
+      const movementArrows = g.selectAll('.parent-movement-group')
+        .data(parentToParentMovements.filter(movement => {
+          // Apply clicked arrows filter
           if (showClickedArrows) {
             return clickedNodeIds.includes(movement.fromUnit) || 
                    clickedNodeIds.includes(movement.toUnit);
           }
-          
           return true;
         }))
         .enter()
         .append('g')
-        .attr('class', 'movement-arrow');
+        .attr('class', 'parent-movement-group');
 
       movementArrows.each(function(d) {
         const fromPos = nodePositions.get(d.fromUnit);
@@ -898,25 +991,15 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
         
         if (!fromPos || !toPos) return;
 
-        // Get arrow styling based on soldier count
         const arrowStyle = getArrowStyling(d.soldierCount);
-
-        // Calculate connection points on card edges (not centers)
-        const cardMargin = 20; // Distance from card edge where arrow should end
         
-        // Calculate connection points: from top/bottom middle to left/right middle
-        let startX, startY, endX, endY;
-
         const fromCenterX = fromPos.x;
         const fromCenterY = fromPos.y + fromPos.height / 2;
         const toCenterX = toPos.x;
         const toCenterY = toPos.y + toPos.height / 2;
 
-        // Determine if target is above or below source
-        const isTargetBelow = toCenterY > fromCenterY;
+        let startX, startY, endX, endY;
         const isTargetRight = toCenterX > fromCenterX;
-        const heightDifference = Math.abs(fromPos.y - toPos.y);
-        const isSameLevel = heightDifference < 100; // Threshold for considering nodes at same level
 
         if (isTargetRight) {
           startX = fromCenterX;
@@ -925,157 +1008,80 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
           endY = toPos.y - 5;
         } else {
           startX = fromCenterX;
-          startY = fromPos.y + 150; // Bottom middle of source card
+          startY = fromPos.y + 150;
           endX = toCenterX;
-          endY = toPos.y + 138; // Bottom middle of target card
+          endY = toPos.y + 138;
         }
 
-        // Create straight-line path with up-horizontal-down pattern
-        const midX = (startX + endX) / 2;
-        const midY = (startY + endY) / 2;
-
-        // Calculate vertical distance between nodes
-        const verticalDistance = Math.abs(endY - startY);
         const horizontalDistance = Math.abs(endX - startX);
-
-        // Calculate path points for straight line arrows
-        let pathData;
-
-        let aboveFlag = isTargetRight ? -1 : 1; // Flag to determine if target is below or above source
-
-        const baseArcHeight = horizontalDistance * 0.02; // Reduced minimum and multiplier
-        const maxArcHeight = 80; // Reduced maximum height
+        const baseArcHeight = horizontalDistance * 0.02;
+        const maxArcHeight = 80;
         let arcHeight = Math.max(Math.min(baseArcHeight, maxArcHeight), 20);
-
-        // Control point goes upward from the midpoint
+        let aboveFlag = isTargetRight ? -1 : 1;
         const controlY = Math.min(startY, endY) + aboveFlag * arcHeight;
         
-        // Create straight line path: up -> horizontal -> down
-        pathData = `M${startX},${startY} L${startX},${controlY} L${endX},${controlY} L${endX},${endY}`;
-        
-        // Determine movement type styling
-        let strokeDasharray, markerId;
-        switch (d.movementType) {
-          case 'transfer':
-            strokeDasharray = 'none';
-            markerId = 'arrow-transfer';
-            break;
-          case 'departure':
-            strokeDasharray = '8,4';
-            markerId = 'arrow-departure';
-            break;
-          case 'recruitment':
-            strokeDasharray = '12,3';
-            markerId = 'arrow-recruitment';
-            break;
-          default:
-            strokeDasharray = 'none';
-            markerId = 'arrow-transfer';
-        }
+        const pathData = `M${startX},${startY} L${startX},${controlY} L${endX},${controlY} L${endX},${endY}`;
 
-        // ADD GREY DOT AT START OF ARROW (NEW CODE)
-        // Calculate dot size based on soldier count (3-15px radius)
-        const dotRadius = 5;
-        
-        // Add grey dot at the start of the arrow
+        // Add grey dot at start
         d3.select(this)
           .append('circle')
           .attr('cx', startX)
           .attr('cy', startY)
-          .attr('r', dotRadius)
-          .attr('fill', '#808080') // Grey color
-          .attr('stroke', '#666666') // Darker grey border
+          .attr('r', 5)
+          .attr('fill', '#808080')
+          .attr('stroke', '#666666')
           .attr('stroke-width', '1px')
-          .attr('opacity', 0.8)
-          .append('title')
-          .text(`${d.soldierCount} soldier${d.soldierCount !== 1 ? 's' : ''} leaving from ${d.fromUnitName}`);
+          .attr('opacity', 0.8);
 
-      const arrowPath = d3.select(this)
-        .append('path')
-        .attr('d', pathData)
-        .attr('fill', 'none')
-        .attr('stroke', arrowStyle.strokeColor)
-        .attr('stroke-width', arrowStyle.strokeWidth)
-        .attr('stroke-dasharray', strokeDasharray)
-        .attr('marker-end', `url(#${markerId})`)
-        .attr('opacity', arrowStyle.opacity)
-        .style('cursor', 'pointer') // Add cursor pointer for better UX
-        .on('mouseenter', function(event) {
-          // Highlight the arrow on hover
-          d3.select(this)
-            .attr('stroke-width', parseFloat(arrowStyle.strokeWidth) + 2) // Make arrow thicker
-            .attr('opacity', Math.min(arrowStyle.opacity + 0.3, 1)); // Make more opaque
-          
-          // Create tooltip
-          const tooltip = d3.select('body')
-            .append('div')
-            .attr('class', 'arrow-tooltip')
-            .style('position', 'absolute')
-            .style('background', 'rgba(0, 0, 0, 0.9)')
-            .style('color', 'white')
-            .style('padding', '8px 12px')
-            .style('border-radius', '6px')
-            .style('font-size', '14px')
-            .style('font-weight', '500')
-            .style('pointer-events', 'none')
-            .style('z-index', '1000')
-            .style('box-shadow', '0 4px 12px rgba(0,0,0,0.3)')
-            .style('max-width', '300px')
-            .style('opacity', '0')
-            .html(`
-              <div style="margin-bottom: 6px; font-weight: bold; color: ${
-                d.movementType === 'transfer' ? '#64B5F6' : 
-                d.movementType === 'departure' ? '#EF5350' : '#81C784'
-              };">
-                ${d.movementType.toUpperCase()}
-              </div>
-              <div style="margin-bottom: 4px;">
-                <strong>From:</strong> ${d.fromUnitName || 'Unknown'}
-              </div>
-              <div style="margin-bottom: 4px;">
-                <strong>To:</strong> ${d.toUnitName || 'Unknown'}
-              </div>
-              <div style="margin-bottom: 4px;">
-                <strong>Personnel:</strong> ${d.soldierCount} soldier${d.soldierCount !== 1 ? 's' : ''}
-              </div>
-              ${d.soldierIds && d.soldierIds.length > 0 ? `
-              <div style="font-size: 12px; color: #ccc; margin-top: 6px;">
-                IDs: ${d.soldierIds.slice(0, 5).join(', ')}${d.soldierIds.length > 5 ? '...' : ''}
-              </div>
-              ` : ''}
-            `);
-          
-          // Position tooltip near mouse
-          tooltip.transition()
-            .duration(200)
-            .style('opacity', '1');
+        const arrowPath = d3.select(this)
+          .append('path')
+          .attr('d', pathData)
+          .attr('fill', 'none')
+          .attr('stroke', arrowStyle.strokeColor)
+          .attr('stroke-width', arrowStyle.strokeWidth)
+          .attr('marker-end', 'url(#group-transfer)')
+          .attr('opacity', arrowStyle.opacity)
+          .style('cursor', 'pointer')
+          .on('mouseenter', function(event) {
+            d3.select(this)
+              .attr('stroke-width', parseFloat(arrowStyle.strokeWidth) + 2)
+              .attr('opacity', Math.min(arrowStyle.opacity + 0.3, 1));
             
-          // Update tooltip position on mouse move
-          const updateTooltipPosition = (event) => {
-            tooltip
-              .style('left', (event.pageX + 15) + 'px')
-              .style('top', (event.pageY - 10) + 'px');
-          };
-          
-          updateTooltipPosition(event);
-          d3.select(this).on('mousemove.tooltip', updateTooltipPosition);
-        })
-        .on('mouseleave', function() {
-          // Reset arrow appearance
-          d3.select(this)
-            .attr('stroke-width', arrowStyle.strokeWidth) // Reset thickness
-            .attr('opacity', arrowStyle.opacity); // Reset opacity
-          
-          // Remove tooltip
-          d3.selectAll('.arrow-tooltip').remove();
-          
-          // Remove mousemove listener
-          d3.select(this).on('mousemove.tooltip', null);
-        });
-
-        // Add tooltip with soldier count and details
-        arrowPath.append('title')
-          .text(`${d.movementType.toUpperCase()}: ${d.soldierCount} soldier${d.soldierCount !== 1 ? 's' : ''} from ${d.fromUnitName} to ${d.toUnitName}`);
+            const tooltip = d3.select('body').append('div')
+              .attr('class', 'group-tooltip')
+              .style('position', 'absolute')
+              .style('background', 'rgba(0, 0, 0, 0.9)')
+              .style('color', 'white')
+              .style('padding', '8px 12px')
+              .style('border-radius', '6px')
+              .style('font-size', '14px')
+              .style('pointer-events', 'none')
+              .style('z-index', '1000')
+              .style('opacity', '0')
+              .html(`
+                <div style="margin-bottom: 6px; font-weight: bold; color: #64B5F6;">
+                  PARENT-TO-PARENT TRANSFER
+                </div>
+                <div style="margin-bottom: 4px;">
+                  <strong>From:</strong> ${d.fromUnitName || 'Unknown'}
+                </div>
+                <div style="margin-bottom: 4px;">
+                  <strong>To:</strong> ${d.toUnitName || 'Unknown'}
+                </div>
+                <div>
+                  <strong>Personnel:</strong> ${d.soldierCount} soldier${d.soldierCount !== 1 ? 's' : ''}
+                </div>
+              `);
+            
+            tooltip.transition().duration(200).style('opacity', '1');
+            tooltip.style('left', (event.pageX + 15) + 'px').style('top', (event.pageY - 10) + 'px');
+          })
+          .on('mouseleave', function() {
+            d3.select(this)
+              .attr('stroke-width', arrowStyle.strokeWidth)
+              .attr('opacity', arrowStyle.opacity);
+            d3.selectAll('.group-tooltip').remove();
+          });
       });
     }
 
@@ -1088,8 +1094,8 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
 
   if (!buildTreeData) {
     return (
-      <div className={`arrow-chart-container ${isFullScreen ? 'fullscreen' : ''}`}>
-        <div className="arrow-chart-message">
+      <div className={`group-chart-container ${isFullScreen ? 'fullscreen' : ''}`}>
+        <div className="group-chart-message">
           <p>Please select a root unit to display the organizational chart.</p>
         </div>
       </div>
@@ -1101,8 +1107,8 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
   const displayedDepth = Math.min(maxDepth, levels);
   
   return (
-    <div className={`arrow-chart-container ${isFullScreen ? 'fullscreen' : ''}`}>
-      <div className="arrow-chart-header">
+    <div className={`group-chart-container ${isFullScreen ? 'fullscreen' : ''}`}>
+      <div className="group-chart-header">
         <div className="header-info">
           <h3>Organizational Structure</h3>
           <p>{displayedDepth} levels • {totalNodes} total units • Showing {levels} level{levels !== 1 ? 's' : ''}</p>
@@ -1151,7 +1157,7 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
                 fontSize: '12px'
               }}
             >
-              {showClickedArrows ?  '🌐 Show All' : '🎯 Show Clicked'}
+              {showClickedArrows ?  '🌐 Show All' : '🎯 Show Clicked (Cooli)'}
             </button>
           </div>
           <div className="zoom-controls">
@@ -1179,7 +1185,7 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
       </div>
       <div 
         ref={containerRef}
-        className="arrow-chart-scroll-container" 
+        className="group-chart-scroll-container" 
         onMouseDown={handleMouseDown} 
         onMouseMove={handleMouseMove} 
         onMouseUp={handleMouseUp} 
@@ -1187,12 +1193,12 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
         onWheel={handleWheel} 
         style={{ cursor: isPanning ? 'grabbing' : 'grab' }}
       >
-        <div className="arrow-chart-viewport">
+        <div className="group-chart-viewport">
           <svg ref={svgRef} style={{ width: '100%', height: '100%' }}>
           </svg>
         </div>
       </div>
-      <div className="arrow-chart-instructions">
+      <div className="group-chart-instructions">
         <p>
           Use mouse wheel + Ctrl to zoom • Click and drag to pan • Ctrl+0 to reset • Click on nodes to select them • 
           {isFullScreen ? ' Press Esc or F to exit full screen' : ' Press F or F11 for full screen'} • 
@@ -1203,7 +1209,7 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
   );
 };
 
-ArrowChart.propTypes = {
+GroupChart.propTypes = {
   selectedDate: PropTypes.string.isRequired,
   pastDate: PropTypes.string.isRequired,
   rootUnit: PropTypes.string.isRequired,
@@ -1214,4 +1220,4 @@ ArrowChart.propTypes = {
   levels: PropTypes.number,
 };
 
-export default ArrowChart;
+export default GroupChart;

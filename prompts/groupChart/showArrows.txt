@@ -1,0 +1,15 @@
+Now, please update the block which begins in line 760 in as 
+responsible for drawing the arrows in the chart.
+Please update the arrows drawn as follows: 
+
+1. Every node in the bottom row should have two arrows to it's parent node. 
+A green arrow which points into the child node and shows the number of soldiers that were moved to the child node,
+and a red arrow which points into the parent node and shows the number of soldiers that were moved. 
+The arrows should appear side by side, but have reverse directions. 
+The red arrow should begin in the top-middle of the child node and point to the bottom of the parent node,
+where the horizontal position should depend on the horizontal position of the child node, in relation to the parent node.
+The green arrow should be similar but have the opposite direction,
+moreover make sure the arrows have a gap between them so they do not overlap.
+
+2. From the paren nodes there should be arrows to other nodes in the parent row,
+which have the same form as the current arrows which appear in the file. 

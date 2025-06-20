@@ -1,0 +1,749 @@
+[
+    {
+        "fromUnit": "BDE-SUP-013",
+        "fromUnitName": "13th Support Brigade",
+        "toUnit": "DIV-005",
+        "toUnitName": "5th Armored Division",
+        "soldiers": [
+            "PERS-158"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-158"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "DIV-003",
+        "toUnitName": "3rd Division",
+        "soldiers": [
+            "PERS-158"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-158"
+        ]
+    },
+    {
+        "fromUnit": "DIV-003",
+        "fromUnitName": "3rd Division",
+        "toUnit": "BDE-ARM-007",
+        "toUnitName": "7th Armor Brigade",
+        "soldiers": [
+            "PERS-158"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-158"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-003",
+        "fromUnitName": "3rd Artillery Brigade",
+        "toUnit": "DIV-001",
+        "toUnitName": "1st Division",
+        "soldiers": [
+            "PERS-135",
+            "PERS-131"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-135",
+            "PERS-131"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": "DIV-005",
+        "toUnitName": "5th Armored Division",
+        "soldiers": [
+            "PERS-135",
+            "PERS-131"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-135",
+            "PERS-131"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "BDE-AVI-014",
+        "toUnitName": "14th Aviation Brigade",
+        "soldiers": [
+            "PERS-135",
+            "PERS-131"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-135",
+            "PERS-131"
+        ]
+    }
+]
+
+[
+    {
+        "fromUnit": "BN-SIG-034",
+        "fromUnitName": "34th Signal Battalion",
+        "toUnit": "BDE-ART-012",
+        "toUnitName": "12th Artillery Brigade",
+        "soldiers": [
+            "PERS-246"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-246"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-012",
+        "fromUnitName": "12th Artillery Brigade",
+        "toUnit": "BDE-SUP-001",
+        "toUnitName": "1st Support Brigade",
+        "soldiers": [
+            "PERS-246"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-246"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-001",
+        "fromUnitName": "1st Support Brigade",
+        "toUnit": "BN-TRA-002",
+        "toUnitName": "2nd Transportation Battalion",
+        "soldiers": [
+            "PERS-246"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-246"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-023",
+        "fromUnitName": "23th Maintenance Battalion",
+        "toUnit": "BDE-ARM-007",
+        "toUnitName": "7th Armor Brigade",
+        "soldiers": [
+            "PERS-405"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-405"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-007",
+        "fromUnitName": "7th Armor Brigade",
+        "toUnit": "BDE-SUP-001",
+        "toUnitName": "1st Support Brigade",
+        "soldiers": [
+            "PERS-405"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-405"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-001",
+        "fromUnitName": "1st Support Brigade",
+        "toUnit": "BN-MED-003",
+        "toUnitName": "3rd Medical Battalion",
+        "soldiers": [
+            "PERS-405"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-405"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-031",
+        "fromUnitName": "31th Medical Battalion",
+        "toUnit": "BDE-MIL-011",
+        "toUnitName": "11th Military Police Brigade",
+        "soldiers": [
+            "PERS-240"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-240"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-011",
+        "fromUnitName": "11th Military Police Brigade",
+        "toUnit": "BDE-ART-003",
+        "toUnitName": "3rd Artillery Brigade",
+        "soldiers": [
+            "PERS-240"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-240"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-003",
+        "fromUnitName": "3rd Artillery Brigade",
+        "toUnit": "BN-MEC-007",
+        "toUnitName": "7th Mechanized Battalion",
+        "soldiers": [
+            "PERS-240"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-240"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-046",
+        "fromUnitName": "46th Signal Battalion",
+        "toUnit": "BDE-ARM-016",
+        "toUnitName": "16th Armor Brigade",
+        "soldiers": [
+            "PERS-451",
+            "PERS-413"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-451",
+            "PERS-413"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-016",
+        "fromUnitName": "16th Armor Brigade",
+        "toUnit": "BDE-ART-003",
+        "toUnitName": "3rd Artillery Brigade",
+        "soldiers": [
+            "PERS-451",
+            "PERS-413",
+            "PERS-224"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-451",
+            "PERS-413",
+            "PERS-224"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-003",
+        "fromUnitName": "3rd Artillery Brigade",
+        "toUnit": "BN-TAN-008",
+        "toUnitName": "8th Tank Battalion",
+        "soldiers": [
+            "PERS-451",
+            "PERS-413",
+            "PERS-125"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-451",
+            "PERS-413",
+            "PERS-125"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-013",
+        "fromUnitName": "13th Mechanized Battalion",
+        "toUnit": "BDE-AVI-004",
+        "toUnitName": "4th Aviation Brigade",
+        "soldiers": [
+            "PERS-125"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-125"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-004",
+        "fromUnitName": "4th Aviation Brigade",
+        "toUnit": "BDE-ART-003",
+        "toUnitName": "3rd Artillery Brigade",
+        "soldiers": [
+            "PERS-125"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-125"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-045",
+        "fromUnitName": "45th Signal Battalion",
+        "toUnit": "BDE-ARM-016",
+        "toUnitName": "16th Armor Brigade",
+        "soldiers": [
+            "PERS-224"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-224"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-003",
+        "fromUnitName": "3rd Artillery Brigade",
+        "toUnit": "BN-SIG-010",
+        "toUnitName": "10th Signal Battalion",
+        "soldiers": [
+            "PERS-224"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-224"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "BDE-ARM-010",
+        "toUnitName": "10th Armor Brigade",
+        "soldiers": [
+            "PERS-113"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-113"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-010",
+        "fromUnitName": "10th Armor Brigade",
+        "toUnit": "BDE-AVI-004",
+        "toUnitName": "4th Aviation Brigade",
+        "soldiers": [
+            "PERS-113"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-113"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-004",
+        "fromUnitName": "4th Aviation Brigade",
+        "toUnit": "BN-SIG-012",
+        "toUnitName": "12th Signal Battalion",
+        "soldiers": [
+            "PERS-113"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-113"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-032",
+        "fromUnitName": "32th Infantry Battalion",
+        "toUnit": "BDE-MIL-011",
+        "toUnitName": "11th Military Police Brigade",
+        "soldiers": [
+            "PERS-185"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-185"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-011",
+        "fromUnitName": "11th Military Police Brigade",
+        "toUnit": "BDE-AVI-004",
+        "toUnitName": "4th Aviation Brigade",
+        "soldiers": [
+            "PERS-185"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-185"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-004",
+        "fromUnitName": "4th Aviation Brigade",
+        "toUnit": "BN-MEC-013",
+        "toUnitName": "13th Mechanized Battalion",
+        "soldiers": [
+            "PERS-185"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-185"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-012",
+        "fromUnitName": "12th Signal Battalion",
+        "toUnit": "BDE-AVI-004",
+        "toUnitName": "4th Aviation Brigade",
+        "soldiers": [
+            "PERS-313"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-313"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-004",
+        "fromUnitName": "4th Aviation Brigade",
+        "toUnit": "BDE-ARM-007",
+        "toUnitName": "7th Armor Brigade",
+        "soldiers": [
+            "PERS-313"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-313"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-007",
+        "fromUnitName": "7th Armor Brigade",
+        "toUnit": "BN-MAI-023",
+        "toUnitName": "23th Maintenance Battalion",
+        "soldiers": [
+            "PERS-313"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-313"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-040",
+        "fromUnitName": "40th Transportation Battalion",
+        "toUnit": "BDE-AVI-014",
+        "toUnitName": "14th Aviation Brigade",
+        "soldiers": [
+            "PERS-328"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-328"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-014",
+        "fromUnitName": "14th Aviation Brigade",
+        "toUnit": "BDE-ARM-010",
+        "toUnitName": "10th Armor Brigade",
+        "soldiers": [
+            "PERS-328"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-328"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-010",
+        "fromUnitName": "10th Armor Brigade",
+        "toUnit": "BN-SIG-028",
+        "toUnitName": "28th Signal Battalion",
+        "soldiers": [
+            "PERS-328"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-328"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-024",
+        "fromUnitName": "24th Mechanized Battalion",
+        "toUnit": "BDE-ART-008",
+        "toUnitName": "8th Artillery Brigade",
+        "soldiers": [
+            "PERS-391"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-391"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-008",
+        "fromUnitName": "8th Artillery Brigade",
+        "toUnit": "BDE-MIL-011",
+        "toUnitName": "11th Military Police Brigade",
+        "soldiers": [
+            "PERS-391"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-391"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-011",
+        "fromUnitName": "11th Military Police Brigade",
+        "toUnit": "BN-MED-031",
+        "toUnitName": "31th Medical Battalion",
+        "soldiers": [
+            "PERS-391"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-391"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-035",
+        "fromUnitName": "35th Mechanized Battalion",
+        "toUnit": "BDE-ART-012",
+        "toUnitName": "12th Artillery Brigade",
+        "soldiers": [
+            "PERS-289"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-289"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-012",
+        "fromUnitName": "12th Artillery Brigade",
+        "toUnit": "BDE-MIL-011",
+        "toUnitName": "11th Military Police Brigade",
+        "soldiers": [
+            "PERS-289"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-289"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-011",
+        "fromUnitName": "11th Military Police Brigade",
+        "toUnit": "BN-INF-032",
+        "toUnitName": "32th Infantry Battalion",
+        "soldiers": [
+            "PERS-289"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-289"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-018",
+        "fromUnitName": "18th Transportation Battalion",
+        "toUnit": "BDE-SUP-006",
+        "toUnitName": "6th Support Brigade",
+        "soldiers": [
+            "PERS-217"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-217"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-006",
+        "fromUnitName": "6th Support Brigade",
+        "toUnit": "BDE-SUP-013",
+        "toUnitName": "13th Support Brigade",
+        "soldiers": [
+            "PERS-217"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-217"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-013",
+        "fromUnitName": "13th Support Brigade",
+        "toUnit": "BN-SIG-037",
+        "toUnitName": "37th Signal Battalion",
+        "soldiers": [
+            "PERS-217"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-217"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-017",
+        "fromUnitName": "17th Infantry Battalion",
+        "toUnit": "BDE-MIL-005",
+        "toUnitName": "5th Military Police Brigade",
+        "soldiers": [
+            "PERS-473"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-473"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-005",
+        "fromUnitName": "5th Military Police Brigade",
+        "toUnit": "BDE-AVI-014",
+        "toUnitName": "14th Aviation Brigade",
+        "soldiers": [
+            "PERS-473"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-473"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-014",
+        "fromUnitName": "14th Aviation Brigade",
+        "toUnit": "BN-MAI-039",
+        "toUnitName": "39th Maintenance Battalion",
+        "soldiers": [
+            "PERS-473"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-473"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-002",
+        "fromUnitName": "2nd Transportation Battalion",
+        "toUnit": "BDE-SUP-001",
+        "toUnitName": "1st Support Brigade",
+        "soldiers": [
+            "PERS-462"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-462"
+        ]
+    },
+    {
+        "fromUnit": "BDE-SUP-001",
+        "fromUnitName": "1st Support Brigade",
+        "toUnit": "BDE-ART-015",
+        "toUnitName": "15th Artillery Brigade",
+        "soldiers": [
+            "PERS-462"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-462"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-015",
+        "fromUnitName": "15th Artillery Brigade",
+        "toUnit": "BN-TAN-042",
+        "toUnitName": "42th Tank Battalion",
+        "soldiers": [
+            "PERS-462"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-462"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-025",
+        "fromUnitName": "25th Transportation Battalion",
+        "toUnit": "BDE-ART-008",
+        "toUnitName": "8th Artillery Brigade",
+        "soldiers": [
+            "PERS-209"
+        ],
+        "movementType": "up_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-209"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-008",
+        "fromUnitName": "8th Artillery Brigade",
+        "toUnit": "BDE-ART-015",
+        "toUnitName": "15th Artillery Brigade",
+        "soldiers": [
+            "PERS-209"
+        ],
+        "movementType": "parent_to_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-209"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-015",
+        "fromUnitName": "15th Artillery Brigade",
+        "toUnit": "BN-TRA-043",
+        "toUnitName": "43th Transportation Battalion",
+        "soldiers": [
+            "PERS-209"
+        ],
+        "movementType": "down_from_parent",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-209"
+        ]
+    }
+]
