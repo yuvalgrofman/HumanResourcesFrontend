@@ -1,0 +1,8 @@
+Hello Claude, please update the code such that each 
+parent node is mapped to a uniqe color. Now, 
+the miniCard should have a gradient coloring that is based
+on the parent node's color.
+Moreover, the color of each parent-to-parent arrow 
+should have the same color as the destination parent node.
+Only update the relevant parts of the code, 
+and write exactly where to place the changes. 

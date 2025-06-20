@@ -1,0 +1,9 @@
+Hello Claude, Please update the block of code which begins in line 820, 
+such that each miniCard has a connection to the parent node.
+The connection should be a wide vertical line with high opacity. 
+The line should remind that of a sankey diagram, 
+where the width of the line is proportional to the total number of special soldiers 
+entering the parent node (which can be negative if more soldiers leave than enter).
+The color of the line should be red/green depending on whether the total is negative/positive.
+There is no need to rewrite the whole code, just write the exact changes needed to achieve this
+and write the exact line numbers where the changes should be made.

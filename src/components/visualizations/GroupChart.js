@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 import { useData } from '../../context/DataContext';
 import './GroupChart.css';
-import { getBackgroundColor, getEllipseColor } from '../../utils/colors';
-import { getGrowthIcon, getSpecialSoldierGrowthIcon } from '../../utils/icons'; 
+import { generateParentColors } from '../../utils/colors';
 import { ColorUnitCard } from '../chart/node/ColorUnitCard';
+import { rolesDifference } from '../../utils/helpers';
 
 const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID, levels = 5, arrowFilterValue = 0 }) => {
-  let bottomRowLevelConst = levels - 1;
   const { currentUnits, pastUnits } = useData();
   const [flatCurrentUnits, setFlatCurrentUnits] = useState([]);
   const [flatPastUnits, setFlatPastUnits] = useState([]);
@@ -82,6 +81,7 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
 
   // Calculate soldier movements between time periods with hierarchical routing
   const calculateSoldierMovements = (currentUnits, pastUnits) => {
+    let bottomRowLevelConst = levels - 1;
     const movements = [];
     
     if (!currentUnits || !pastUnits) return movements;
@@ -340,7 +340,7 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
       const movements = calculateSoldierMovements(flatCurrentUnits, flatPastUnits);
       setSoldierMovements(movements);
     }
-  }, [flatCurrentUnits, flatPastUnits]);
+  }, [flatCurrentUnits, flatPastUnits, levels]);
 
   // Full screen toggle
   const toggleFullScreen = () => {
@@ -445,25 +445,25 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
     let strokeWidth, strokeColor, opacity;
     
     if (soldierCount <= 2) {
-      strokeWidth = '2.5px';
+      strokeWidth = '5px';
       strokeColor = '#90A4AE'; // Light gray for small movements
-      opacity = 0.6;
-    } else if (soldierCount <= 4) {
-      strokeWidth = '3px';
-      strokeColor = '#5C6BC0'; // Medium blue
       opacity = 0.7;
+    } else if (soldierCount <= 4) {
+      strokeWidth = '6px';
+      strokeColor = '#5C6BC0'; // Medium blue
+      opacity = 0.75;
     } else if (soldierCount <= 6) {
-      strokeWidth = '3.5px';
+      strokeWidth = '7px';
       strokeColor = '#3F51B5'; // Darker blue
       opacity = 0.8;
     } else if (soldierCount <= 8) {
-      strokeWidth = '4px';
+      strokeWidth = '8px';
       strokeColor = '#3F51B5'; // Darker blue
-      opacity = 0.9;
+      opacity = 0.85;
     } else {
-      strokeWidth = '5px';
+      strokeWidth = '9px';
       strokeColor = '#1A237E'; // Very dark blue for large movements
-      opacity = 1;
+      opacity = 0.95;
     }
     
     return { strokeWidth, strokeColor, opacity };
@@ -582,7 +582,8 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
     // Set up dimensions for ParallelUnitCard-style nodes
     const nodeWidth = 300;
     const nodeHeight = 200;
-    const levelHeight = 250;
+    const levelHeight = 300;
+    const lastLevelExtraGap = 200; // Extra vertical gap before the last level
 
     // Create tree layout
     const treeLayout = d3.tree()
@@ -592,6 +593,20 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
     // Create hierarchy
     const root = d3.hierarchy(buildTreeData);
     const treeData = treeLayout(root);
+
+    // Calculate the maximum depth to identify the last level
+    const maxDepth = treeData.height;
+
+    // Apply custom positioning with extra gap for last level
+    treeData.descendants().forEach(d => {
+      if (d.depth === maxDepth) {
+        // Add extra vertical spacing for the last level
+        d.y += 3 * lastLevelExtraGap / 2;
+      } else if (d.depth === maxDepth - 1) {
+        // Add extra vertical spacing for the second last level
+        d.y += lastLevelExtraGap / 2 - 40;
+      }
+    });
 
     // Create node position map for movement arrows
     const nodePositions = new Map();
@@ -638,19 +653,20 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
       }
     });
 
-    // Calculate bounds after custom positioning
-    let minX = Infinity, maxX = -Infinity;
+    // Calculate bounds after custom positioning (including the extra gap)
+    let minX = Infinity, maxX = -Infinity, maxY = -Infinity;
     treeData.descendants().forEach(d => {
       minX = Math.min(minX, d.x);
       maxX = Math.max(maxX, d.x);
+      maxY = Math.max(maxY, d.y);
     });
     
     const treeWidth = maxX - minX + nodeWidth;
-    const treeHeight = (treeData.height + 1) * levelHeight;
+    const treeHeight = maxY + nodeHeight + 200; // Account for the extra gap
     
     // Set SVG dimensions
     svg.attr('width', Math.max(treeWidth + 200, containerWidth))
-       .attr('height', Math.max(treeHeight + 200, containerHeight));
+      .attr('height', Math.max(treeHeight + 200, containerHeight));
 
     // Define arrow markers
     const defs = svg.append('defs');
@@ -687,17 +703,20 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
         .attr('d', d => {
           const source = d.source;
           const target = d.target;
+          
+          // Calculate the midpoint for the connection, accounting for large gap
+          const midY = source.y + nodeHeight/2 + 80 + 
+            (target.depth === maxDepth ? lastLevelExtraGap/2 : 0);
+          
           return `M${source.x},${source.y + nodeHeight/2 + 42}
-                  L${source.x},${source.y + nodeHeight/2 + 80}
-                  L${target.x}  ,${target.y}
+                  L${source.x},${midY}
+                  L${target.x},${midY}
                   L${target.x},${target.y + 42}`;
         })
         .style('fill', 'none')
         .style('stroke', '#37B7C3')
         .style('stroke-width', '2px');
     }
-
-
 
     // Add nodes
     const nodes = g.selectAll('.node')
@@ -735,6 +754,8 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
         );
       });
 
+
+
     // Define arrow markers for different types
     defs.append('marker')
       .attr('id', 'group-green')
@@ -761,6 +782,7 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
       .attr('fill', '#f44336');
 
     // Get all bottom row units (level 2 units that have parents at level 1)
+    let bottomRowLevelConst = levels - 1;
     const bottomRowLevel = bottomRowLevelConst;
     const parentRowLevel = bottomRowLevelConst - 1;
     
@@ -794,7 +816,113 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
     });
 
     const bottomRowUnits = Array.from(unitHierarchy.values()).filter(unit => unit.level === bottomRowLevel);
-    const parentRowUnits = Array.from(unitHierarchy.values()).filter(unit => unit.level === parentRowLevel);
+    const parentIds = Array.from(unitHierarchy.values()).filter(unit => unit.level === parentRowLevel);
+    // Find all units with id in parentIds
+    let parentRowUnits = flatCurrentUnits.filter(unit => parentIds.some(parent => parent.id === unit.id));
+    let pastParentRowUnits = flatPastUnits.filter(unit => parentIds.some(parent => parent.id === unit.id));
+    const parentColorMap = new Map();
+    const parentColors = generateParentColors();
+    parentRowUnits.forEach((unit, index) => {
+      const colorIndex = index % parentColors.length;
+      parentColorMap.set(unit.id, {
+        start: parentColors[colorIndex * 2],
+        end: parentColors[colorIndex * 2 + 1] || parentColors[colorIndex * 2]
+      });
+    });
+
+    // Draw minicards for units in the parent row
+    parentRowUnits.forEach(parentUnit => {
+      if (!nodePositions.has(parentUnit.id)) return;
+      const currentUnit = parentUnit;
+      const pastUnit = findUnitById(pastParentRowUnits, parentUnit.id);
+
+      const parentPos = nodePositions.get(parentUnit.id);
+      const boxX = parentPos.x - 75; // Center the box (150px width / 2)
+      const boxY = parentPos.y + 330; // 135 pixels below the node
+      const parentColor = parentColorMap.get(parentUnit.id) || { start: '#667eea', end: '#764ba2' };
+      
+      const boxGroup = g.append('g').attr('class', 'parent-minicard-box');
+      
+      // Add rounded rectangle
+      boxGroup.append('rect')
+        .attr('x', boxX)
+        .attr('y', boxY)
+        .attr('width', 150)
+        .attr('height', 60)
+        .attr('rx', 8)
+        .attr('ry', 8)
+        .attr('fill', '#f8f9fa')
+        .attr('stroke', '#e9ecef')
+        .attr('stroke-width', '1px');
+      
+
+      // Add MiniCard content
+      boxGroup.append('foreignObject')
+        .attr('x', boxX)
+        .attr('y', boxY)
+        .attr('width', 150)
+        .attr('height', 60)
+        .append('xhtml:div')
+        .style('width', '100%')
+        .style('height', '100%')
+        .style('display', 'flex')
+        .style('align-items', 'center')
+        .style('justify-content', 'center')
+        .style('font-size', '12px')
+        .style('color', '#ffffff')
+        .style('background', `linear-gradient(135deg, ${parentColor.start} 0%, ${parentColor.end} 100%)`)
+        .style('border-radius', '8px')
+        .style('box-shadow', '0 4px 6px rgba(0, 0, 0, 0.1)')
+        .html(`<div style="text-align: center; padding: 4px;">
+          <div style="font-weight: bold; margin-bottom: 2px; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);">${parentUnit.name}</div>
+        </div>`);
+
+      if (!currentUnit || !pastUnit) return;
+
+      // compute width
+      const changedRoles = rolesDifference(pastUnit.roles, currentUnit.roles);
+      const newRolesCount = changedRoles.totals.totalNewRoles;
+      const removedRolesCount = changedRoles.totals.totalRemovedRoles;
+
+      const greenWidth = Math.max(5, Math.min(60, newRolesCount * 5));
+      const redWidth = Math.max(5, Math.min(60, removedRolesCount * 5));
+      const greyWidth = 120 - greenWidth - redWidth;
+      
+      const greenColor = "#8bc34a"; // Green for new roles
+      const redColor = "#e57373"; // Red for removed roles
+      const greyColor = "#90A4AE"; // Gray for unchanged roles
+      const lineOpacity = 0.8;
+      
+      // Draw connection line from parent node to minicard
+      const connectionStartY = parentPos.y + 135; // Bottom of parent node
+      const connectionEndY = boxY + 1; // Top of minicard
+      const connectionStartX = boxX + 30; // Center of parent node
+      
+      boxGroup.append('line')
+        .attr('x1', connectionStartX)
+        .attr('y1', connectionStartY)
+        .attr('x2', connectionStartX)
+        .attr('y2', connectionEndY)
+        .attr('stroke', greenColor)
+        .attr('stroke-width', greenWidth)
+        .attr('opacity', lineOpacity)
+      boxGroup.append('line')
+        .attr('x1', connectionStartX + greenWidth / 2 + greyWidth / 2)
+        .attr('y1', connectionStartY)
+        .attr('x2', connectionStartX + greenWidth / 2 + greyWidth / 2)
+        .attr('y2', connectionEndY)
+        .attr('stroke', greyColor)
+        .attr('stroke-width', greyWidth)
+        .attr('opacity', lineOpacity)
+      boxGroup.append('line')
+        .attr('x1', connectionStartX + greenWidth / 2 + greyWidth + redWidth / 2)
+        .attr('y1', connectionStartY)
+        .attr('x2', connectionStartX + greenWidth / 2 + greyWidth + redWidth / 2)
+        .attr('y2', connectionEndY)
+        .attr('stroke', redColor)
+        .attr('stroke-width', redWidth)
+        .attr('opacity', lineOpacity)
+    });
 
     // 1. Draw bidirectional arrows between bottom row units and their parents
     bottomRowUnits.forEach(childUnit => {
@@ -845,7 +973,7 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
         const greenArrowGroup = g.append('g').attr('class', 'bidirectional-arrow-group');
         
         const greenStartX = parentArrowX + horizontalOffset + arrowGap;
-        const greenStartY = parentBottomY - 65;
+        const greenStartY = parentBottomY + 195;
         const greenEndX = childCenterX + arrowGap;
         const greenEndY = childTopY + 15;
         
@@ -904,7 +1032,7 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
         const redArrowGroup = g.append('g').attr('class', 'bidirectional-arrow-group');
         
         const redEndX = parentArrowX + horizontalOffset - arrowGap;
-        const redEndY = parentBottomY - 65;
+        const redEndY = parentBottomY + 195;
         const redStartX = childCenterX - arrowGap;
         const redStartY = childTopY + 15;
         
@@ -1003,41 +1131,41 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
 
         if (isTargetRight) {
           startX = fromCenterX;
-          startY = fromPos.y - 20;
+          startY = fromPos.y - 22;
           endX = toCenterX;
           endY = toPos.y - 5;
         } else {
           startX = fromCenterX;
-          startY = fromPos.y + 150;
+          startY = fromPos.y + 152;
           endX = toCenterX;
           endY = toPos.y + 138;
         }
 
         const horizontalDistance = Math.abs(endX - startX);
-        const baseArcHeight = horizontalDistance * 0.02;
-        const maxArcHeight = 80;
+        const baseArcHeight = horizontalDistance * 0.015;
+        const maxArcHeight = 180;
         let arcHeight = Math.max(Math.min(baseArcHeight, maxArcHeight), 20);
         let aboveFlag = isTargetRight ? -1 : 1;
         const controlY = Math.min(startY, endY) + aboveFlag * arcHeight;
         
         const pathData = `M${startX},${startY} L${startX},${controlY} L${endX},${controlY} L${endX},${endY}`;
 
+        const dotAdjustment = isTargetRight ? 6 : -6;
+        const parentColor = parentColorMap.get(d.toUnit) || { start: '#667eea', end: '#764ba2' };
+
         // Add grey dot at start
         d3.select(this)
           .append('circle')
           .attr('cx', startX)
-          .attr('cy', startY)
-          .attr('r', 5)
+          .attr('cy', startY + dotAdjustment)
+          .attr('r', 7)
           .attr('fill', '#808080')
-          .attr('stroke', '#666666')
-          .attr('stroke-width', '1px')
-          .attr('opacity', 0.8);
 
         const arrowPath = d3.select(this)
           .append('path')
           .attr('d', pathData)
           .attr('fill', 'none')
-          .attr('stroke', arrowStyle.strokeColor)
+          .attr('stroke', parentColor.start)
           .attr('stroke-width', arrowStyle.strokeWidth)
           .attr('marker-end', 'url(#group-transfer)')
           .attr('opacity', arrowStyle.opacity)

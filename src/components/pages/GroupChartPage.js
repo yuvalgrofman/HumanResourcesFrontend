@@ -18,7 +18,7 @@ const GroupChartPage = () => {
   const [clickedNodeID, setClickedNodeID] = useState('');
   
   // State for org chart levels
-  const [levels, setLevels] = useState(4);
+  const [levels, setLevels] = useState(3);
   
   // State for arrow filter value
   const [arrowFilterValue, setArrowFilterValue] = useState(0);

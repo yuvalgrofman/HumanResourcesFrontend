@@ -215,3 +215,46 @@ export const calculateUnitStatistics = (units) => {
     totalSeniorOfficers
   };
 };
+
+export function rolesDifference(pastRoles, currentRoles) {
+  const result = {};
+  let totalNewRoles = 0;
+  let totalRemovedRoles = 0;
+  
+  // Get all unique keys from both dictionaries
+  const allKeys = new Set([...Object.keys(pastRoles), ...Object.keys(currentRoles)]);
+  
+  allKeys.forEach(key => {
+    const pastArray = pastRoles[key] || [];
+    const currentArray = currentRoles[key] || [];
+    
+    // Convert arrays to Sets for efficient comparison
+    const pastSet = new Set(pastArray);
+    const currentSet = new Set(currentArray);
+    
+    // Find new roles (in current but not in past)
+    const newRoles = currentArray.filter(role => !pastSet.has(role));
+    
+    // Find removed roles (in past but not in current)
+    const removedRoles = pastArray.filter(role => !currentSet.has(role));
+    
+    // Add to totals
+    totalNewRoles += newRoles.length;
+    totalRemovedRoles += removedRoles.length;
+    
+    result[key] = {
+      newRolesCount: newRoles.length,
+      removedRolesCount: removedRoles.length,
+      newRoles: newRoles,
+      removedRoles: removedRoles
+    };
+  });
+  
+  // Add totals to the result
+  result.totals = {
+    totalNewRoles: totalNewRoles,
+    totalRemovedRoles: totalRemovedRoles
+  };
+  
+  return result;
+}
