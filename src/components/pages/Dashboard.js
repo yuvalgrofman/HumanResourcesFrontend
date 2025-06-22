@@ -55,7 +55,6 @@ const countAllUnits = (units) => {
   
   const countUnits = (unitsList) => {
     count += unitsList.length;
-    
     unitsList.forEach(unit => {
       if (unit.sub_units && unit.sub_units.length > 0) {
         countUnits(unit.sub_units);
@@ -76,9 +75,9 @@ const sumTotalPersonnel = (units) => {
     unitsList.forEach(unit => {
       total += unit.total_personnel || 0;
       
-      if (unit.sub_units && unit.sub_units.length > 0) {
-        sumPersonnel(unit.sub_units);
-      }
+      //if (unit.sub_units && unit.sub_units.length > 0) {
+      //  sumPersonnel(unit.sub_units);
+      //}
     });
   };
   
@@ -95,9 +94,9 @@ const countSeniorOfficers = (units) => {
     unitsList.forEach(unit => {
       count += unit.senior_officers || 0;
       
-      if (unit.sub_units && unit.sub_units.length > 0) {
-        countSeniorOfficersRec(unit.sub_units);
-      }
+      //if (unit.sub_units && unit.sub_units.length > 0) {
+      //  countSeniorOfficersRec(unit.sub_units);
+      //}
     });
   };
   
@@ -114,9 +113,9 @@ const countOfficers = (units) => {
     unitsList.forEach(unit => {
       count += unit.officers || 0;
       
-      if (unit.sub_units && unit.sub_units.length > 0) {
-        countOfficersRec(unit.sub_units);
-      }
+      //if (unit.sub_units && unit.sub_units.length > 0) {
+      //  countOfficersRec(unit.sub_units);
+      //}
     });
   };
   
@@ -133,9 +132,9 @@ const countRegularSoldiers = (units) => {
     unitsList.forEach(unit => {
       count += unit.regular_soldiers || 0;
       
-      if (unit.sub_units && unit.sub_units.length > 0) {
-        countSoldiers(unit.sub_units);
-      }
+      //if (unit.sub_units && unit.sub_units.length > 0) {
+      //  countSoldiers(unit.sub_units);
+      //}
     });
   };
   

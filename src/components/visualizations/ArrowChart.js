@@ -72,7 +72,7 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
           regular_soldiers: unit.regular_soldiers || 0,
           officers: unit.officers || 0,
           senior_officers: unit.senior_officers || 0,
-          total_personnel: unit.total_personnel * 11 + 600 || 0,
+          total_personnel: unit.total_personnel || 0,
           // total_personnel: unit.total_personnel || 0,
           date: unit.date,
           roles: unit.roles || {},

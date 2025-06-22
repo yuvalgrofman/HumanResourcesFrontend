@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useData } from '../../context/DataContext';
 import Slider from '../chart/Slider';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {getUnitTimeSeries} from "../../api/api";
 
 const TimeGraphPage = () => {
   const { selectedDate, pastDate, currentUnits, loading, error } = useData();
@@ -61,40 +62,91 @@ const TimeGraphPage = () => {
     }
   }, [currentUnits]);
 
-  // Generate mock time series data based on selected date range and units
-  useEffect(() => {
-    if (selectedUnits.length === 0) {
-      setTimeSeriesData([]);
-      return;
-    }
+ useEffect(() => {
+  if (selectedUnits.length === 0) {
+    setTimeSeriesData([]);
+    return;
+  }
 
-    const generateTimeSeriesData = () => {
+  const fetchTimeSeriesData = async () => {
+    try {
       const startYear = parseInt(pastDate.split('-')[0]);
       const endYear = parseInt(selectedDate.split('-')[0]);
-      const data = [];
 
+      // Create an array of promises for each unit's time series data
+      const promises = selectedUnits.map(unitId =>
+        getUnitTimeSeries(unitId)
+      );
+
+      // Wait for all promises to resolve
+      const unitsTimeSeriesData = await Promise.all(promises);
+
+      // Organize the data by year
+      const yearlyData = {};
+
+      // Initialize year objects for each year in range
       for (let year = startYear; year <= endYear; year++) {
-        const dataPoint = { year: year.toString() };
-        
-        selectedUnits.forEach(unitId => {
-          const unit = availableUnits.find(u => u.id === unitId);
-          if (unit) {
-            // Generate mock data with some variation over time
-            const basePersonnel = unit.total_personnel || 0;
-            const variation = Math.sin((year - startYear) * 0.5) * 0.1 + Math.random() * 0.1 - 0.05;
-            const personnel = Math.max(0, Math.round(basePersonnel * (1 + variation)));
-            dataPoint[unit.name] = personnel;
+        yearlyData[year] = { year: year.toString() };
+      }
+
+      // Fill in the data for each unit
+      unitsTimeSeriesData.forEach((response, index) => {
+        const unitId = selectedUnits[index];
+        const unit = availableUnits.find(u => u.id === unitId);
+
+        if (!unit || !response) return;
+
+        // Access the data array from the response
+        const unitTimeData = response.data || [];
+
+        unitTimeData.forEach(dataPoint => {
+          const year = parseInt(dataPoint.date.split('-')[0]);
+          if (year >= startYear && year <= endYear) {
+            // Add this unit's data to the year
+            yearlyData[year][unit.name] = dataPoint.total_personnel || 0;
           }
         });
-        
-        data.push(dataPoint);
-      }
-      
-      return data;
-    };
+      });
 
-    setTimeSeriesData(generateTimeSeriesData());
-  }, [selectedUnits, availableUnits, pastDate, selectedDate]);
+      // Convert object to array and sort by year
+      const data = Object.values(yearlyData).sort((a, b) =>
+        parseInt(a.year) - parseInt(b.year)
+      );
+
+      setTimeSeriesData(data);
+
+    } catch (error) {
+      console.error('Error fetching time series data:', error);
+      // If API fails, fall back to current data for visualization
+      const fallbackData = generateFallbackData();
+      setTimeSeriesData(fallbackData);
+    }
+  };
+
+  // Fallback function that uses current data (for error cases)
+  const generateFallbackData = () => {
+    const startYear = parseInt(pastDate.split('-')[0]);
+    const endYear = parseInt(selectedDate.split('-')[0]);
+    const data = [];
+
+    for (let year = startYear; year <= endYear; year++) {
+      const dataPoint = { year: year.toString() };
+
+      selectedUnits.forEach(unitId => {
+        const unit = availableUnits.find(u => u.id === unitId);
+        if (unit) {
+          dataPoint[unit.name] = unit.total_personnel || 0;
+        }
+      });
+
+      data.push(dataPoint);
+    }
+
+    return data;
+  };
+
+  fetchTimeSeriesData();
+}, [selectedUnits, availableUnits, pastDate, selectedDate]);
 
   // Control Panel Component
   const ControlPanel = () => {
