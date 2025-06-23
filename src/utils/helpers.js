@@ -258,3 +258,28 @@ export function rolesDifference(pastRoles, currentRoles) {
   
   return result;
 }
+
+const normaliziationMap = {
+  0: 0,
+  1: 4,
+  2: 4.5,
+  3: 5,
+  4: 5.5,
+  5: 6,
+  6: 7.5,
+  7: 8,
+  8 : 8.5,
+  9 : 9 
+}
+
+export function normalizeMatrix(matrix, minWidthRatio = 0.3, maxWidthRatio = 1.0) {
+  // Create normalized matrix
+  const normalizedMatrix = matrix.map(row => 
+    row.map(value => {
+      const result = normaliziationMap.hasOwnProperty(value) ? normaliziationMap[value] : value;
+      return result;
+    })
+  );
+  
+  return normalizedMatrix;
+};

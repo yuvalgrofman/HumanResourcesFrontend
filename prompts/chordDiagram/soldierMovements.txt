@@ -1,0 +1,6234 @@
+[
+    {
+        "fromUnit": "BN-MEC-009",
+        "fromUnitName": "9th Mechanized Battalion",
+        "toUnit": "DIV-001",
+        "toUnitName": "1st Division",
+        "soldiers": [
+            "PERS-1261",
+            "PERS-020"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1261",
+            "PERS-020"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-030",
+        "fromUnitName": "30th Medical Battalion",
+        "toUnit": "DIV-001",
+        "toUnitName": "1st Division",
+        "soldiers": [
+            "PERS-1853"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1853"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-018",
+        "fromUnitName": "18th Tank Battalion",
+        "toUnit": "BDE-ART-001",
+        "toUnitName": "1st Artillery Brigade",
+        "soldiers": [
+            "PERS-446"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-446"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-017",
+        "fromUnitName": "17th Aviation Brigade",
+        "toUnit": "BN-MEC-001",
+        "toUnitName": "1st Mechanized Battalion",
+        "soldiers": [
+            "PERS-1827"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1827"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-033",
+        "fromUnitName": "33th Transportation Battalion",
+        "toUnit": "BN-INF-003",
+        "toUnitName": "3rd Infantry Battalion",
+        "soldiers": [
+            "PERS-1013"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1013"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-043",
+        "fromUnitName": "43th Maintenance Battalion",
+        "toUnit": "BN-INF-003",
+        "toUnitName": "3rd Infantry Battalion",
+        "soldiers": [
+            "PERS-1115"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1115"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-039",
+        "fromUnitName": "39th Medical Battalion",
+        "toUnit": "BN-INF-003",
+        "toUnitName": "3rd Infantry Battalion",
+        "soldiers": [
+            "PERS-756"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-756"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-003",
+        "fromUnitName": "3rd Aviation Brigade",
+        "toUnit": "BDE-ART-002",
+        "toUnitName": "2nd Artillery Brigade",
+        "soldiers": [
+            "PERS-360"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-360"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-054",
+        "fromUnitName": "54th Signal Battalion",
+        "toUnit": "BDE-ART-002",
+        "toUnitName": "2nd Artillery Brigade",
+        "soldiers": [
+            "PERS-1813"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1813"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-021",
+        "fromUnitName": "21th Transportation Battalion",
+        "toUnit": "BDE-ART-002",
+        "toUnitName": "2nd Artillery Brigade",
+        "soldiers": [
+            "PERS-236"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-236"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-041",
+        "fromUnitName": "41th Mechanized Battalion",
+        "toUnit": "BDE-ART-002",
+        "toUnitName": "2nd Artillery Brigade",
+        "soldiers": [
+            "PERS-849"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-849"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-037",
+        "fromUnitName": "37th Maintenance Battalion",
+        "toUnit": "BN-MAI-004",
+        "toUnitName": "4th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1244"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1244"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-005",
+        "fromUnitName": "5th Maintenance Battalion",
+        "toUnit": "BN-MAI-004",
+        "toUnitName": "4th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1333"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1333"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-015",
+        "fromUnitName": "15th Aviation Brigade",
+        "toUnit": "BN-MAI-004",
+        "toUnitName": "4th Maintenance Battalion",
+        "soldiers": [
+            "PERS-686"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-686"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-009",
+        "fromUnitName": "9th Military Police Brigade",
+        "toUnit": "BN-MAI-005",
+        "toUnitName": "5th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1025"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1025"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-019",
+        "fromUnitName": "19th Tank Battalion",
+        "toUnit": "BN-INF-006",
+        "toUnitName": "6th Infantry Battalion",
+        "soldiers": [
+            "PERS-1002"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1002"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-004",
+        "fromUnitName": "4th Maintenance Battalion",
+        "toUnit": "BN-INF-006",
+        "toUnitName": "6th Infantry Battalion",
+        "soldiers": [
+            "PERS-135"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-135"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-026",
+        "fromUnitName": "26th Infantry Battalion",
+        "toUnit": "BN-INF-006",
+        "toUnitName": "6th Infantry Battalion",
+        "soldiers": [
+            "PERS-1666"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1666"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-008",
+        "fromUnitName": "8th Signal Battalion",
+        "toUnit": "BN-INF-006",
+        "toUnitName": "6th Infantry Battalion",
+        "soldiers": [
+            "PERS-1742"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1742"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-008",
+        "fromUnitName": "8th Artillery Brigade",
+        "toUnit": "BN-TRA-007",
+        "toUnitName": "7th Transportation Battalion",
+        "soldiers": [
+            "PERS-062"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-062"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-008",
+        "fromUnitName": "8th Signal Battalion",
+        "toUnit": "BN-TRA-007",
+        "toUnitName": "7th Transportation Battalion",
+        "soldiers": [
+            "PERS-138"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-138"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-006",
+        "fromUnitName": "6th Infantry Battalion",
+        "toUnit": "BN-TRA-007",
+        "toUnitName": "7th Transportation Battalion",
+        "soldiers": [
+            "PERS-736"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-736"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-016",
+        "fromUnitName": "16th Medical Battalion",
+        "toUnit": "BN-TRA-007",
+        "toUnitName": "7th Transportation Battalion",
+        "soldiers": [
+            "PERS-1438"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1438"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-005",
+        "fromUnitName": "5th Maintenance Battalion",
+        "toUnit": "BN-SIG-008",
+        "toUnitName": "8th Signal Battalion",
+        "soldiers": [
+            "PERS-875"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-875"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-015",
+        "fromUnitName": "15th Aviation Brigade",
+        "toUnit": "BN-MEC-009",
+        "toUnitName": "9th Mechanized Battalion",
+        "soldiers": [
+            "PERS-1458"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1458"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-014",
+        "fromUnitName": "14th Signal Battalion",
+        "toUnit": "BN-MEC-009",
+        "toUnitName": "9th Mechanized Battalion",
+        "soldiers": [
+            "PERS-1534"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1534"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-017",
+        "fromUnitName": "17th Medical Battalion",
+        "toUnit": "BN-MEC-009",
+        "toUnitName": "9th Mechanized Battalion",
+        "soldiers": [
+            "PERS-971"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-971"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-048",
+        "fromUnitName": "48th Maintenance Battalion",
+        "toUnit": "BN-MEC-009",
+        "toUnitName": "9th Mechanized Battalion",
+        "soldiers": [
+            "PERS-1728"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1728"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "BDE-ART-004",
+        "toUnitName": "4th Artillery Brigade",
+        "soldiers": [
+            "PERS-1667"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1667"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-011",
+        "fromUnitName": "11th Signal Battalion",
+        "toUnit": "BDE-ART-004",
+        "toUnitName": "4th Artillery Brigade",
+        "soldiers": [
+            "PERS-840"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-840"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-024",
+        "fromUnitName": "24th Maintenance Battalion",
+        "toUnit": "BN-MAI-010",
+        "toUnitName": "10th Maintenance Battalion",
+        "soldiers": [
+            "PERS-415"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-415"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": "BN-MAI-010",
+        "toUnitName": "10th Maintenance Battalion",
+        "soldiers": [
+            "PERS-510"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-510"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-030",
+        "fromUnitName": "30th Medical Battalion",
+        "toUnit": "BN-MAI-010",
+        "toUnitName": "10th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1332"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1332"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-049",
+        "fromUnitName": "49th Maintenance Battalion",
+        "toUnit": "BN-MAI-010",
+        "toUnitName": "10th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1663"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1663"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-051",
+        "fromUnitName": "51th Infantry Battalion",
+        "toUnit": "BN-MAI-010",
+        "toUnitName": "10th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1694"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1694"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-022",
+        "fromUnitName": "22th Tank Battalion",
+        "toUnit": "BN-SIG-011",
+        "toUnitName": "11th Signal Battalion",
+        "soldiers": [
+            "PERS-1466"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1466"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-015",
+        "fromUnitName": "15th Maintenance Battalion",
+        "toUnit": "BN-SIG-011",
+        "toUnitName": "11th Signal Battalion",
+        "soldiers": [
+            "PERS-1804"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1804"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-007",
+        "fromUnitName": "7th Transportation Battalion",
+        "toUnit": "BN-SIG-011",
+        "toUnitName": "11th Signal Battalion",
+        "soldiers": [
+            "PERS-716"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-716"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": "BN-MED-012",
+        "toUnitName": "12th Medical Battalion",
+        "soldiers": [
+            "PERS-1471"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1471"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-012",
+        "fromUnitName": "12th Aviation Brigade",
+        "toUnit": "BN-MED-012",
+        "toUnitName": "12th Medical Battalion",
+        "soldiers": [
+            "PERS-921",
+            "PERS-1001"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-921",
+            "PERS-1001"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-001",
+        "fromUnitName": "1st Mechanized Battalion",
+        "toUnit": "BN-MED-012",
+        "toUnitName": "12th Medical Battalion",
+        "soldiers": [
+            "PERS-1235"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1235"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-017",
+        "fromUnitName": "17th Aviation Brigade",
+        "toUnit": "BN-MED-012",
+        "toUnitName": "12th Medical Battalion",
+        "soldiers": [
+            "PERS-799"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-799"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-1559"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1559"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-014",
+        "fromUnitName": "14th Military Police Brigade",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-105"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-105"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-008",
+        "fromUnitName": "8th Signal Battalion",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-1679",
+            "PERS-1375"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1679",
+            "PERS-1375"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "BDE-MIL-005",
+        "toUnitName": "5th Military Police Brigade",
+        "soldiers": [
+            "PERS-1147"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1147"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-033",
+        "fromUnitName": "33th Transportation Battalion",
+        "toUnit": "BDE-MIL-005",
+        "toUnitName": "5th Military Police Brigade",
+        "soldiers": [
+            "PERS-208"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-208"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-013",
+        "fromUnitName": "13th Armor Brigade",
+        "toUnit": "BDE-MIL-005",
+        "toUnitName": "5th Military Police Brigade",
+        "soldiers": [
+            "PERS-1595"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1595"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-035",
+        "fromUnitName": "35th Medical Battalion",
+        "toUnit": "BDE-MIL-005",
+        "toUnitName": "5th Military Police Brigade",
+        "soldiers": [
+            "PERS-1895"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1895"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-036",
+        "fromUnitName": "36th Infantry Battalion",
+        "toUnit": "BN-TAN-013",
+        "toUnitName": "13th Tank Battalion",
+        "soldiers": [
+            "PERS-1078"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1078"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "BN-TAN-013",
+        "toUnitName": "13th Tank Battalion",
+        "soldiers": [
+            "PERS-1776"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1776"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-004",
+        "fromUnitName": "4th Artillery Brigade",
+        "toUnit": "BN-TAN-013",
+        "toUnitName": "13th Tank Battalion",
+        "soldiers": [
+            "PERS-313"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-313"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-020",
+        "fromUnitName": "20th Mechanized Battalion",
+        "toUnit": "BN-TAN-013",
+        "toUnitName": "13th Tank Battalion",
+        "soldiers": [
+            "PERS-551"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-551"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-026",
+        "fromUnitName": "26th Infantry Battalion",
+        "toUnit": "BN-TAN-013",
+        "toUnitName": "13th Tank Battalion",
+        "soldiers": [
+            "PERS-1197"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1197"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-005",
+        "fromUnitName": "5th Maintenance Battalion",
+        "toUnit": "BN-TAN-013",
+        "toUnitName": "13th Tank Battalion",
+        "soldiers": [
+            "PERS-379"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-379"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-011",
+        "fromUnitName": "11th Infantry Brigade",
+        "toUnit": "BN-SIG-014",
+        "toUnitName": "14th Signal Battalion",
+        "soldiers": [
+            "PERS-079"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-079"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-040",
+        "fromUnitName": "40th Medical Battalion",
+        "toUnit": "BN-SIG-014",
+        "toUnitName": "14th Signal Battalion",
+        "soldiers": [
+            "PERS-1206"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1206"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-008",
+        "fromUnitName": "8th Signal Battalion",
+        "toUnit": "BN-SIG-014",
+        "toUnitName": "14th Signal Battalion",
+        "soldiers": [
+            "PERS-1005"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1005"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-039",
+        "fromUnitName": "39th Medical Battalion",
+        "toUnit": "BN-SIG-014",
+        "toUnitName": "14th Signal Battalion",
+        "soldiers": [
+            "PERS-550"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-550"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-010",
+        "fromUnitName": "10th Aviation Brigade",
+        "toUnit": "BDE-INF-006",
+        "toUnitName": "6th Infantry Brigade",
+        "soldiers": [
+            "PERS-300"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-300"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-002",
+        "fromUnitName": "2nd Medical Battalion",
+        "toUnit": "BN-MAI-015",
+        "toUnitName": "15th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1802"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1802"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-023",
+        "fromUnitName": "23th Infantry Battalion",
+        "toUnit": "BN-MED-016",
+        "toUnitName": "16th Medical Battalion",
+        "soldiers": [
+            "PERS-1815"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1815"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-046",
+        "fromUnitName": "46th Tank Battalion",
+        "toUnit": "BN-MED-016",
+        "toUnitName": "16th Medical Battalion",
+        "soldiers": [
+            "PERS-593"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-593"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-006",
+        "fromUnitName": "6th Infantry Battalion",
+        "toUnit": "BN-MED-016",
+        "toUnitName": "16th Medical Battalion",
+        "soldiers": [
+            "PERS-774"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-774"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-001",
+        "fromUnitName": "1st Artillery Brigade",
+        "toUnit": "BDE-AVI-007",
+        "toUnitName": "7th Aviation Brigade",
+        "soldiers": [
+            "PERS-116"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-116"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-033",
+        "fromUnitName": "33th Transportation Battalion",
+        "toUnit": "BDE-AVI-007",
+        "toUnitName": "7th Aviation Brigade",
+        "soldiers": [
+            "PERS-1849"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1849"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-018",
+        "fromUnitName": "18th Tank Battalion",
+        "toUnit": "BDE-AVI-007",
+        "toUnitName": "7th Aviation Brigade",
+        "soldiers": [
+            "PERS-1902"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1902"
+        ]
+    },
+    {
+        "fromUnit": "DIV-002",
+        "fromUnitName": "2nd Division",
+        "toUnit": "BDE-AVI-007",
+        "toUnitName": "7th Aviation Brigade",
+        "soldiers": [
+            "PERS-820"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-820"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-012",
+        "fromUnitName": "12th Medical Battalion",
+        "toUnit": "BN-MED-017",
+        "toUnitName": "17th Medical Battalion",
+        "soldiers": [
+            "PERS-353"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-353"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-035",
+        "fromUnitName": "35th Medical Battalion",
+        "toUnit": "BN-MED-017",
+        "toUnitName": "17th Medical Battalion",
+        "soldiers": [
+            "PERS-1596"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1596"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-049",
+        "fromUnitName": "49th Maintenance Battalion",
+        "toUnit": "BN-TAN-018",
+        "toUnitName": "18th Tank Battalion",
+        "soldiers": [
+            "PERS-1214"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1214"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-023",
+        "fromUnitName": "23th Infantry Battalion",
+        "toUnit": "BN-TAN-018",
+        "toUnitName": "18th Tank Battalion",
+        "soldiers": [
+            "PERS-063"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-063"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "BN-TAN-018",
+        "toUnitName": "18th Tank Battalion",
+        "soldiers": [
+            "PERS-698"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-698"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-040",
+        "fromUnitName": "40th Medical Battalion",
+        "toUnit": "BN-TAN-019",
+        "toUnitName": "19th Tank Battalion",
+        "soldiers": [
+            "PERS-1166"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1166"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "BN-TAN-019",
+        "toUnitName": "19th Tank Battalion",
+        "soldiers": [
+            "PERS-1651"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1651"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-035",
+        "fromUnitName": "35th Medical Battalion",
+        "toUnit": "BN-TAN-019",
+        "toUnitName": "19th Tank Battalion",
+        "soldiers": [
+            "PERS-1727",
+            "PERS-1989"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1727",
+            "PERS-1989"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-036",
+        "fromUnitName": "36th Infantry Battalion",
+        "toUnit": "DIV-003",
+        "toUnitName": "3rd Division",
+        "soldiers": [
+            "PERS-1061"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1061"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-046",
+        "fromUnitName": "46th Tank Battalion",
+        "toUnit": "DIV-003",
+        "toUnitName": "3rd Division",
+        "soldiers": [
+            "PERS-1152"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1152"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-005",
+        "fromUnitName": "5th Maintenance Battalion",
+        "toUnit": "BDE-ART-008",
+        "toUnitName": "8th Artillery Brigade",
+        "soldiers": [
+            "PERS-992"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-992"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-019",
+        "fromUnitName": "19th Artillery Brigade",
+        "toUnit": "BDE-ART-008",
+        "toUnitName": "8th Artillery Brigade",
+        "soldiers": [
+            "PERS-1250"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1250"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-038",
+        "fromUnitName": "38th Infantry Battalion",
+        "toUnit": "BN-MEC-020",
+        "toUnitName": "20th Mechanized Battalion",
+        "soldiers": [
+            "PERS-1689"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1689"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-011",
+        "fromUnitName": "11th Infantry Brigade",
+        "toUnit": "BN-MEC-020",
+        "toUnitName": "20th Mechanized Battalion",
+        "soldiers": [
+            "PERS-933"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-933"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-023",
+        "fromUnitName": "23th Infantry Battalion",
+        "toUnit": "BN-TRA-021",
+        "toUnitName": "21th Transportation Battalion",
+        "soldiers": [
+            "PERS-1127"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1127"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-012",
+        "fromUnitName": "12th Aviation Brigade",
+        "toUnit": "BN-TRA-021",
+        "toUnitName": "21th Transportation Battalion",
+        "soldiers": [
+            "PERS-765"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-765"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-015",
+        "fromUnitName": "15th Aviation Brigade",
+        "toUnit": "BN-TRA-021",
+        "toUnitName": "21th Transportation Battalion",
+        "soldiers": [
+            "PERS-590"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-590"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-041",
+        "fromUnitName": "41th Mechanized Battalion",
+        "toUnit": "BDE-MIL-009",
+        "toUnitName": "9th Military Police Brigade",
+        "soldiers": [
+            "PERS-1321"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1321"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-022",
+        "fromUnitName": "22th Tank Battalion",
+        "toUnit": "BDE-MIL-009",
+        "toUnitName": "9th Military Police Brigade",
+        "soldiers": [
+            "PERS-690"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-690"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-008",
+        "fromUnitName": "8th Signal Battalion",
+        "toUnit": "BN-TAN-022",
+        "toUnitName": "22th Tank Battalion",
+        "soldiers": [
+            "PERS-1372"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1372"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-002",
+        "fromUnitName": "2nd Artillery Brigade",
+        "toUnit": "BN-TAN-022",
+        "toUnitName": "22th Tank Battalion",
+        "soldiers": [
+            "PERS-638"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-638"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-051",
+        "fromUnitName": "51th Infantry Battalion",
+        "toUnit": "BN-TAN-022",
+        "toUnitName": "22th Tank Battalion",
+        "soldiers": [
+            "PERS-727"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-727"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-019",
+        "fromUnitName": "19th Tank Battalion",
+        "toUnit": "BN-TAN-022",
+        "toUnitName": "22th Tank Battalion",
+        "soldiers": [
+            "PERS-689"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-689"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-052",
+        "fromUnitName": "52th Signal Battalion",
+        "toUnit": "BN-TAN-022",
+        "toUnitName": "22th Tank Battalion",
+        "soldiers": [
+            "PERS-1202"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1202"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "BN-INF-023",
+        "toUnitName": "23th Infantry Battalion",
+        "soldiers": [
+            "PERS-1113"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1113"
+        ]
+    },
+    {
+        "fromUnit": "HQ-ARMY",
+        "fromUnitName": "Army Headquarters",
+        "toUnit": "BN-MAI-024",
+        "toUnitName": "24th Maintenance Battalion",
+        "soldiers": [
+            "PERS-118"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-118"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-033",
+        "fromUnitName": "33th Transportation Battalion",
+        "toUnit": "BN-MAI-024",
+        "toUnitName": "24th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1014"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1014"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-002",
+        "fromUnitName": "2nd Artillery Brigade",
+        "toUnit": "BN-MAI-024",
+        "toUnitName": "24th Maintenance Battalion",
+        "soldiers": [
+            "PERS-657"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-657"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-005",
+        "fromUnitName": "5th Maintenance Battalion",
+        "toUnit": "BN-MAI-024",
+        "toUnitName": "24th Maintenance Battalion",
+        "soldiers": [
+            "PERS-902"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-902"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-050",
+        "fromUnitName": "50th Maintenance Battalion",
+        "toUnit": "BN-MED-025",
+        "toUnitName": "25th Medical Battalion",
+        "soldiers": [
+            "PERS-1473"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1473"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-001",
+        "fromUnitName": "1st Artillery Brigade",
+        "toUnit": "BDE-AVI-010",
+        "toUnitName": "10th Aviation Brigade",
+        "soldiers": [
+            "PERS-823"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-823"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-009",
+        "fromUnitName": "9th Military Police Brigade",
+        "toUnit": "BDE-AVI-010",
+        "toUnitName": "10th Aviation Brigade",
+        "soldiers": [
+            "PERS-1629"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1629"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "BDE-AVI-010",
+        "toUnitName": "10th Aviation Brigade",
+        "soldiers": [
+            "PERS-369"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-369"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-004",
+        "fromUnitName": "4th Maintenance Battalion",
+        "toUnit": "BN-TAN-027",
+        "toUnitName": "27th Tank Battalion",
+        "soldiers": [
+            "PERS-1823"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1823"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "BN-TAN-027",
+        "toUnitName": "27th Tank Battalion",
+        "soldiers": [
+            "PERS-1263"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1263"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-015",
+        "fromUnitName": "15th Maintenance Battalion",
+        "toUnit": "BN-TAN-027",
+        "toUnitName": "27th Tank Battalion",
+        "soldiers": [
+            "PERS-316"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-316"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-052",
+        "fromUnitName": "52th Signal Battalion",
+        "toUnit": "BN-TAN-027",
+        "toUnitName": "27th Tank Battalion",
+        "soldiers": [
+            "PERS-887"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-887"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-049",
+        "fromUnitName": "49th Maintenance Battalion",
+        "toUnit": "BN-SIG-028",
+        "toUnitName": "28th Signal Battalion",
+        "soldiers": [
+            "PERS-1117"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1117"
+        ]
+    },
+    {
+        "fromUnit": "DIV-003",
+        "fromUnitName": "3rd Division",
+        "toUnit": "BN-SIG-028",
+        "toUnitName": "28th Signal Battalion",
+        "soldiers": [
+            "PERS-1697"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1697"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-003",
+        "fromUnitName": "3rd Aviation Brigade",
+        "toUnit": "BN-SIG-028",
+        "toUnitName": "28th Signal Battalion",
+        "soldiers": [
+            "PERS-615"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-615"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-017",
+        "fromUnitName": "17th Medical Battalion",
+        "toUnit": "BN-SIG-028",
+        "toUnitName": "28th Signal Battalion",
+        "soldiers": [
+            "PERS-828"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-828"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-032",
+        "fromUnitName": "32th Infantry Battalion",
+        "toUnit": "BN-SIG-028",
+        "toUnitName": "28th Signal Battalion",
+        "soldiers": [
+            "PERS-146"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-146"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-022",
+        "fromUnitName": "22th Tank Battalion",
+        "toUnit": "BN-INF-029",
+        "toUnitName": "29th Infantry Battalion",
+        "soldiers": [
+            "PERS-156"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-156"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-026",
+        "fromUnitName": "26th Infantry Battalion",
+        "toUnit": "BN-INF-029",
+        "toUnitName": "29th Infantry Battalion",
+        "soldiers": [
+            "PERS-1216"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1216"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-025",
+        "fromUnitName": "25th Medical Battalion",
+        "toUnit": "BN-INF-029",
+        "toUnitName": "29th Infantry Battalion",
+        "soldiers": [
+            "PERS-570"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-570"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-014",
+        "fromUnitName": "14th Military Police Brigade",
+        "toUnit": "BN-INF-029",
+        "toUnitName": "29th Infantry Battalion",
+        "soldiers": [
+            "PERS-674"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-674"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-015",
+        "fromUnitName": "15th Aviation Brigade",
+        "toUnit": "BDE-INF-011",
+        "toUnitName": "11th Infantry Brigade",
+        "soldiers": [
+            "PERS-320"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-320"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-004",
+        "fromUnitName": "4th Maintenance Battalion",
+        "toUnit": "BDE-INF-011",
+        "toUnitName": "11th Infantry Brigade",
+        "soldiers": [
+            "PERS-1573"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1573"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-018",
+        "fromUnitName": "18th Tank Battalion",
+        "toUnit": "BDE-INF-011",
+        "toUnitName": "11th Infantry Brigade",
+        "soldiers": [
+            "PERS-817"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-817"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-051",
+        "fromUnitName": "51th Infantry Battalion",
+        "toUnit": "BDE-INF-011",
+        "toUnitName": "11th Infantry Brigade",
+        "soldiers": [
+            "PERS-979"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-979"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-006",
+        "fromUnitName": "6th Infantry Brigade",
+        "toUnit": "BDE-INF-011",
+        "toUnitName": "11th Infantry Brigade",
+        "soldiers": [
+            "PERS-221"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-221"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": "BDE-INF-011",
+        "toUnitName": "11th Infantry Brigade",
+        "soldiers": [
+            "PERS-569"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-569"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-042",
+        "fromUnitName": "42th Medical Battalion",
+        "toUnit": "BN-MED-030",
+        "toUnitName": "30th Medical Battalion",
+        "soldiers": [
+            "PERS-1512"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1512"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-035",
+        "fromUnitName": "35th Medical Battalion",
+        "toUnit": "BN-MED-030",
+        "toUnitName": "30th Medical Battalion",
+        "soldiers": [
+            "PERS-370"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-370"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-012",
+        "fromUnitName": "12th Aviation Brigade",
+        "toUnit": "BN-MED-030",
+        "toUnitName": "30th Medical Battalion",
+        "soldiers": [
+            "PERS-469"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-469"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-017",
+        "fromUnitName": "17th Medical Battalion",
+        "toUnit": "BN-MED-030",
+        "toUnitName": "30th Medical Battalion",
+        "soldiers": [
+            "PERS-492"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-492"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-037",
+        "fromUnitName": "37th Maintenance Battalion",
+        "toUnit": "BN-MED-030",
+        "toUnitName": "30th Medical Battalion",
+        "soldiers": [
+            "PERS-825"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-825"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-048",
+        "fromUnitName": "48th Maintenance Battalion",
+        "toUnit": "BN-MED-030",
+        "toUnitName": "30th Medical Battalion",
+        "soldiers": [
+            "PERS-1059"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1059"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-014",
+        "fromUnitName": "14th Military Police Brigade",
+        "toUnit": "BN-MED-030",
+        "toUnitName": "30th Medical Battalion",
+        "soldiers": [
+            "PERS-665"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-665"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-015",
+        "fromUnitName": "15th Aviation Brigade",
+        "toUnit": "BN-MAI-031",
+        "toUnitName": "31th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1880"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1880"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-025",
+        "fromUnitName": "25th Medical Battalion",
+        "toUnit": "BN-MAI-031",
+        "toUnitName": "31th Maintenance Battalion",
+        "soldiers": [
+            "PERS-257"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-257"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-024",
+        "fromUnitName": "24th Maintenance Battalion",
+        "toUnit": "BN-MAI-031",
+        "toUnitName": "31th Maintenance Battalion",
+        "soldiers": [
+            "PERS-494"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-494"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-023",
+        "fromUnitName": "23th Infantry Battalion",
+        "toUnit": "BN-MAI-031",
+        "toUnitName": "31th Maintenance Battalion",
+        "soldiers": [
+            "PERS-778"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-778"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-030",
+        "fromUnitName": "30th Medical Battalion",
+        "toUnit": "BN-TRA-033",
+        "toUnitName": "33th Transportation Battalion",
+        "soldiers": [
+            "PERS-447"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-447"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-024",
+        "fromUnitName": "24th Maintenance Battalion",
+        "toUnit": "BN-TRA-033",
+        "toUnitName": "33th Transportation Battalion",
+        "soldiers": [
+            "PERS-563"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-563"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-014",
+        "fromUnitName": "14th Military Police Brigade",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-294"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-294"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-002",
+        "fromUnitName": "2nd Medical Battalion",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-628"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-628"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-040",
+        "fromUnitName": "40th Medical Battalion",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-1370"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1370"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-016",
+        "fromUnitName": "16th Infantry Brigade",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-1270"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1270"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-010",
+        "fromUnitName": "10th Maintenance Battalion",
+        "toUnit": "BDE-AVI-012",
+        "toUnitName": "12th Aviation Brigade",
+        "soldiers": [
+            "PERS-1520"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1520"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-038",
+        "fromUnitName": "38th Infantry Battalion",
+        "toUnit": "BDE-AVI-012",
+        "toUnitName": "12th Aviation Brigade",
+        "soldiers": [
+            "PERS-1639"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1639"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-009",
+        "fromUnitName": "9th Mechanized Battalion",
+        "toUnit": "BDE-AVI-012",
+        "toUnitName": "12th Aviation Brigade",
+        "soldiers": [
+            "PERS-085"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-085"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-043",
+        "fromUnitName": "43th Maintenance Battalion",
+        "toUnit": "BDE-AVI-012",
+        "toUnitName": "12th Aviation Brigade",
+        "soldiers": [
+            "PERS-478"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-478"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-010",
+        "fromUnitName": "10th Aviation Brigade",
+        "toUnit": "BDE-AVI-012",
+        "toUnitName": "12th Aviation Brigade",
+        "soldiers": [
+            "PERS-027"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-027"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-010",
+        "fromUnitName": "10th Aviation Brigade",
+        "toUnit": "BN-INF-034",
+        "toUnitName": "34th Infantry Battalion",
+        "soldiers": [
+            "PERS-1279"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1279"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-022",
+        "fromUnitName": "22th Tank Battalion",
+        "toUnit": "BN-INF-034",
+        "toUnitName": "34th Infantry Battalion",
+        "soldiers": [
+            "PERS-1186"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1186"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-012",
+        "fromUnitName": "12th Aviation Brigade",
+        "toUnit": "BN-MED-035",
+        "toUnitName": "35th Medical Battalion",
+        "soldiers": [
+            "PERS-1312"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1312"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-011",
+        "fromUnitName": "11th Infantry Brigade",
+        "toUnit": "BN-MED-035",
+        "toUnitName": "35th Medical Battalion",
+        "soldiers": [
+            "PERS-1004"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1004"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-019",
+        "fromUnitName": "19th Artillery Brigade",
+        "toUnit": "BN-MED-035",
+        "toUnitName": "35th Medical Battalion",
+        "soldiers": [
+            "PERS-102"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-102"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-049",
+        "fromUnitName": "49th Maintenance Battalion",
+        "toUnit": "BN-MED-035",
+        "toUnitName": "35th Medical Battalion",
+        "soldiers": [
+            "PERS-613"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-613"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-016",
+        "fromUnitName": "16th Medical Battalion",
+        "toUnit": "BDE-ARM-013",
+        "toUnitName": "13th Armor Brigade",
+        "soldiers": [
+            "PERS-1959"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1959"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-016",
+        "fromUnitName": "16th Infantry Brigade",
+        "toUnit": "BDE-ARM-013",
+        "toUnitName": "13th Armor Brigade",
+        "soldiers": [
+            "PERS-1662"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1662"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "BDE-ARM-013",
+        "toUnitName": "13th Armor Brigade",
+        "soldiers": [
+            "PERS-1955"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1955"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-027",
+        "fromUnitName": "27th Tank Battalion",
+        "toUnit": "BN-INF-036",
+        "toUnitName": "36th Infantry Battalion",
+        "soldiers": [
+            "PERS-1054"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1054"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-012",
+        "fromUnitName": "12th Aviation Brigade",
+        "toUnit": "BN-INF-036",
+        "toUnitName": "36th Infantry Battalion",
+        "soldiers": [
+            "PERS-1377"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1377"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-020",
+        "fromUnitName": "20th Mechanized Battalion",
+        "toUnit": "BN-MAI-037",
+        "toUnitName": "37th Maintenance Battalion",
+        "soldiers": [
+            "PERS-929"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-929"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-012",
+        "fromUnitName": "12th Aviation Brigade",
+        "toUnit": "BN-MAI-037",
+        "toUnitName": "37th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1620"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1620"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-019",
+        "fromUnitName": "19th Artillery Brigade",
+        "toUnit": "BN-INF-038",
+        "toUnitName": "38th Infantry Battalion",
+        "soldiers": [
+            "PERS-1437"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1437"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-025",
+        "fromUnitName": "25th Medical Battalion",
+        "toUnit": "BN-MED-039",
+        "toUnitName": "39th Medical Battalion",
+        "soldiers": [
+            "PERS-1676"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1676"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-010",
+        "fromUnitName": "10th Maintenance Battalion",
+        "toUnit": "BN-MED-039",
+        "toUnitName": "39th Medical Battalion",
+        "soldiers": [
+            "PERS-834"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-834"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-023",
+        "fromUnitName": "23th Infantry Battalion",
+        "toUnit": "BN-MED-039",
+        "toUnitName": "39th Medical Battalion",
+        "soldiers": [
+            "PERS-934"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-934"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-008",
+        "fromUnitName": "8th Signal Battalion",
+        "toUnit": "BDE-MIL-014",
+        "toUnitName": "14th Military Police Brigade",
+        "soldiers": [
+            "PERS-1388"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1388"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-018",
+        "fromUnitName": "18th Tank Battalion",
+        "toUnit": "BDE-MIL-014",
+        "toUnitName": "14th Military Police Brigade",
+        "soldiers": [
+            "PERS-1829"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1829"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-018",
+        "fromUnitName": "18th Military Police Brigade",
+        "toUnit": "BN-MED-040",
+        "toUnitName": "40th Medical Battalion",
+        "soldiers": [
+            "PERS-1621"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1621"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-020",
+        "fromUnitName": "20th Mechanized Battalion",
+        "toUnit": "BN-MED-040",
+        "toUnitName": "40th Medical Battalion",
+        "soldiers": [
+            "PERS-1745"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1745"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-054",
+        "fromUnitName": "54th Signal Battalion",
+        "toUnit": "BN-MED-040",
+        "toUnitName": "40th Medical Battalion",
+        "soldiers": [
+            "PERS-282"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-282"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-002",
+        "fromUnitName": "2nd Medical Battalion",
+        "toUnit": "BN-MED-040",
+        "toUnitName": "40th Medical Battalion",
+        "soldiers": [
+            "PERS-661"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-661"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-007",
+        "fromUnitName": "7th Aviation Brigade",
+        "toUnit": "BN-MEC-041",
+        "toUnitName": "41th Mechanized Battalion",
+        "soldiers": [
+            "PERS-197"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-197"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-014",
+        "fromUnitName": "14th Signal Battalion",
+        "toUnit": "BN-MEC-041",
+        "toUnitName": "41th Mechanized Battalion",
+        "soldiers": [
+            "PERS-1970"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1970"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-023",
+        "fromUnitName": "23th Infantry Battalion",
+        "toUnit": "BN-MEC-041",
+        "toUnitName": "41th Mechanized Battalion",
+        "soldiers": [
+            "PERS-709"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-709"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-053",
+        "fromUnitName": "53th Transportation Battalion",
+        "toUnit": "BN-MEC-041",
+        "toUnitName": "41th Mechanized Battalion",
+        "soldiers": [
+            "PERS-636"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-636"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-048",
+        "fromUnitName": "48th Maintenance Battalion",
+        "toUnit": "DIV-005",
+        "toUnitName": "5th Armored Division",
+        "soldiers": [
+            "PERS-443"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-443"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-018",
+        "fromUnitName": "18th Military Police Brigade",
+        "toUnit": "DIV-005",
+        "toUnitName": "5th Armored Division",
+        "soldiers": [
+            "PERS-912"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-912"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-046",
+        "fromUnitName": "46th Tank Battalion",
+        "toUnit": "BDE-AVI-015",
+        "toUnitName": "15th Aviation Brigade",
+        "soldiers": [
+            "PERS-1501"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1501"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-023",
+        "fromUnitName": "23th Infantry Battalion",
+        "toUnit": "BDE-AVI-015",
+        "toUnitName": "15th Aviation Brigade",
+        "soldiers": [
+            "PERS-605"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-605"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-031",
+        "fromUnitName": "31th Maintenance Battalion",
+        "toUnit": "BDE-AVI-015",
+        "toUnitName": "15th Aviation Brigade",
+        "soldiers": [
+            "PERS-1785"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1785"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": "BN-TRA-044",
+        "toUnitName": "44th Transportation Battalion",
+        "soldiers": [
+            "PERS-939"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-939"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-030",
+        "fromUnitName": "30th Medical Battalion",
+        "toUnit": "BDE-INF-016",
+        "toUnitName": "16th Infantry Brigade",
+        "soldiers": [
+            "PERS-1262"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1262"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "BDE-INF-016",
+        "toUnitName": "16th Infantry Brigade",
+        "soldiers": [
+            "PERS-922"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-922"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-012",
+        "fromUnitName": "12th Medical Battalion",
+        "toUnit": "BDE-INF-016",
+        "toUnitName": "16th Infantry Brigade",
+        "soldiers": [
+            "PERS-588"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-588"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-011",
+        "fromUnitName": "11th Signal Battalion",
+        "toUnit": "BN-INF-045",
+        "toUnitName": "45th Infantry Battalion",
+        "soldiers": [
+            "PERS-1467"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1467"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-012",
+        "fromUnitName": "12th Aviation Brigade",
+        "toUnit": "BN-INF-045",
+        "toUnitName": "45th Infantry Battalion",
+        "soldiers": [
+            "PERS-1878"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1878"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-016",
+        "fromUnitName": "16th Infantry Brigade",
+        "toUnit": "BN-TAN-046",
+        "toUnitName": "46th Tank Battalion",
+        "soldiers": [
+            "PERS-347"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-347"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-010",
+        "fromUnitName": "10th Maintenance Battalion",
+        "toUnit": "BN-TAN-046",
+        "toUnitName": "46th Tank Battalion",
+        "soldiers": [
+            "PERS-418"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-418"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-006",
+        "fromUnitName": "6th Infantry Battalion",
+        "toUnit": "BN-TAN-046",
+        "toUnitName": "46th Tank Battalion",
+        "soldiers": [
+            "PERS-1625"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1625"
+        ]
+    },
+    {
+        "fromUnit": "DIV-003",
+        "fromUnitName": "3rd Division",
+        "toUnit": "BN-TAN-046",
+        "toUnitName": "46th Tank Battalion",
+        "soldiers": [
+            "PERS-1797",
+            "PERS-042"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1797",
+            "PERS-042"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-012",
+        "fromUnitName": "12th Aviation Brigade",
+        "toUnit": "BDE-AVI-017",
+        "toUnitName": "17th Aviation Brigade",
+        "soldiers": [
+            "PERS-417"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-417"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-026",
+        "fromUnitName": "26th Infantry Battalion",
+        "toUnit": "BDE-AVI-017",
+        "toUnitName": "17th Aviation Brigade",
+        "soldiers": [
+            "PERS-1961"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1961"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-010",
+        "fromUnitName": "10th Maintenance Battalion",
+        "toUnit": "BN-TAN-047",
+        "toUnitName": "47th Tank Battalion",
+        "soldiers": [
+            "PERS-509"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-509"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-009",
+        "fromUnitName": "9th Mechanized Battalion",
+        "toUnit": "BN-TAN-047",
+        "toUnitName": "47th Tank Battalion",
+        "soldiers": [
+            "PERS-1577"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1577"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-008",
+        "fromUnitName": "8th Artillery Brigade",
+        "toUnit": "BN-TAN-047",
+        "toUnitName": "47th Tank Battalion",
+        "soldiers": [
+            "PERS-679"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-679"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-003",
+        "fromUnitName": "3rd Aviation Brigade",
+        "toUnit": "BN-MAI-048",
+        "toUnitName": "48th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1506"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1506"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-009",
+        "fromUnitName": "9th Military Police Brigade",
+        "toUnit": "BN-MAI-048",
+        "toUnitName": "48th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1939"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1939"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-032",
+        "fromUnitName": "32th Infantry Battalion",
+        "toUnit": "BN-MAI-048",
+        "toUnitName": "48th Maintenance Battalion",
+        "soldiers": [
+            "PERS-872"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-872"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-030",
+        "fromUnitName": "30th Medical Battalion",
+        "toUnit": "BN-MAI-048",
+        "toUnitName": "48th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1979"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1979"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-010",
+        "fromUnitName": "10th Maintenance Battalion",
+        "toUnit": "BN-MAI-048",
+        "toUnitName": "48th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1181"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1181"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-026",
+        "fromUnitName": "26th Infantry Battalion",
+        "toUnit": "BN-MAI-048",
+        "toUnitName": "48th Maintenance Battalion",
+        "soldiers": [
+            "PERS-351"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-351"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-019",
+        "fromUnitName": "19th Artillery Brigade",
+        "toUnit": "BDE-MIL-018",
+        "toUnitName": "18th Military Police Brigade",
+        "soldiers": [
+            "PERS-544"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-544"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-006",
+        "fromUnitName": "6th Infantry Battalion",
+        "toUnit": "BN-MAI-049",
+        "toUnitName": "49th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1509"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1509"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-004",
+        "fromUnitName": "4th Maintenance Battalion",
+        "toUnit": "BN-MAI-049",
+        "toUnitName": "49th Maintenance Battalion",
+        "soldiers": [
+            "PERS-744"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-744"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-050",
+        "fromUnitName": "50th Maintenance Battalion",
+        "toUnit": "BN-MAI-049",
+        "toUnitName": "49th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1257"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1257"
+        ]
+    },
+    {
+        "fromUnit": "HQ-ARMY",
+        "fromUnitName": "Army Headquarters",
+        "toUnit": "BN-MAI-049",
+        "toUnitName": "49th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1889"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1889"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-010",
+        "fromUnitName": "10th Aviation Brigade",
+        "toUnit": "BN-MAI-050",
+        "toUnitName": "50th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1983"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1983"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": "BN-MAI-050",
+        "toUnitName": "50th Maintenance Battalion",
+        "soldiers": [
+            "PERS-073"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-073"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-007",
+        "fromUnitName": "7th Transportation Battalion",
+        "toUnit": "BN-MAI-050",
+        "toUnitName": "50th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1861"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1861"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-041",
+        "fromUnitName": "41th Mechanized Battalion",
+        "toUnit": "BN-MAI-050",
+        "toUnitName": "50th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1988",
+            "PERS-249"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1988",
+            "PERS-249"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-003",
+        "fromUnitName": "3rd Infantry Battalion",
+        "toUnit": "BN-MAI-050",
+        "toUnitName": "50th Maintenance Battalion",
+        "soldiers": [
+            "PERS-385"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-385"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-044",
+        "fromUnitName": "44th Transportation Battalion",
+        "toUnit": "BN-INF-051",
+        "toUnitName": "51th Infantry Battalion",
+        "soldiers": [
+            "PERS-337"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-337"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-018",
+        "fromUnitName": "18th Military Police Brigade",
+        "toUnit": "BN-SIG-052",
+        "toUnitName": "52th Signal Battalion",
+        "soldiers": [
+            "PERS-1047"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1047"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-031",
+        "fromUnitName": "31th Maintenance Battalion",
+        "toUnit": "BN-SIG-052",
+        "toUnitName": "52th Signal Battalion",
+        "soldiers": [
+            "PERS-1733"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1733"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-010",
+        "fromUnitName": "10th Aviation Brigade",
+        "toUnit": "BN-SIG-052",
+        "toUnitName": "52th Signal Battalion",
+        "soldiers": [
+            "PERS-477"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-477"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "BN-SIG-052",
+        "toUnitName": "52th Signal Battalion",
+        "soldiers": [
+            "PERS-1770"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1770"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-037",
+        "fromUnitName": "37th Maintenance Battalion",
+        "toUnit": "BN-TRA-053",
+        "toUnitName": "53th Transportation Battalion",
+        "soldiers": [
+            "PERS-1362"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1362"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-006",
+        "fromUnitName": "6th Infantry Battalion",
+        "toUnit": "BN-TRA-053",
+        "toUnitName": "53th Transportation Battalion",
+        "soldiers": [
+            "PERS-1691"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1691"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": "BN-TRA-053",
+        "toUnitName": "53th Transportation Battalion",
+        "soldiers": [
+            "PERS-193"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-193"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-009",
+        "fromUnitName": "9th Military Police Brigade",
+        "toUnit": "SF-001",
+        "toUnitName": "Army Special Forces",
+        "soldiers": [
+            "PERS-1239"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1239"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-014",
+        "fromUnitName": "14th Signal Battalion",
+        "toUnit": "SF-001",
+        "toUnitName": "Army Special Forces",
+        "soldiers": [
+            "PERS-1080"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1080"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-036",
+        "fromUnitName": "36th Infantry Battalion",
+        "toUnit": "SF-001",
+        "toUnitName": "Army Special Forces",
+        "soldiers": [
+            "PERS-601"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-601"
+        ]
+    },
+    {
+        "fromUnit": "HQ-ARMY",
+        "fromUnitName": "Army Headquarters",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-114",
+            "PERS-1245",
+            "PERS-305",
+            "PERS-1344",
+            "PERS-439"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-114",
+            "PERS-1245",
+            "PERS-305",
+            "PERS-1344",
+            "PERS-439"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-720",
+            "PERS-953",
+            "PERS-699"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-720",
+            "PERS-953",
+            "PERS-699"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-001",
+        "fromUnitName": "1st Artillery Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1242",
+            "PERS-1338",
+            "PERS-1395",
+            "PERS-695"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1242",
+            "PERS-1338",
+            "PERS-1395",
+            "PERS-695"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-001",
+        "fromUnitName": "1st Mechanized Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-267",
+            "PERS-1571",
+            "PERS-1741",
+            "PERS-1064",
+            "PERS-194",
+            "PERS-235"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-267",
+            "PERS-1571",
+            "PERS-1741",
+            "PERS-1064",
+            "PERS-194",
+            "PERS-235"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-002",
+        "fromUnitName": "2nd Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-051",
+            "PERS-1510",
+            "PERS-1218"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-051",
+            "PERS-1510",
+            "PERS-1218"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-003",
+        "fromUnitName": "3rd Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1657",
+            "PERS-229",
+            "PERS-269",
+            "PERS-759",
+            "PERS-1307",
+            "PERS-1540",
+            "PERS-1722",
+            "PERS-1774"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-1657",
+            "PERS-229",
+            "PERS-269",
+            "PERS-759",
+            "PERS-1307",
+            "PERS-1540",
+            "PERS-1722",
+            "PERS-1774"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-002",
+        "fromUnitName": "2nd Artillery Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-414",
+            "PERS-1928",
+            "PERS-811"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-414",
+            "PERS-1928",
+            "PERS-811"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-004",
+        "fromUnitName": "4th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1505",
+            "PERS-930",
+            "PERS-1930",
+            "PERS-826",
+            "PERS-989",
+            "PERS-301"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1505",
+            "PERS-930",
+            "PERS-1930",
+            "PERS-826",
+            "PERS-989",
+            "PERS-301"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-005",
+        "fromUnitName": "5th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1710",
+            "PERS-642",
+            "PERS-905",
+            "PERS-948",
+            "PERS-374",
+            "PERS-746",
+            "PERS-1798"
+        ],
+        "movementType": "departure",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1710",
+            "PERS-642",
+            "PERS-905",
+            "PERS-948",
+            "PERS-374",
+            "PERS-746",
+            "PERS-1798"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-006",
+        "fromUnitName": "6th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1407",
+            "PERS-1017",
+            "PERS-916",
+            "PERS-1489",
+            "PERS-1950",
+            "PERS-348"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1407",
+            "PERS-1017",
+            "PERS-916",
+            "PERS-1489",
+            "PERS-1950",
+            "PERS-348"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-007",
+        "fromUnitName": "7th Transportation Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1229",
+            "PERS-1323",
+            "PERS-338"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1229",
+            "PERS-1323",
+            "PERS-338"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-003",
+        "fromUnitName": "3rd Aviation Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-179",
+            "PERS-1701",
+            "PERS-561"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-179",
+            "PERS-1701",
+            "PERS-561"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-008",
+        "fromUnitName": "8th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1611",
+            "PERS-232",
+            "PERS-011"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1611",
+            "PERS-232",
+            "PERS-011"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-009",
+        "fromUnitName": "9th Mechanized Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1507",
+            "PERS-1858",
+            "PERS-1104",
+            "PERS-1558"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1507",
+            "PERS-1858",
+            "PERS-1104",
+            "PERS-1558"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-004",
+        "fromUnitName": "4th Artillery Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-775",
+            "PERS-1237",
+            "PERS-1906",
+            "PERS-1098",
+            "PERS-1673"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-775",
+            "PERS-1237",
+            "PERS-1906",
+            "PERS-1098",
+            "PERS-1673"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-010",
+        "fromUnitName": "10th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1900",
+            "PERS-618",
+            "PERS-1329",
+            "PERS-364",
+            "PERS-1995",
+            "PERS-836"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1900",
+            "PERS-618",
+            "PERS-1329",
+            "PERS-364",
+            "PERS-1995",
+            "PERS-836"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-011",
+        "fromUnitName": "11th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1749",
+            "PERS-1561",
+            "PERS-525",
+            "PERS-019",
+            "PERS-1232",
+            "PERS-436",
+            "PERS-541"
+        ],
+        "movementType": "departure",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1749",
+            "PERS-1561",
+            "PERS-525",
+            "PERS-019",
+            "PERS-1232",
+            "PERS-436",
+            "PERS-541"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-012",
+        "fromUnitName": "12th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1086",
+            "PERS-1222",
+            "PERS-1298"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1086",
+            "PERS-1222",
+            "PERS-1298"
+        ]
+    },
+    {
+        "fromUnit": "DIV-002",
+        "fromUnitName": "2nd Division",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-542"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-542"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-005",
+        "fromUnitName": "5th Military Police Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-035",
+            "PERS-1627",
+            "PERS-246",
+            "PERS-1609",
+            "PERS-1618"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-035",
+            "PERS-1627",
+            "PERS-246",
+            "PERS-1609",
+            "PERS-1618"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-013",
+        "fromUnitName": "13th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1600",
+            "PERS-683",
+            "PERS-818",
+            "PERS-784"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1600",
+            "PERS-683",
+            "PERS-818",
+            "PERS-784"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-014",
+        "fromUnitName": "14th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1840",
+            "PERS-1130",
+            "PERS-754"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1840",
+            "PERS-1130",
+            "PERS-754"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-006",
+        "fromUnitName": "6th Infantry Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1274",
+            "PERS-1495",
+            "PERS-627",
+            "PERS-281",
+            "PERS-1812",
+            "PERS-1819"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1274",
+            "PERS-1495",
+            "PERS-627",
+            "PERS-281",
+            "PERS-1812",
+            "PERS-1819"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-015",
+        "fromUnitName": "15th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-779",
+            "PERS-1413",
+            "PERS-697"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-779",
+            "PERS-1413",
+            "PERS-697"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-016",
+        "fromUnitName": "16th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1050",
+            "PERS-1036",
+            "PERS-1040",
+            "PERS-894",
+            "PERS-1171"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-1050",
+            "PERS-1036",
+            "PERS-1040",
+            "PERS-894",
+            "PERS-1171"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-007",
+        "fromUnitName": "7th Aviation Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1799",
+            "PERS-864",
+            "PERS-1648",
+            "PERS-669"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1799",
+            "PERS-864",
+            "PERS-1648",
+            "PERS-669"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-017",
+        "fromUnitName": "17th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-501",
+            "PERS-553",
+            "PERS-1677"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-501",
+            "PERS-553",
+            "PERS-1677"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-018",
+        "fromUnitName": "18th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1290",
+            "PERS-1255",
+            "PERS-1431",
+            "PERS-128",
+            "PERS-1306"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-1290",
+            "PERS-1255",
+            "PERS-1431",
+            "PERS-128",
+            "PERS-1306"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-019",
+        "fromUnitName": "19th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1055",
+            "PERS-1533",
+            "PERS-1537",
+            "PERS-1723",
+            "PERS-442",
+            "PERS-1674"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1055",
+            "PERS-1533",
+            "PERS-1537",
+            "PERS-1723",
+            "PERS-442",
+            "PERS-1674"
+        ]
+    },
+    {
+        "fromUnit": "DIV-003",
+        "fromUnitName": "3rd Division",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-028",
+            "PERS-101",
+            "PERS-1251",
+            "PERS-556",
+            "PERS-1737",
+            "PERS-1761",
+            "PERS-1715",
+            "PERS-650"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-028",
+            "PERS-101",
+            "PERS-1251",
+            "PERS-556",
+            "PERS-1737",
+            "PERS-1761",
+            "PERS-1715",
+            "PERS-650"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-008",
+        "fromUnitName": "8th Artillery Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1886",
+            "PERS-870",
+            "PERS-1624",
+            "PERS-519",
+            "PERS-730",
+            "PERS-781",
+            "PERS-1777",
+            "PERS-1892"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-1886",
+            "PERS-870",
+            "PERS-1624",
+            "PERS-519",
+            "PERS-730",
+            "PERS-781",
+            "PERS-1777",
+            "PERS-1892"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-020",
+        "fromUnitName": "20th Mechanized Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-376",
+            "PERS-1296"
+        ],
+        "movementType": "departure",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-376",
+            "PERS-1296"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-021",
+        "fromUnitName": "21th Transportation Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1986",
+            "PERS-958",
+            "PERS-016",
+            "PERS-039",
+            "PERS-582",
+            "PERS-161",
+            "PERS-1826",
+            "PERS-441"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-1986",
+            "PERS-958",
+            "PERS-016",
+            "PERS-039",
+            "PERS-582",
+            "PERS-161",
+            "PERS-1826",
+            "PERS-441"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-009",
+        "fromUnitName": "9th Military Police Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1219",
+            "PERS-142",
+            "PERS-1006",
+            "PERS-1339",
+            "PERS-1361",
+            "PERS-170",
+            "PERS-1795",
+            "PERS-242"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-1219",
+            "PERS-142",
+            "PERS-1006",
+            "PERS-1339",
+            "PERS-1361",
+            "PERS-170",
+            "PERS-1795",
+            "PERS-242"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-022",
+        "fromUnitName": "22th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1292",
+            "PERS-1444",
+            "PERS-1958",
+            "PERS-1946",
+            "PERS-998",
+            "PERS-1714"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1292",
+            "PERS-1444",
+            "PERS-1958",
+            "PERS-1946",
+            "PERS-998",
+            "PERS-1714"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-023",
+        "fromUnitName": "23th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-026",
+            "PERS-092",
+            "PERS-1070",
+            "PERS-473",
+            "PERS-1936",
+            "PERS-751",
+            "PERS-795",
+            "PERS-935"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-026",
+            "PERS-092",
+            "PERS-1070",
+            "PERS-473",
+            "PERS-1936",
+            "PERS-751",
+            "PERS-795",
+            "PERS-935"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-024",
+        "fromUnitName": "24th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-520",
+            "PERS-857",
+            "PERS-087",
+            "PERS-1406",
+            "PERS-1418",
+            "PERS-1550",
+            "PERS-139",
+            "PERS-1580",
+            "PERS-511"
+        ],
+        "movementType": "departure",
+        "soldierCount": 9,
+        "soldierIds": [
+            "PERS-520",
+            "PERS-857",
+            "PERS-087",
+            "PERS-1406",
+            "PERS-1418",
+            "PERS-1550",
+            "PERS-139",
+            "PERS-1580",
+            "PERS-511"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-025",
+        "fromUnitName": "25th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-321",
+            "PERS-659",
+            "PERS-1652",
+            "PERS-296"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-321",
+            "PERS-659",
+            "PERS-1652",
+            "PERS-296"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-010",
+        "fromUnitName": "10th Aviation Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1373",
+            "PERS-1612",
+            "PERS-1702",
+            "PERS-075",
+            "PERS-1763",
+            "PERS-184",
+            "PERS-910"
+        ],
+        "movementType": "departure",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1373",
+            "PERS-1612",
+            "PERS-1702",
+            "PERS-075",
+            "PERS-1763",
+            "PERS-184",
+            "PERS-910"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-026",
+        "fromUnitName": "26th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-737",
+            "PERS-382",
+            "PERS-535",
+            "PERS-814"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-737",
+            "PERS-382",
+            "PERS-535",
+            "PERS-814"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-027",
+        "fromUnitName": "27th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1672",
+            "PERS-1917",
+            "PERS-586",
+            "PERS-251"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1672",
+            "PERS-1917",
+            "PERS-586",
+            "PERS-251"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-028",
+        "fromUnitName": "28th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1346",
+            "PERS-1739",
+            "PERS-1029",
+            "PERS-1103"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1346",
+            "PERS-1739",
+            "PERS-1029",
+            "PERS-1103"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-029",
+        "fromUnitName": "29th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1133",
+            "PERS-145",
+            "PERS-1528",
+            "PERS-704",
+            "PERS-1283",
+            "PERS-1551",
+            "PERS-1687",
+            "PERS-392",
+            "PERS-614",
+            "PERS-302",
+            "PERS-450",
+            "PERS-816"
+        ],
+        "movementType": "departure",
+        "soldierCount": 12,
+        "soldierIds": [
+            "PERS-1133",
+            "PERS-145",
+            "PERS-1528",
+            "PERS-704",
+            "PERS-1283",
+            "PERS-1551",
+            "PERS-1687",
+            "PERS-392",
+            "PERS-614",
+            "PERS-302",
+            "PERS-450",
+            "PERS-816"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-011",
+        "fromUnitName": "11th Infantry Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1693",
+            "PERS-495",
+            "PERS-604",
+            "PERS-860"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1693",
+            "PERS-495",
+            "PERS-604",
+            "PERS-860"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-030",
+        "fromUnitName": "30th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-096",
+            "PERS-1179",
+            "PERS-1356",
+            "PERS-1945",
+            "PERS-1228",
+            "PERS-502",
+            "PERS-1492",
+            "PERS-932"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-096",
+            "PERS-1179",
+            "PERS-1356",
+            "PERS-1945",
+            "PERS-1228",
+            "PERS-502",
+            "PERS-1492",
+            "PERS-932"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-031",
+        "fromUnitName": "31th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1019",
+            "PERS-1096",
+            "PERS-1337",
+            "PERS-549",
+            "PERS-632"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-1019",
+            "PERS-1096",
+            "PERS-1337",
+            "PERS-549",
+            "PERS-632"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-032",
+        "fromUnitName": "32th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-038",
+            "PERS-1712",
+            "PERS-1400",
+            "PERS-733",
+            "PERS-981",
+            "PERS-1971"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-038",
+            "PERS-1712",
+            "PERS-1400",
+            "PERS-733",
+            "PERS-981",
+            "PERS-1971"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-033",
+        "fromUnitName": "33th Transportation Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-591",
+            "PERS-345",
+            "PERS-121"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-591",
+            "PERS-345",
+            "PERS-121"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-375",
+            "PERS-878",
+            "PERS-021",
+            "PERS-1144",
+            "PERS-797"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-375",
+            "PERS-878",
+            "PERS-021",
+            "PERS-1144",
+            "PERS-797"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-012",
+        "fromUnitName": "12th Aviation Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-133",
+            "PERS-1486",
+            "PERS-1114"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-133",
+            "PERS-1486",
+            "PERS-1114"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-034",
+        "fromUnitName": "34th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1544",
+            "PERS-1167",
+            "PERS-572",
+            "PERS-841",
+            "PERS-024",
+            "PERS-072",
+            "PERS-086",
+            "PERS-1502"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-1544",
+            "PERS-1167",
+            "PERS-572",
+            "PERS-841",
+            "PERS-024",
+            "PERS-072",
+            "PERS-086",
+            "PERS-1502"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-035",
+        "fromUnitName": "35th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-148",
+            "PERS-1664",
+            "PERS-646",
+            "PERS-099",
+            "PERS-1234",
+            "PERS-1318",
+            "PERS-881"
+        ],
+        "movementType": "departure",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-148",
+            "PERS-1664",
+            "PERS-646",
+            "PERS-099",
+            "PERS-1234",
+            "PERS-1318",
+            "PERS-881"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ARM-013",
+        "fromUnitName": "13th Armor Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1441",
+            "PERS-1591",
+            "PERS-538",
+            "PERS-008",
+            "PERS-1060"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-1441",
+            "PERS-1591",
+            "PERS-538",
+            "PERS-008",
+            "PERS-1060"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-036",
+        "fromUnitName": "36th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1700",
+            "PERS-487",
+            "PERS-909",
+            "PERS-407",
+            "PERS-854",
+            "PERS-914",
+            "PERS-175",
+            "PERS-884"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-1700",
+            "PERS-487",
+            "PERS-909",
+            "PERS-407",
+            "PERS-854",
+            "PERS-914",
+            "PERS-175",
+            "PERS-884"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-037",
+        "fromUnitName": "37th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1633",
+            "PERS-993"
+        ],
+        "movementType": "departure",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1633",
+            "PERS-993"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-038",
+        "fromUnitName": "38th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1412",
+            "PERS-773",
+            "PERS-1112"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1412",
+            "PERS-773",
+            "PERS-1112"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-039",
+        "fromUnitName": "39th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-037"
+        ],
+        "movementType": "departure",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-037"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-014",
+        "fromUnitName": "14th Military Police Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-906",
+            "PERS-949"
+        ],
+        "movementType": "departure",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-906",
+            "PERS-949"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-040",
+        "fromUnitName": "40th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-271",
+            "PERS-372",
+            "PERS-625",
+            "PERS-763",
+            "PERS-936",
+            "PERS-1890"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-271",
+            "PERS-372",
+            "PERS-625",
+            "PERS-763",
+            "PERS-936",
+            "PERS-1890"
+        ]
+    },
+    {
+        "fromUnit": "BN-MEC-041",
+        "fromUnitName": "41th Mechanized Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-587",
+            "PERS-1615"
+        ],
+        "movementType": "departure",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-587",
+            "PERS-1615"
+        ]
+    },
+    {
+        "fromUnit": "BN-MED-042",
+        "fromUnitName": "42th Medical Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1669",
+            "PERS-805",
+            "PERS-1726",
+            "PERS-540",
+            "PERS-576",
+            "PERS-517"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1669",
+            "PERS-805",
+            "PERS-1726",
+            "PERS-540",
+            "PERS-576",
+            "PERS-517"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1141",
+            "PERS-579"
+        ],
+        "movementType": "departure",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1141",
+            "PERS-579"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-015",
+        "fromUnitName": "15th Aviation Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1188",
+            "PERS-1876",
+            "PERS-1836"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1188",
+            "PERS-1876",
+            "PERS-1836"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-043",
+        "fromUnitName": "43th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1293",
+            "PERS-1425",
+            "PERS-409",
+            "PERS-1410",
+            "PERS-1744",
+            "PERS-1123"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1293",
+            "PERS-1425",
+            "PERS-409",
+            "PERS-1410",
+            "PERS-1744",
+            "PERS-1123"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-044",
+        "fromUnitName": "44th Transportation Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1148",
+            "PERS-858",
+            "PERS-003"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1148",
+            "PERS-858",
+            "PERS-003"
+        ]
+    },
+    {
+        "fromUnit": "BDE-INF-016",
+        "fromUnitName": "16th Infantry Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1131",
+            "PERS-1443",
+            "PERS-1556",
+            "PERS-1874",
+            "PERS-083",
+            "PERS-169",
+            "PERS-676"
+        ],
+        "movementType": "departure",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1131",
+            "PERS-1443",
+            "PERS-1556",
+            "PERS-1874",
+            "PERS-083",
+            "PERS-169",
+            "PERS-676"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-045",
+        "fromUnitName": "45th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-987",
+            "PERS-991",
+            "PERS-1334",
+            "PERS-1927",
+            "PERS-745"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-987",
+            "PERS-991",
+            "PERS-1334",
+            "PERS-1927",
+            "PERS-745"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-046",
+        "fromUnitName": "46th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1236",
+            "PERS-1008",
+            "PERS-918",
+            "PERS-009",
+            "PERS-1138",
+            "PERS-1428",
+            "PERS-1784"
+        ],
+        "movementType": "departure",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1236",
+            "PERS-1008",
+            "PERS-918",
+            "PERS-009",
+            "PERS-1138",
+            "PERS-1428",
+            "PERS-1784"
+        ]
+    },
+    {
+        "fromUnit": "BDE-AVI-017",
+        "fromUnitName": "17th Aviation Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-309",
+            "PERS-1030",
+            "PERS-1278",
+            "PERS-1183",
+            "PERS-1409"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-309",
+            "PERS-1030",
+            "PERS-1278",
+            "PERS-1183",
+            "PERS-1409"
+        ]
+    },
+    {
+        "fromUnit": "BN-TAN-047",
+        "fromUnitName": "47th Tank Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1504",
+            "PERS-1987",
+            "PERS-546",
+            "PERS-1542",
+            "PERS-1699",
+            "PERS-622",
+            "PERS-1105"
+        ],
+        "movementType": "departure",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1504",
+            "PERS-1987",
+            "PERS-546",
+            "PERS-1542",
+            "PERS-1699",
+            "PERS-622",
+            "PERS-1105"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-048",
+        "fromUnitName": "48th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-489",
+            "PERS-532"
+        ],
+        "movementType": "departure",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-489",
+            "PERS-532"
+        ]
+    },
+    {
+        "fromUnit": "BDE-MIL-018",
+        "fromUnitName": "18th Military Police Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1129",
+            "PERS-1720",
+            "PERS-279",
+            "PERS-1532",
+            "PERS-306",
+            "PERS-988"
+        ],
+        "movementType": "departure",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1129",
+            "PERS-1720",
+            "PERS-279",
+            "PERS-1532",
+            "PERS-306",
+            "PERS-988"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-049",
+        "fromUnitName": "49th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1859",
+            "PERS-735"
+        ],
+        "movementType": "departure",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1859",
+            "PERS-735"
+        ]
+    },
+    {
+        "fromUnit": "BN-MAI-050",
+        "fromUnitName": "50th Maintenance Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1192",
+            "PERS-215",
+            "PERS-258",
+            "PERS-290",
+            "PERS-862",
+            "PERS-005",
+            "PERS-106",
+            "PERS-1063"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-1192",
+            "PERS-215",
+            "PERS-258",
+            "PERS-290",
+            "PERS-862",
+            "PERS-005",
+            "PERS-106",
+            "PERS-1063"
+        ]
+    },
+    {
+        "fromUnit": "BN-INF-051",
+        "fromUnitName": "51th Infantry Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1457",
+            "PERS-277",
+            "PERS-583",
+            "PERS-643",
+            "PERS-1289",
+            "PERS-1732",
+            "PERS-1850",
+            "PERS-308"
+        ],
+        "movementType": "departure",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-1457",
+            "PERS-277",
+            "PERS-583",
+            "PERS-643",
+            "PERS-1289",
+            "PERS-1732",
+            "PERS-1850",
+            "PERS-308"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-052",
+        "fromUnitName": "52th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1557",
+            "PERS-299",
+            "PERS-445",
+            "PERS-084",
+            "PERS-1390",
+            "PERS-462",
+            "PERS-675"
+        ],
+        "movementType": "departure",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1557",
+            "PERS-299",
+            "PERS-445",
+            "PERS-084",
+            "PERS-1390",
+            "PERS-462",
+            "PERS-675"
+        ]
+    },
+    {
+        "fromUnit": "BDE-ART-019",
+        "fromUnitName": "19th Artillery Brigade",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1089",
+            "PERS-1976",
+            "PERS-893",
+            "PERS-1026"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1089",
+            "PERS-1976",
+            "PERS-893",
+            "PERS-1026"
+        ]
+    },
+    {
+        "fromUnit": "BN-TRA-053",
+        "fromUnitName": "53th Transportation Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-381",
+            "PERS-057",
+            "PERS-152"
+        ],
+        "movementType": "departure",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-381",
+            "PERS-057",
+            "PERS-152"
+        ]
+    },
+    {
+        "fromUnit": "BN-SIG-054",
+        "fromUnitName": "54th Signal Battalion",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1452",
+            "PERS-1035",
+            "PERS-1051",
+            "PERS-1926",
+            "PERS-254"
+        ],
+        "movementType": "departure",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-1452",
+            "PERS-1035",
+            "PERS-1051",
+            "PERS-1926",
+            "PERS-254"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": null,
+        "toUnitName": "Left Organization",
+        "soldiers": [
+            "PERS-1399",
+            "PERS-585",
+            "PERS-1083",
+            "PERS-1894"
+        ],
+        "movementType": "departure",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1399",
+            "PERS-585",
+            "PERS-1083",
+            "PERS-1894"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "HQ-ARMY",
+        "toUnitName": "Army Headquarters",
+        "soldiers": [
+            "PERS-1327"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1327"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "DIV-001",
+        "toUnitName": "1st Division",
+        "soldiers": [
+            "PERS-1330",
+            "PERS-423",
+            "PERS-012",
+            "PERS-045",
+            "PERS-1736",
+            "PERS-975"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1330",
+            "PERS-423",
+            "PERS-012",
+            "PERS-045",
+            "PERS-1736",
+            "PERS-975"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-ART-001",
+        "toUnitName": "1st Artillery Brigade",
+        "soldiers": [
+            "PERS-529"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-529"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MEC-001",
+        "toUnitName": "1st Mechanized Battalion",
+        "soldiers": [
+            "PERS-391",
+            "PERS-882"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-391",
+            "PERS-882"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-003",
+        "toUnitName": "3rd Infantry Battalion",
+        "soldiers": [
+            "PERS-560",
+            "PERS-1345",
+            "PERS-1513",
+            "PERS-889",
+            "PERS-220"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-560",
+            "PERS-1345",
+            "PERS-1513",
+            "PERS-889",
+            "PERS-220"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-ART-002",
+        "toUnitName": "2nd Artillery Brigade",
+        "soldiers": [
+            "PERS-1925",
+            "PERS-788",
+            "PERS-1165",
+            "PERS-1957",
+            "PERS-427"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-1925",
+            "PERS-788",
+            "PERS-1165",
+            "PERS-1957",
+            "PERS-427"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-004",
+        "toUnitName": "4th Maintenance Battalion",
+        "soldiers": [
+            "PERS-667"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-667"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-005",
+        "toUnitName": "5th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1053",
+            "PERS-577",
+            "PERS-1977"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1053",
+            "PERS-577",
+            "PERS-1977"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-006",
+        "toUnitName": "6th Infantry Battalion",
+        "soldiers": [
+            "PERS-837"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-837"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TRA-007",
+        "toUnitName": "7th Transportation Battalion",
+        "soldiers": [
+            "PERS-237",
+            "PERS-1396",
+            "PERS-159",
+            "PERS-531",
+            "PERS-1839"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-237",
+            "PERS-1396",
+            "PERS-159",
+            "PERS-531",
+            "PERS-1839"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-AVI-003",
+        "toUnitName": "3rd Aviation Brigade",
+        "soldiers": [
+            "PERS-1734",
+            "PERS-180",
+            "PERS-1846",
+            "PERS-824",
+            "PERS-239"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-1734",
+            "PERS-180",
+            "PERS-1846",
+            "PERS-824",
+            "PERS-239"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-SIG-008",
+        "toUnitName": "8th Signal Battalion",
+        "soldiers": [
+            "PERS-1992",
+            "PERS-034",
+            "PERS-711"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1992",
+            "PERS-034",
+            "PERS-711"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MEC-009",
+        "toUnitName": "9th Mechanized Battalion",
+        "soldiers": [
+            "PERS-029",
+            "PERS-1681"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-029",
+            "PERS-1681"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-ART-004",
+        "toUnitName": "4th Artillery Brigade",
+        "soldiers": [
+            "PERS-168",
+            "PERS-1284",
+            "PERS-1865"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-168",
+            "PERS-1284",
+            "PERS-1865"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-010",
+        "toUnitName": "10th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1111",
+            "PERS-599",
+            "PERS-843"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1111",
+            "PERS-599",
+            "PERS-843"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-SIG-011",
+        "toUnitName": "11th Signal Battalion",
+        "soldiers": [
+            "PERS-1034",
+            "PERS-1637",
+            "PERS-718",
+            "PERS-903",
+            "PERS-1355",
+            "PERS-568"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1034",
+            "PERS-1637",
+            "PERS-718",
+            "PERS-903",
+            "PERS-1355",
+            "PERS-568"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MED-012",
+        "toUnitName": "12th Medical Battalion",
+        "soldiers": [
+            "PERS-1953",
+            "PERS-048",
+            "PERS-1843"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1953",
+            "PERS-048",
+            "PERS-1843"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-1565",
+            "PERS-682",
+            "PERS-526"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1565",
+            "PERS-682",
+            "PERS-526"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-MIL-005",
+        "toUnitName": "5th Military Police Brigade",
+        "soldiers": [
+            "PERS-1514",
+            "PERS-067"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1514",
+            "PERS-067"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TAN-013",
+        "toUnitName": "13th Tank Battalion",
+        "soldiers": [
+            "PERS-710",
+            "PERS-810"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-710",
+            "PERS-810"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-SIG-014",
+        "toUnitName": "14th Signal Battalion",
+        "soldiers": [
+            "PERS-041",
+            "PERS-052",
+            "PERS-1793"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-041",
+            "PERS-052",
+            "PERS-1793"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-INF-006",
+        "toUnitName": "6th Infantry Brigade",
+        "soldiers": [
+            "PERS-1456",
+            "PERS-1576",
+            "PERS-1226"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1456",
+            "PERS-1576",
+            "PERS-1226"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-015",
+        "toUnitName": "15th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1552",
+            "PERS-1661",
+            "PERS-366"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1552",
+            "PERS-1661",
+            "PERS-366"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MED-016",
+        "toUnitName": "16th Medical Battalion",
+        "soldiers": [
+            "PERS-043",
+            "PERS-181",
+            "PERS-1302",
+            "PERS-514"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-043",
+            "PERS-181",
+            "PERS-1302",
+            "PERS-514"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-AVI-007",
+        "toUnitName": "7th Aviation Brigade",
+        "soldiers": [
+            "PERS-1483",
+            "PERS-1204",
+            "PERS-1287",
+            "PERS-344"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1483",
+            "PERS-1204",
+            "PERS-1287",
+            "PERS-344"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MED-017",
+        "toUnitName": "17th Medical Battalion",
+        "soldiers": [
+            "PERS-609",
+            "PERS-1121",
+            "PERS-1291",
+            "PERS-1450",
+            "PERS-978"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-609",
+            "PERS-1121",
+            "PERS-1291",
+            "PERS-1450",
+            "PERS-978"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TAN-018",
+        "toUnitName": "18th Tank Battalion",
+        "soldiers": [
+            "PERS-1628",
+            "PERS-064",
+            "PERS-1453",
+            "PERS-1455",
+            "PERS-1794",
+            "PERS-869",
+            "PERS-340"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1628",
+            "PERS-064",
+            "PERS-1453",
+            "PERS-1455",
+            "PERS-1794",
+            "PERS-869",
+            "PERS-340"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TAN-019",
+        "toUnitName": "19th Tank Battalion",
+        "soldiers": [
+            "PERS-1260",
+            "PERS-1478",
+            "PERS-780",
+            "PERS-966",
+            "PERS-1792",
+            "PERS-533"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1260",
+            "PERS-1478",
+            "PERS-780",
+            "PERS-966",
+            "PERS-1792",
+            "PERS-533"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "DIV-003",
+        "toUnitName": "3rd Division",
+        "soldiers": [
+            "PERS-1106",
+            "PERS-796",
+            "PERS-1417",
+            "PERS-163",
+            "PERS-1238",
+            "PERS-388",
+            "PERS-412"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1106",
+            "PERS-796",
+            "PERS-1417",
+            "PERS-163",
+            "PERS-1238",
+            "PERS-388",
+            "PERS-412"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-ART-008",
+        "toUnitName": "8th Artillery Brigade",
+        "soldiers": [
+            "PERS-640",
+            "PERS-691",
+            "PERS-977"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-640",
+            "PERS-691",
+            "PERS-977"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MEC-020",
+        "toUnitName": "20th Mechanized Battalion",
+        "soldiers": [
+            "PERS-1856",
+            "PERS-635"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1856",
+            "PERS-635"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TRA-021",
+        "toUnitName": "21th Transportation Battalion",
+        "soldiers": [
+            "PERS-1108",
+            "PERS-1358"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1108",
+            "PERS-1358"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-MIL-009",
+        "toUnitName": "9th Military Police Brigade",
+        "soldiers": [
+            "PERS-548"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-548"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TAN-022",
+        "toUnitName": "22th Tank Battalion",
+        "soldiers": [
+            "PERS-1316",
+            "PERS-608",
+            "PERS-812"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1316",
+            "PERS-608",
+            "PERS-812"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-023",
+        "toUnitName": "23th Infantry Battalion",
+        "soldiers": [
+            "PERS-350",
+            "PERS-871",
+            "PERS-1027",
+            "PERS-1718",
+            "PERS-1825",
+            "PERS-660"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-350",
+            "PERS-871",
+            "PERS-1027",
+            "PERS-1718",
+            "PERS-1825",
+            "PERS-660"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-024",
+        "toUnitName": "24th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1984",
+            "PERS-705"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1984",
+            "PERS-705"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MED-025",
+        "toUnitName": "25th Medical Battalion",
+        "soldiers": [
+            "PERS-1118",
+            "PERS-383",
+            "PERS-908",
+            "PERS-956"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1118",
+            "PERS-383",
+            "PERS-908",
+            "PERS-956"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-AVI-010",
+        "toUnitName": "10th Aviation Brigade",
+        "soldiers": [
+            "PERS-1267",
+            "PERS-1404",
+            "PERS-1143",
+            "PERS-1426",
+            "PERS-1587",
+            "PERS-1789"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1267",
+            "PERS-1404",
+            "PERS-1143",
+            "PERS-1426",
+            "PERS-1587",
+            "PERS-1789"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-026",
+        "toUnitName": "26th Infantry Battalion",
+        "soldiers": [
+            "PERS-1168",
+            "PERS-895",
+            "PERS-1178"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1168",
+            "PERS-895",
+            "PERS-1178"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TAN-027",
+        "toUnitName": "27th Tank Battalion",
+        "soldiers": [
+            "PERS-1082",
+            "PERS-328"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1082",
+            "PERS-328"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-SIG-028",
+        "toUnitName": "28th Signal Battalion",
+        "soldiers": [
+            "PERS-1015",
+            "PERS-1033",
+            "PERS-1182",
+            "PERS-1405",
+            "PERS-1870"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-1015",
+            "PERS-1033",
+            "PERS-1182",
+            "PERS-1405",
+            "PERS-1870"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-029",
+        "toUnitName": "29th Infantry Battalion",
+        "soldiers": [
+            "PERS-137",
+            "PERS-1833",
+            "PERS-620"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-137",
+            "PERS-1833",
+            "PERS-620"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-INF-011",
+        "toUnitName": "11th Infantry Brigade",
+        "soldiers": [
+            "PERS-1780",
+            "PERS-444"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1780",
+            "PERS-444"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MED-030",
+        "toUnitName": "30th Medical Battalion",
+        "soldiers": [
+            "PERS-1371",
+            "PERS-1056",
+            "PERS-201"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1371",
+            "PERS-1056",
+            "PERS-201"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-031",
+        "toUnitName": "31th Maintenance Battalion",
+        "soldiers": [
+            "PERS-457",
+            "PERS-1326",
+            "PERS-1368"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-457",
+            "PERS-1326",
+            "PERS-1368"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-032",
+        "toUnitName": "32th Infantry Battalion",
+        "soldiers": [
+            "PERS-1057",
+            "PERS-1288",
+            "PERS-1460",
+            "PERS-1516"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1057",
+            "PERS-1288",
+            "PERS-1460",
+            "PERS-1516"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TRA-033",
+        "toUnitName": "33th Transportation Battalion",
+        "soldiers": [
+            "PERS-283",
+            "PERS-1560",
+            "PERS-1655",
+            "PERS-1975"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-283",
+            "PERS-1560",
+            "PERS-1655",
+            "PERS-1975"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-1020",
+            "PERS-1541",
+            "PERS-927",
+            "PERS-999"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1020",
+            "PERS-1541",
+            "PERS-927",
+            "PERS-999"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-AVI-012",
+        "toUnitName": "12th Aviation Brigade",
+        "soldiers": [
+            "PERS-702"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-702"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-034",
+        "toUnitName": "34th Infantry Battalion",
+        "soldiers": [
+            "PERS-1461"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1461"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MED-035",
+        "toUnitName": "35th Medical Battalion",
+        "soldiers": [
+            "PERS-1522",
+            "PERS-459",
+            "PERS-552",
+            "PERS-696"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1522",
+            "PERS-459",
+            "PERS-552",
+            "PERS-696"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-ARM-013",
+        "toUnitName": "13th Armor Brigade",
+        "soldiers": [
+            "PERS-1163",
+            "PERS-1256"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1163",
+            "PERS-1256"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-036",
+        "toUnitName": "36th Infantry Battalion",
+        "soldiers": [
+            "PERS-095"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-095"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-037",
+        "toUnitName": "37th Maintenance Battalion",
+        "soldiers": [
+            "PERS-394",
+            "PERS-435",
+            "PERS-752",
+            "PERS-1472",
+            "PERS-1848",
+            "PERS-952"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-394",
+            "PERS-435",
+            "PERS-752",
+            "PERS-1472",
+            "PERS-1848",
+            "PERS-952"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-038",
+        "toUnitName": "38th Infantry Battalion",
+        "soldiers": [
+            "PERS-1122"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1122"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MED-039",
+        "toUnitName": "39th Medical Battalion",
+        "soldiers": [
+            "PERS-1363",
+            "PERS-1529",
+            "PERS-512",
+            "PERS-485",
+            "PERS-782"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-1363",
+            "PERS-1529",
+            "PERS-512",
+            "PERS-485",
+            "PERS-782"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-MIL-014",
+        "toUnitName": "14th Military Police Brigade",
+        "soldiers": [
+            "PERS-1299",
+            "PERS-1869"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1299",
+            "PERS-1869"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MED-040",
+        "toUnitName": "40th Medical Battalion",
+        "soldiers": [
+            "PERS-724",
+            "PERS-147",
+            "PERS-555"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-724",
+            "PERS-147",
+            "PERS-555"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MEC-041",
+        "toUnitName": "41th Mechanized Battalion",
+        "soldiers": [
+            "PERS-307",
+            "PERS-1888",
+            "PERS-465"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-307",
+            "PERS-1888",
+            "PERS-465"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MED-042",
+        "toUnitName": "42th Medical Battalion",
+        "soldiers": [
+            "PERS-331"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-331"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "DIV-005",
+        "toUnitName": "5th Armored Division",
+        "soldiers": [
+            "PERS-292",
+            "PERS-536",
+            "PERS-1816",
+            "PERS-363"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-292",
+            "PERS-536",
+            "PERS-1816",
+            "PERS-363"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-AVI-015",
+        "toUnitName": "15th Aviation Brigade",
+        "soldiers": [
+            "PERS-879"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-879"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TRA-044",
+        "toUnitName": "44th Transportation Battalion",
+        "soldiers": [
+            "PERS-911",
+            "PERS-033",
+            "PERS-157"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-911",
+            "PERS-033",
+            "PERS-157"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-INF-016",
+        "toUnitName": "16th Infantry Brigade",
+        "soldiers": [
+            "PERS-1213"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1213"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-045",
+        "toUnitName": "45th Infantry Battalion",
+        "soldiers": [
+            "PERS-1309",
+            "PERS-1636",
+            "PERS-1997",
+            "PERS-164"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1309",
+            "PERS-1636",
+            "PERS-1997",
+            "PERS-164"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TAN-046",
+        "toUnitName": "46th Tank Battalion",
+        "soldiers": [
+            "PERS-961",
+            "PERS-1247"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-961",
+            "PERS-1247"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-AVI-017",
+        "toUnitName": "17th Aviation Brigade",
+        "soldiers": [
+            "PERS-440",
+            "PERS-1335",
+            "PERS-1834",
+            "PERS-1844"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-440",
+            "PERS-1335",
+            "PERS-1834",
+            "PERS-1844"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TAN-047",
+        "toUnitName": "47th Tank Battalion",
+        "soldiers": [
+            "PERS-729",
+            "PERS-1752"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-729",
+            "PERS-1752"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-048",
+        "toUnitName": "48th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1678",
+            "PERS-499",
+            "PERS-1584"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1678",
+            "PERS-499",
+            "PERS-1584"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-MIL-018",
+        "toUnitName": "18th Military Police Brigade",
+        "soldiers": [
+            "PERS-970",
+            "PERS-1084"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-970",
+            "PERS-1084"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-049",
+        "toUnitName": "49th Maintenance Battalion",
+        "soldiers": [
+            "PERS-1023",
+            "PERS-112",
+            "PERS-214",
+            "PERS-1811"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1023",
+            "PERS-112",
+            "PERS-214",
+            "PERS-1811"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-MAI-050",
+        "toUnitName": "50th Maintenance Battalion",
+        "soldiers": [
+            "PERS-708",
+            "PERS-813",
+            "PERS-1818"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-708",
+            "PERS-813",
+            "PERS-1818"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-INF-051",
+        "toUnitName": "51th Infantry Battalion",
+        "soldiers": [
+            "PERS-047",
+            "PERS-380",
+            "PERS-1599",
+            "PERS-1923"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-047",
+            "PERS-380",
+            "PERS-1599",
+            "PERS-1923"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-SIG-052",
+        "toUnitName": "52th Signal Battalion",
+        "soldiers": [
+            "PERS-1753",
+            "PERS-589",
+            "PERS-1075"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1753",
+            "PERS-589",
+            "PERS-1075"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BDE-ART-019",
+        "toUnitName": "19th Artillery Brigade",
+        "soldiers": [
+            "PERS-158",
+            "PERS-406",
+            "PERS-1640",
+            "PERS-255"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-158",
+            "PERS-406",
+            "PERS-1640",
+            "PERS-255"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-TRA-053",
+        "toUnitName": "53th Transportation Battalion",
+        "soldiers": [
+            "PERS-1011",
+            "PERS-1671",
+            "PERS-1382",
+            "PERS-396"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1011",
+            "PERS-1671",
+            "PERS-1382",
+            "PERS-396"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "BN-SIG-054",
+        "toUnitName": "54th Signal Battalion",
+        "soldiers": [
+            "PERS-1149",
+            "PERS-226"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1149",
+            "PERS-226"
+        ]
+    },
+    {
+        "fromUnit": null,
+        "fromUnitName": "New Recruit",
+        "toUnit": "SF-001",
+        "toUnitName": "Army Special Forces",
+        "soldiers": [
+            "PERS-014",
+            "PERS-104",
+            "PERS-1491",
+            "PERS-368"
+        ],
+        "movementType": "recruitment",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-014",
+            "PERS-104",
+            "PERS-1491",
+            "PERS-368"
+        ]
+    }
+]

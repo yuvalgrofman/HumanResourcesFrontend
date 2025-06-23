@@ -1,0 +1,6 @@
+Consider the given ChordDiagram.js component. 
+Please use create a corresponding css file to style the component.
+The styles should be clean, elegant, and responsive.
+In paticular, restyle the look of the zoom in and zoom out buttons,
+the reset button and the fullscreen button.
+Also. restyle the tooltip such that the names of the units appear in their colors.

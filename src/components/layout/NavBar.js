@@ -51,9 +51,17 @@ const NavBar = () => {
               Dashboard
             </Link>
             <Link
+              to="/chord-diagram"
+              className={`px-4 py-2 mr-2 rounded hover:bg-gray-700 ${
+                location.pathname === '/chord-diagram' ? 'bg-gray-700' : ''
+              }`}
+            >
+              Chord Diagram
+            </Link>
+            <Link
               to="/group-chart"
               className={`px-4 py-2 mr-2 rounded hover:bg-gray-700 ${
-                location.pathname === '/org-chart' ? 'bg-gray-700' : ''
+                location.pathname === '/group-chart' ? 'bg-gray-700' : ''
               }`}
             >
               Group Chart
@@ -61,7 +69,7 @@ const NavBar = () => {
             <Link
               to="/arrow-chart"
               className={`px-4 py-2 mr-2 rounded hover:bg-gray-700 ${
-                location.pathname === '/org-chart' ? 'bg-gray-700' : ''
+                location.pathname === '/arrow-chart' ? 'bg-gray-700' : ''
               }`}
             >
               Arrow Chart

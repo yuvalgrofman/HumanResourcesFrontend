@@ -1,0 +1,4 @@
+Consider the given ChordDiagram component.
+Please add another Arc to the diagram which is called "Rest Organization".
+The New Arc should be responsible for all movements that contain at least one unit which is not in the bottom level of the organization.
+There is no need to rewrite the existing code, only rewrite the relevant code blocks and tell me where to place them in the existing code.

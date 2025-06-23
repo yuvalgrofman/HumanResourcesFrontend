@@ -1,0 +1,7 @@
+Please add a stateVariable called isGrouped to the ChordDiagram component.
+If isGrouped is true, update the bottomLevelMovements Memo which appears in line 390,
+such that restGrouped is returned instead of restSeparated.
+Moreover, update the header which appears in line 700 such that there is a toggle button to switch between grouped and separated views.
+Obviously, add the relevant code to make the toggle button work.
+
+There is no need to rewrite the entire component, just the relevant parts that need to be changed or added.

@@ -1,0 +1,702 @@
+[
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-001",
+        "toUnitName": "1st Division",
+        "soldiers": [
+            "PERS-1261",
+            "PERS-020"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1261",
+            "PERS-020"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-001",
+        "toUnitName": "1st Division",
+        "soldiers": [
+            "PERS-1853"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1853"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1667"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1667"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-510"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-510"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1471"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1471"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-1559"
+        ],
+        "movementType": "transfer",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1559"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-105"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-105"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-1679",
+            "PERS-1375"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1679",
+            "PERS-1375"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1147"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1147"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1776"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1776"
+        ]
+    },
+    {
+        "fromUnit": "DIV-002",
+        "fromUnitName": "2nd Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-820"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-820"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1651"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1651"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-003",
+        "toUnitName": "3rd Division",
+        "soldiers": [
+            "PERS-1061"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1061"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-003",
+        "toUnitName": "3rd Division",
+        "soldiers": [
+            "PERS-1152"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1152"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1113"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1113"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-369"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-369"
+        ]
+    },
+    {
+        "fromUnit": "DIV-003",
+        "fromUnitName": "3rd Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1697"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1697"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-569"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-569"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-294"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-294"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-628"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-628"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-1370"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1370"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-1270"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1270"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-005",
+        "toUnitName": "5th Armored Division",
+        "soldiers": [
+            "PERS-443"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-443"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-005",
+        "toUnitName": "5th Armored Division",
+        "soldiers": [
+            "PERS-912"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-912"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-939"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-939"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-922"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-922"
+        ]
+    },
+    {
+        "fromUnit": "DIV-003",
+        "fromUnitName": "3rd Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1797",
+            "PERS-042"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1797",
+            "PERS-042"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1770"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1770"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-193"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-193"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "SF-001",
+        "toUnitName": "Army Special Forces",
+        "soldiers": [
+            "PERS-1239"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1239"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "SF-001",
+        "toUnitName": "Army Special Forces",
+        "soldiers": [
+            "PERS-1080"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-1080"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "SF-001",
+        "toUnitName": "Army Special Forces",
+        "soldiers": [
+            "PERS-601"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-601"
+        ]
+    },
+    {
+        "fromUnit": "DIV-001",
+        "fromUnitName": "1st Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-720",
+            "PERS-953",
+            "PERS-699"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-720",
+            "PERS-953",
+            "PERS-699"
+        ]
+    },
+    {
+        "fromUnit": "DIV-002",
+        "fromUnitName": "2nd Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-542"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 1,
+        "soldierIds": [
+            "PERS-542"
+        ]
+    },
+    {
+        "fromUnit": "DIV-003",
+        "fromUnitName": "3rd Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-028",
+            "PERS-101",
+            "PERS-1251",
+            "PERS-556",
+            "PERS-1737",
+            "PERS-1761",
+            "PERS-1715",
+            "PERS-650"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 8,
+        "soldierIds": [
+            "PERS-028",
+            "PERS-101",
+            "PERS-1251",
+            "PERS-556",
+            "PERS-1737",
+            "PERS-1761",
+            "PERS-1715",
+            "PERS-650"
+        ]
+    },
+    {
+        "fromUnit": "DIV-004",
+        "fromUnitName": "4th Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-375",
+            "PERS-878",
+            "PERS-021",
+            "PERS-1144",
+            "PERS-797"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 5,
+        "soldierIds": [
+            "PERS-375",
+            "PERS-878",
+            "PERS-021",
+            "PERS-1144",
+            "PERS-797"
+        ]
+    },
+    {
+        "fromUnit": "DIV-005",
+        "fromUnitName": "5th Armored Division",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1141",
+            "PERS-579"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 2,
+        "soldierIds": [
+            "PERS-1141",
+            "PERS-579"
+        ]
+    },
+    {
+        "fromUnit": "SF-001",
+        "fromUnitName": "Army Special Forces",
+        "toUnit": "rest-organization",
+        "toUnitName": "Rest Organization",
+        "soldiers": [
+            "PERS-1399",
+            "PERS-585",
+            "PERS-1083",
+            "PERS-1894"
+        ],
+        "movementType": "to-rest",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1399",
+            "PERS-585",
+            "PERS-1083",
+            "PERS-1894"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-001",
+        "toUnitName": "1st Division",
+        "soldiers": [
+            "PERS-1330",
+            "PERS-423",
+            "PERS-012",
+            "PERS-045",
+            "PERS-1736",
+            "PERS-975"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 6,
+        "soldierIds": [
+            "PERS-1330",
+            "PERS-423",
+            "PERS-012",
+            "PERS-045",
+            "PERS-1736",
+            "PERS-975"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-002",
+        "toUnitName": "2nd Division",
+        "soldiers": [
+            "PERS-1565",
+            "PERS-682",
+            "PERS-526"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 3,
+        "soldierIds": [
+            "PERS-1565",
+            "PERS-682",
+            "PERS-526"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-003",
+        "toUnitName": "3rd Division",
+        "soldiers": [
+            "PERS-1106",
+            "PERS-796",
+            "PERS-1417",
+            "PERS-163",
+            "PERS-1238",
+            "PERS-388",
+            "PERS-412"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 7,
+        "soldierIds": [
+            "PERS-1106",
+            "PERS-796",
+            "PERS-1417",
+            "PERS-163",
+            "PERS-1238",
+            "PERS-388",
+            "PERS-412"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-004",
+        "toUnitName": "4th Division",
+        "soldiers": [
+            "PERS-1020",
+            "PERS-1541",
+            "PERS-927",
+            "PERS-999"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-1020",
+            "PERS-1541",
+            "PERS-927",
+            "PERS-999"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "DIV-005",
+        "toUnitName": "5th Armored Division",
+        "soldiers": [
+            "PERS-292",
+            "PERS-536",
+            "PERS-1816",
+            "PERS-363"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-292",
+            "PERS-536",
+            "PERS-1816",
+            "PERS-363"
+        ]
+    },
+    {
+        "fromUnit": "rest-organization",
+        "fromUnitName": "Rest Organization",
+        "toUnit": "SF-001",
+        "toUnitName": "Army Special Forces",
+        "soldiers": [
+            "PERS-014",
+            "PERS-104",
+            "PERS-1491",
+            "PERS-368"
+        ],
+        "movementType": "from-rest",
+        "soldierCount": 4,
+        "soldierIds": [
+            "PERS-014",
+            "PERS-104",
+            "PERS-1491",
+            "PERS-368"
+        ]
+    }
+]

@@ -1,0 +1,8 @@
+Consider the following ChordDiagram component. 
+Please tell me what part of the code is responsible for the margins between the arcs of the diagram. 
+Specifically, If I want to decrease the margins between the arcs and make the arcs longer, which part of the code should I modify?
+Secondly, please tell me how to make the chords between the arcs thicker, and which part of the code is responsible for that.
+
+How can I update the Ribbons such that the width of the ribbons has less variance. 
+In other words, the wide ribbons should have the same width but the narrow ribbons 
+should be wider.

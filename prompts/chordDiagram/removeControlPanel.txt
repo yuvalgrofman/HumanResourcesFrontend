@@ -1,0 +1,3 @@
+Please update the ChordDiagramPage compoenent to remove the left control panel.
+Make sure to adjust the layout accordingly, so that the main content area takes up the full width of the page 
+without the left panel and the right panel is still present for the data panel.
