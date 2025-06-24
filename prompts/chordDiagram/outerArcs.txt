@@ -1,0 +1,68 @@
+Please update the block of code which appears in line 422 such that the units 
+placed in the outer arcs are sorted according to their parents. 
+In other words, all the units of the first parent should be placed side by side,
+then all the units of the second parent, and so on.
+There is no need to rewrite the entire code, just update the relevant sections, 
+and tell me exactly where to make the changes (line numbers).
+
+=====================================================================================
+
+Please update the block of code which begins in line 522 such that the coloring is now
+done using the generateFamliyColors function. 
+In particular, the functions returns an array of arrays where each sub-array represents a parent. 
+All the colors in the sub-array of some parent are be different shades of the same color and 
+all parents should have different colors such that it's clear which parent is the parent of every unit. 
+Moreover, the first color in every array should be the color of the parent. 
+
+=====================================================================================
+
+Please update the block of code which begins in line 422 such that 
+there appears another arc outside of the outer arc, such that:
+
+1. The outer arc should have no chords. 
+2. Each unit in the outer arc should represent a parent of a unit in the inner arc. 
+3. In particular, notice that all the units with the same parent in the inner arc 
+are placed side by side. Thus, for each such group of units, with the same parent,
+there should be a corresponding unit in the outer arc, which represents the parent unit. 
+
+4. The color of the parent unit in the outer arc should be taken from the corresponding
+subbarray in the array returned by the generateFamilyColors function.
+More precisely, it should be the first color in the sub-array of the parent.
+
+=====================================================================================
+
+Please update the block of code which begins in line 741 such that 
+if the title of a unit is too long, it should by represented in multiple lines.
+
+=====================================================================================
+
+Please update the block which begins in line 669 and is responsible for 
+creating the outer arcs, such that there also appears an outer arc for the Rest Organization Arc, 
+even though it has no parents. 
+
+====================================================================================
+
+Please update the block of code which begins in line 338, such that in addition
+to BottomLevelMovements, there are also two more variables called 
+BottomLevelRecreits and BottomLevelRestRetirements.
+These two variables should contain all recruitments which move to the bottom level 
+and all soldeirs who where in the bottom level and left the organization, respectively.
+
+====================================================================================
+
+Continuing with the stlye of the Ribbons in the Chord Diagram, 
+Please add a block of code, after line 929, such that for each recruitment and retirement of a unit in the inner arc,
+there is a sunray that appears from the unit with a radial direction outside of the circle. 
+Implement the sunrays such that:
+
+1. The sunray should begin at the unit's our edge of the unit and extend outward for a very long distance. 
+2. The size of the sunray should be a long triangle where the base of the triangle is the outer edge of the unit
+and the tip of the triangle is at the end of the sunray.
+3. The styling of the sunrays similar to the styling of the ribbons.
+4. The sunrays which represent recruitments should be colored with a light shade of the color of the unit,
+   while the sunrays which represent retirements should be colored with a dark shade of the color of the unit.
+
+5. Make the width of the triangle proportional to the amount of the recruitment or retirement.
+
+6. Although the sunray should have a triangular shape, make the base of the triangle
+rounded such that it matches the outer edge of the unit.

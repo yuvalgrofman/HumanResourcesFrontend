@@ -113,10 +113,85 @@ const generateParentColors = () => {
     '#134e4a', '#14b8a6'  // Dark teal to teal
   ];
 };
+
+const generateFamilyColors = () => {
+  return [
+    // Blue family
+    ['#1e3a8a', '#1e40af', '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#dbeafe', '#eff6ff', '#f8fafc'],
+    
+    
+    // Red family
+    ['#991b1b', '#dc2626', '#ef4444', '#f87171', '#fca5a5', '#fecaca', '#fee2e2', '#fef2f2', '#fffbfb', '#fffdfd'],
+    
+    // Purple family
+    ['#581c87', '#7c3aed', '#8b5cf6', '#a78bfa', '#c4b5fd', '#ddd6fe', '#e9d5ff', '#f3e8ff', '#faf5ff', '#fdfdfe'],
+    
+    
+    // Fuchsia family
+    ['#86198f', '#c026d3', '#d946ef', '#e879f9', '#f0abfc', '#f5d0fe', '#fae8ff', '#fdf4ff', '#fefaff', '#fffdff'],
+
+    // Green family
+    ['#14532d', '#16a34a', '#22c55e', '#4ade80', '#86efac', '#bbf7d0', '#dcfce7', '#f0fdf4', '#f7fef8', '#fcfefc'],
+
+    // Pink family
+    ['#be185d', '#db2777', '#ec4899', '#f472b6', '#f9a8d4', '#fbcfe8', '#fce7f3', '#fdf2f8', '#fefafc', '#fffefd'],
+
+    
+    // Orange family
+    ['#c2410c', '#ea580c', '#f97316', '#fb923c', '#fdba74', '#fed7aa', '#ffedd5', '#fff7ed', '#fffbf7', '#fffefd'],
+    // Teal family
+    ['#134e4a', '#0d9488', '#14b8a6', '#2dd4bf', '#5eead4', '#99f6e4', '#ccfbf1', '#f0fdfa', '#f7fefd', '#fcfffe'],
+    
+    // Lime family
+    ['#365314', '#65a30d', '#84cc16', '#a3e635', '#bef264', '#d9f99d', '#ecfccb', '#f7fee7', '#fbfef4', '#fefffa'],
+    // Yellow/Amber family
+    ['#92400e', '#d97706', '#f59e0b', '#fbbf24', '#fcd34d', '#fde68a', '#fef3c7', '#fffbeb', '#fffef7', '#fffffc'],
+    // Cyan family
+    ['#155e75', '#0891b2', '#06b6d4', '#22d3ee', '#67e8f9', '#a5f3fc', '#cffafe', '#ecfeff', '#f6feff', '#fcfffe'],
+    
+    // Stone family
+    ['#44403c', '#57534e', '#78716c', '#a8a29e', '#d6d3d1', '#e7e5e4', '#f5f5f4', '#fafaf9', '#fcfcfc', '#ffffff'],
+    // Indigo family
+    ['#312e81', '#4f46e5', '#6366f1', '#818cf8', '#a5b4fc', '#c7d2fe', '#e0e7ff', '#f0f4ff', '#f8faff', '#fcfdff'],
+    
+    
+    // Rose family
+    ['#881337', '#e11d48', '#f43f5e', '#fb7185', '#fda4af', '#fecdd3', '#ffe4e6', '#fff1f2', '#fff8f8', '#fffcfc'],
+    
+    // Emerald family
+    ['#064e3b', '#059669', '#10b981', '#34d399', '#6ee7b7', '#a7f3d0', '#d1fae5', '#ecfdf5', '#f4fdf8', '#fbfefc'],
+    
+    
+    // Sky family
+    ['#0c4a6e', '#0284c7', '#0ea5e9', '#38bdf8', '#7dd3fc', '#bae6fd', '#e0f2fe', '#f0f9ff', '#f8fcff', '#fcfeff'],
+    
+    // Violet family
+    ['#4c1d95', '#7c2d92', '#8b5cf6', '#a78bfa', '#c4b5fd', '#ddd6fe', '#ede9fe', '#f5f3ff', '#faf9ff', '#fefdff'],
+    
+    
+    // Gray family
+    ['#374151', '#4b5563', '#6b7280', '#9ca3af', '#d1d5db', '#e5e7eb', '#f3f4f6', '#f9fafb', '#fcfcfc', '#ffffff'],
+    
+    // Slate family
+    ['#334155', '#475569', '#64748b', '#94a3b8', '#cbd5e1', '#e2e8f0', '#f1f5f9', '#f8fafc', '#fcfcfd', '#ffffff'],
+    
+    
+  ];
+};
+
+// Example usage:
+// const parentColors = generateParentColors();
+// console.log(parentColors[0]); // Blue family: ['#1e40af', '#3b82f6', '#60a5fa', '#93c5fd', '#dbeafe']
+// console.log(parentColors[1]); // Purple family: ['#7c3aed', '#8b5cf6', '#a78bfa', '#c4b5fd', '#e9d5ff']
+
+// To get parent color: parentColors[parentIndex][0]
+// To get child colors: parentColors[parentIndex].slice(1)
+// To get all colors for a parent: parentColors[parentIndex]
   
 module.exports = {
   lightenColor,
   getBackgroundColor,
   getEllipseColor, 
-  generateParentColors
+  generateParentColors,
+  generateFamilyColors
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 import { useData } from '../../context/DataContext';
 import './ChordDiagram.css';
-import { generateParentColors } from '../../utils/colors';
+import { generateParentColors, generateFamilyColors } from '../../utils/colors';
 import { normalizeMatrix } from '../../utils/helpers';
 
 const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID}) => {
@@ -369,7 +369,7 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
               movementType: 'from-rest'
             });
           } else {
-            restGrouped.push(movement);
+            // restGrouped.push(movement);
           } 
         } else if (fromIsBottom) {
           if (movement.toUnitName !== "Left Organization") {
@@ -382,13 +382,49 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
             });
           } else {
             // From bottom level to departure
-            restGrouped.push(movement);
+            // restGrouped.push(movement);
           }
         }
       });
 
     return isGrouped ? restGrouped : restSeperated;
   }, [soldierMovements, bottomCurrentUnits, bottomPastUnits, isGrouped]);
+
+  // Filter recruitments to bottom-level units
+  const bottomLevelRecruits = useMemo(() => {
+    if (!soldierMovements || bottomCurrentUnits.length === 0) return [];
+    
+    const bottomUnitIds = new Set([
+      ...bottomCurrentUnits.map(u => u.id),
+      ...bottomPastUnits.map(u => u.id)
+    ]);
+
+    const recruits = soldierMovements.filter(movement => {
+      return movement.movementType === 'recruitment' && 
+             movement.toUnit && 
+             bottomUnitIds.has(movement.toUnit);
+    });
+    console.log("bottomLevelRecruits", recruits);
+    return recruits;
+  }, [soldierMovements, bottomCurrentUnits, bottomPastUnits]);
+
+  // Filter retirements from bottom-level units
+  const bottomLevelRestRetirements = useMemo(() => {
+    if (!soldierMovements || bottomCurrentUnits.length === 0) return [];
+    
+    const bottomUnitIds = new Set([
+      ...bottomCurrentUnits.map(u => u.id),
+      ...bottomPastUnits.map(u => u.id)
+    ]);
+
+    const retirees = soldierMovements.filter(movement => {
+      return movement.movementType === 'departure' && 
+             movement.fromUnit && 
+             bottomUnitIds.has(movement.fromUnit);
+    });
+    console.log("bottomLevelRestRetirements", retirees);
+    return retirees;
+  }, [soldierMovements, bottomCurrentUnits, bottomPastUnits]);
 
   // Calculate movement statistics
   const movementStats = useMemo(() => {
@@ -425,10 +461,48 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
     d3.select(svgRef.current).selectAll("*").remove();
 
     // Get unique unit names for the chord diagram
-    const unitNames = Array.from(new Set([
+    const uniqueUnitNames = Array.from(new Set([
       ...bottomLevelMovements.map(m => m.fromUnitName).filter(Boolean),
       ...bottomLevelMovements.map(m => m.toUnitName).filter(Boolean)
-    ])).sort();
+    ]));
+
+    // Create a map to group units by their parents
+    const unitsByParent = new Map();
+    const unitsWithoutParent = [];
+
+    uniqueUnitNames.forEach(unitName => {
+      // Find the unit in bottom units to get its parent
+      const currentUnit = bottomCurrentUnits.find(u => u.name === unitName);
+      const pastUnit = bottomPastUnits.find(u => u.name === unitName);
+      const unit = currentUnit || pastUnit;
+      
+      if (unit && unit.parent_id) {
+        // Find parent unit to get parent name
+        const parentUnit = [...flatCurrentUnits, ...flatPastUnits].find(u => u.id === unit.parent_id);
+        const parentName = parentUnit ? parentUnit.name : `Parent_${unit.parent_id}`;
+        
+        if (!unitsByParent.has(parentName)) {
+          unitsByParent.set(parentName, []);
+        }
+        unitsByParent.get(parentName).push(unitName);
+      } else {
+        // Units without parent (like "New Recruit", "Left Organization", "Rest Organization")
+        unitsWithoutParent.push(unitName);
+      }
+    });
+
+    // Sort parent groups and their children, then flatten
+    const sortedParentNames = Array.from(unitsByParent.keys()).sort();
+    const unitNames = [];
+
+    // Add units grouped by parent
+    sortedParentNames.forEach(parentName => {
+      const parentUnits = unitsByParent.get(parentName).sort();
+      unitNames.push(...parentUnits);
+    });
+
+    // Add units without parent at the end
+    unitNames.push(...unitsWithoutParent.sort());
 
     if (unitNames.length === 0) return;
 
@@ -481,15 +555,65 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       .radius(innerRadius - 2)
       .padAngle(0.005);
 
-    // Get parent colors and create gradient pairs for each unit
-    const parentColors = generateParentColors();
+    // Get family colors and assign colors based on parent-child relationships
+    const familyColors = generateFamilyColors();
     const unitColorPairs = new Map();
     
+    // Create a map of parent names to their family color index
+    const parentToColorIndex = new Map();
+    let familyColorIndex = 0;
+    
+    // First pass: assign color indices to parents
+    sortedParentNames.forEach(parentName => {
+      if (familyColorIndex < familyColors.length) {
+        parentToColorIndex.set(parentName, familyColorIndex);
+        familyColorIndex++;
+      } else {
+        // Wrap around if we have more parents than color families
+        parentToColorIndex.set(parentName, familyColorIndex % familyColors.length);
+        familyColorIndex++;
+      }
+    });
+    
+    // Second pass: assign colors to units based on their parent
     unitNames.forEach((unitName, index) => {
-      const colorPairIndex = (index * 2) % parentColors.length;
-      const color1 = parentColors[colorPairIndex];
-      const color2 = parentColors[colorPairIndex];
-      unitColorPairs.set(unitName, { color1, color2 });
+      // Find which parent this unit belongs to
+      let parentName = null;
+      let childIndex = 0;
+      
+      for (const [parent, children] of unitsByParent.entries()) {
+        const childIdx = children.indexOf(unitName);
+        if (childIdx !== -1) {
+          parentName = parent;
+          childIndex = childIdx + 1; // +1 because index 0 is reserved for parent color
+          break;
+        }
+      }
+      
+      if (parentName && parentToColorIndex.has(parentName)) {
+        // Unit belongs to a parent - use family colors
+        const colorFamilyIndex = parentToColorIndex.get(parentName);
+        const colorFamily = familyColors[colorFamilyIndex];
+        
+        // Use child color if available, otherwise use parent color
+        const colorIndex = Math.min(childIndex, colorFamily.length - 1);
+        const unitColor = colorFamily[colorIndex];
+        
+        unitColorPairs.set(unitName, { 
+          color1: unitColor, 
+          color2: d3.color(unitColor).darker(0.3).toString() 
+        });
+      } else {
+        // Unit without parent (like "New Recruit", "Left Organization", "Rest Organization")
+        // Use a neutral color scheme or cycle through available colors
+        const neutralColorIndex = index % familyColors.length;
+        const neutralColor = familyColors[neutralColorIndex][0]; // Use parent color from available families
+        
+        unitColorPairs.set(unitName, { 
+          color1: neutralColor, 
+          color2: d3.color(neutralColor).darker(0.5).toString() 
+        });
+      }
     });
 
     // Create gradients for each unit
@@ -577,7 +701,136 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
         d3.selectAll(".chord-tooltip").remove();
       });
 
-    // Add groups (the arcs around the circle)
+    // Create parent arc data for outer ring
+    const parentArcs = [];
+    const processedParents = new Set();
+    
+    chords.groups.forEach(group => {
+      const unitName = unitNames[group.index];
+      
+      // Find parent for this unit
+      for (const [parentName, children] of unitsByParent.entries()) {
+        if (children.includes(unitName) && !processedParents.has(parentName)) {
+          // Calculate combined angle range for all children of this parent
+          const childIndices = children.map(childName => nameToIndex.get(childName)).filter(idx => idx !== undefined);
+          const childGroups = chords.groups.filter(g => childIndices.includes(g.index));
+          
+          if (childGroups.length > 0) {
+            const minStartAngle = Math.min(...childGroups.map(g => g.startAngle));
+            const maxEndAngle = Math.max(...childGroups.map(g => g.endAngle));
+            
+            parentArcs.push({
+              parentName,
+              startAngle: minStartAngle,
+              endAngle: maxEndAngle,
+              children: children
+            });
+            
+            processedParents.add(parentName);
+          }
+        }
+      }
+    });
+
+    // Add outer arcs for units without parents (like "Rest Organization", "New Recruit", "Left Organization")
+    chords.groups.forEach(group => {
+      const unitName = unitNames[group.index];
+      
+      // Check if this unit doesn't belong to any parent and isn't already processed
+      let belongsToParent = false;
+      for (const [parentName, children] of unitsByParent.entries()) {
+        if (children.includes(unitName)) {
+          belongsToParent = true;
+          break;
+        }
+      }
+      
+      if (!belongsToParent) {
+        parentArcs.push({
+          parentName: unitName, // Use the unit name as its own parent
+          startAngle: group.startAngle,
+          endAngle: group.endAngle,
+          children: [unitName], // Single child (itself)
+          isStandalone: true // Flag to identify standalone units
+        });
+      }
+    });
+
+    // Define outer arc dimensions
+    const parentInnerRadius = outerRadius + 85;
+    const parentOuterRadius = parentInnerRadius + 20;
+    
+    const parentArc = d3.arc()
+      .innerRadius(parentInnerRadius)
+      .outerRadius(parentOuterRadius);
+
+    // Create gradients for parent units
+    parentArcs.forEach((parentData, index) => {
+      let parentColor;
+
+      if (parentData.isStandalone) {
+        // For standalone units, use the same color as the unit itself
+        const colors = unitColorPairs.get(parentData.parentName);
+        parentColor = colors ? colors.color1 : '#888888';
+      } else {
+        // For regular parent units, use family colors
+        const colorFamilyIndex = parentToColorIndex.get(parentData.parentName) || 0;
+        parentColor = familyColors[colorFamilyIndex][0]; // First color in the family
+      }
+      
+      const parentGradient = defs.append("radialGradient")
+        .attr("id", `parent-gradient-${index}`)
+        .attr("cx", "50%")
+        .attr("cy", "50%")
+        .attr("r", "50%");
+      
+      parentGradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", parentColor);
+      
+      parentGradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", d3.color(parentColor).darker(0.5));
+    });
+
+    // Add parent arcs (outer ring)
+    const parentGroup = mainGroup.append("g")
+      .selectAll("g")
+      .data(parentArcs)
+      .join("g");
+
+    parentGroup.append("path")
+      .attr("d", parentArc)
+      .attr("fill", (d, i) => `url(#parent-gradient-${i})`)
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 2)
+      .style("cursor", "pointer");
+
+    // Add parent labels
+    parentGroup.append("text")
+      .each(d => { d.angle = (d.startAngle + d.endAngle) / 2; })
+      .attr("dy", "0.35em")
+      .attr("transform", d => `
+        rotate(${(d.angle * 180 / Math.PI - 90)})
+        translate(${parentOuterRadius + 10})
+        ${d.angle > Math.PI ? "rotate(180)" : ""}
+      `)
+      .attr("text-anchor", d => d.angle > Math.PI ? "end" : "start")
+      .text(d => d.parentName)
+      .style("font-weight", "bold")
+      .style("font-size", "13px")
+      .style("fill", (d, i) => {
+        const colorFamilyIndex = parentToColorIndex.get(d.parentName) || 0;
+        const parentColor = familyColors[colorFamilyIndex][0];
+        return d3.color(parentColor).darker(1.5);
+      })
+      .style("cursor", "pointer");
+
+    // Add parent tooltips
+    parentGroup.append("title")
+      .text(d => `${d.parentName}\nChild units: ${d.children.length}`);
+
+    // Add groups (the arcs around the circle) - Inner ring
     const group = mainGroup.append("g")
       .selectAll("g")
       .data(chords.groups)
@@ -606,50 +859,237 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
     });
 
   // Add unit labels - Consistent contrast for both modes
-  group.append("text")
-    .each(d => { d.angle = (d.startAngle + d.endAngle) / 2; })
-    .attr("dy", "0.35em")
-    .attr("transform", d => `
-      rotate(${(d.angle * 180 / Math.PI - 90)})
-      translate(${outerRadius + 10})
-      ${d.angle > Math.PI ? "rotate(180)" : ""}
-    `)
-    .attr("text-anchor", d => d.angle > Math.PI ? "end" : "start")
-    .text(d => unitNames[d.index])
-    .style("font-weight", d => {
+  group.append("g")
+    .each(function(d) {
+      const group = d3.select(this);
       const unitName = unitNames[d.index];
       const unitId = unitNameToId.get(unitName);
-      return unitId === clickedNodeID ? "900" : "bold";
-    })
-    .style("font-size", d => {
-      const unitName = unitNames[d.index];
-      const unitId = unitNameToId.get(unitName);
-      return unitId === clickedNodeID ? "12px" : "11px";
-    })
-    .style("fill", d => {
-      const colors = unitColorPairs.get(unitNames[d.index]);
-      const unitName = unitNames[d.index];
-      const unitId = unitNameToId.get(unitName);
-      const baseColor = d3.color(colors.color2).darker(1.5);
-      return unitId === clickedNodeID ? baseColor.darker(0.5) : baseColor;
-    })
-    .style("cursor", "pointer")
-    .on("click", function(event, d) {
-      event.stopPropagation();
-      const unitName = unitNames[d.index];
-      const unitId = unitNameToId.get(unitName);
-      if (unitId && setClickedNodeID) {
-        setClickedNodeID(unitId);
+      const isSelected = unitId === clickedNodeID;
+      
+      // Calculate text properties
+      const maxLineLength = 15; // Maximum characters per line
+      const words = unitName.split(/\s+/);
+      const lines = [];
+      let currentLine = '';
+      
+      // Split text into lines
+      words.forEach(word => {
+        if ((currentLine + ' ' + word).trim().length <= maxLineLength) {
+          currentLine = currentLine ? currentLine + ' ' + word : word;
+        } else {
+          if (currentLine) {
+            lines.push(currentLine);
+            currentLine = word;
+          } else {
+            // Handle case where single word is longer than maxLineLength
+            lines.push(word);
+          }
+        }
+      });
+      if (currentLine) {
+        lines.push(currentLine);
       }
+      
+      // Calculate angle and positioning
+      d.angle = (d.startAngle + d.endAngle) / 2;
+      const isFlipped = d.angle > Math.PI;
+      const lineHeight = 12; // Height between lines
+      const totalHeight = (lines.length - 1) * lineHeight;
+      const startY = -totalHeight / 2; // Center the multi-line text vertically
+      
+      // Add each line as a separate text element
+      lines.forEach((line, index) => {
+        group.append("text")
+          .attr("dy", `${startY + (index * lineHeight)}px`)
+          .attr("transform", `
+            rotate(${(d.angle * 180 / Math.PI - 90)})
+            translate(${outerRadius + 10})
+            ${isFlipped ? "rotate(180)" : ""}
+          `)
+          .attr("text-anchor", isFlipped ? "end" : "start")
+          .attr("dominant-baseline", "central")
+          .text(line)
+          .style("font-weight", isSelected ? "900" : "bold")
+          .style("font-size", isSelected ? "12px" : "11px")
+          .style("fill", () => {
+            const colors = unitColorPairs.get(unitName);
+            const baseColor = d3.color(colors.color2).darker(1.5);
+            return isSelected ? baseColor.darker(0.5) : baseColor;
+          })
+          .style("cursor", "pointer")
+          .on("click", function(event) {
+            event.stopPropagation();
+            if (unitId && setClickedNodeID) {
+              setClickedNodeID(unitId);
+            }
+          });
+      });
     });
 
-    // Add group tooltips
-    group.append("title")
-      .text(d => {
-        const outgoing = d3.sum(originalMatrix[d.index]);
-        const incoming = d3.sum(originalMatrix, row => row[d.index]);
-        return `${unitNames[d.index]}\nOutgoing: ${outgoing} soldiers\nIncoming: ${incoming} soldiers`;
-      });
+    // Add sunrays for recruitments and retirements
+    const sunrayLength = radius * 1.5; // Length of the sunray extending outward
+    
+    // Create recruitment sunrays (light color)
+    bottomLevelRecruits.forEach(recruitment => {
+      const unitIndex = nameToIndex.get(recruitment.toUnitName);
+      if (unitIndex !== undefined) {
+        const group = chords.groups[unitIndex];
+        if (group) {
+          const colors = unitColorPairs.get(recruitment.toUnitName);
+          const lightColor = d3.color(colors.color1).brighter(0.5).toString();
+          
+          // Calculate sunray angle (center of the unit arc)
+          const sunrayAngle = (group.startAngle + group.endAngle) / 2;
+          
+          // Calculate sunray width based on unit arc size
+          const arcWidth = group.endAngle - group.startAngle;
+          const sunrayWidth = arcWidth * 0.8; // Slightly narrower than the unit arc
+          
+          // Create sunray path (triangle shape)
+          const sunrayPath = d3.path();
+          
+          // Start at outer edge of unit arc
+          const startRadius = outerRadius;
+          const endRadius = startRadius + sunrayLength;
+          
+          // Calculate triangle points
+          const startAngle1 = sunrayAngle - sunrayWidth / 2;
+          const startAngle2 = sunrayAngle + sunrayWidth / 2;
+          const endAngle = sunrayAngle;
+          
+          // Base of triangle (at unit's outer edge)
+          const x1 = Math.cos(startAngle1 - Math.PI / 2) * startRadius;
+          const y1 = Math.sin(startAngle1 - Math.PI / 2) * startRadius;
+          const x2 = Math.cos(startAngle2 - Math.PI / 2) * startRadius;
+          const y2 = Math.sin(startAngle2 - Math.PI / 2) * startRadius;
+          
+          // Tip of triangle (at end of sunray)
+          const x3 = Math.cos(endAngle - Math.PI / 2) * endRadius;
+          const y3 = Math.sin(endAngle - Math.PI / 2) * endRadius;
+          
+          sunrayPath.moveTo(x1, y1);
+          sunrayPath.lineTo(x2, y2);
+          sunrayPath.lineTo(x3, y3);
+          sunrayPath.closePath();
+          
+          mainGroup.append("path")
+            .attr("d", sunrayPath.toString())
+            .attr("fill", lightColor)
+            .attr("fill-opacity", 0.6)
+            .attr("stroke", d3.color(lightColor).darker(0.3).toString())
+            .attr("stroke-width", 0.8)
+            .style("mix-blend-mode", "normal")
+            .on("mouseover", function(event) {
+              d3.select(this).attr("fill-opacity", 0.8);
+              
+              // Show tooltip
+              const tooltip = d3.select("body").append("div")
+                .attr("class", "chord-tooltip")
+                .style("position", "absolute")
+                .style("background", "rgba(0, 0, 0, 0.8)")
+                .style("color", "white")
+                .style("padding", "8px")
+                .style("border-radius", "4px")
+                .style("font-size", "12px")
+                .style("pointer-events", "none")
+                .style("z-index", "1000");
+              
+              tooltip.html(`
+                <strong>New Recruits</strong><br/>
+                Unit: ${recruitment.toUnitName}<br/>
+                Soldiers recruited: ${recruitment.soldierCount}
+              `)
+              .style("left", (event.pageX + 10) + "px")
+              .style("top", (event.pageY - 10) + "px");
+            })
+            .on("mouseout", function() {
+              d3.select(this).attr("fill-opacity", 0.6);
+              d3.selectAll(".chord-tooltip").remove();
+            });
+        }
+      }
+    });
+    
+    // Create retirement sunrays (dark color)
+    bottomLevelRestRetirements.forEach(retirement => {
+      const unitIndex = nameToIndex.get(retirement.fromUnitName);
+      if (unitIndex !== undefined) {
+        const group = chords.groups[unitIndex];
+        if (group) {
+          const colors = unitColorPairs.get(retirement.fromUnitName);
+          const darkColor = d3.color(colors.color2).darker(0.5).toString();
+          
+          // Calculate sunray angle (center of the unit arc)
+          const sunrayAngle = (group.startAngle + group.endAngle) / 2;
+          
+          // Calculate sunray width based on unit arc size
+          const arcWidth = group.endAngle - group.startAngle;
+          const sunrayWidth = arcWidth * 0.8; // Slightly narrower than the unit arc
+          
+          // Create sunray path (triangle shape)
+          const sunrayPath = d3.path();
+          
+          // Start at outer edge of unit arc
+          const startRadius = outerRadius;
+          const endRadius = startRadius + sunrayLength;
+          
+          // Calculate triangle points
+          const startAngle1 = sunrayAngle - sunrayWidth / 2;
+          const startAngle2 = sunrayAngle + sunrayWidth / 2;
+          const endAngle = sunrayAngle;
+          
+          // Base of triangle (at unit's outer edge)
+          const x1 = Math.cos(startAngle1 - Math.PI / 2) * startRadius;
+          const y1 = Math.sin(startAngle1 - Math.PI / 2) * startRadius;
+          const x2 = Math.cos(startAngle2 - Math.PI / 2) * startRadius;
+          const y2 = Math.sin(startAngle2 - Math.PI / 2) * startRadius;
+          
+          // Tip of triangle (at end of sunray)
+          const x3 = Math.cos(endAngle - Math.PI / 2) * endRadius;
+          const y3 = Math.sin(endAngle - Math.PI / 2) * endRadius;
+          
+          sunrayPath.moveTo(x1, y1);
+          sunrayPath.lineTo(x2, y2);
+          sunrayPath.lineTo(x3, y3);
+          sunrayPath.closePath();
+          
+          mainGroup.append("path")
+            .attr("d", sunrayPath.toString())
+            .attr("fill", darkColor)
+            .attr("fill-opacity", 0.6)
+            .attr("stroke", d3.color(darkColor).darker(0.3).toString())
+            .attr("stroke-width", 0.8)
+            .style("mix-blend-mode", "normal")
+            .on("mouseover", function(event) {
+              d3.select(this).attr("fill-opacity", 0.8);
+              
+              // Show tooltip
+              const tooltip = d3.select("body").append("div")
+                .attr("class", "chord-tooltip")
+                .style("position", "absolute")
+                .style("background", "rgba(0, 0, 0, 0.8)")
+                .style("color", "white")
+                .style("padding", "8px")
+                .style("border-radius", "4px")
+                .style("font-size", "12px")
+                .style("pointer-events", "none")
+                .style("z-index", "1000");
+              
+              tooltip.html(`
+                <strong>Departures</strong><br/>
+                Unit: ${retirement.fromUnitName}<br/>
+                Soldiers departed: ${retirement.soldierCount}
+              `)
+              .style("left", (event.pageX + 10) + "px")
+              .style("top", (event.pageY - 10) + "px");
+            })
+            .on("mouseout", function() {
+              d3.select(this).attr("fill-opacity", 0.6);
+              d3.selectAll(".chord-tooltip").remove();
+            });
+        }
+      }
+    });
 
   }, [bottomLevelMovements, isFullScreen, zoomLevel, panOffset]);
 
