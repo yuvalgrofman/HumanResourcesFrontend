@@ -1,0 +1,39 @@
+Consider a project project which is respoonsible for creating visual tools which help 
+analyze Human Resources data in the IDF. 
+
+The project has 5 main visualizations which are:
+
+1. Chord Diagram - A visualization which is meant to show the movement of soldiers between units in the IDF. 
+
+2. Group Chart - A visualization which shows an organizational chart where each movement between units 
+is propogated to the parent units. The goal is to show masses of movements between larger parts of the organization.
+
+3. Arrow Chart - A visualization which shows an organizational chart. Each movement between units is 
+simply represented by an arrow between the two units.
+
+4. Organization Chart - A visualization which shows an organizational chart without showing movements between units.
+Each unit is represented by a card which contains three horiontal bars, which can track the change of three different types of soldiers 
+in the unit over time. For example, we can track the amount of Talions, Psagot and Academic Soldiers exists in a unit over time.
+
+5. Time Graph - A simple visualization which allows to place multiple units on a 
+timeline and see how the amount of soldiers in each unit changes over time.
+
+Please create a Dashboard page which is divided into 5 cards, where each card contains an image of the corresponding visualization
+and a title. Moreover, the card should have a tooltop which contains a short description of the visualization.
+Finally, clicking on the card should redirect to the corresponding visualization page.
+
+To implement the clicks please take insparation from the given javascript component. 
+Finally, I provide images for each visualization, which should be used in the cards,
+they are located in the images folder. 
+They have the following sizes:
+
+Chord Diagram: 880 X 830
+Group Chart: 1280 X 370
+Arrow Chart: 1280 X 380
+Organization Chart: 1280 X 390
+Time Graph: 1280 X 380
+
+When styling the page, please take inspiration from the given CSS file. 
+Morover, make sure to make the page, clean, elegant, modern and responsive.
+Feel free to create a dedicated CSS file for the Dashboard component and import it in the Dashboard component.
+Do your best, Thank you! 

@@ -525,7 +525,7 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
     const containerHeight = containerRef.current?.clientHeight || 800;
     const width = isFullScreen ? Math.min(window.innerWidth * 0.9, 1000) : Math.min(containerWidth, 1400);
     const height = isFullScreen ? Math.min(window.innerHeight * 0.9, 800) : Math.min(containerHeight, 800);
-    const radius = Math.min(width, height) * 0.4;
+    const radius = Math.min(width, height) * 0.45;
     const innerRadius = radius - 30;
     const outerRadius = radius - 10;
 
@@ -756,13 +756,52 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       }
     });
 
-    // Define outer arc dimensions
+    // Calculate soldier counts for each parent to determine arc width
+    const parentSoldierCounts = new Map();
+    let maxParentSoldiers = 0;
+    
+    parentArcs.forEach(parentData => {
+      let totalSoldiers = 0;
+      
+      if (parentData.isStandalone) {
+        // For standalone units, get soldier count directly
+        const unit = bottomCurrentUnits.find(u => u.name === parentData.parentName) ||
+                     bottomPastUnits.find(u => u.name === parentData.parentName);
+        totalSoldiers = unit ? unit.total_personnel : 0;
+      } else {
+        // For regular parent units, sum up all child soldiers
+        parentData.children.forEach(childName => {
+          const currentUnit = bottomCurrentUnits.find(u => u.name === childName);
+          const pastUnit = bottomPastUnits.find(u => u.name === childName);
+          const unit = currentUnit || pastUnit;
+          if (unit) {
+            totalSoldiers += unit.total_personnel || 0;
+          }
+        });
+      }
+      
+      parentSoldierCounts.set(parentData.parentName, totalSoldiers);
+      maxParentSoldiers = Math.max(maxParentSoldiers, totalSoldiers);
+    });
+    
+    // Define outer arc dimensions with variable width
     const parentInnerRadius = outerRadius + 85;
-    const parentOuterRadius = parentInnerRadius + 20;
+    const minParentArcWidth = 8;  // Minimum arc width
+    const maxParentArcWidth = 35; // Maximum arc width
+    
+    // Function to calculate arc width based on soldier count
+    const getParentArcWidth = (soldierCount) => {
+      if (maxParentSoldiers === 0) return minParentArcWidth;
+      const ratio = soldierCount / maxParentSoldiers;
+      return minParentArcWidth + (ratio * (maxParentArcWidth - minParentArcWidth));
+    };
     
     const parentArc = d3.arc()
       .innerRadius(parentInnerRadius)
-      .outerRadius(parentOuterRadius);
+      .outerRadius(d => {
+        const soldierCount = parentSoldierCounts.get(d.parentName) || 0;
+        return parentInnerRadius + getParentArcWidth(soldierCount);
+      });
 
     // Create gradients for parent units
     parentArcs.forEach((parentData, index) => {
@@ -798,13 +837,155 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       .selectAll("g")
       .data(parentArcs)
       .join("g");
-
+    
+    // Add parent arcs with tooltips and click handlers
     parentGroup.append("path")
       .attr("d", parentArc)
       .attr("fill", (d, i) => `url(#parent-gradient-${i})`)
       .attr("stroke", "#fff")
       .attr("stroke-width", 2)
-      .style("cursor", "pointer");
+      .style("cursor", "pointer")
+      .on("click", function(event, d) {
+        event.stopPropagation();
+        // For parent units, we need to find a representative child unit ID
+        // or use the parent unit name to find its ID
+        if (d.isStandalone) {
+          // For standalone units, use the unit name directly
+          const unitId = unitNameToId.get(d.parentName);
+          if (unitId && setClickedNodeID) {
+            setClickedNodeID(unitId);
+          }
+        } else {
+          // For regular parent units, find the parent unit in the data
+          const parentUnit = [...flatCurrentUnits, ...flatPastUnits].find(unit => 
+            unit.name === d.parentName
+          );
+          if (parentUnit && setClickedNodeID) {
+            setClickedNodeID(parentUnit.id);
+          }
+        }
+      })
+      .on("mouseover", function(event, d) {
+        // Highlight the parent arc
+        d3.select(this).attr("stroke-width", 3);
+        
+        // Calculate soldier counts and movements for this parent
+        let totalSoldiers = 0;
+        let totalMovements = 0;
+        let childrenInfo = [];
+        
+        if (d.isStandalone) {
+          // For standalone units
+          const unit = bottomCurrentUnits.find(u => u.name === d.parentName) ||
+                       bottomPastUnits.find(u => u.name === d.parentName);
+          totalSoldiers = unit ? unit.total_personnel : 0;
+          
+          // Count movements for this unit
+          totalMovements = bottomLevelMovements.filter(movement => 
+            movement.fromUnitName === d.parentName || movement.toUnitName === d.parentName
+          ).length;
+          
+          childrenInfo.push({
+            name: d.parentName,
+            soldiers: totalSoldiers
+          });
+        } else {
+          // For regular parent units, aggregate child data
+          d.children.forEach(childName => {
+            const currentUnit = bottomCurrentUnits.find(u => u.name === childName);
+            const pastUnit = bottomPastUnits.find(u => u.name === childName);
+            const unit = currentUnit || pastUnit;
+            
+            if (unit) {
+              const childSoldiers = unit.total_personnel || 0;
+              totalSoldiers += childSoldiers;
+              childrenInfo.push({
+                name: childName,
+                soldiers: childSoldiers
+              });
+            }
+            
+            // Count movements for this child
+            const childMovements = bottomLevelMovements.filter(movement => 
+              movement.fromUnitName === childName || movement.toUnitName === childName
+            ).length;
+            totalMovements += childMovements;
+          });
+        }
+        
+        // Show tooltip
+        const tooltip = d3.select("body").append("div")
+          .attr("class", "parent-tooltip")
+          .style("position", "absolute")
+          .style("background", "rgba(0, 0, 0, 0.9)")
+          .style("color", "white")
+          .style("padding", "12px")
+          .style("border-radius", "8px")
+          .style("font-size", "13px")
+          .style("pointer-events", "none")
+          .style("z-index", "1002")
+          .style("box-shadow", "0 4px 12px rgba(0,0,0,0.4)")
+          .style("max-width", "300px");
+        
+        // Build tooltip content
+        let tooltipContent = `
+          <div style="color: #ffd700; font-weight: bold; font-size: 15px; margin-bottom: 8px; border-bottom: 1px solid #555; padding-bottom: 4px;">
+            ${d.parentName}
+          </div>
+          <div style="margin-bottom: 6px;">
+            <strong>Total Personnel:</strong> ${totalSoldiers.toLocaleString()}
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>Movement Flows:</strong> ${totalMovements}
+          </div>
+        `;
+        
+        if (!d.isStandalone && d.children.length > 1) {
+          tooltipContent += `
+            <div style="margin-bottom: 4px; font-weight: bold; color: #ccc;">
+              Child Units (${d.children.length}):
+            </div>
+          `;
+          
+          // Sort children by soldier count (descending)
+          childrenInfo.sort((a, b) => b.soldiers - a.soldiers);
+          
+          // Show top 5 children to avoid overly long tooltips
+          const displayChildren = childrenInfo.slice(0, 5);
+          displayChildren.forEach(child => {
+            tooltipContent += `
+              <div style="margin-left: 8px; font-size: 12px; color: #ddd;">
+                • ${child.name}: ${child.soldiers.toLocaleString()} personnel
+              </div>
+            `;
+          });
+          
+          if (childrenInfo.length > 5) {
+            tooltipContent += `
+              <div style="margin-left: 8px; font-size: 11px; color: #aaa; font-style: italic;">
+                ... and ${childrenInfo.length - 5} more units
+              </div>
+            `;
+          }
+        }
+        
+        tooltipContent += `
+          <div style="margin-top: 8px; font-size: 11px; color: #aaa; font-style: italic;">
+            Click to focus on this ${d.isStandalone ? 'unit' : 'parent unit'}
+          </div>
+        `;
+        
+        tooltip.html(tooltipContent)
+          .style("left", (event.pageX + 15) + "px")
+          .style("top", (event.pageY - 10) + "px");
+      })
+      .on("mouseout", function(event, d) {
+        // Reset parent arc appearance
+        d3.select(this).attr("stroke-width", 2);
+        
+        // Remove tooltip
+        d3.selectAll(".parent-tooltip").remove();
+      });
 
     // Add parent labels
     parentGroup.append("text")
@@ -812,7 +993,7 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       .attr("dy", "0.35em")
       .attr("transform", d => `
         rotate(${(d.angle * 180 / Math.PI - 90)})
-        translate(${parentOuterRadius + 10})
+        translate(${parentInnerRadius + getParentArcWidth(parentSoldierCounts.get(d.parentName) || 0) + 10})
         ${d.angle > Math.PI ? "rotate(180)" : ""}
       `)
       .attr("text-anchor", d => d.angle > Math.PI ? "end" : "start")
@@ -826,9 +1007,8 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       })
       .style("cursor", "pointer");
 
-    // Add parent tooltips
-    parentGroup.append("title")
-      .text(d => `${d.parentName}\nChild units: ${d.children.length}`);
+      //
+
 
     // Add groups (the arcs around the circle) - Inner ring
     const group = mainGroup.append("g")
@@ -836,261 +1016,279 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       .data(chords.groups)
       .join("g");
 
-  // Add arc paths with gradients - Use consistent stroke color
-  group.append("path")
-    .attr("d", arc)
-    .attr("fill", d => `url(#radial-gradient-${d.index})`)
-    .attr("stroke", "#fff")
-    .attr("stroke-width", 2)
-    .style("cursor", "pointer")
-    .on("click", function(event, d) {
-      event.stopPropagation();
-      const unitName = unitNames[d.index];
-      const unitId = unitNameToId.get(unitName);
-      if (unitId && setClickedNodeID) {
-        setClickedNodeID(unitId);
-      }
-    })
-    .on("mouseover", function(event, d) {
-      d3.select(this).attr("stroke-width", 3);
-    })
-    .on("mouseout", function(event, d) {
-      d3.select(this).attr("stroke-width", 2);
-    });
-
-  // Add unit labels - Consistent contrast for both modes
-  group.append("g")
-    .each(function(d) {
-      const group = d3.select(this);
-      const unitName = unitNames[d.index];
-      const unitId = unitNameToId.get(unitName);
-      const isSelected = unitId === clickedNodeID;
-      
-      // Calculate text properties
-      const maxLineLength = 15; // Maximum characters per line
-      const words = unitName.split(/\s+/);
-      const lines = [];
-      let currentLine = '';
-      
-      // Split text into lines
-      words.forEach(word => {
-        if ((currentLine + ' ' + word).trim().length <= maxLineLength) {
-          currentLine = currentLine ? currentLine + ' ' + word : word;
-        } else {
-          if (currentLine) {
-            lines.push(currentLine);
-            currentLine = word;
-          } else {
-            // Handle case where single word is longer than maxLineLength
-            lines.push(word);
-          }
+    // Add arc paths with gradients - Use consistent stroke color
+    group.append("path")
+      .attr("d", arc)
+      .attr("fill", d => `url(#radial-gradient-${d.index})`)
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 2)
+      .style("cursor", "pointer")
+      .on("click", function(event, d) {
+        event.stopPropagation();
+        const unitName = unitNames[d.index];
+        const unitId = unitNameToId.get(unitName);
+        if (unitId && setClickedNodeID) {
+          setClickedNodeID(unitId);
         }
+      })
+      .on("mouseover", function(event, d) {
+        d3.select(this).attr("stroke-width", 3);
+      })
+      .on("mouseout", function(event, d) {
+        d3.select(this).attr("stroke-width", 2);
       });
-      if (currentLine) {
-        lines.push(currentLine);
-      }
-      
-      // Calculate angle and positioning
-      d.angle = (d.startAngle + d.endAngle) / 2;
-      const isFlipped = d.angle > Math.PI;
-      const lineHeight = 12; // Height between lines
-      const totalHeight = (lines.length - 1) * lineHeight;
-      const startY = -totalHeight / 2; // Center the multi-line text vertically
-      
-      // Add each line as a separate text element
-      lines.forEach((line, index) => {
-        group.append("text")
-          .attr("dy", `${startY + (index * lineHeight)}px`)
-          .attr("transform", `
-            rotate(${(d.angle * 180 / Math.PI - 90)})
-            translate(${outerRadius + 10})
-            ${isFlipped ? "rotate(180)" : ""}
-          `)
-          .attr("text-anchor", isFlipped ? "end" : "start")
-          .attr("dominant-baseline", "central")
-          .text(line)
-          .style("font-weight", isSelected ? "900" : "bold")
-          .style("font-size", isSelected ? "12px" : "11px")
-          .style("fill", () => {
-            const colors = unitColorPairs.get(unitName);
-            const baseColor = d3.color(colors.color2).darker(1.5);
-            return isSelected ? baseColor.darker(0.5) : baseColor;
-          })
-          .style("cursor", "pointer")
-          .on("click", function(event) {
-            event.stopPropagation();
-            if (unitId && setClickedNodeID) {
-              setClickedNodeID(unitId);
+
+    // Add unit labels - Consistent contrast for both modes
+    group.append("g")
+      .each(function(d) {
+        const group = d3.select(this);
+        const unitName = unitNames[d.index];
+        const unitId = unitNameToId.get(unitName);
+        const isSelected = unitId === clickedNodeID;
+        
+        // Calculate text properties
+        const maxLineLength = 15; // Maximum characters per line
+        const words = unitName.split(/\s+/);
+        const lines = [];
+        let currentLine = '';
+        
+        // Split text into lines
+        words.forEach(word => {
+          if ((currentLine + ' ' + word).trim().length <= maxLineLength) {
+            currentLine = currentLine ? currentLine + ' ' + word : word;
+          } else {
+            if (currentLine) {
+              lines.push(currentLine);
+              currentLine = word;
+            } else {
+              // Handle case where single word is longer than maxLineLength
+              lines.push(word);
             }
-          });
+          }
+        });
+        if (currentLine) {
+          lines.push(currentLine);
+        }
+        
+        // Calculate angle and positioning
+        d.angle = (d.startAngle + d.endAngle) / 2;
+        const isFlipped = d.angle > Math.PI;
+        const lineHeight = 12; // Height between lines
+        const totalHeight = (lines.length - 1) * lineHeight;
+        const startY = -totalHeight / 2; // Center the multi-line text vertically
+        
+        // Add each line as a separate text element
+        lines.forEach((line, index) => {
+          group.append("text")
+            .attr("dy", `${startY + (index * lineHeight)}px`)
+            .attr("transform", `
+              rotate(${(d.angle * 180 / Math.PI - 90)})
+              translate(${outerRadius + 10})
+              ${isFlipped ? "rotate(180)" : ""}
+            `)
+            .attr("text-anchor", isFlipped ? "end" : "start")
+            .attr("dominant-baseline", "central")
+            .text(line)
+            .style("font-weight", isSelected ? "900" : "bold")
+            .style("font-size", isSelected ? "12px" : "11px")
+            .style("fill", () => {
+              const colors = unitColorPairs.get(unitName);
+              const baseColor = d3.color(colors.color2).darker(1.5);
+              return isSelected ? baseColor.darker(0.5) : baseColor;
+            })
+            .style("cursor", "pointer")
+            .on("click", function(event) {
+              event.stopPropagation();
+              if (unitId && setClickedNodeID) {
+                setClickedNodeID(unitId);
+              }
+            });
+        });
       });
-    });
+
+    // TODO: Add parent tooltips here
+    
 
     // Add sunrays for recruitments and retirements
-    const sunrayLength = radius * 1.5; // Length of the sunray extending outward
+    const sunrayLength = radius * 1.8; // Length of the sunray extending outward
+    const maxSunrayWidth = (outerRadius - innerRadius) * 1; // Maximum width at the base
     
-    // Create recruitment sunrays (light color)
-    bottomLevelRecruits.forEach(recruitment => {
-      const unitIndex = nameToIndex.get(recruitment.toUnitName);
-      if (unitIndex !== undefined) {
-        const group = chords.groups[unitIndex];
-        if (group) {
-          const colors = unitColorPairs.get(recruitment.toUnitName);
-          const lightColor = d3.color(colors.color1).brighter(0.5).toString();
-          
-          // Calculate sunray angle (center of the unit arc)
-          const sunrayAngle = (group.startAngle + group.endAngle) / 2;
-          
-          // Calculate sunray width based on unit arc size
-          const arcWidth = group.endAngle - group.startAngle;
-          const sunrayWidth = arcWidth * 0.8; // Slightly narrower than the unit arc
-          
-          // Create sunray path (triangle shape)
-          const sunrayPath = d3.path();
-          
-          // Start at outer edge of unit arc
-          const startRadius = outerRadius;
-          const endRadius = startRadius + sunrayLength;
-          
-          // Calculate triangle points
-          const startAngle1 = sunrayAngle - sunrayWidth / 2;
-          const startAngle2 = sunrayAngle + sunrayWidth / 2;
-          const endAngle = sunrayAngle;
-          
-          // Base of triangle (at unit's outer edge)
-          const x1 = Math.cos(startAngle1 - Math.PI / 2) * startRadius;
-          const y1 = Math.sin(startAngle1 - Math.PI / 2) * startRadius;
-          const x2 = Math.cos(startAngle2 - Math.PI / 2) * startRadius;
-          const y2 = Math.sin(startAngle2 - Math.PI / 2) * startRadius;
-          
-          // Tip of triangle (at end of sunray)
-          const x3 = Math.cos(endAngle - Math.PI / 2) * endRadius;
-          const y3 = Math.sin(endAngle - Math.PI / 2) * endRadius;
-          
-          sunrayPath.moveTo(x1, y1);
-          sunrayPath.lineTo(x2, y2);
-          sunrayPath.lineTo(x3, y3);
-          sunrayPath.closePath();
-          
-          mainGroup.append("path")
-            .attr("d", sunrayPath.toString())
-            .attr("fill", lightColor)
-            .attr("fill-opacity", 0.6)
-            .attr("stroke", d3.color(lightColor).darker(0.3).toString())
-            .attr("stroke-width", 0.8)
-            .style("mix-blend-mode", "normal")
-            .on("mouseover", function(event) {
-              d3.select(this).attr("fill-opacity", 0.8);
-              
-              // Show tooltip
-              const tooltip = d3.select("body").append("div")
-                .attr("class", "chord-tooltip")
-                .style("position", "absolute")
-                .style("background", "rgba(0, 0, 0, 0.8)")
-                .style("color", "white")
-                .style("padding", "8px")
-                .style("border-radius", "4px")
-                .style("font-size", "12px")
-                .style("pointer-events", "none")
-                .style("z-index", "1000");
-              
-              tooltip.html(`
-                <strong>New Recruits</strong><br/>
-                Unit: ${recruitment.toUnitName}<br/>
-                Soldiers recruited: ${recruitment.soldierCount}
-              `)
-              .style("left", (event.pageX + 10) + "px")
-              .style("top", (event.pageY - 10) + "px");
-            })
-            .on("mouseout", function() {
-              d3.select(this).attr("fill-opacity", 0.6);
-              d3.selectAll(".chord-tooltip").remove();
-            });
-        }
+    // Calculate sunray data for each unit
+    const sunrayData = [];
+    
+    chords.groups.forEach(group => {
+      const unitName = unitNames[group.index];
+      const unitId = unitNameToId.get(unitName);
+      
+      // Find recruitments for this unit
+      const recruitments = bottomLevelRecruits.filter(r => r.toUnit === unitId);
+      const retirements = bottomLevelRestRetirements.filter(r => r.fromUnit === unitId);
+      
+      // Calculate total recruitment and retirement counts
+      const totalRecruitments = recruitments.reduce((sum, r) => sum + r.soldierCount, 0);
+      const totalRetirements = retirements.reduce((sum, r) => sum + r.soldierCount, 0);
+      
+      if (totalRecruitments > 0) {
+        sunrayData.push({
+          group: group,
+          unitName: unitName,
+          type: 'recruitment',
+          count: totalRecruitments,
+          maxCount: Math.max(...bottomLevelRecruits.map(r => r.soldierCount), 1)
+        });
+      }
+      
+      if (totalRetirements > 0) {
+        sunrayData.push({
+          group: group,
+          unitName: unitName,
+          type: 'retirement', 
+          count: totalRetirements,
+          maxCount: Math.max(...bottomLevelRestRetirements.map(r => r.soldierCount), 1)
+        });
       }
     });
     
-    // Create retirement sunrays (dark color)
-    bottomLevelRestRetirements.forEach(retirement => {
-      const unitIndex = nameToIndex.get(retirement.fromUnitName);
-      if (unitIndex !== undefined) {
-        const group = chords.groups[unitIndex];
-        if (group) {
-          const colors = unitColorPairs.get(retirement.fromUnitName);
-          const darkColor = d3.color(colors.color2).darker(0.5).toString();
-          
-          // Calculate sunray angle (center of the unit arc)
-          const sunrayAngle = (group.startAngle + group.endAngle) / 2;
-          
-          // Calculate sunray width based on unit arc size
-          const arcWidth = group.endAngle - group.startAngle;
-          const sunrayWidth = arcWidth * 0.8; // Slightly narrower than the unit arc
-          
-          // Create sunray path (triangle shape)
-          const sunrayPath = d3.path();
-          
-          // Start at outer edge of unit arc
-          const startRadius = outerRadius;
-          const endRadius = startRadius + sunrayLength;
-          
-          // Calculate triangle points
-          const startAngle1 = sunrayAngle - sunrayWidth / 2;
-          const startAngle2 = sunrayAngle + sunrayWidth / 2;
-          const endAngle = sunrayAngle;
-          
-          // Base of triangle (at unit's outer edge)
-          const x1 = Math.cos(startAngle1 - Math.PI / 2) * startRadius;
-          const y1 = Math.sin(startAngle1 - Math.PI / 2) * startRadius;
-          const x2 = Math.cos(startAngle2 - Math.PI / 2) * startRadius;
-          const y2 = Math.sin(startAngle2 - Math.PI / 2) * startRadius;
-          
-          // Tip of triangle (at end of sunray)
-          const x3 = Math.cos(endAngle - Math.PI / 2) * endRadius;
-          const y3 = Math.sin(endAngle - Math.PI / 2) * endRadius;
-          
-          sunrayPath.moveTo(x1, y1);
-          sunrayPath.lineTo(x2, y2);
-          sunrayPath.lineTo(x3, y3);
-          sunrayPath.closePath();
-          
-          mainGroup.append("path")
-            .attr("d", sunrayPath.toString())
-            .attr("fill", darkColor)
-            .attr("fill-opacity", 0.6)
-            .attr("stroke", d3.color(darkColor).darker(0.3).toString())
-            .attr("stroke-width", 0.8)
-            .style("mix-blend-mode", "normal")
-            .on("mouseover", function(event) {
-              d3.select(this).attr("fill-opacity", 0.8);
-              
-              // Show tooltip
-              const tooltip = d3.select("body").append("div")
-                .attr("class", "chord-tooltip")
-                .style("position", "absolute")
-                .style("background", "rgba(0, 0, 0, 0.8)")
-                .style("color", "white")
-                .style("padding", "8px")
-                .style("border-radius", "4px")
-                .style("font-size", "12px")
-                .style("pointer-events", "none")
-                .style("z-index", "1000");
-              
-              tooltip.html(`
-                <strong>Departures</strong><br/>
-                Unit: ${retirement.fromUnitName}<br/>
-                Soldiers departed: ${retirement.soldierCount}
-              `)
-              .style("left", (event.pageX + 10) + "px")
-              .style("top", (event.pageY - 10) + "px");
-            })
-            .on("mouseout", function() {
-              d3.select(this).attr("fill-opacity", 0.6);
-              d3.selectAll(".chord-tooltip").remove();
-            });
-        }
+    // Create gradients for sunrays
+    sunrayData.forEach((sunray, index) => {
+      const colors = unitColorPairs.get(sunray.unitName);
+      let sunrayColor;
+      
+      if (sunray.type === 'recruitment') {
+        // Light shade for recruitments
+        sunrayColor = d3.color(colors.color1).brighter(0.5);
+      } else {
+        // Dark shade for retirements
+        sunrayColor = d3.color(colors.color2).darker(0.8);
       }
+      
+      const sunrayGradient = defs.append("radialGradient")
+        .attr("id", `sunray-gradient-${index}`)
+        .attr("cx", "30%")
+        .attr("cy", "30%")
+        .attr("r", "70%");
+      
+      sunrayGradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", sunrayColor)
+        .attr("stop-opacity", 0.9);
+      
+      sunrayGradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", sunrayColor)
+        .attr("stop-opacity", 0.9);
     });
-
+    
+    // Create sunray paths
+    const sunrayGroup = mainGroup.append("g")
+      .attr("class", "sunrays")
+      .style("pointer-events", "all"); // Enable interactions for tooltips
+    
+    sunrayData.forEach((sunray, index) => {
+      const group = sunray.group;
+      const widthRatio = Math.sqrt(sunray.count / sunray.maxCount); // Use square root for better visual scaling
+      const sunrayWidth = maxSunrayWidth * Math.max(widthRatio, 0.2); // Minimum width of 20%
+      
+      // Calculate the angular span for the sunray base
+      const totalAngle = group.endAngle - group.startAngle;
+      const sunrayAngle = Math.min(totalAngle * 0.8, sunrayWidth / outerRadius); // Limit sunray angle
+      const halfSunrayAngle = sunrayAngle / 2;
+      
+      // Position sunrays based on type
+      let centerAngle;
+      if (sunray.type === 'recruitment') {
+        // Position recruitment sunrays at the beginning of the unit
+        centerAngle = group.startAngle + 1.25 * halfSunrayAngle;
+      } else {  // retirement
+        // Position retirement sunrays at the end of the unit
+        centerAngle = group.endAngle - 1.25 * halfSunrayAngle;
+      }
+      
+      // Define the sunray path points
+      const startAngle1 = centerAngle - halfSunrayAngle;
+      const startAngle2 = centerAngle + halfSunrayAngle;
+      
+      // Calculate coordinates for the triangular sunray
+      const x1 = Math.cos(startAngle1 - Math.PI/2) * outerRadius;
+      const y1 = Math.sin(startAngle1 - Math.PI/2) * outerRadius;
+      const x2 = Math.cos(startAngle2 - Math.PI/2) * outerRadius;
+      const y2 = Math.sin(startAngle2 - Math.PI/2) * outerRadius;
+      
+      // Tip of the triangle (far end of sunray)
+      const tipX = Math.cos(centerAngle - Math.PI/2) * sunrayLength;
+      const tipY = Math.sin(centerAngle - Math.PI/2) * sunrayLength;
+      
+      // Create rounded base by adding arc between the two base points
+      const arcPath = d3.arc()
+        .innerRadius(outerRadius)
+        .outerRadius(outerRadius)
+        .startAngle(startAngle1)
+        .endAngle(startAngle2);
+      
+      // Create the sunray path with rounded base
+      const sunrayPath = `
+        M ${x1} ${y1}
+        A ${outerRadius} ${outerRadius} 0 0 1 ${x2} ${y2}
+        L ${tipX} ${tipY}
+        Z
+      `;
+      
+      sunrayGroup.append("path")
+        .attr("d", sunrayPath)
+        .attr("fill", `url(#sunray-gradient-${index})`)
+        .attr("stroke", d3.color(unitColorPairs.get(sunray.unitName).color2).darker())
+        .attr("stroke-width", 0.5)
+        .attr("stroke-opacity", 0.6)
+        .style("mix-blend-mode", "normal")
+        .style("cursor", "pointer")
+        .on("mouseover", function(event) {
+          // Show tooltip
+          const tooltip = d3.select("body").append("div")
+            .attr("class", "sunray-tooltip")
+            .style("position", "absolute")
+            .style("background", "rgba(0, 0, 0, 0.9)")
+            .style("color", "white")
+            .style("padding", "10px")
+            .style("border-radius", "6px")
+            .style("font-size", "13px")
+            .style("pointer-events", "none")
+            .style("z-index", "1001")
+            .style("box-shadow", "0 4px 12px rgba(0,0,0,0.3)");
+          
+          const titleColor = sunray.type === 'recruitment' ? '#28a745' : '#dc3545';
+          const titleText = sunray.type === 'recruitment' ? 'New Recruits' : 'Retirements';
+          
+          tooltip.html(`
+            <div style="color: ${titleColor}; font-weight: bold; font-size: 14px; margin-bottom: 4px;">
+              ${titleText}
+            </div>
+            <div style="margin-bottom: 2px;">
+              <strong>Unit:</strong> ${sunray.unitName}
+            </div>
+            <div>
+              <strong>Count:</strong> ${sunray.count} ${sunray.type === 'recruitment' ? 'recruits' : 'retirees'}
+            </div>
+          `)
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY - 10) + "px");
+          
+          // Highlight the sunray
+          d3.select(this)
+            .attr("stroke-width", 2)
+            .attr("stroke-opacity", 1)
+            .style("filter", "brightness(1.2)");
+        })
+        .on("mouseout", function() {
+          // Remove tooltip
+          d3.selectAll(".sunray-tooltip").remove();
+          
+          // Reset sunray appearance
+          d3.select(this)
+            .attr("stroke-width", 0.5)
+            .attr("stroke-opacity", 0.6)
+            .style("filter", "none");
+        });
+    });
   }, [bottomLevelMovements, isFullScreen, zoomLevel, panOffset]);
 
   // Handle container resize

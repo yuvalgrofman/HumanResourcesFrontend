@@ -186,30 +186,32 @@ const OrgChartPage = () => {
             <span className="badge bg-success rounded-pill">{childUnits.length}</span>
           </div>
           <div className="checkbox-group">
-            {childUnitOptions.length > 0 ? (
-              childUnitOptions.map(unit => (
-                <div key={unit.id} className="form-check checkbox-item">
-                  <input
-                    type="checkbox"
-                    id={`child-${unit.id}`}
-                    checked={childUnits.includes(unit.id)}
-                    onChange={() => handleChildUnitToggle(unit.id)}
-                    className="form-check-input"
-                  />
-                  <label htmlFor={`child-${unit.id}`} className="form-check-label">
-                    <div className="d-flex justify-content-between align-items-center w-100">
-                      <span>{unit.name}</span>
-                      <small className="text-muted">{unit.total_personnel}</small>
-                    </div>
-                  </label>
+            <div className="checkbox-scroll">
+              {childUnitOptions.length > 0 ? (
+                childUnitOptions.map(unit => (
+                  <div key={unit.id} className="form-check checkbox-item">
+                    <input
+                      type="checkbox"
+                      id={`child-${unit.id}`}
+                      checked={childUnits.includes(unit.id)}
+                      onChange={() => handleChildUnitToggle(unit.id)}
+                      className="form-check-input"
+                    />
+                    <label htmlFor={`child-${unit.id}`} className="form-check-label">
+                      <div className="d-flex justify-content-between align-items-center w-100">
+                        <span>{unit.name}</span>
+                        <small className="text-muted">{unit.total_personnel}</small>
+                      </div>
+                    </label>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center p-3">
+                  <i className="fas fa-info-circle text-muted me-2"></i>
+                  <span className="text-muted">No child units available</span>
                 </div>
-              ))
-            ) : (
-              <div className="text-center p-3">
-                <i className="fas fa-info-circle text-muted me-2"></i>
-                <span className="text-muted">No child units available</span>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
 

@@ -66,3 +66,23 @@ and the tip of the triangle is at the end of the sunray.
 
 6. Although the sunray should have a triangular shape, make the base of the triangle
 rounded such that it matches the outer edge of the unit.
+
+====================================================================================
+
+Please update the block of code which begins in line 929, such that the
+the recruitments sunrays are drawn at the beginning of the unit, while the retirements sunrays are drawn at the end of the unit.
+
+====================================================================================
+
+Please update the sunray code block which begins in line 933 such that the sunrays have tooltips that show:
+1. If the sunray represents a recruitment or a retirement (and the coloe of the title should be green or red, respectively).
+2. The number of recruits or retirees.
+3. The name of the unit.
+
+====================================================================================
+
+Please update the block of code which begins in line 849 which is responsible for placing the labels 
+for the outer arcs, and the block of code which begins in line 1040, which is responsible for placing the sunray 
+such that the labels are placed over the sunrays. In other words, the labels should cover the sunrays, and not the other way around.
+
+====================================================================================

@@ -1,0 +1,18 @@
+Consider a project project which is respoonsible for creating visual tools which help 
+analyze Human Resources data in the IDF. 
+
+The project has 5 main visualizations which are:
+
+1. Chord Diagram - A visualization which is meant to show the movement of soldiers between units in the IDF. 
+
+2. Group Chart - A visualization which shows an organizational chart where each movement between units 
+is propogated to the parent units. The goal is to show masses of movements between larger parts of the organization.
+
+3. Arrow Chart - A visualization which shows an organizational chart. Each movement between units is 
+simply represented by an arrow between the two units.
+
+4. Organization Chart - A visualization which shows an organizational chart without showing movements between units.
+Each unit is represented by a card which contains three horiontal bars, which can track the change of three different types of soldiers 
+in the unit over time. For example, we can track the amount of Talions, Psagot and Academic Soldiers exists in a unit over time.
+
+5. A simple 

@@ -1,0 +1,4 @@
+Please update the block of code which begins in line 704 and is responsible for
+creating the outer arcs, such that the width of an outer arc is proportional to the number of soldiers in the corresponding parent unit.
+In other words, the arcs in the outer arc should not have a fixed width, instead 
+the width should be larger for parents with more soldiers and smaller for parents with fewer soldiers.
