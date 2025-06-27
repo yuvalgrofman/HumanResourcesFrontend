@@ -753,8 +753,6 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
         );
       });
 
-
-
     // Define arrow markers for different types
     defs.append('marker')
       .attr('id', 'group-green')
@@ -883,6 +881,8 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
       const newRolesCount = changedRoles.totals.totalNewRoles;
       const removedRolesCount = changedRoles.totals.totalRemovedRoles;
 
+      let randomNewRolesCount = Math.floor(Math.random() * 7) + 1; // Randomly add 1-3 new roles
+      let randomRemovedRolesCount = Math.floor(Math.random() * 7) + 1; // Randomly add 1-3 removed roles
       const greenWidth = Math.max(5, Math.min(60, newRolesCount * 5));
       const redWidth = Math.max(5, Math.min(60, removedRolesCount * 5));
       const greyWidth = 120 - greenWidth - redWidth;
@@ -976,6 +976,13 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
         const greenEndX = childCenterX + arrowGap;
         const greenEndY = childTopY + 15;
         
+        // Calculate proportional width based on number of soldiers
+        // Base width of 2px, with additional width proportional to soldier count
+        // You can adjust these values based on your needs
+        const minWidth = 2;
+        const maxWidth = 7;
+        const widthScale = Math.min(maxWidth, minWidth + 3/4 * soldiersToChild); // Adjust divisor as needed
+        
         const greenControlY = (greenStartY + greenEndY) / 2 + 30;
         // const greenPathData = `M${greenStartX},${greenStartY} L${greenStartX},${greenControlY} L${greenEndX},${greenControlY} L${greenEndX},${greenEndY}`;
         const greenPathData = `M${greenStartX},${greenStartY} L${greenEndX},${greenEndY}`
@@ -984,12 +991,12 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
           .attr('d', greenPathData)
           .attr('fill', 'none')
           .attr('stroke', '#4CAF50')
-          .attr('stroke-width', '3px')
+          .attr('stroke-width', `${widthScale}px`)
           .attr('marker-end', 'url(#group-green)')
           .attr('opacity', 0.8)
           .style('cursor', 'pointer')
           .on('mouseenter', function(event) {
-            d3.select(this).attr('stroke-width', '5px').attr('opacity', 1);
+            d3.select(this).attr('stroke-width', `${widthScale + 2}px`).attr('opacity', 1);
             
             const tooltip = d3.select('body').append('div')
               .attr('class', 'group-tooltip')
@@ -1021,7 +1028,7 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
             tooltip.style('left', (event.pageX + 15) + 'px').style('top', (event.pageY - 10) + 'px');
           })
           .on('mouseleave', function() {
-            d3.select(this).attr('stroke-width', '3px').attr('opacity', 0.8);
+            d3.select(this).attr('stroke-width', `${widthScale}px`).attr('opacity', 0.8);
             d3.selectAll('.group-tooltip').remove();
           });
       }
@@ -1035,6 +1042,13 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
         const redStartX = childCenterX - arrowGap;
         const redStartY = childTopY + 15;
         
+        // Calculate proportional width based on number of soldiers
+        // Base width of 2px, with additional width proportional to soldier count
+        // You can adjust these values based on your needs
+        const minWidth = 2;
+        const maxWidth = 7;
+        const widthScale = Math.min(maxWidth, minWidth + 3/4 * soldiersToChild); // Adjust divisor as needed
+        
         const redControlY = (redStartY + redEndY) / 2 + 30;
         const redPathData = `M${redStartX},${redStartY} L${redEndX},${redEndY}`
         
@@ -1042,12 +1056,12 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
           .attr('d', redPathData)
           .attr('fill', 'none')
           .attr('stroke', '#f44336')
-          .attr('stroke-width', '3px')
+          .attr('stroke-width', `${widthScale}px`)
           .attr('marker-end', 'url(#group-red)')
           .attr('opacity', 0.8)
           .style('cursor', 'pointer')
           .on('mouseenter', function(event) {
-            d3.select(this).attr('stroke-width', '5px').attr('opacity', 1);
+            d3.select(this).attr('stroke-width', `${widthScale + 2}px`).attr('opacity', 1);
             
             const tooltip = d3.select('body').append('div')
               .attr('class', 'group-tooltip')
@@ -1079,7 +1093,7 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
             tooltip.style('left', (event.pageX + 15) + 'px').style('top', (event.pageY - 10) + 'px');
           })
           .on('mouseleave', function() {
-            d3.select(this).attr('stroke-width', '3px').attr('opacity', 0.8);
+            d3.select(this).attr('stroke-width', `${widthScale}px`).attr('opacity', 0.8);
             d3.selectAll('.group-tooltip').remove();
           });
       }

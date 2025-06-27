@@ -7,41 +7,91 @@ const lightenColor = (hex, weight) => {
   return `rgb(${r}, ${g}, ${b})`;
 };
 
-const getBackgroundColor = (diff, maxValue) => {
-  const backgroundGrowthColor = '#8BC34A';
-  const backgroundDeclineColor = '#E57373';
-  if (diff > 0) {
-    if (diff <= maxValue / 4) return lightenColor(backgroundGrowthColor, 0.6);      // Very light green
-    if (diff <= maxValue / 2) return lightenColor(backgroundGrowthColor, 0.4);      // Light green
-    if (diff <= (3 * maxValue) / 4) return lightenColor(backgroundGrowthColor, 0.2); // Medium green
-    return backgroundGrowthColor; // Dark green
-  } else if (diff < 0) {
-    const abs = Math.abs(diff);
-    if (abs <= maxValue / 4) return lightenColor(backgroundDeclineColor, 0.6);      // Very light red
-    if (abs <= maxValue / 2) return lightenColor(backgroundDeclineColor, 0.4);      // Light red
-    if (abs <= (3 * maxValue) / 4) return lightenColor(backgroundDeclineColor, 0.2); // Medium red
-    return backgroundDeclineColor; // Dark red
+const getBackgroundColor = (fraction) => {
+  // const randomFraction = 1.2 * Math.random() + 0.4; // Example random fraction
+  // fraction = randomFraction; // Use the random fraction for testing
+  if (fraction > 1) {
+    // Positive changes (green shades) - fraction > 1 means increase
+    const percentChange = (fraction - 1) * 100;
+    if (percentChange >= 50) return '#66BB6A'; // Dark green (1.5+)
+    if (percentChange >= 40) return '#4CAF50'; // Very dark green (1.4-1.49)
+    if (percentChange >= 30) return '#66BB6A'; // Dark-medium green (1.3-1.39)
+    if (percentChange >= 20) return '#81C784'; // Medium green (1.2-1.29)
+    if (percentChange >= 15) return '#A5D6A7'; // Medium-light green (1.15-1.19)
+    if (percentChange >= 10) return '#A5D6A7'; // Light green (1.1-1.14)
+    if (percentChange >= 5) return '#C8E6C9';  // Very light green (1.05-1.09)
+    return '#C8E6C9'; // Extremely light green (1.0-1.04)
+  } else if (fraction < 1) {
+    // Negative changes (red shades) - fraction < 1 means decrease
+    const percentChange = (1 - fraction) * 100;
+    if (percentChange >= 50) return '#E57373'; // Dark red (0.5 or less)
+    if (percentChange >= 40) return '#F44336'; // Very dark red (0.51-0.6)
+    if (percentChange >= 30) return '#E57373'; // Dark-medium red (0.61-0.7)
+    if (percentChange >= 20) return '#EF9A9A'; // Medium red (0.71-0.8)
+    if (percentChange >= 15) return '#FFCDD2'; // Medium-light red (0.81-0.85)
+    if (percentChange >= 10) return '#FFCDD2'; // Light red (0.86-0.9)
+    if (percentChange >= 5) return '#FFEBEE';  // Very light red (0.91-0.95)
+    return '#FFEBEE'; // Extremely light red (0.96-0.99)
   }
-  return '#ffffff';
+  
+  return '#ffffff'; // White for exactly 1.0 (no change)
 };
 
-const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
+const COLOR_THRESHOLDS = [
+  // Negative thresholds (decreases)
+  { threshold: -15, color: '#D32F2F' }, // Very dark red
+  { threshold: -10, color: '#F44336' }, // Dark red
+  { threshold: -8, color: '#F44336' }, // Strong red
+  { threshold: -6, color: '#E57373' }, // Medium red
+  { threshold: -4, color: '#EF5350' }, // Light red
+  { threshold: -2, color: '#EF9A9A' }, // Very light red
+  { threshold: -1, color: '#E57373' }, // Lightest red
+  
+  // Zero threshold (no change)
+  { threshold: 0, color: '#E0E0E0' },  // Neutral gray
+  
+  // Positive thresholds (increases)
+  { threshold: 1, color: '#81C784' },  // Lightest green
+  { threshold: 2, color: '#A5D6A7' },  // Very light green
+  { threshold: 4, color: '#81C784' },  // Light green
+  { threshold: 6, color: '#66BB6A' },  // Medium green
+  { threshold: 8, color: '#66BB6A' },  // Strong green
+  { threshold: 10, color: '#4CAF50' },  // Dark green
+  { threshold: 15, color: '#4CAF50' }   // Very dark green
+];
+
+const getEllipseColor = (specialSoldierDiff) => {
+  // const randomSoldierDiff = Math.floor(Math.random() * 100) - 50; // Example random difference for testing
+  // specialSoldierDiff = randomSoldierDiff; // Use the random difference for testing
+  // Handle exact zero case
   if (specialSoldierDiff === 0) {
-    return '#E0E0E0'; // Neutral gray for no change
-  } else if (specialSoldierDiff > 0) {
-    // Green tones for positive change
-    const intensity = Math.min(Math.abs(specialSoldierDiff) / maxSpecialDiff, 1);
-    if (intensity <= 0.25) return '#C8E6C9'; // Very light green
-    if (intensity <= 0.5) return '#A5D6A7';  // Light green
-    if (intensity <= 0.75) return '#81C784'; // Medium green
-    return '#4CAF50'; // Strong green
-  } else {
-    // Red tones for negative change
-    const intensity = Math.min(Math.abs(specialSoldierDiff) / maxSpecialDiff, 1);
-    if (intensity <= 0.25) return '#FFCDD2'; // Very light red
-    if (intensity <= 0.5) return '#FFAB91';  // Light red
-    if (intensity <= 0.75) return '#EF5350'; // Medium red
-    return '#F44336'; // Strong red
+    return COLOR_THRESHOLDS.find(item => item.threshold === 0).color;
+  }
+  
+  // For positive values, find the appropriate threshold
+  if (specialSoldierDiff > 0) {
+    // Find the highest threshold that the difference meets or exceeds
+    for (let i = COLOR_THRESHOLDS.length - 1; i >= 0; i--) {
+      const item = COLOR_THRESHOLDS[i];
+      if (item.threshold > 0 && specialSoldierDiff >= item.threshold) {
+        return item.color;
+      }
+    }
+    // Fallback to lightest green if somehow no threshold is met
+    return COLOR_THRESHOLDS.find(item => item.threshold === 1).color;
+  }
+  
+  // For negative values, find the appropriate threshold
+  if (specialSoldierDiff < 0) {
+    // Find the lowest threshold that the difference meets or is less than
+    for (let i = 0; i < COLOR_THRESHOLDS.length; i++) {
+      const item = COLOR_THRESHOLDS[i];
+      if (item.threshold < 0 && specialSoldierDiff <= item.threshold) {
+        return item.color;
+      }
+    }
+    // Fallback to lightest red if somehow no threshold is met
+    return COLOR_THRESHOLDS.find(item => item.threshold === -1).color;
   }
 };
 

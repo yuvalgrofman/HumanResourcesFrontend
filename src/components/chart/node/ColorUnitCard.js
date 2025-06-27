@@ -78,10 +78,11 @@ export const ColorUnitCard = (unitData, currentUnit, pastUnit, rootUnit, paralle
     Total: pastUnit.total_personnel || 0
   } : currentAmount;
 
+  const fraction = currentAmount.Total / lastAmount.Total;
   const diff = currentAmount.Total - lastAmount.Total;
   const growthType = diff > 0 ? 'Increase' : diff < 0 ? 'Decrease' : 'Stable';
   
-  const backgroundColor = getBackgroundColor(diff, 50);
+  const backgroundColor = getBackgroundColor(fraction);
   const growthIcon = getGrowthIcon(growthType);
 
   // Count soldiers in this unit's roles

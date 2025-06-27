@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import * as d3 from 'd3';
 import { useData } from '../../context/DataContext';
 import './ArrowChart.css';
+import { ColorUnitCard } from '../chart/node/ColorUnitCard';
 
 // Border Width Thresholds
 const BORDER_WIDTH_THRESHOLDS = {
@@ -323,40 +324,6 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
     return 'Stable';
   };
 
-
-
-  // Utility functions for styling (from ParallelUnitCard)
-  const lightenColor = (hex, weight) => {
-    const c = hex.replace('#', '');
-    const num = parseInt(c, 16);
-    let r = (num >> 16) + Math.round((255 - (num >> 16)) * weight);
-    let g = ((num >> 8) & 0x00FF) + Math.round((255 - ((num >> 8) & 0x00FF)) * weight);
-    let b = (num & 0x0000FF) + Math.round((255 - (num & 0x0000FF)) * weight);
-    return `rgb(${r}, ${g}, ${b})`;
-  };
-
-    // Calculate maximum difference for background color scaling
-
-
-  const getBackgroundColor = (diff, maxValue) => {
-  const backgroundGrowthColor = '#8BC34A';
-  const backgroundDeclineColor = '#E57373';
-
-  if (diff > 0) {
-    if (diff <= maxValue / 4) return lightenColor(backgroundGrowthColor, 0.6);      // Very light green
-    if (diff <= maxValue / 2) return lightenColor(backgroundGrowthColor, 0.4);      // Light green
-    if (diff <= (3 * maxValue) / 4) return lightenColor(backgroundGrowthColor, 0.2); // Medium green
-    return backgroundGrowthColor; // Dark green
-  } else if (diff < 0) {
-    const abs = Math.abs(diff);
-    if (abs <= maxValue / 4) return lightenColor(backgroundDeclineColor, 0.6);      // Very light red
-    if (abs <= maxValue / 2) return lightenColor(backgroundDeclineColor, 0.4);      // Light red
-    if (abs <= (3 * maxValue) / 4) return lightenColor(backgroundDeclineColor, 0.2); // Medium red
-    return backgroundDeclineColor; // Dark red
-  }
-  return '#ffffff';
-};
-
   const getGrowthIcon = (growthType) => {
     if (growthType === 'Increase') {
       return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>';
@@ -376,28 +343,6 @@ const ArrowChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
       return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>';
     }
   };
-
-  // Calculate ellipse color based on special soldier difference
-
-const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
-  if (specialSoldierDiff === 0) {
-    return '#E0E0E0'; // Neutral gray for no change
-  } else if (specialSoldierDiff > 0) {
-    // Green tones for positive change
-    const intensity = Math.min(Math.abs(specialSoldierDiff) / maxSpecialDiff, 1);
-    if (intensity <= 0.25) return '#C8E6C9'; // Very light green
-    if (intensity <= 0.5) return '#A5D6A7';  // Light green
-    if (intensity <= 0.75) return '#81C784'; // Medium green
-    return '#4CAF50'; // Strong green
-  } else {
-    // Red tones for negative change
-    const intensity = Math.min(Math.abs(specialSoldierDiff) / maxSpecialDiff, 1);
-    if (intensity <= 0.25) return '#FFCDD2'; // Very light red
-    if (intensity <= 0.5) return '#FFAB91';  // Light red
-    if (intensity <= 0.75) return '#EF5350'; // Medium red
-    return '#F44336'; // Strong red
-  }
-};
 
   // Get arrow styling based on soldier count
   const getArrowStyling = (soldierCount) => {
@@ -708,61 +653,11 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
       .each(function(d) {
         const unitData = d.data;
         const currentUnit = unitData;
-        const currentUnitName = currentUnit.name || `Unit ${unitData.id}`;
         const pastUnit = findUnitById(flatPastUnits, unitData.id);
-        const currentAmount = convertToCardFormat(currentUnit);
-        const lastAmount = convertToCardFormat(pastUnit) || currentAmount;
-        const growthType = getGrowthType(currentAmount, lastAmount);
         
         const isRoot = unitData.id === rootUnit;
         const isParallel = parallelUnits.includes(unitData.id);
-        const isClicked = clickedNodeID === unitData.id;
 
-
-        const diff = currentAmount.Total - lastAmount.Total;
-        const backgroundColor = getBackgroundColor(diff, 50);
-        const growthIcon = getGrowthIcon(growthType);
-
-        // Count soldiers in this unit's roles
-        const specialSoldierCount = Object.values(unitData.roles || {}).reduce((total, soldierArray) => {
-          return total + (Array.isArray(soldierArray) ? soldierArray.length : 0);
-        }, 0);
-
-        const pastSpecialSoldierCount = pastUnit ? Object.values(pastUnit.roles || {}).reduce((total, soldierArray) => {
-          return total + (Array.isArray(soldierArray) ? soldierArray.length : 0);
-        }, 0) : 0;
-
-        const specialSoldierDiff = specialSoldierCount - pastSpecialSoldierCount;
-        const specialGrowthIcon = getSpecialSoldierGrowthIcon(specialSoldierDiff);
-
-        // Format total soldiers display
-        const formatSoldierCount = (count) => {
-          if (count >= 1000) {
-            return (count / 1000).toFixed(1) + 'K';
-          }
-          return count.toString();
-        };
-        
-        const totalSoldiers = currentAmount.Total;
-        const formattedTotal = formatSoldierCount(totalSoldiers);
-
-        // Determine border color based on node type and clicked state
-        // Dynamically determine border width based on thresholds
-        let borderWidth;
-        const thresholds = Object.values(BORDER_WIDTH_THRESHOLDS).sort((a, b) => a - b);
-        const widths = ['1px', '2px', '3px', '4px', '5px', '6px', '7px', '8px', '9px', '10px'];
-        borderWidth = widths[0];
-        for (let i = 0; i < thresholds.length; i++) {
-          if (totalSoldiers <= thresholds[i]) {
-            borderWidth = widths[i];
-            break;
-          }
-          // If above all thresholds, use the last width
-          if (i === thresholds.length - 1) {
-            borderWidth = widths[i + 1] || widths[widths.length - 1];
-          }
-          }
-        
         // Determine border color based on node type and clicked state
         let borderColor = '#000'; // Default black for regular nodes
         let boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
@@ -778,83 +673,14 @@ const getEllipseColor = (specialSoldierDiff, maxSpecialDiff = 10) => {
           borderColor = '#6f42c1'; // Purple for parallel unit nodes
         }
         
-        // Get ellipse color based on special soldier difference
-        const ellipseColor = getEllipseColor(specialSoldierDiff);
-        
-        // Create ParallelUnitCard-style HTML with special soldiers info and ellipse background
-        this.innerHTML = `
-            <div style="
-              position: relative;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            ">
-              <!-- Rectangle Background -->
-              <div style="
-                position: absolute;
-                width: 280px;
-                height: 140px;
-                background-color: ${ellipseColor};
-                border-radius: 8px;
-                opacity: 0.9;
-                z-index: -1;
-              "></div>
-              
-              <!-- Info Section (top part) -->
-              <div style="
-                position: relative;
-                z-index: 1;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 12px;
-                background-color: ${backgroundColor};
-                color: ${diff === 0 ? '#000' : '#fff'};
-                border-radius: 6px;
-                min-height: 80px;
-                border: ${borderWidth} solid ${borderColor};
-                width: 250px;
-              ">
-                <div style="
-                  font-size: 22px;
-                  font-weight: 700;
-                  margin-bottom: 0px;
-                  display: flex;
-                  align-items: center;
-                  text-align: center;
-                  line-height: 1.2;
-                ">
-                  ${currentUnitName.substring(0,14)}
-                  <span style="margin-left: 8px; font-size: 20px;">${growthIcon}</span>
-                </div>
-                <div style="
-                  font-size: 22px;
-                  font-weight: 700;
-                ">
-                  ${formattedTotal} 
-                </div>
-                ${specialSoldierCount > 0 ? `
-                <div style="
-                  font-size: 14px;
-                  margin-top: 4px;
-                  padding: 2px 6px;
-                  background-color: rgba(255,255,255,0.2);
-                  border-radius: 10px;
-                  color: ${diff === 0 ? '#333' : '#fff'};
-                  display: flex;
-                  align-items: center;
-                  gap: 4px;
-                ">
-                  ★ ${specialSoldierCount} Talpions
-                  ${specialSoldierDiff !== 0 ? `<span style="margin-left: 4px; font-size: 12px; display: flex; align-items: center; gap: 2px;">${specialGrowthIcon}${specialSoldierDiff > 0 ? '+' : ''}${specialSoldierDiff}</span>` : ''}
-                </div>
-                ` : ''}
-              </div>
-            </div>
-        `;
+        this.innerHTML = ColorUnitCard(
+          unitData, 
+          currentUnit, 
+          pastUnit, 
+          rootUnit, 
+          parallelUnits, 
+          clickedNodeIds
+        );
       });
 
     if (soldierMovements.length > 0) {

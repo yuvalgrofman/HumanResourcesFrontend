@@ -297,7 +297,7 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       const children = parentToChildren.get(unitId) || [];
       
       // If we've reached the specified levels depth or no children, this is bottom level
-      if (currentLevel >= levels - 1 || children.length === 0) {
+      if (currentLevel >= levels - 1) {
         const unit = allUnitsById.get(unitId);
         return unit ? [unit] : [];
       }

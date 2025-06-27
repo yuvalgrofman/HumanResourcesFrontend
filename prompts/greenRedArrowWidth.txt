@@ -1,0 +1,2 @@
+Please update the block of code which begins in line 971 and the block of code which begins in line 1030 
+such that the width of the green and red arrows is proportional to the amount of soldiers joining or leaving the unit, respectively.
