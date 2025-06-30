@@ -13,7 +13,6 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
   const [soldierMovements, setSoldierMovements] = useState([]);
   const [levels, setLevels] = useState(3);
   const [isGrouped, setIsGrouped] = useState(true);
-  const [showByDest, setShowByDest] = useState(true);
   const [zoomLevel, setZoomLevel] = useState(1);
   const [isPanning, setIsPanning] = useState(false);
   const [panStart, setPanStart] = useState({ x: 0, y: 0 });
@@ -111,8 +110,10 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
           movementGroups.set(key, {
             fromUnit: pastInfo.unitId,
             fromUnitName: pastInfo.unitName,
+            tooltipFromUnitName: pastInfo.unitName,
             toUnit: currentInfo.unitId,
             toUnitName: currentInfo.unitName,
+            tooltipToUnitName: currentInfo.unitName,
             soldiers: [],
             movementType: 'transfer'
           });
@@ -275,34 +276,6 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
     return node;
   };
 
-  const getParentRowUnits = (units, bottomRow) => {
-    const parentToChildren = new Map();
-    const allUnitsById = new Map();
-    
-    units.forEach(unit => {
-      allUnitsById.set(unit.id, unit);
-      if (unit.parent_id) {
-        if (!parentToChildren.has(unit.parent_id)) {
-          parentToChildren.set(unit.parent_id, []);
-        }
-        parentToChildren.get(unit.parent_id).push(unit);
-      }
-    });
-    
-    const parentUnits = new Set();
-
-    for (const unit of units) {
-      if (parentToChildren.has(unit.id)) {
-        // Check if any child of this parent is in the bottom row
-        const children = parentToChildren.get(unit.id) || [];
-        if (children.some(child => bottomRow.includes(child))) {
-          parentUnits.add(unit.id);
-        }
-      }
-    }
-    return Array.from(parentUnits).map(id => allUnitsById.get(id));
-  };
-
   // Get units at the bottom level of the hierarchy
   const getBottomRowUnits = (units, rootUnitId) => {
     if (!units || units.length === 0) return [];
@@ -336,30 +309,21 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       children.forEach(child => {
         bottomUnits.push(...findBottomUnits(child.id, currentLevel + 1));
       });
-
+      
       return bottomUnits;
     };
 
-    const bottomRow = findBottomUnits(rootUnitId);
-
-    console.log("Parent row units:", getParentRowUnits(units, bottomRow));
-    return bottomRow; 
-  };
-
-  const getBottomAndParentRowUnits = (units, rootUnitId) => {
-    const bottomRow = getBottomRowUnits(units, rootUnitId);
-    const parentRow = getParentRowUnits(units, bottomRow);
-    return [...bottomRow, ...parentRow];
+    return findBottomUnits(rootUnitId);
   };
 
   // Get bottom row units for both time periods
   const bottomCurrentUnits = useMemo(() => 
-    getBottomAndParentRowUnits(flatCurrentUnits, rootUnit), 
+    getBottomRowUnits(flatCurrentUnits, rootUnit), 
     [flatCurrentUnits, rootUnit, levels]
   );
   
   const bottomPastUnits = useMemo(() => 
-    getBottomAndParentRowUnits(flatPastUnits, rootUnit), 
+    getBottomRowUnits(flatPastUnits, rootUnit), 
     [flatPastUnits, rootUnit, levels]
   );
 
@@ -442,6 +406,7 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
              movement.toUnit && 
              bottomUnitIds.has(movement.toUnit);
     });
+    console.log("bottomLevelRecruits", recruits);
     return recruits;
   }, [soldierMovements, bottomCurrentUnits, bottomPastUnits]);
 
@@ -459,6 +424,7 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
              movement.fromUnit && 
              bottomUnitIds.has(movement.fromUnit);
     });
+    console.log("bottomLevelRestRetirements", retirees);
     return retirees;
   }, [soldierMovements, bottomCurrentUnits, bottomPastUnits]);
 
@@ -505,37 +471,25 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
     // Create a map to group units by their parents
     const unitsByParent = new Map();
     const unitsWithoutParent = [];
-    const parentRow = getParentRowUnits(flatCurrentUnits, bottomCurrentUnits);
 
     uniqueUnitNames.forEach(unitName => {
-      // Check if the unit is in the parent row
-      const isParentRowUnit = parentRow.some(p => p.name === unitName);
+      // Find the unit in bottom units to get its parent
+      const currentUnit = bottomCurrentUnits.find(u => u.name === unitName);
+      const pastUnit = bottomPastUnits.find(u => u.name === unitName);
+      const unit = currentUnit || pastUnit;
       
-      if (isParentRowUnit) {
-        // If unit is in parent row, define it as its own parent
-        if (!unitsByParent.has(unitName)) {
-          unitsByParent.set(unitName, []);
-        }
-        unitsByParent.get(unitName).push(unitName);
-      } else {
-        // Find the unit in bottom units to get its parent
-        const currentUnit = bottomCurrentUnits.find(u => u.name === unitName);
-        const pastUnit = bottomPastUnits.find(u => u.name === unitName);
-        const unit = currentUnit || pastUnit;
+      if (unit && unit.parent_id) {
+        // Find parent unit to get parent name
+        const parentUnit = [...flatCurrentUnits, ...flatPastUnits].find(u => u.id === unit.parent_id);
+        const parentName = parentUnit ? parentUnit.name : `Parent_${unit.parent_id}`;
         
-        if (unit && unit.parent_id) {
-          // Find parent unit to get parent name
-          const parentUnit = [...flatCurrentUnits, ...flatPastUnits].find(u => u.id === unit.parent_id);
-          const parentName = parentUnit ? parentUnit.name : `Parent_${unit.parent_id}`;
-          
-          if (!unitsByParent.has(parentName)) {
-            unitsByParent.set(parentName, []);
-          }
-          unitsByParent.get(parentName).push(unitName);
-        } else {
-          // Units without parent (like "New Recruit", "Left Organization", "Rest Organization")
-          unitsWithoutParent.push(unitName);
+        if (!unitsByParent.has(parentName)) {
+          unitsByParent.set(parentName, []);
         }
+        unitsByParent.get(parentName).push(unitName);
+      } else {
+        // Units without parent (like "New Recruit", "Left Organization", "Rest Organization")
+        unitsWithoutParent.push(unitName);
       }
     });
 
@@ -554,22 +508,17 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
 
     if (unitNames.length === 0) return;
 
-    // Create matrix for chord diagram and store soldier IDs
+    // Create matrix for chord diagram
     const nameToIndex = new Map(unitNames.map((name, i) => [name, i]));
     const matrix = Array(unitNames.length).fill(null).map(() => Array(unitNames.length).fill(0));
-    const soldierIdsMatrix = Array(unitNames.length).fill(null).map(() => Array(unitNames.length).fill(null).map(() => []));
 
-    // Fill matrix with movement data and collect soldier IDs
+    // Fill matrix with movement data
     bottomLevelMovements.forEach(movement => {
       const fromIndex = nameToIndex.get(movement.fromUnitName);
       const toIndex = nameToIndex.get(movement.toUnitName);
       
       if (fromIndex !== undefined && toIndex !== undefined) {
         matrix[fromIndex][toIndex] += movement.soldierCount;
-        // Store soldier IDs for this movement
-        if (movement.soldierIds && movement.soldierIds.length > 0) {
-          soldierIdsMatrix[fromIndex][toIndex].push(...movement.soldierIds);
-        }
       }
     });
 
@@ -642,14 +591,14 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
           break;
         }
       }
-
+      
       if (parentName && parentToColorIndex.has(parentName)) {
         // Unit belongs to a parent - use family colors
         const colorFamilyIndex = parentToColorIndex.get(parentName);
         const colorFamily = familyColors[colorFamilyIndex];
         
         // Use child color if available, otherwise use parent color
-        const colorIndex = parentName === unitName ? 0 : Math.min(childIndex, colorFamily.length - 1);
+        const colorIndex = Math.min(childIndex, colorFamily.length - 1);
         const unitColor = colorFamily[colorIndex];
         
         unitColorPairs.set(unitName, { 
@@ -720,13 +669,9 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       .data(chords)
       .join("path")
       .attr("d", ribbon)
-      .attr("fill", d => {
-        const colorUnit = showByDest ? d.target.index : d.source.index;
-        return `url(#linear-gradient-${colorUnit})`
-      })
+      .attr("fill", d => `url(#linear-gradient-${d.target.index})`)
       .attr("stroke", d => {
-        const colorUnit = showByDest ? d.target.index : d.source.index;
-        const colors = unitColorPairs.get(unitNames[colorUnit]);
+        const colors = unitColorPairs.get(unitNames[d.target.index]);
         return d3.color(colors.color2).darker();
       })
       .attr("stroke-width", 0.8)
@@ -734,84 +679,23 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
       .on("mouseover", function(event, d) {
         d3.select(this).attr("fill-opacity", 1);
         
-        // Get soldier IDs for this movement
-        const soldierIds = soldierIdsMatrix[d.source.index][d.target.index];
-        const soldierCount = originalMatrix[d.source.index][d.target.index];
-        
-        // Show tooltip with enhanced styling
+        // Show tooltip
         const tooltip = d3.select("body").append("div")
           .attr("class", "chord-tooltip")
           .style("position", "absolute")
-          .style("background", "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)")
-          .style("border", "2px solid rgba(255, 255, 255, 0.1)")
-          .style("box-shadow", "0 10px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(138, 43, 226, 0.1)")
-          .style("color", "#ffffff")
-          .style("padding", "16px 20px")
-          .style("border-radius", "12px")
-          .style("font-family", "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif")
-          .style("font-size", "13px")
-          .style("line-height", "1.5")
+          .style("background", "rgba(0, 0, 0, 0.8)")
+          .style("color", "white")
+          .style("padding", "8px")
+          .style("border-radius", "4px")
+          .style("font-size", "12px")
           .style("pointer-events", "none")
-          .style("z-index", "1000")
-          .style("max-width", "320px")
-          .style("max-height", "220px")
-          .style("overflow-y", "auto")
-          .style("backdrop-filter", "blur(10px)")
-          .style("transform", "translateY(-5px)")
-          .style("transition", "all 0.2s ease");
-
-        // Build tooltip content with colored units
-        let sourceUnit = unitNames[d.source.index]; // fallback
-        let targetUnit = unitNames[d.target.index]; // fallback
+          .style("z-index", "1000");
         
-        if (soldierIds && soldierIds.length > 0) {
-            // Find the movement that contains any of these soldier IDs
-            const movement = soldierMovements.find(mov => 
-                mov.soldierIds.some(id => soldierIds.includes(id))
-            );
-            
-            if (movement) {
-                sourceUnit = movement.fromUnitName;
-                targetUnit = movement.toUnitName;
-            }
-        }
-        
-        let tooltipContent = `
-            <div style="margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                <span style="color: #ff6b6b; font-weight: 600; text-shadow: 0 0 5px rgba(255, 107, 107, 0.3);">${sourceUnit}</span>
-                <span style="color: #ffd93d; margin: 0 8px; font-size: 16px;">→</span>
-                <span style="color: #6bcf7f; font-weight: 600; text-shadow: 0 0 5px rgba(107, 207, 127, 0.3);">${targetUnit}</span>
-            </div>
-            <div style="margin-bottom: 8px;">
-                <span style="color: #a0a0a0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Soldiers Moved</span><br/>
-                <span style="color: #74c0fc; font-weight: 600; font-size: 16px;">${soldierCount}</span>
-            </div>
-        `;
-        
-        // Add soldier IDs if available
-        if (soldierIds && soldierIds.length > 0) {
-            tooltipContent += `
-                <div style="margin-top: 12px; padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                    <div style="color: #a0a0a0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Soldier IDs</div>
-                    <div style="max-height: 80px; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 11px; line-height: 1.3;">
-            `;
-            
-            // Show soldier IDs, limiting to reasonable number for display
-            const displayIds = soldierIds.slice(0, 20); // Show first 20 IDs
-            displayIds.forEach((id, index) => {
-                const color = index % 2 === 0 ? '#e599f7' : '#74c0fc';
-                tooltipContent += `<span style="color: ${color}; display: inline-block; margin-right: 8px; margin-bottom: 2px;">${id}</span>`;
-            });
-            
-            if (soldierIds.length > 20) {
-                tooltipContent += `<div style="color: #ffd93d; font-style: italic; margin-top: 4px; font-size: 10px;">... and ${soldierIds.length - 20} more soldiers</div>`;
-            }
-            
-            tooltipContent += `</div></div>`;
-        }
-        
-        tooltip.html(tooltipContent)
-        .style("left", (event.pageX + 15) + "px")
+        tooltip.html(`
+          <strong>${unitNames[d.source.index]}</strong> → <strong>${unitNames[d.target.index]}</strong><br/>
+          Soldiers moved: ${originalMatrix[d.source.index][d.target.index]}
+        `)
+        .style("left", (event.pageX + 10) + "px")
         .style("top", (event.pageY - 10) + "px");
       })
       .on("mouseout", function(event, d) {
@@ -1031,7 +915,7 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
           });
         }
         
-        // Outer arc tooltip:
+        // Show tooltip
         const tooltip = d3.select("body").append("div")
           .attr("class", "parent-tooltip")
           .style("position", "absolute")
@@ -1224,223 +1108,7 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
         });
       });
 
-    // TODO: Add parent tooltips here
-    // Add sunrays for recruitments and retirements
-    const sunrayLength = radius * 1.8; // Length of the sunray extending outward
-    const maxSunrayWidth = (outerRadius - innerRadius) * 1.5; // Maximum width at the base
-    
-    // Calculate sunray data for each unit
-    const sunrayData = [];
-    
-    chords.groups.forEach(group => {
-      const unitName = unitNames[group.index];
-      const unitId = unitNameToId.get(unitName);
-
-      // Find recruitments for this unit
-      const recruitments = bottomLevelRecruits.filter(r => r.toUnit === unitId);
-      const retirements = bottomLevelRestRetirements.filter(r => r.fromUnit === unitId);
-      
-      // Calculate total recruitment and retirement counts
-      let totalRecruitments = recruitments.reduce((sum, r) => sum + r.soldierCount, 0);
-      let totalRetirements = retirements.reduce((sum, r) => sum + r.soldierCount, 0);
-      
-      if (unitName === "Rest Organization") {
-        // TODO: add all recruitments and retiremtns which do not occur in the bottom-level units
-        totalRecruitments = soldierMovements
-          .filter(movement => 
-            movement.movementType === "recruitment" && 
-            movement.toUnit && 
-            !bottomCurrentUnits.includes(movement.toUnit)
-          )
-          .reduce((sum, movement) => sum + movement.soldierCount, 0);
-          
-        totalRetirements = soldierMovements
-          .filter(movement => 
-            movement.movementType === "departure" && 
-            movement.fromUnit && 
-            !bottomCurrentUnits.includes(movement.fromUnit)
-          )
-          .reduce((sum, movement) => sum + movement.soldierCount, 0);
-      }
-
-      if (totalRecruitments > 0) {
-        sunrayData.push({
-          group: group,
-          unitName: unitName,
-          type: 'recruitment',
-          count: totalRecruitments,
-          maxCount: Math.max(...bottomLevelRecruits.map(r => r.soldierCount), 1)
-        });
-      }
-      
-      if (totalRetirements > 0) {
-        sunrayData.push({
-          group: group,
-          unitName: unitName,
-          type: 'retirement', 
-          count: totalRetirements,
-          maxCount: Math.max(...bottomLevelRestRetirements.map(r => r.soldierCount), 1)
-        });
-      }
-    });
-    
-    // Create gradients for sunrays
-    sunrayData.forEach((sunray, index) => {
-      const colors = unitColorPairs.get(sunray.unitName);
-      let sunrayColor;
-      
-      if (sunray.type === 'recruitment') {
-        // Light shade for recruitments
-        sunrayColor = d3.color(colors.color1).brighter(0.5);
-      } else {
-        // Dark shade for retirements
-        sunrayColor = d3.color(colors.color2).darker(0.8);
-      }
-      
-      const sunrayGradient = defs.append("radialGradient")
-        .attr("id", `sunray-gradient-${index}`)
-        .attr("cx", "30%")
-        .attr("cy", "30%")
-        .attr("r", "70%");
-      
-      sunrayGradient.append("stop")
-        .attr("offset", "0%")
-        .attr("stop-color", sunrayColor)
-        .attr("stop-opacity", 0.9);
-      
-      sunrayGradient.append("stop")
-        .attr("offset", "100%")
-        .attr("stop-color", sunrayColor)
-        .attr("stop-opacity", 0.9);
-    });
-    
-    // Create sunray paths
-    const sunrayGroup = mainGroup.append("g")
-      .attr("class", "sunrays")
-      .style("pointer-events", "all"); // Enable interactions for tooltips
-    
-    sunrayData.forEach((sunray, index) => {
-      const group = sunray.group;
-      const widthRatio = Math.sqrt(sunray.count / sunray.maxCount); // Use square root for better visual scaling
-      const baseWidth = maxSunrayWidth * Math.max(widthRatio, 0.2); // Minimum width of 20%
-      
-      // Calculate inner and outer widths based on sunray type
-      let innerWidth, outerWidth;
-      if (sunray.type === 'recruitment') {
-        // Incoming: wider at outer edge, narrower at inner edge
-        innerWidth = baseWidth * 0.25; // 30% of base width at inner edge
-        outerWidth = baseWidth; // Full width at outer edge
-      } else {
-        // Outgoing: wider at inner edge, narrower at outer edge
-        innerWidth = baseWidth; // Full width at inner edge
-        outerWidth = baseWidth * 0.25; // 30% of base width at outer edge
-      }
-      
-      // Calculate the angular spans for inner and outer edges
-      const totalAngle = group.endAngle - group.startAngle;
-      const innerAngle = Math.min(totalAngle * 0.8, innerWidth / outerRadius);
-      const outerAngle = Math.min(totalAngle * 0.8, outerWidth / sunrayLength);
-      const halfInnerAngle = innerAngle / 2;
-      const halfOuterAngle = outerAngle / 2;
-      
-      // Position sunrays based on type
-      let centerAngle;
-      if (sunray.type === 'recruitment') {
-        // Position recruitment sunrays at the beginning of the unit
-        centerAngle = group.startAngle + 1.25 * halfInnerAngle;
-      } else {  // retirement
-        // Position retirement sunrays at the end of the unit
-        centerAngle = group.endAngle - 1.25 * halfInnerAngle;
-      }
-      
-      // Define the trapezoid path points
-      // Inner edge (at outerRadius)
-      const innerStartAngle = centerAngle - halfInnerAngle;
-      const innerEndAngle = centerAngle + halfInnerAngle;
-      
-      // Outer edge (at sunrayLength)
-      const outerStartAngle = centerAngle - halfOuterAngle;
-      const outerEndAngle = centerAngle + halfOuterAngle;
-      
-      // Calculate coordinates for the trapezoid
-      // Inner edge points
-      const innerX1 = Math.cos(innerStartAngle - Math.PI/2) * outerRadius;
-      const innerY1 = Math.sin(innerStartAngle - Math.PI/2) * outerRadius;
-      const innerX2 = Math.cos(innerEndAngle - Math.PI/2) * outerRadius;
-      const innerY2 = Math.sin(innerEndAngle - Math.PI/2) * outerRadius;
-      
-      // Outer edge points
-      const outerX1 = Math.cos(outerStartAngle - Math.PI/2) * sunrayLength;
-      const outerY1 = Math.sin(outerStartAngle - Math.PI/2) * sunrayLength;
-      const outerX2 = Math.cos(outerEndAngle - Math.PI/2) * sunrayLength;
-      const outerY2 = Math.sin(outerEndAngle - Math.PI/2) * sunrayLength;
-      
-      // Create the trapezoid path
-      const sunrayPath = `
-        M ${innerX1} ${innerY1}
-        A ${outerRadius} ${outerRadius} 0 0 1 ${innerX2} ${innerY2}
-        L ${outerX2} ${outerY2}
-        A ${sunrayLength} ${sunrayLength} 0 0 0 ${outerX1} ${outerY1}
-        Z
-      `;
-      
-      sunrayGroup.append("path")
-        .attr("d", sunrayPath)
-        .attr("fill", `url(#sunray-gradient-${index})`)
-        .attr("stroke", d3.color(unitColorPairs.get(sunray.unitName).color2).darker())
-        .attr("stroke-width", 0.5)
-        .attr("stroke-opacity", 0.6)
-        .style("mix-blend-mode", "normal")
-        .style("cursor", "pointer")
-        .on("mouseover", function(event) {
-          // Show tooltip
-          const tooltip = d3.select("body").append("div")
-            .attr("class", "sunray-tooltip")
-            .style("position", "absolute")
-            .style("background", "rgba(0, 0, 0, 0.9)")
-            .style("color", "white")
-            .style("padding", "10px")
-            .style("border-radius", "6px")
-            .style("font-size", "13px")
-            .style("pointer-events", "none")
-            .style("z-index", "1001")
-            .style("box-shadow", "0 4px 12px rgba(0,0,0,0.3)");
-          
-          const titleColor = sunray.type === 'recruitment' ? '#28a745' : '#dc3545';
-          const titleText = sunray.type === 'recruitment' ? 'New Recruits' : 'Retirements';
-          
-          tooltip.html(`
-            <div style="color: ${titleColor}; font-weight: bold; font-size: 14px; margin-bottom: 4px;">
-              ${titleText}
-            </div>
-            <div style="margin-bottom: 2px;">
-              <strong>Unit:</strong> ${sunray.unitName}
-            </div>
-            <div>
-              <strong>Count:</strong> ${sunray.count} ${sunray.type === 'recruitment' ? 'recruits' : 'retirees'}
-            </div>
-          `)
-          .style("left", (event.pageX + 10) + "px")
-          .style("top", (event.pageY - 10) + "px");
-          
-          // Highlight the sunray
-          d3.select(this)
-            .attr("stroke-width", 2)
-            .attr("stroke-opacity", 1)
-            .style("filter", "brightness(1.2)");
-        })
-        .on("mouseout", function() {
-          // Remove tooltip
-          d3.selectAll(".sunray-tooltip").remove();
-          
-          // Reset sunray appearance
-          d3.select(this)
-            .attr("stroke-width", 0.5)
-            .attr("stroke-opacity", 0.6)
-            .style("filter", "none");
-        });
-    });
-  }, [bottomLevelMovements, isFullScreen, zoomLevel, panOffset, showByDest]);
+  }, [bottomLevelMovements, isFullScreen, zoomLevel, panOffset]);
 
   // Handle container resize
   useEffect(() => {
@@ -1486,114 +1154,6 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
         flexDirection: 'column'
       }}
     >
-      {/* Header */}
-      <div className="chord-diagram-header">
-        <div className="header-info">
-          <h3>Soldier Movement Analysis</h3>
-          <p>{bottomCurrentUnits.length} units • Level {levels} depth • {movementStats.totalMovements} movement flows</p>
-          <p style={{ fontSize: '13px', color: '#666', margin: '2px 0' }}>
-            From: <strong>{pastDate}</strong> → To: <strong>{selectedDate}</strong>
-          </p>
-        </div>
-        <div className="header-controls">
-          <div className="view-toggle">
-            <label style={{ fontSize: '12px', marginRight: '8px', color: '#666' }}>View:</label>
-            <button 
-              className={`toggle-btn ${isGrouped ? 'active' : ''}`}
-              onClick={() => setIsGrouped(true)}
-              style={{ 
-                padding: '4px 12px', 
-                fontSize: '12px', 
-                marginRight: '4px',
-                backgroundColor: isGrouped ? '#007bff' : '#f8f9fa',
-                color: isGrouped ? 'white' : '#495057',
-                border: '1px solid #dee2e6',
-                borderRadius: '4px 0 0 4px',
-                cursor: 'pointer'
-              }}
-            >
-              Grouped
-            </button>
-            <button 
-              className={`toggle-btn ${!isGrouped ? 'active' : ''}`}
-              onClick={() => setIsGrouped(false)}
-              style={{ 
-                padding: '4px 12px', 
-                fontSize: '12px', 
-                marginRight: '16px',
-                backgroundColor: !isGrouped ? '#007bff' : '#f8f9fa',
-                color: !isGrouped ? 'white' : '#495057',
-                border: '1px solid #dee2e6',
-                borderRadius: '0 4px 4px 0',
-                cursor: 'pointer'
-              }}
-            >
-              Separated
-            </button>
-          </div>
-          <div className="show-by-toggle">
-            <label style={{ fontSize: '12px', marginRight: '8px', color: '#666' }}>Show By:</label>
-            <button 
-              className="toggle-btn"
-              onClick={() => setShowByDest(!showByDest)}
-              style={{ 
-                padding: '4px 12px', 
-                fontSize: '12px', 
-                marginRight: '16px',
-                backgroundColor: '#007bff',
-                color: 'white',
-                border: '1px solid #007bff',
-                borderRadius: '4px',
-                cursor: 'pointer'
-              }}
-            >
-              {showByDest ? 'Dest' : 'Source'}
-            </button>
-          </div>
-          <div className="levels-controls">
-            <label style={{ fontSize: '12px', marginRight: '8px', color: '#666' }}>Depth:</label>
-            <button 
-              className="level-btn" 
-              onClick={() => setLevels(prev => Math.max(prev - 1, 1))} 
-              disabled={levels <= 1}
-              style={{ padding: '4px 8px', fontSize: '12px', marginRight: '4px' }}
-            >
-              −
-            </button>
-            <span style={{ margin: '0 8px', fontSize: '13px', fontWeight: 'bold' }}>{levels}</span>
-            <button 
-              className="level-btn" 
-              onClick={() => setLevels(prev => Math.min(prev + 1, 10))} 
-              disabled={levels >= 10}
-              style={{ padding: '4px 8px', fontSize: '12px', marginRight: '16px' }}
-            >
-              +
-            </button>
-          </div>
-          <div className="zoom-controls">
-            <button className="zoom-btn zoom-out" onClick={handleZoomOut} title="Zoom Out (Ctrl + -)" disabled={zoomLevel <= 0.3}>−</button>
-            <span className="zoom-level">{Math.round(zoomLevel * 100)}%</span>
-            <button className="zoom-btn zoom-in" onClick={handleZoomIn} title="Zoom In (Ctrl + +)" disabled={zoomLevel >= 3}>+</button>
-            <button className="zoom-btn zoom-reset" onClick={handleZoomReset} title="Reset Zoom (Ctrl + 0)">Reset</button>
-          </div>
-          <button 
-            className={`fullscreen-btn ${isFullScreen ? 'active' : ''}`}
-            onClick={toggleFullScreen}
-            title={isFullScreen ? "Exit Full Screen (Esc or F)" : "Enter Full Screen (F or F11)"}
-          >
-            {isFullScreen ? (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 0 2-2h3M3 16h3a2 2 0 0 0 2 2v3"/>
-              </svg>
-            ) : (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-              </svg>
-            )}
-          </button>
-        </div>
-      </div>
-
       {/* SVG Container */}
       <div style={{
         flex: 1,
@@ -1617,38 +1177,6 @@ const ChordDiagram = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUn
           }}
         />
       </div>
-
-      {/* Legend */}
-      <div className="chord-legend" style={{
-        position: 'absolute',
-        bottom: '10px',
-        left: '10px',
-        background: 'rgba(248, 249, 250, 0.95)',
-        padding: '12px',
-        borderRadius: '8px',
-        fontSize: '11px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-        border: '1px solid #dee2e6',
-        color: '#495057'
-      }}>
-        <div><strong>Chord Colors:</strong> Gradient based on destination unit</div>
-        <div><strong>Arc Colors:</strong> Radial gradient unique to each unit</div>
-        <div><strong>Arc Size:</strong> Total soldier flow</div>
-        <div><strong>Chord Width:</strong> Number of soldiers moved</div>
-        <div style={{ marginTop: '8px', fontSize: '10px', color: '#6c757d' }}>
-          💡 Hover over chords for details • Use Ctrl/Cmd + scroll to zoom
-        </div>
-      </div>
     </div>
   );
 };
-
-ChordDiagram.propTypes = {
-  selectedDate: PropTypes.string.isRequired,
-  pastDate: PropTypes.string.isRequired,
-  rootUnit: PropTypes.string.isRequired,
-  childUnits: PropTypes.arrayOf(PropTypes.string).isRequired,
-  parallelUnits: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
-
-export default ChordDiagram;

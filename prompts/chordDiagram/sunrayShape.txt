@@ -1,0 +1,5 @@
+Please update the block of code which begins in line 1111 such that 
+the shape of the sunray is an incoming our outgoing trapezoid, depending on whether the 
+sunray is incoming or outgoing. 
+In particular, if the sunray is incoming, the outer edge of the trapezoid should be larger 
+while the inner edge should be smaller, and vice versa for outgoing sunrays.

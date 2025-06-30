@@ -147,6 +147,7 @@ export const ColorUnitCard = (unitData, currentUnit, pastUnit, rootUnit, paralle
           align-items: center;
           text-align: center;
           line-height: 1.2;
+          color: black;
         ">
           ${currentUnitName.substring(0,14)}
           <span style="margin-left: 8px; font-size: 20px;">${growthIcon}</span>
@@ -154,6 +155,7 @@ export const ColorUnitCard = (unitData, currentUnit, pastUnit, rootUnit, paralle
         <div style="
           font-size: 22px;
           font-weight: 700;
+          color: black;
         ">
           ${formattedTotal} 
         </div>
@@ -162,12 +164,13 @@ export const ColorUnitCard = (unitData, currentUnit, pastUnit, rootUnit, paralle
           font-size: 14px;
           margin-top: 4px;
           padding: 2px 6px;
-          background-color: rgba(255,255,255,0.2);
+          background-color: #d3d3d3;
           border-radius: 10px;
           color: ${diff === 0 ? '#333' : '#fff'};
           display: flex;
           align-items: center;
           gap: 4px;
+          color: black;
         ">
           ★ ${specialSoldierCount} Talpions
           ${specialSoldierDiff !== 0 ? `<span style="margin-left: 4px; font-size: 12px; display: flex; align-items: center; gap: 2px;">${specialGrowthIcon}${specialSoldierDiff > 0 ? '+' : ''}${specialSoldierDiff}</span>` : ''}

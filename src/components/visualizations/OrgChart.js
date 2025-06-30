@@ -135,30 +135,30 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
   const findUnitById = (units, unitId) => units.find(unit => unit.id === unitId);
 
   // Convert unit to card format
-  const convertToCardFormat = (unit) => {
-    if (!unit) return null;
-    const randomValue = Math.floor(Math.random() * 30 + 20);
-    const randomValue2 = Math.floor(Math.random() * 20 + 15);
-    const randomValue3 = Math.floor(Math.random() * 10 + 5);
-    const randomValue4 = Math.floor(Math.random() * 100);
-    return { R1: randomValue, R2: randomValue2, R3: randomValue3, Total: randomValue4 };
-  };
-
   // const convertToCardFormat = (unit) => {
-  //   if (!unit) return { R1: 0, R2: 0, R3: 0, Total: 0 };
-  //   // return {
-  //   //   R1: unit.regular_soldiers || 0,
-  //   //   R2: unit.officers || 0,
-  //   //   R3: unit.senior_officers || 0,
-  //   //   Total: unit.total_personnel || 0
-  //   // };
-  //   return {
-  //     R1: unit.roles["Type 1"].length || 0,
-  //     R2: unit.roles["Type 2"].length || 0,
-  //     R3: unit.roles["Type 3"].length || 0,
-  //     Total: unit.total_personnel || 0
-  //   }
+  //   if (!unit) return null;
+  //   const randomValue = Math.floor(Math.random() * 30 + 20);
+  //   const randomValue2 = Math.floor(Math.random() * 20 + 15);
+  //   const randomValue3 = Math.floor(Math.random() * 10 + 5);
+  //   const randomValue4 = Math.floor(Math.random() * 100);
+  //   return { R1: randomValue, R2: randomValue2, R3: randomValue3, Total: randomValue4 };
   // };
+
+  const convertToCardFormat = (unit) => {
+    if (!unit) return { R1: 0, R2: 0, R3: 0, Total: 0 };
+    // return {
+    //   R1: unit.regular_soldiers || 0,
+    //   R2: unit.officers || 0,
+    //   R3: unit.senior_officers || 0,
+    //   Total: unit.total_personnel || 0
+    // };
+    return {
+      R1: unit.roles["Type 1"].length || 0,
+      R2: unit.roles["Type 2"].length || 0,
+      R3: unit.roles["Type 3"].length || 0,
+      Total: unit.total_personnel || 0
+    }
+  };
 
   const getGrowthType = (current, past) => {
     if (!current || !past) return 'Stable';
@@ -538,6 +538,7 @@ const OrgChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits,
                 font-size: 22px;
                 font-weight: 700;
                 margin-bottom: 0px;
+                // color: black;
                 display: flex;
                 align-items: center;
                 text-align: center;

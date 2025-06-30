@@ -7,6 +7,21 @@ import { generateParentColors } from '../../utils/colors';
 import { ColorUnitCard } from '../chart/node/ColorUnitCard';
 import { rolesDifference } from '../../utils/helpers';
 
+const soldierWidthMap = new Map([
+    [0, 1],     // Edge case: no soldiers
+    [1, 2],
+    [2, 2],
+    [3, 2],
+    [4, 3],
+    [5, 3],
+    [6, 3],
+    [7, 4],
+    [8, 4],
+    [9, 4],
+    [10, 5]
+    // Add more mappings as needed
+]);
+
 const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnits, clickedNodeID, setClickedNodeID, levels = 5, arrowFilterValue = 0 }) => {
   const { currentUnits, pastUnits } = useData();
   const [flatCurrentUnits, setFlatCurrentUnits] = useState([]);
@@ -881,8 +896,6 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
       const newRolesCount = changedRoles.totals.totalNewRoles;
       const removedRolesCount = changedRoles.totals.totalRemovedRoles;
 
-      let randomNewRolesCount = Math.floor(Math.random() * 7) + 1; // Randomly add 1-3 new roles
-      let randomRemovedRolesCount = Math.floor(Math.random() * 7) + 1; // Randomly add 1-3 removed roles
       const greenWidth = Math.max(5, Math.min(60, newRolesCount * 5));
       const redWidth = Math.max(5, Math.min(60, removedRolesCount * 5));
       const greyWidth = 120 - greenWidth - redWidth;
@@ -977,11 +990,21 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
         const greenEndY = childTopY + 15;
         
         // Calculate proportional width based on number of soldiers
-        // Base width of 2px, with additional width proportional to soldier count
-        // You can adjust these values based on your needs
-        const minWidth = 2;
-        const maxWidth = 7;
-        const widthScale = Math.min(maxWidth, minWidth + 3/4 * soldiersToChild); // Adjust divisor as needed
+        // Generate a random value between 1 and 10
+        let widthScale;
+        if (soldiersToChild <= 0) {
+            // Edge case: zero or negative soldiers
+            widthScale = 1;
+        } else if (soldiersToChild >= 10) {
+            // Edge case: too many soldiers - cap at maximum width
+            widthScale = 7.0;
+        } else if (soldierWidthMap.has(soldiersToChild)) {
+            // Normal case: use mapped value
+            widthScale = soldierWidthMap.get(soldiersToChild);
+        } else {
+            // Fallback for unmapped values in valid range
+            widthScale = 7.0;
+        }
         
         const greenControlY = (greenStartY + greenEndY) / 2 + 30;
         // const greenPathData = `M${greenStartX},${greenStartY} L${greenStartX},${greenControlY} L${greenEndX},${greenControlY} L${greenEndX},${greenEndY}`;
@@ -1045,9 +1068,20 @@ const GroupChart = ({ selectedDate, pastDate, rootUnit, childUnits, parallelUnit
         // Calculate proportional width based on number of soldiers
         // Base width of 2px, with additional width proportional to soldier count
         // You can adjust these values based on your needs
-        const minWidth = 2;
-        const maxWidth = 7;
-        const widthScale = Math.min(maxWidth, minWidth + 3/4 * soldiersToChild); // Adjust divisor as needed
+        let widthScale;
+        if (soldiersToChild <= 0) {
+            // Edge case: zero or negative soldiers
+            widthScale = 1;
+        } else if (soldiersToChild >= 10) {
+            // Edge case: too many soldiers - cap at maximum width
+            widthScale = 7.0;
+        } else if (soldierWidthMap.has(soldiersToChild)) {
+            // Normal case: use mapped value
+            widthScale = soldierWidthMap.get(soldiersToChild);
+        } else {
+            // Fallback for unmapped values in valid range
+            widthScale = 7.0;
+        }
         
         const redControlY = (redStartY + redEndY) / 2 + 30;
         const redPathData = `M${redStartX},${redStartY} L${redEndX},${redEndY}`

@@ -1,0 +1,422 @@
+Hi Claude, Please update the following block of code such that 
+the header also contains a button which toggles the value of a stateVariable
+showByDest. The button should have a label which says Show By: <Dest/Source>
+and the value of the state variable should correspond to the label.
+
+The state variable is defined as follows: const [showByDest, setShowByDest] = useState(true);
+
+I also provide you with the code block:
+
+===============================================================
+
+Hello Claude, please update the following block of code, 
+such that in the if clause, the correct values are assigned to the variables RecruitmentCount and RetirementCount. 
+In particular, RecruitmentCount should be the total number of recruits that were recruited to units not in the 
+bottom-level units, and RetirementCount should be the total number of soldiers that retired from units not in the bottom-level units.
+To do this, please use the state variable soldierMovemenrs 
+which is an array which contains objects with the following structure:
+
+  {
+    fromUnit: null,
+    fromUnitName: "New Recruit",
+    toUnit: "BN-SIG-046",
+    toUnitName: "46th Signal Battalion",
+    soldiers: [
+      "PERS-443",
+    ],
+    movementType: "recruitment",
+    soldierCount: 1,
+    soldierIds: [
+      "PERS-443",
+    ],
+
+Now, if the movementType is "recruitment", then this means that a recruetment occurred, 
+similarly a departure looks like this:
+
+
+  {
+    fromUnit: "HQ-ARMY",
+    fromUnitName: "Army Headquarters",
+    toUnit: null,
+    toUnitName: "Left Organization",
+    soldiers: [
+      "PERS-146",
+      "PERS-120",
+    ],
+    movementType: "departure",
+    soldierCount: 2,
+    soldierIds: [
+      "PERS-146",
+      "PERS-120",
+    ],
+  },
+
+This is the code block:
+
+    const sunrayData = [];
+    
+    chords.groups.forEach(group => {
+      const unitName = unitNames[group.index];
+      const unitId = unitNameToId.get(unitName);
+
+      if (unitName === "Rest Organization") {
+        // TODO: add all recruitments and retiremtns which do not occur in the bottom-level units
+        const RecruitmentCount;
+        const RetirementCount;
+      }
+      
+      // Find recruitments for this unit
+      const recruitments = bottomLevelRecruits.filter(r => r.toUnit === unitId);
+      const retirements = bottomLevelRestRetirements.filter(r => r.fromUnit === unitId);
+      
+      // Calculate total recruitment and retirement counts
+      const totalRecruitments = recruitments.reduce((sum, r) => sum + r.soldierCount, 0);
+      const totalRetirements = retirements.reduce((sum, r) => sum + r.soldierCount, 0);
+      
+      if (totalRecruitments > 0) {
+        sunrayData.push({
+          group: group,
+          unitName: unitName,
+          type: 'recruitment',
+          count: totalRecruitments,
+          maxCount: Math.max(...bottomLevelRecruits.map(r => r.soldierCount), 1)
+        });
+      }
+      
+      if (totalRetirements > 0) {
+        sunrayData.push({
+          group: group,
+          unitName: unitName,
+          type: 'retirement', 
+          count: totalRetirements,
+          maxCount: Math.max(...bottomLevelRestRetirements.map(r => r.soldierCount), 1)
+        });
+      }
+    });
+
+===========================================================================
+
+
+
+    // Get unique unit names for the chord diagram
+    const uniqueUnitNames = Array.from(new Set([
+      ...bottomLevelMovements.map(m => m.fromUnitName).filter(Boolean),
+      ...bottomLevelMovements.map(m => m.toUnitName).filter(Boolean)
+    ]));
+
+    // Create a map to group units by their parents
+    const unitsByParent = new Map();
+    const unitsWithoutParent = [];
+    const parentRow = getParentRowUnits(flatCurrentUnits, bottomCurrentUnits);
+
+    uniqueUnitNames.forEach(unitName => {
+      // Check if the unit is in the parent row
+      const isParentRowUnit = parentRow.some(p => p.name === unitName);
+      
+      if (isParentRowUnit) {
+        // If unit is in parent row, define it as its own parent
+        if (!unitsByParent.has(unitName)) {
+          unitsByParent.set(unitName, []);
+        }
+        unitsByParent.get(unitName).push(unitName);
+      } else {
+        // Find the unit in bottom units to get its parent
+        const currentUnit = bottomCurrentUnits.find(u => u.name === unitName);
+        const pastUnit = bottomPastUnits.find(u => u.name === unitName);
+        const unit = currentUnit || pastUnit;
+        
+        if (unit && unit.parent_id) {
+          // Find parent unit to get parent name
+          const parentUnit = [...flatCurrentUnits, ...flatPastUnits].find(u => u.id === unit.parent_id);
+          const parentName = parentUnit ? parentUnit.name : `Parent_${unit.parent_id}`;
+          
+          if (!unitsByParent.has(parentName)) {
+            unitsByParent.set(parentName, []);
+          }
+          unitsByParent.get(parentName).push(unitName);
+        } else {
+          // Units without parent (like "New Recruit", "Left Organization", "Rest Organization")
+          unitsWithoutParent.push(unitName);
+        }
+      }
+    });
+
+    // Sort parent groups and their children, then flatten
+    const sortedParentNames = Array.from(unitsByParent.keys()).sort();
+    const unitNames = [];
+
+    // Add units grouped by parent
+    sortedParentNames.forEach(parentName => {
+      const parentUnits = unitsByParent.get(parentName).sort();
+      unitNames.push(...parentUnits);
+    });
+
+    // Add units without parent at the end
+    unitNames.push(...unitsWithoutParent.sort());
+
+    if (unitNames.length === 0) return;
+
+    // Create matrix for chord diagram and store soldier IDs
+    const nameToIndex = new Map(unitNames.map((name, i) => [name, i]));
+    const matrix = Array(unitNames.length).fill(null).map(() => Array(unitNames.length).fill(0));
+    const soldierIdsMatrix = Array(unitNames.length).fill(null).map(() => Array(unitNames.length).fill(null).map(() => []));
+
+    // Fill matrix with movement data and collect soldier IDs
+    bottomLevelMovements.forEach(movement => {
+      const fromIndex = nameToIndex.get(movement.fromUnitName);
+      const toIndex = nameToIndex.get(movement.toUnitName);
+      
+      if (fromIndex !== undefined && toIndex !== undefined) {
+        matrix[fromIndex][toIndex] += movement.soldierCount;
+        // Store soldier IDs for this movement
+        if (movement.soldierIds && movement.soldierIds.length > 0) {
+          soldierIdsMatrix[fromIndex][toIndex].push(...movement.soldierIds);
+        }
+      }
+    });
+
+    // Set up dimensions
+    const containerWidth = containerRef.current?.clientWidth || 800;
+    const containerHeight = containerRef.current?.clientHeight || 800;
+    const width = isFullScreen ? Math.min(window.innerWidth * 0.9, 1000) : Math.min(containerWidth, 1400);
+    const height = isFullScreen ? Math.min(window.innerHeight * 0.9, 800) : Math.min(containerHeight, 800);
+    const radius = Math.min(width, height) * 0.45;
+    const innerRadius = radius - 30;
+    const outerRadius = radius - 10;
+
+    // Create SVG
+    const svg = d3.select(svgRef.current)
+      .attr("width", width)
+      .attr("height", height)
+      .attr("viewBox", [-width / 2, -height / 2, width, height])
+      .style("font", "12px sans-serif");
+
+    // Create chord layout
+    const chord = d3.chordDirected()
+      .padAngle(0.005)
+      .sortSubgroups(d3.descending)
+      .sortChords(d3.descending);
+
+    const originalMatrix = matrix;
+    const normalizedMatrix = normalizeMatrix(matrix, 0.4, 1.0);
+    const chords = chord(normalizedMatrix);
+
+    // Create arcs and ribbons
+    const arc = d3.arc()
+      .innerRadius(innerRadius)
+      .outerRadius(outerRadius);
+
+    const ribbon = d3.ribbonArrow()
+      .radius(innerRadius - 2)
+      .padAngle(0.005);
+
+    // Get family colors and assign colors based on parent-child relationships
+    const familyColors = generateFamilyColors();
+    const unitColorPairs = new Map();
+    
+    // Create a map of parent names to their family color index
+    const parentToColorIndex = new Map();
+    let familyColorIndex = 0;
+    
+    // First pass: assign color indices to parents
+    sortedParentNames.forEach(parentName => {
+      if (familyColorIndex < familyColors.length) {
+        parentToColorIndex.set(parentName, familyColorIndex);
+        familyColorIndex++;
+      } else {
+        // Wrap around if we have more parents than color families
+        parentToColorIndex.set(parentName, familyColorIndex % familyColors.length);
+        familyColorIndex++;
+      }
+    });
+    
+    // Second pass: assign colors to units based on their parent
+    unitNames.forEach((unitName, index) => {
+      // Find which parent this unit belongs to
+      let parentName = null;
+      let childIndex = 0;
+      
+      for (const [parent, children] of unitsByParent.entries()) {
+        const childIdx = children.indexOf(unitName);
+        if (childIdx !== -1) {
+          parentName = parent;
+          childIndex = childIdx + 1; // +1 because index 0 is reserved for parent color
+          break;
+        }
+      }
+
+      if (parentName && parentToColorIndex.has(parentName)) {
+        // Unit belongs to a parent - use family colors
+        const colorFamilyIndex = parentToColorIndex.get(parentName);
+        const colorFamily = familyColors[colorFamilyIndex];
+        
+        // Use child color if available, otherwise use parent color
+        const colorIndex = parentName === unitName ? 0 : Math.min(childIndex, colorFamily.length - 1);
+        const unitColor = colorFamily[colorIndex];
+        
+        unitColorPairs.set(unitName, { 
+          color1: unitColor, 
+          color2: d3.color(unitColor).darker(0.3).toString() 
+        });
+      } else {
+        // Unit without parent (like "New Recruit", "Left Organization", "Rest Organization")
+        // Use a neutral color scheme or cycle through available colors
+        const neutralColorIndex = index % familyColors.length;
+        const neutralColor = familyColors[neutralColorIndex][0]; // Use parent color from available families
+        
+        unitColorPairs.set(unitName, { 
+          color1: neutralColor, 
+          color2: d3.color(neutralColor).darker(0.5).toString() 
+        });
+      }
+    });
+
+    // Create gradients for each unit
+    const defs = svg.append("defs");
+    
+    unitNames.forEach((unitName, index) => {
+      const colors = unitColorPairs.get(unitName);
+      
+      // Radial gradient for arcs
+      const radialGradient = defs.append("radialGradient")
+        .attr("id", `radial-gradient-${index}`)
+        .attr("cx", "50%")
+        .attr("cy", "50%")
+        .attr("r", "50%");
+      
+      radialGradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", colors.color1);
+      
+      radialGradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", colors.color2);
+      
+      // Linear gradient for ribbons
+      const linearGradient = defs.append("linearGradient")
+        .attr("id", `linear-gradient-${index}`)
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "100%")
+        .attr("y2", "100%");
+      
+      linearGradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", colors.color1)
+        .attr("stop-opacity", 0.8);
+      
+      linearGradient.append("stop")
+        .attr("offset", "100%")
+        .attr("stop-color", colors.color2)
+        .attr("stop-opacity", 0.6);
+    });
+
+    // Create main group with zoom and pan transforms
+    const mainGroup = svg.append("g")
+      .attr("transform", `translate(${panOffset.x}, ${panOffset.y}) scale(${zoomLevel})`);
+
+    // Add ribbons (the connections between units) - Use normal blend mode for consistency
+    mainGroup.append("g")
+      .attr("fill-opacity", 0.7)
+      .selectAll("path")
+      .data(chords)
+      .join("path")
+      .attr("d", ribbon)
+      .attr("fill", d => {
+        const colorUnit = showByDest ? d.target.index : d.source.index;
+        return `url(#linear-gradient-${colorUnit})`
+      })
+      .attr("stroke", d => {
+        const colorUnit = showByDest ? d.target.index : d.source.index;
+        const colors = unitColorPairs.get(unitNames[colorUnit]);
+        return d3.color(colors.color2).darker();
+      })
+      .attr("stroke-width", 0.8)
+      .style("mix-blend-mode", "normal")
+      .on("mouseover", function(event, d) {
+        d3.select(this).attr("fill-opacity", 1);
+        
+        // Get soldier IDs for this movement
+        const soldierIds = soldierIdsMatrix[d.source.index][d.target.index];
+        const soldierCount = originalMatrix[d.source.index][d.target.index];
+        
+        // Show tooltip with enhanced styling
+        const tooltip = d3.select("body").append("div")
+          .attr("class", "chord-tooltip")
+          .style("position", "absolute")
+          .style("background", "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)")
+          .style("border", "2px solid rgba(255, 255, 255, 0.1)")
+          .style("box-shadow", "0 10px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(138, 43, 226, 0.1)")
+          .style("color", "#ffffff")
+          .style("padding", "16px 20px")
+          .style("border-radius", "12px")
+          .style("font-family", "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif")
+          .style("font-size", "13px")
+          .style("line-height", "1.5")
+          .style("pointer-events", "none")
+          .style("z-index", "1000")
+          .style("max-width", "320px")
+          .style("max-height", "220px")
+          .style("overflow-y", "auto")
+          .style("backdrop-filter", "blur(10px)")
+          .style("transform", "translateY(-5px)")
+          .style("transition", "all 0.2s ease");
+
+        // Build tooltip content with colored units
+        let sourceUnit = unitNames[d.source.index]; // fallback
+        let targetUnit = unitNames[d.target.index]; // fallback
+        
+        if (soldierIds && soldierIds.length > 0) {
+            // Find the movement that contains any of these soldier IDs
+            const movement = soldierMovements.find(mov => 
+                mov.soldierIds.some(id => soldierIds.includes(id))
+            );
+            
+            if (movement) {
+                sourceUnit = movement.fromUnitName;
+                targetUnit = movement.toUnitName;
+            }
+        }
+        
+        let tooltipContent = `
+            <div style="margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <span style="color: #ff6b6b; font-weight: 600; text-shadow: 0 0 5px rgba(255, 107, 107, 0.3);">${sourceUnit}</span>
+                <span style="color: #ffd93d; margin: 0 8px; font-size: 16px;">→</span>
+                <span style="color: #6bcf7f; font-weight: 600; text-shadow: 0 0 5px rgba(107, 207, 127, 0.3);">${targetUnit}</span>
+            </div>
+            <div style="margin-bottom: 8px;">
+                <span style="color: #a0a0a0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Soldiers Moved</span><br/>
+                <span style="color: #74c0fc; font-weight: 600; font-size: 16px;">${soldierCount}</span>
+            </div>
+        `;
+        
+        // Add soldier IDs if available
+        if (soldierIds && soldierIds.length > 0) {
+            tooltipContent += `
+                <div style="margin-top: 12px; padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div style="color: #a0a0a0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Soldier IDs</div>
+                    <div style="max-height: 80px; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 11px; line-height: 1.3;">
+            `;
+            
+            // Show soldier IDs, limiting to reasonable number for display
+            const displayIds = soldierIds.slice(0, 20); // Show first 20 IDs
+            displayIds.forEach((id, index) => {
+                const color = index % 2 === 0 ? '#e599f7' : '#74c0fc';
+                tooltipContent += `<span style="color: ${color}; display: inline-block; margin-right: 8px; margin-bottom: 2px;">${id}</span>`;
+            });
+            
+            if (soldierIds.length > 20) {
+                tooltipContent += `<div style="color: #ffd93d; font-style: italic; margin-top: 4px; font-size: 10px;">... and ${soldierIds.length - 20} more soldiers</div>`;
+            }
+            
+            tooltipContent += `</div></div>`;
+        }
+        
+        tooltip.html(tooltipContent)
+        .style("left", (event.pageX + 15) + "px")
+        .style("top", (event.pageY - 10) + "px");
+      })
+      .on("mouseout", function(event, d) {
+        d3.select(this).attr("fill-opacity", 0.7);
+        d3.selectAll(".chord-tooltip").remove();
+      });
