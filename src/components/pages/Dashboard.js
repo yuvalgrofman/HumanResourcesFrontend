@@ -18,7 +18,7 @@ const Dashboard = () => {
       title: 'Chord Diagram',
       route: '/chord-diagram',
       image: ChordDiagramImage,
-      description: 'Visualizes the movement of soldiers between units in the IDF using an interactive chord diagram that shows the flow and relationships between different organizational units.',
+      description: 'Visualizes the movement of soldiers between units in the Army using an interactive chord diagram that shows the flow and relationships between different organizational units.',
       dimensions: '880 × 830'
     },
     {
@@ -62,7 +62,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
-        <h1>IDF HR Analytics Dashboard</h1>
+        <h1>Army HR Analytics Dashboard</h1>
         <p>Select a visualization to analyze human resources data and personnel movements</p>
       </div>
 
